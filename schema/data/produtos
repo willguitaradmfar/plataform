@@ -1,0 +1,3 @@
+{"k":"0000000078","o":"0000000340","v":"001"}
+{"_id":2,"_uid":2,"_dt":1387394034329,"_s":"5357594b4e7caf0ed615995a99876995"}
+{"fornecedor":"Sal Branco","peso":100,"unidade":"CX","resumo":"Sal Branco","descricao":"Sal Branco","codbarra":"7896422504386","nome":"Sal Branco","_id":{"$wrap":"$oid","v":2},"dtupdate":{"$wrap":"$date","v":1387394034314,"h":"2013-12-18T19:13:54.314Z"},"dtcreate":{"$wrap":"$date","v":1387394034314,"h":"2013-12-18T19:13:54.314Z"},"__v":0}
