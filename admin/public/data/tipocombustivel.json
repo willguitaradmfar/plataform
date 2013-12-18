@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Gasolina",    
+    "value": "Gasolina"
+  },
+  {
+    "name": "Gasolina Ativada",
+    "value": "Gasolina Ativada"
+  },
+  {
+    "name": "Alcool",
+    "value": "Alcool"
+  },
+  {
+    "name": "Alcool Ativado",
+    "value": "Alcool Ativado"
+  },
+  {
+    "name": "Diesel",
+    "value": "Diesel" 
+  },
+  {
+    "name": "Diesel Ativado",
+    "value": "Diesel Ativado" 
+  }
+]

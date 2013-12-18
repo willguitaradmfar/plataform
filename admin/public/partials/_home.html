@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-bookmark"></span> ABASTECIMENTO</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <a href="#/record-sales/1" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 1</a>
+                            <a href="#/record-sales/2" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 2</a>
+                            <a href="#/record-sales/3" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 3</a>
+                            <a href="#/record-sales/4" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 4</a>
+                            <a href="#/record-sales/5" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 5</a>
+                            <a href="#/record-sales/6" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 6</a>
+                            <a href="#/record-sales/7" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 7</a>
+                            <a href="#/record-sales/8" class="btn btn-danger btn-lg" role="button">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <br>Bomba 8</a>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <a href="#/create-account" class="btn btn-success btn-lg" role="button">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <br>Usuário</a>
+                            <a href="#/input-supply" class="btn btn-info btn-lg" role="button">
+                                <span class="glyphicon glyphicon-file"></span>
+                                <br>Entrada</a>
+                            <a href="#/messages" class="btn btn-primary btn-lg" role="button">
+                                <span class="glyphicon glyphicon-comment"></span>
+                                <br/>Mensagens</a>
+                            <a href="#/home" class="btn btn-success btn-lg" role="button">
+                                <span class="glyphicon glyphicon-tag"></span>
+                                <br>Cx. Aberto</a>
+                            <a href="#/create-vehicle" class="btn btn-success btn-lg" role="button">
+                                <span class="glyphicon glyphicon-tag"></span>
+                                <br>Veículo</a>
+                            <a href="#/home" class="btn btn-success btn-lg" role="button">
+                                <span class="glyphicon glyphicon-cog"></span>
+                                <br>Definições</a>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="span4">
+                        <h1>Estoque Tanque Combustível</h1>
+                        {{posto.estoque}}% Cheio
+                        
+                        <div class="progress progress-striped active">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{posto.estoque}}" aria-valuemin="0" aria-valuemax="100" style="width: {{posto.estoque}}%">
+                                <span class="sr-only">{{posto.estoque}}% Complete</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
