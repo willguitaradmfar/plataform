@@ -16,6 +16,8 @@
 		"passport-twitter": "0.1.5",
 		"uglify-js": "*",
 		"active-x-obfuscator": "*",
-		"ejs": "~0.8.4"
+		"ejs": "~0.8.4",
+		"tingodb" : "*",
+		"tungus" : "*"
 	}
 }
