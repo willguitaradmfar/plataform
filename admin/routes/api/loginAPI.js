@@ -21,7 +21,7 @@ module.exports = function(app, config, db, query) {
 		});
 	});
 
-	app.post('/login/sair', function(req, res) {
+	app.get('/login/sair', function(req, res) {
 		req.session.autentication = undefined;
 		res.send(200, {
 			status: "oK",

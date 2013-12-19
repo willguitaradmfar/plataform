@@ -2,7 +2,8 @@ module.exports = function(app, db) {
 	return {
 		getProdutos: function(callback) {
 			db.Produto.find(function(err, produtos) {
-				if (produtos.length != 0) {
+			    if(err)console.error(err);
+				if (produtos && produtos.length != 0) {
 					callback(produtos);
 				} else {
 					callback(null);

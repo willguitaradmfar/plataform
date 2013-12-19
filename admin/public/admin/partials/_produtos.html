@@ -1,0 +1,89 @@
+<div id="page-wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Produtos <small>Teste de comunicação com o servidor</small></h1>
+            <ol class="breadcrumb">
+              <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <li class="active"><i class="fa fa-table"></i> Tables</li>
+            </ol>
+            <div class="alert alert-info alert-dismissable" ng-show="msg && msg.text">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              {{ msg.text }}
+            </div>
+          </div>
+        </div><!-- /.row -->
+
+        <div class="row">
+         
+          <div class="col-lg-12">
+
+            <form role="form">
+              <div class="form-group">
+                <label>Nome</label>
+                <input class="form-control" ng-model="produto.nome">
+              </div>
+              <div class="form-group">
+                <label>Descrição</label>
+                <input class="form-control" ng-model="produto.descricao">
+              </div>
+               <div class="form-group">
+                <label>Unidade</label>
+                <input class="form-control" ng-model="produto.unidade">
+              </div>
+               <div class="form-group">
+                <label>Peso</label>
+                <input class="form-control" ng-model="produto.peso">
+              </div>
+               <div class="form-group">
+                <label>Fornecedor</label>
+                <input class="form-control" ng-model="produto.fornecedor">
+              </div>
+              <div class="form-group">
+                <label>Código de Barra</label>
+                <input class="form-control" placeholder="Código de Barra" ng-model="produto.codbarra">
+              </div>
+              <div class="form-group">
+                <label>Resumo</label>
+                <textarea class="form-control" rows="3" ng-model="produto.resumo"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-default" ng-click="salvar()">Salvar</button>
+              <button type="reset" class="btn btn-default" ng-click="limpar()">Limpar</button>  
+
+            </form>
+
+          </div>
+        
+          <div class="col-lg-12">
+            <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover tablesorter">
+                <thead>
+                  <tr>
+                    <th>Nome <i class="fa fa-sort"></i></th>
+                    <th>Descrição <i class="fa fa-sort"></i></th>
+                    <th>Unidade <i class="fa fa-sort"></i></th>
+                    <th>Cod. Barra <i class="fa fa-sort"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="produto in produtos" ng-click="seleciona(produto)">
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.descricao}}</td>
+                    <td>{{produto.unidade}}</td>
+                    <td>{{produto.codbarra}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+
+       
+          <div class="col-lg-6">
+            <h2>Bootstrap Docs</h2>
+            <p>For complete documentation, please visit <a target="_blank" href="http://getbootstrap.com/css/#tables">Bootstrap's Tables Documentation</a>.</p>
+          </div>
+        </div><!-- /.row -->
+
+      </div><!-- /#page-wrapper -->

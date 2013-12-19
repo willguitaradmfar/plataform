@@ -14,6 +14,11 @@ var config = {
 		consumerKey: process.env.consumerKey,
 		consumerSecret: process.env.consumerSecret
 	},
+	redis : {
+	    host : 'pub-redis-15819.us-east-1-3.1.ec2.garantiadata.com',
+	    port : '15819',
+	    password : 'willguitaradmfar'
+	},
 	public: {
 		blogName: 'model-test',
 		blogDescription: 'model-test',

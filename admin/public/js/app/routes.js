@@ -4,7 +4,11 @@
 angular.module('app', ['app.controllers', 'app.resource']).
 config(['$routeProvider', function($routeProvider) {
 
-$routeProvider.when('/login', {templateUrl: 'partials/_login.html', controller: 'LoginController'});
+$routeProvider.when('/', {templateUrl: 'partials/_principal.html', controller: 'PrincipalController'});
+$routeProvider.when('/produtos', {templateUrl: 'partials/_produtos.html', controller: 'ProdutoController'});
+$routeProvider.when('/clientes', {templateUrl: 'partials/_clientes.html', controller: 'ClienteController'});
+$routeProvider.when('/vendas', {templateUrl: 'partials/_vendas.html', controller: 'VendaController'});
 
-$routeProvider.otherwise({redirectTo: '/login'});
+$routeProvider.otherwise({redirectTo: '/'});
+
 }]);

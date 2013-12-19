@@ -17,15 +17,8 @@ mongoose.connect('tingodb://'+__dirname+'/data', function(err) {
 });
 
 var produtoObjSchema = {};
-
-produtoObjSchema.dtcreate = {
-	type: Date,
-	default: Date.now
-};
-produtoObjSchema.dtupdate = {
-	type: Date,
-	default: Date.now
-};
+produtoObjSchema.dtcreate = {type: Date,default: Date.now};
+produtoObjSchema.dtupdate = {type: Date,default: Date.now};
 produtoObjSchema.nome = "String";
 produtoObjSchema.codbarra = "String";
 produtoObjSchema.descricao = "String";
@@ -33,25 +26,15 @@ produtoObjSchema.resumo = "String";
 produtoObjSchema.unidade = "String";
 produtoObjSchema.peso = "Number";
 produtoObjSchema.fornecedor = "String";
+var produtoSchema = mongoose.Schema(produtoObjSchema);
+module.exports.Produto = mongoose.model('produto', produtoSchema);
 
 
 var userObjSchema = {};
-
-userObjSchema.dtcreate = {
-	type: Date,
-	default: Date.now
-};
-userObjSchema.dtupdate = {
-	type: Date,
-	default: Date.now
-};
+userObjSchema.dtcreate = {type: Date,default: Date.now};
+userObjSchema.dtupdate = {type: Date,default: Date.now};
 userObjSchema.nome = "String";
 userObjSchema.email = "String";
 userObjSchema.senha = "String";
-
-
-var produtoSchema = mongoose.Schema(produtoObjSchema);
 var userSchema = mongoose.Schema(userObjSchema);
-
-module.exports.Produto = mongoose.model('produto', produtoSchema);
 module.exports.User = mongoose.model('user', userSchema);

@@ -28,7 +28,7 @@ module.exports = function(app, config, db, query) {
 		newProduto.unidade = req.body.unidade
 		newProduto.peso = req.body.peso
 		newProduto.fornecedor = req.body.fornecedor
-
+        
 		newProduto.save();
 
 		io.sockets.emit('produto::create', newProduto);
