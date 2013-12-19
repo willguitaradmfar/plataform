@@ -1,4 +1,4 @@
-module.exports = function(app, config, db, query) {
+module.exports = function(app, config, db, query, redisClient) {
 
 	app.post('/login', function(req, res) {
 		var user = {};

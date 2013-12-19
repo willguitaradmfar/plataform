@@ -1,10 +1,11 @@
+
 <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
             <h1>Produtos <small>Teste de comunicação com o servidor</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="fa fa-table"></i> Tables</li>
+              <li><a href="#/"><i class="fa fa-dashboard"></i> Principal</a></li>
+              <li class="active"><i class="fa fa-table"></i> Produtos</li>
             </ol>
             <div class="alert alert-info alert-dismissable" ng-show="msg && msg.text">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -14,29 +15,43 @@
         </div><!-- /.row -->
 
         <div class="row">
+        
+        <div class="col-lg-12">
+        
+        <div class="form-group input-group">
+                
+                <span class="btn"><h4>Cadastrar novo produto</h4></span>
+                <button class="btn btn-success" ng-click="alternar()"><i class="fa fa-plus"></i></button>
+
+              </div>
+        
+        
          
+        </div>
+         
+         <div id="cad" ng-show="mostrar">
           <div class="col-lg-12">
 
             <form role="form">
               <div class="form-group">
                 <label>Nome</label>
-                <input class="form-control" ng-model="produto.nome">
+                <input class="form-control" placeholder="Nome" ng-model="produto.nome">
               </div>
               <div class="form-group">
                 <label>Descrição</label>
-                <input class="form-control" ng-model="produto.descricao">
+                <input class="form-control" placeholder="Descrição" ng-model="produto.descricao">
               </div>
                <div class="form-group">
                 <label>Unidade</label>
-                <input class="form-control" ng-model="produto.unidade">
+                <input class="form-control" placeholder="Unidade" ng-model="produto.unidade">
               </div>
                <div class="form-group">
                 <label>Peso</label>
-                <input class="form-control" ng-model="produto.peso">
+                <input class="form-control" placeholder="Peso" ng-model="produto.peso">
               </div>
                <div class="form-group">
                 <label>Fornecedor</label>
-                <input class="form-control" ng-model="produto.fornecedor">
+                <input class="form-control" placeholder="Fornecedor" ng-model="produto.fornecedor">
               </div>
               <div class="form-group">
                 <label>Código de Barra</label>
@@ -44,7 +59,7 @@
               </div>
               <div class="form-group">
                 <label>Resumo</label>
-                <textarea class="form-control" rows="3" ng-model="produto.resumo"></textarea>
+                <textarea class="form-control" placeholder="Resumo" rows="3" ng-model="produto.resumo"></textarea>
               </div>
 
               <button type="submit" class="btn btn-default" ng-click="salvar()">Salvar</button>
@@ -53,25 +68,30 @@
             </form>
 
           </div>
+          </div>
         
           <div class="col-lg-12">
             <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
             <div class="table-responsive">
-              <table class="table table-bordered table-hover tablesorter">
+              <table class="table table-bordered table-hover tablesorter table-striped">
                 <thead>
                   <tr>
                     <th>Nome <i class="fa fa-sort"></i></th>
                     <th>Descrição <i class="fa fa-sort"></i></th>
                     <th>Unidade <i class="fa fa-sort"></i></th>
                     <th>Cod. Barra <i class="fa fa-sort"></i></th>
+                     <th>Editar</th>
+                    <th>Excluir</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="produto in produtos" ng-click="seleciona(produto)">
+                  <tr ng-repeat="produto in produtos">
                     <td>{{produto.nome}}</td>
                     <td>{{produto.descricao}}</td>
                     <td>{{produto.unidade}}</td>
                     <td>{{produto.codbarra}}</td>
+                      <td><a type="submit" class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
+                      <td><button type="submit" class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>
                   </tr>
                 </tbody>
               </table>

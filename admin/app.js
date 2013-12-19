@@ -8,15 +8,18 @@ io = require('socket.io').listen(server);
 
 var config = require('../config/config');
 
-
 //---------------------------------------------------------------//
-/*var redis = require("redis"),
-    client = redis.createClient(config.redis.host, config.redis.port);
+var redis = require("redis"),
+    redisClient = redis.createClient(config.redis.port, config.redis.host);
+    
+redisClient.auth(config.redis.password, function() {
+    console.log('Conectado no Redis HOST: '+config.redis.host);
+});
   
-client.on("error", function (err) {
+redisClient.on("error", function (err) {
     console.log("Error " + err);
-});*/
-//---------------------------------------------------------------//
+});
+//------------------------------------------------------//
 
 var query = {};
 query.produto = require('./routes/functions/produtoFunction')(app, db);
@@ -56,8 +59,8 @@ app.get('/postit/config', function(req, res) {
 	res.send(config.public);
 });
 
-require('./routes/api/produtoAPI')(app, config, db, query);
-require('./routes/api/loginAPI')(app, config, db, query);
+require('./routes/api/produtoAPI')(app, config, db, query, redisClient);
+require('./routes/api/loginAPI')(app, config, db, query, redisClient);
 
 server.listen(app.get('port'), function() {
 	console.log('Projeto admin esta executando na porta ' + app.get('port'));

@@ -17,7 +17,7 @@
     <!-- Page Specific CSS -->
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     
-  </head>
+    </head>
 
   <body>
     <div id="wrapper">
@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
           
               </button>
-          <a class="navbar-brand" href="index.html">Shop Online</a>
+          <a class="navbar-brand" href="#/">Shop Online</a>
          
         </div>
 
@@ -44,9 +44,9 @@
           <ul class="nav navbar-nav side-nav">
           
             <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard"></i> Principal</a></li>
-            <li ng-class="{ active: isActive('/produtos') }"><a href="#/produtos"><i class="fa fa-facebook"></i> Produtos</a></li>
-            <li ng-class="{ active: isActive('/clientes') }"><a href="#/clientes"><i class="fa fa-users"></i> Clientes</a></li>
-            <li ng-class="{ active: isActive('/vendas') }"><a href="#/vendas"><i class="fa fa-bar-chart-o"></i> Venda</a></li>
+            <li ng-class="{ active: isActive('/produto') }"><a href="#/produto"><i class="fa fa-facebook"></i> Produtos</a></li>
+            <li ng-class="{ active: isActive('/cliente') }"><a href="#/cliente"><i class="fa fa-users"></i> Clientes</a></li>
+            <li ng-class="{ active: isActive('/venda') }"><a href="#/venda"><i class="fa fa-bar-chart-o"></i> Venda</a></li>
            
           </ul>
 
@@ -123,14 +123,15 @@
         </div><!-- /.navbar-collapse -->
       </nav>
 
-      <div ng-view></div>
+      <div ng-view></div> <!-- TUDO QUE ESTÁ DECLARADO EM router.js SERÁ INJETADO DENTRO DESSA DIV -->
 
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
-
+    
     <script type="text/javascript" src="/js/angular/angular.min.js"></script>
     <script type="text/javascript" src="/js/angular/angular-resource.min.js"></script>
     <script type="text/javascript" src="/js/app/controllers.js"></script>

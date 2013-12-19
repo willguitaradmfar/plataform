@@ -1,15 +1,9 @@
-{"k":"0000000078","o":"0000000340","v":"001"}
-{"_id":2,"_uid":2,"_dt":1387461185768,"_s":"219e82703354a2cff59217e18363a357"}
-{"fornecedor":"Sal Branco","peso":100,"unidade":"CX","resumo":"Sal Branco","descricao":"Sal Branco","codbarra":"7896422504386","nome":"Sal Branco","_id":{"$wrap":"$oid","v":2},"dtupdate":{"$wrap":"$date","v":1387461185750,"h":"2013-12-19T13:53:05.750Z"},"dtcreate":{"$wrap":"$date","v":1387461185750,"h":"2013-12-19T13:53:05.750Z"},"__v":0}
-{"k":"0000000078","o":"0000000358","v":"001"}
-{"_id":3,"_uid":3,"_dt":1387461188803,"_s":"954881478f1306afb830b8bf0388238f"}
-{"fornecedor":"Sal Branco","peso":100,"unidade":"PÇ","resumo":"Sal Branco","descricao":"Calça Vermelha Tam. P","codbarra":"7896422501111","nome":"Calça Vermelha","_id":{"$wrap":"$oid","v":3},"dtupdate":{"$wrap":"$date","v":1387461188799,"h":"2013-12-19T13:53:08.799Z"},"dtcreate":{"$wrap":"$date","v":1387461188799,"h":"2013-12-19T13:53:08.799Z"},"__v":0}
-{"k":"0000000078","o":"0000000342","v":"001"}
-{"_id":4,"_uid":4,"_dt":1387462804101,"_s":"56966a63e496e42eafca79a7a2a275a1"}
-{"fornecedor":"Feira","peso":100,"unidade":"PÇ","resumo":"Banana Maçã","descricao":"Banana Maçã","codbarra":"7894564132","nome":"Banana Maçã","_id":{"$wrap":"$oid","v":4},"dtupdate":{"$wrap":"$date","v":1387462804082,"h":"2013-12-19T14:20:04.082Z"},"dtcreate":{"$wrap":"$date","v":1387462804082,"h":"2013-12-19T14:20:04.082Z"},"__v":0}
-{"k":"0000000078","o":"0000000357","v":"001"}
-{"_id":5,"_uid":5,"_dt":1387462893297,"_s":"7d23411b3fc5e3cb0e669bb9e9a3f609"}
-{"fornecedor":"Laranja Redonda","peso":123,"unidade":"PÇ","resumo":"Laranja Redonda","descricao":"Laranja Redonda","codbarra":"123456789","nome":"Laranja Redonda","_id":{"$wrap":"$oid","v":5},"dtupdate":{"$wrap":"$date","v":1387462893295,"h":"2013-12-19T14:21:33.295Z"},"dtcreate":{"$wrap":"$date","v":1387462893295,"h":"2013-12-19T14:21:33.295Z"},"__v":0}
-{"k":"0000000078","o":"0000000343","v":"001"}
-{"_id":2,"_uid":5,"_dt":1387463148169,"_s":"db049be39849f96e20a3e88ad3127e3c"}
-{"fornecedor":"Sal Branco","peso":100,"unidade":"CX","resumo":"Sal Branco","descricao":"Sal Branco","codbarra":"7896422504386","nome":"Sal Branco ++","_id":{"$wrap":"$oid","v":2},"dtupdate":{"$wrap":"$date","v":1387463148164,"h":"2013-12-19T14:25:48.164Z"},"dtcreate":{"$wrap":"$date","v":1387461185750,"h":"2013-12-19T13:53:05.750Z"},"__v":0}
+{"k":"0000000080","o":"0000000328","v":"001"}
+{"_id":14,"_uid":15,"_dt":1387474221896,"_s":"e5d075437f07bce4e5542f15f79da10d"}
+{"fornecedor":"21","peso":13,"unidade":"32","resumo":"testeste   ttttdf sdf","descricao":"321","codbarra":"321","nome":"produtoteste","_id":{"$wrap":"$oid","v":14},"dtupdate":{"$wrap":"$date","v":1387474221893,"h":"2013-12-19T17:30:21.893Z"},"dtcreate":{"$wrap":"$date","v":1387473982155,"h":"2013-12-19T17:26:22.155Z"},"__v":0}
+{"k":"0000000080","o":"0000000303","v":"001"}
+{"_id":16,"_uid":16,"_dt":1387480731127,"_s":"976f88428c104d8e8b400ec374bca66e"}
+{"fornecedor":"321","peso":321,"unidade":"321","resumo":"32","descricao":"321","codbarra":"321","nome":"321","_id":{"$wrap":"$oid","v":16},"dtupdate":{"$wrap":"$date","v":1387480731117,"h":"2013-12-19T19:18:51.117Z"},"dtcreate":{"$wrap":"$date","v":1387480731117,"h":"2013-12-19T19:18:51.117Z"},"__v":0}
+{"k":"0000000051","o":"0000000000","v":"001"}
+{"_id":16,"_uid":16,"_dt":1387481359208,"_a":"del"}
+
