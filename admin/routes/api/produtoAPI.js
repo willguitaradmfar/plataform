@@ -18,7 +18,6 @@ module.exports = function(app, config, db, query, redisClient) {
 		console.log(req.body);
 
 		var newProduto = new db.Produto();
-
 		req.body._id = newProduto._id;
 
 		newProduto.nome = req.body.nome;
@@ -37,7 +36,7 @@ module.exports = function(app, config, db, query, redisClient) {
             
     		res.send(200, {
     			status: "Ok",
-    			id: req.body._id
+    			id: produto._id
     		});
 		});
 
@@ -53,7 +52,6 @@ module.exports = function(app, config, db, query, redisClient) {
 
 		query.produto.getProdutoById(id, function(newProduto) {
 			try {
-
 				newProduto.nome = req.body.nome;
 				newProduto.codbarra = req.body.codbarra;
 				newProduto.teste = req.body.teste;
@@ -70,7 +68,8 @@ module.exports = function(app, config, db, query, redisClient) {
     				redisClient.rpush('produto::update', JSON.stringify(produto));
     
     				res.send(200, {
-    					status: "Ok"
+    					status: "Ok",
+    					id: produto._id
     				});
 				});
 
@@ -95,12 +94,13 @@ module.exports = function(app, config, db, query, redisClient) {
 		query.produto.getProdutoById(id, function(newProduto) {
 
 			newProduto.remove(function (err, produto) {
-			   	io.sockets.emit('produto::remove', produto);
-    			io.sockets.emit('notifications', {text : 'Um Produto foi Removido', obj : produto});
-    			redisClient.rpush('produto::remove', JSON.stringify(produto));
+			   	io.sockets.emit('produto::remove', newProduto);
+    			io.sockets.emit('notifications', {text : 'Um Produto foi Removido', obj : newProduto});
+    			redisClient.rpush('produto::remove', JSON.stringify(newProduto));
     
     			res.send(200, {
-    				status: "Ok"
+    				status: "Ok",
+    				id: newProduto._id
     			}); 
 			});
 		});

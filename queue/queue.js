@@ -5,26 +5,52 @@ var schedule = require('node-schedule');
 
 module.exports = function(config, db, query, redisClient) {
     
-    var indexProdutoSolr = function (produto) {
+    var indexProdutoSolr = function (produto, cb) {
         var doc = {};
         doc.id = produto._id;
-           
+        for(var i in produto){
+            doc[i+'_t'] = produto[i];
+        }
+        
         solrClient.add(doc, function(err,obj){
            if(err){
               console.log("error solr : "+err);
               redisClient.rpush('produto::create', JSON.stringify(produto));
            }else{
               console.log('Solr response:' + obj);
+              if(cb)cb();
            }
         });
     }
     
-    var atualizaProdutoSolr = function (produto) {
-        console.log(produto);
+    var atualizaProdutoSolr = function (produto, cb) {
+         var doc = {};
+        doc.id = produto._id;
+        for(var i in produto){
+            doc[i+'_t'] = produto[i];
+        }
+        deletaProdutoSolr(produto, function () {
+            solrClient.add(doc, function(err,obj){
+               if(err){
+                  console.log("error solr : "+err);
+                  redisClient.rpush('produto::update', JSON.stringify(produto));
+               }else{
+                  console.log('Solr response:' + obj);
+                    if(cb)cb();
+               }
+            });
+        })   
     }
     
-    var deletaProdutoSolr = function (produto) {
-        console.log(produto);
+    var deletaProdutoSolr = function (produto, cb) {
+        solrClient.deleteByID(produto._id,function(err,obj){
+           if(err){
+                   console.log("error solr : "+err);
+                   redisClient.rpush('produto::remove', JSON.stringify(produto));
+           }else{
+                if(cb)cb();       
+           }
+        });
     }
     
     var queueLPOP = function (fila, cb) {
