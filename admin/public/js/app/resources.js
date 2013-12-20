@@ -11,4 +11,12 @@ angular.module('app.resource', ["ngResource"])
         excluir: {method:'DELETE', params : {id : 'idPassado'}}
       });
   })
+  
+  .factory('Login', function ($resource) {
+      return $resource('/login/:id', {}, {
+        sair: {method:'GET', params : {id : 'sair'}},
+        logar: {method:'POST'}
+      });
+  })
+  
 ;

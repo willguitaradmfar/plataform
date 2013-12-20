@@ -2,11 +2,15 @@ var express = require('express'),
 	db = require('../schema/schema.js'),
 	path = require('path');
 
+//---------------------------------------------------------------//
 var app = express();
-server = require('http').createServer(app),
-io = require('socket.io').listen(server);
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server);
+//---------------------------------------------------------------//
 
+//---------------------------------------------------------------//
 var config = require('../config/config');
+//---------------------------------------------------------------//
 
 //---------------------------------------------------------------//
 var redis = require("redis"),
@@ -19,11 +23,19 @@ redisClient.auth(config.redis.password, function() {
 redisClient.on("error", function (err) {
     console.log("Error " + err);
 });
-//------------------------------------------------------//
-
+//---------------------------------------------------------------//
+var solr = require('solr-client');
+solrClient = solr.createClient({host: config.solr.host});
+//solrClient.basicAuth(config.solr.user, config.solr.password);
+solrClient.autoCommit = true;
+//---------------------------------------------------------------//
 var query = {};
 query.produto = require('./routes/functions/produtoFunction')(app, db);
 query.user = require('./routes/functions/userFunction')(app, db);
+//---------------------------------------------------------------//
+
+//---------------------------------------------------------------//
+//---------------------------------------------------------------//
 
 app.configure(function() {
 	app.set('port', process.env.PORT || config.domain.port);
@@ -62,6 +74,8 @@ app.get('/postit/config', function(req, res) {
 require('./routes/api/produtoAPI')(app, config, db, query, redisClient);
 require('./routes/api/loginAPI')(app, config, db, query, redisClient);
 
+require('../queue/queue.js')(config, db, query, redisClient);
+
 server.listen(app.get('port'), function() {
-	console.log('Projeto admin esta executando na porta ' + app.get('port'));
+	console.log('Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP);
 });

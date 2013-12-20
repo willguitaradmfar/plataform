@@ -24,18 +24,30 @@
                 <button class="btn btn-success" ng-click="alternar()"><i class="fa fa-plus"></i></button>
 
               </div>
-        
-        
-         
         </div>
-         
-         <div id="cad" ng-show="mostrar">
-          <div class="col-lg-12">
+        
+         <div ng-show="mostrar">
+      
+        
+          <div class="col-lg-12 formulario">
 
-            <form role="form">
+            
+            <form class="">
+            <fieldset>
+            
+            <!-- Form Name -->
+            <legend>Cadastro de produto</legend>
+            
+            
               <div class="form-group">
                 <label>Nome</label>
-                <input class="form-control" placeholder="Nome" ng-model="produto.nome">
+                <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
+                
+              </div>
+               <div class="form-group">
+                <label>teste</label>
+              
+                 <input class="form-control  " placeholder="teste" ng-model="produto.teste">
               </div>
               <div class="form-group">
                 <label>Descrição</label>
@@ -43,11 +55,12 @@
               </div>
                <div class="form-group">
                 <label>Unidade</label>
-                <input class="form-control" placeholder="Unidade" ng-model="produto.unidade">
+                <input   class="form-control" placeholder="Unidade" ng-model="produto.unidade">
+               
               </div>
                <div class="form-group">
                 <label>Peso</label>
-                <input class="form-control" placeholder="Peso" ng-model="produto.peso">
+                <input  class="form-control" placeholder="Peso" ng-model="produto.peso">
               </div>
                <div class="form-group">
                 <label>Fornecedor</label>
@@ -62,13 +75,16 @@
                 <textarea class="form-control" placeholder="Resumo" rows="3" ng-model="produto.resumo"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-default" ng-click="salvar()">Salvar</button>
-              <button type="reset" class="btn btn-default" ng-click="limpar()">Limpar</button>  
+              <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+              <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
 
+            </fieldset>
             </form>
 
           </div>
           </div>
+          
+          <br><br>          
         
           <div class="col-lg-12">
             <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
@@ -79,7 +95,9 @@
                     <th>Nome <i class="fa fa-sort"></i></th>
                     <th>Descrição <i class="fa fa-sort"></i></th>
                     <th>Unidade <i class="fa fa-sort"></i></th>
+                    <th>teste</th>
                     <th>Cod. Barra <i class="fa fa-sort"></i></th>
+                     
                      <th>Editar</th>
                     <th>Excluir</th>
                   </tr>
@@ -89,6 +107,7 @@
                     <td>{{produto.nome}}</td>
                     <td>{{produto.descricao}}</td>
                     <td>{{produto.unidade}}</td>
+                    <td>{{produto.teste}}</td>
                     <td>{{produto.codbarra}}</td>
                       <td><a type="submit" class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
                       <td><button type="submit" class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>

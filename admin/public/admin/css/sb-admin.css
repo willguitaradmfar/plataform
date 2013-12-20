@@ -169,3 +169,34 @@ min-width: 10px;
     
     display:none;
 }
+
+.formulario {
+    
+    width:97%;
+    padding:15px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+
+}
+
+@media (max-width: 767px) {
+   
+    .formulario {
+    
+    width: 100%;
+    
+
+}
+
+    }
+
+@media (min-width: 1200px) {
+   
+    .formulario {
+    
+    width: 50%;
+    
+
+}
+
+    }

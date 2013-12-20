@@ -19,6 +19,11 @@ var config = {
 	    port : '15819',
 	    password : 'willguitaradmfar'
 	},
+	solr : {
+	    host : '192.241.176.21',
+	    user : '',
+	    password : ''
+	},
 	public: {
 		blogName: 'model-test',
 		blogDescription: 'model-test',

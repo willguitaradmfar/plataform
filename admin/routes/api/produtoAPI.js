@@ -21,24 +21,27 @@ module.exports = function(app, config, db, query, redisClient) {
 
 		req.body._id = newProduto._id;
 
-		newProduto.nome = req.body.nome
-		newProduto.codbarra = req.body.codbarra
-		newProduto.descricao = req.body.descricao
-		newProduto.resumo = req.body.resumo
-		newProduto.unidade = req.body.unidade
-		newProduto.peso = req.body.peso
-		newProduto.fornecedor = req.body.fornecedor
+		newProduto.nome = req.body.nome;
+		newProduto.codbarra = req.body.codbarra;
+		newProduto.teste = req.body.teste;
+		newProduto.descricao = req.body.descricao;
+		newProduto.resumo = req.body.resumo;
+		newProduto.unidade = req.body.unidade;
+		newProduto.peso = req.body.peso;
+		newProduto.fornecedor = req.body.fornecedor;
         
-		newProduto.save();
-
-		io.sockets.emit('produto::create', newProduto);
-		io.sockets.emit('notifications', {text : 'Um novo Produto foi cadastrado', obj : newProduto});
-		redisClient.rpush('produto::create', JSON.stringify(newProduto));
-
-		res.send(200, {
-			status: "Ok",
-			id: req.body._id
+		newProduto.save(function (err, produto) {
+		    io.sockets.emit('produto::create', produto);
+    		io.sockets.emit('notifications', {text : 'Um novo Produto foi cadastrado', obj : produto});
+    		redisClient.rpush('produto::create', JSON.stringify(produto));
+            
+    		res.send(200, {
+    			status: "Ok",
+    			id: req.body._id
+    		});
 		});
+
+		
 	});
 
 	app.put('/produto/:id', function(req, res) {
@@ -51,23 +54,27 @@ module.exports = function(app, config, db, query, redisClient) {
 		query.produto.getProdutoById(id, function(newProduto) {
 			try {
 
-				newProduto.nome = req.body.nome
-				newProduto.codbarra = req.body.codbarra
-				newProduto.descricao = req.body.descricao
-				newProduto.resumo = req.body.resumo
-				newProduto.unidade = req.body.unidade
-				newProduto.peso = req.body.peso
-				newProduto.fornecedor = req.body.fornecedor
+				newProduto.nome = req.body.nome;
+				newProduto.codbarra = req.body.codbarra;
+				newProduto.teste = req.body.teste;
+				newProduto.descricao = req.body.descricao;
+				newProduto.resumo = req.body.resumo;
+				newProduto.unidade = req.body.unidade;
+				newProduto.peso = req.body.peso;
+				newProduto.fornecedor = req.body.fornecedor;
 				newProduto.dtupdate = new Date();
-				newProduto.save();
-
-				io.sockets.emit('produto::update', newProduto);
-				io.sockets.emit('notifications', {text : 'Um Produto foi Atualizado', obj : newProduto});
-				redisClient.rpush('produto::update', JSON.stringify(newProduto));
-
-				res.send(200, {
-					status: "Ok"
+				newProduto.save(function (err, produto) {
+				    
+				    io.sockets.emit('produto::update', produto);
+    				io.sockets.emit('notifications', {text : 'Um Produto foi Atualizado', obj : produto});
+    				redisClient.rpush('produto::update', JSON.stringify(produto));
+    
+    				res.send(200, {
+    					status: "Ok"
+    				});
 				});
+
+				
 			} catch (e) {
 				res.send(500, {
 					error: {
@@ -86,16 +93,15 @@ module.exports = function(app, config, db, query, redisClient) {
 		var id = req.params.id;
 
 		query.produto.getProdutoById(id, function(newProduto) {
-			io.sockets.emit('notifications', '');
 
-			newProduto.remove();
-
-			io.sockets.emit('produto::remove', newProduto);
-			io.sockets.emit('notifications', {text : 'Um Produto foi Removido', obj : newProduto});
-			redisClient.rpush('produto::remove', JSON.stringify(newProduto));
-
-			res.send(200, {
-				status: "Ok"
+			newProduto.remove(function (err, produto) {
+			   	io.sockets.emit('produto::remove', produto);
+    			io.sockets.emit('notifications', {text : 'Um Produto foi Removido', obj : produto});
+    			redisClient.rpush('produto::remove', JSON.stringify(produto));
+    
+    			res.send(200, {
+    				status: "Ok"
+    			}); 
 			});
 		});
 	});

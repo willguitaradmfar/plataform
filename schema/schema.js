@@ -21,6 +21,7 @@ produtoObjSchema.dtcreate = {type: Date,default: Date.now};
 produtoObjSchema.dtupdate = {type: Date,default: Date.now};
 produtoObjSchema.nome = "String";
 produtoObjSchema.codbarra = "String";
+produtoObjSchema.teste = "String";
 produtoObjSchema.descricao = "String";
 produtoObjSchema.resumo = "String";
 produtoObjSchema.unidade = "String";
