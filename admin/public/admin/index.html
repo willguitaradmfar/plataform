@@ -97,16 +97,11 @@
               </ul>
             </li>
             <li class="dropdown alerts-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Notificações<span class="badge">3</span> <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Notificações<span class="badge">{{notificacoes.length}}</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Default <span class="label label-default">Default</span></a></li>
-                <li><a href="#">Primary <span class="label label-primary">Primary</span></a></li>
-                <li><a href="#">Success <span class="label label-success">Success</span></a></li>
-                <li><a href="#">Info <span class="label label-info">Info</span></a></li>
-                <li><a href="#">Warning <span class="label label-warning">Warning</span></a></li>
-                <li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>
-                <li class="divider"></li>
-                <li><a href="#">View All</a></li>
+                <li ng-repeat="notificacao in notificacoes">
+                    <a href="#/{{notificacao.entidade}}/{{notificacao._id}}">{{notificacao.date}}<span class="label label-{{notificacao.nivel}}">{{notificacao.text}}</span></a>
+                </li>
               </ul>
             </li>
             <li class="dropdown user-dropdown">
@@ -131,9 +126,11 @@
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     
     <script type="text/javascript" src="/js/angular/angular.min.js"></script>
     <script type="text/javascript" src="/js/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/angular/ng-socket-io.js"></script>
     <script type="text/javascript" src="/js/app/controllers.js"></script>
     <script type="text/javascript" src="/js/app/resources.js"></script>
     <script type="text/javascript" src="/js/app/routes.js"></script>

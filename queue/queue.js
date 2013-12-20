@@ -17,6 +17,7 @@ module.exports = function(config, db, query, redisClient) {
               console.log("error solr : "+err);
               redisClient.rpush('produto::create', JSON.stringify(produto));
            }else{
+              io.sockets.emit('produto::indexSolr', produto);
               console.log('Solr response:' + obj);
               if(cb)cb();
            }
@@ -35,6 +36,7 @@ module.exports = function(config, db, query, redisClient) {
                   console.log("error solr : "+err);
                   redisClient.rpush('produto::update', JSON.stringify(produto));
                }else{
+                   io.sockets.emit('produto::updateSolr', produto);
                   console.log('Solr response:' + obj);
                     if(cb)cb();
                }
@@ -48,6 +50,7 @@ module.exports = function(config, db, query, redisClient) {
                    console.log("error solr : "+err);
                    redisClient.rpush('produto::remove', JSON.stringify(produto));
            }else{
+               io.sockets.emit('produto::deletaSolr', produto);
                 if(cb)cb();       
            }
         });

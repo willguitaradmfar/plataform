@@ -1,16 +1,15 @@
 'use strict';
 
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['socket-io'])
 
 .controller('PrincipalController', ['$scope','$location', '$http', '$templateCache', '$routeParams',
 	function($scope, $location,  $http, $templateCache, $routeParams) {
 		console.log('PrincipalController');
-	
 	}
 ])
 
-.controller('ProdutoController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Produto',
-	function($scope, $location,  $http, $templateCache, $routeParams, Produto) {
+.controller('ProdutoController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Produto', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, Produto, socket) {
 		console.log('ProdutoController');
 		$scope.msg = {};
 		
@@ -57,12 +56,13 @@ angular.module('app.controllers', [])
 	   	$scope.seleciona = function (produto) {
 		    $scope.produto = produto;
 		}
-		
-		Produto.get({id : $routeParams.id}, function (produto) {
-		    $scope.seleciona(produto);
-		    if(produto._id)
-		        $scope.mostrar = true;
-		});
+		if($routeParams.id){
+    		Produto.get({id : $routeParams.id}, function (produto) {
+    		    $scope.seleciona(produto);
+    		    if(produto._id)
+    		        $scope.mostrar = true;
+    		});
+		}
 		
 		$scope.alternar = function () {
 		    if($scope.mostrar){
@@ -77,27 +77,62 @@ angular.module('app.controllers', [])
 .controller('ClienteController', ['$scope','$location', '$http', '$templateCache', '$routeParams',
 	function($scope, $location,  $http, $templateCache, $routeParams) {
 		console.log('ClienteController');
-	
 	}
 ])
 
 .controller('VendaController', ['$scope','$location', '$http', '$templateCache', '$routeParams',
 	function($scope, $location,  $http, $templateCache, $routeParams) {
 		console.log('VendaController');
-		
 	}
 ])
 
-
-.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams',
-	function($scope, $location,  $http, $templateCache, $routeParams) {
+.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('MenuController');
 		
+		$scope.notificacoes = [];
+		socket.on('produto::create', function(data) {
+		    data.text = "Um Produto foi adicionado";
+		    data.entidade = "produto";
+		    data.nivel = "success";
+            $scope.notificacoes.push(data)
+        });
+        socket.on('produto::update', function(data) {
+            data.text = "Um Produto foi atualizado";
+		    data.entidade = "produto";
+		    data.nivel = "warning";
+            $scope.notificacoes.push(data)
+        });
+        socket.on('produto::remove', function(data) {
+            data.text = "Um Produto foi removido";
+		    data.entidade = "produto";
+		    data.nivel = "danger";
+            $scope.notificacoes.push(data)
+        });
+        
+        socket.on('produto::indexSolr', function(data) {
+		    data.text = "Um Produto foi indexado(Solr)";
+		    data.entidade = "produto";
+		    data.nivel = "success";
+            $scope.notificacoes.push(data)
+        });
+        socket.on('produto::updateSolr', function(data) {
+            data.text = "Um Produto foi atualizado(Solr)";
+		    data.entidade = "produto";
+		    data.nivel = "warning";
+            $scope.notificacoes.push(data)
+        });
+        socket.on('produto::deletaSolr', function(data) {
+            data.text = "Um Produto foi removido(Solr)";
+		    data.entidade = "produto";
+		    data.nivel = "danger";
+            $scope.notificacoes.push(data)
+        });
+        
 		$scope.isActive = function (viewLocation) {
              var active = (viewLocation === $location.path());
              return active;
         };
-		
 	}
 ])
 ;
