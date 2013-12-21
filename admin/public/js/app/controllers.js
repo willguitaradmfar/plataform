@@ -28,12 +28,14 @@ angular.module('app.controllers', ['socket-io'])
                     $scope.msg.text = "Produto "+$scope.produto.nome+" Atualizado com sucesso";
                     $scope.limpar();
                     $scope.list();
+                    $scope.uiproduto.formulario = '';
                 });
             }else{
                 Produto.save($scope.produto, function () {
                     $scope.msg.text = "Produto "+$scope.produto.nome+" Salvo com sucesso";
                     $scope.limpar();
                     $scope.list();
+                    $scope.uiproduto.formulario = '';
                 });
             }
         }
@@ -59,16 +61,39 @@ angular.module('app.controllers', ['socket-io'])
 		if($routeParams.id){
     		Produto.get({id : $routeParams.id}, function (produto) {
     		    $scope.seleciona(produto);
-    		    if(produto._id)
-    		        $scope.mostrar = true;
+    		    if(produto._id){
+    		        $scope.uiproduto = {};
+    		        $scope.uiproduto.formulario = 'mostrar';
+    		    }
     		});
 		}
 		
-		$scope.alternar = function () {
-		    if($scope.mostrar){
-		        $scope.mostrar = false;
-		    }else{
-		        $scope.mostrar = true;
+		$scope._tmp = {};
+		$scope._tmp.caracteristicas = [];
+		$scope.addCaracteristica = function () {
+		    $scope._tmp.caracteristicas.push($scope._tmp.caracteristica);
+		    $scope._tmp.caracteristica = {};
+		}
+		
+		$scope.excluirCaracteristica = function (caracteristica) {
+		    for(var c in $scope._tmp.caracteristicas){
+		        if(caracteristica.$$hashKey == $scope._tmp.caracteristicas[c].$$hashKey){
+		            $scope._tmp.caracteristicas.splice(c, 1);
+		        }
+		    }
+		}
+		
+		$scope._tmp.tags = [];
+		$scope.addTag = function () {
+		    $scope._tmp.tags.push($scope._tmp.tag);
+		    $scope._tmp.tag = {};
+		}
+		
+		$scope.excluirTag = function (tag) {
+		    for(var c in $scope._tmp.tags){
+		        if(tag.$$hashKey == $scope._tmp.tags[c].$$hashKey){
+		            $scope._tmp.tags.splice(c, 1);
+		        }
 		    }
 		}
 	}

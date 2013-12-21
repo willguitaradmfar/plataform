@@ -17,6 +17,9 @@
     <!-- Page Specific CSS -->
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     
+    <!-- Jquery UI CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    
     </head>
 
   <body>
@@ -40,16 +43,23 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
+        
+        
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav side-nav">
+         
+         
+         
+          <ul class="nav navbar-nav side-nav ocutar">
           
-            <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard"></i> Principal</a></li>
-            <li ng-class="{ active: isActive('/produto') }"><a href="#/produto"><i class="fa fa-facebook"></i> Produtos</a></li>
-            <li ng-class="{ active: isActive('/cliente') }"><a href="#/cliente"><i class="fa fa-users"></i> Clientes</a></li>
-            <li ng-class="{ active: isActive('/venda') }"><a href="#/venda"><i class="fa fa-bar-chart-o"></i> Venda</a></li>
+            <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard fa-4x"></i> <span class="textomenu">Monitor</span></a></li>
+            <li ng-class="{ active: isActive('/produto') }"><a href="#/produto"><i class="fa fa-barcode fa-4x" ></i><span class="textomenu"> Produtos</span></a></li>
+            <li ng-class="{ active: isActive('/cliente') }"><a href="#/cliente"><i class="fa fa-users fa-4x"></i> <span class="textomenu">Clientes</span></a></li>
+            <li ng-class="{ active: isActive('/venda') }"><a href="#/venda"><i class="fa fa-bar-chart-o fa-4x"></i> <span class="textomenu">Venda</span></a></li>
            
           </ul>
-
+          
+          
+            
           <ul class="nav navbar-nav navbar-right navbar-user">
           
                  <!--PESQUISAR TOPO-->
@@ -58,7 +68,8 @@
                 <input type="text" class="form-control">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                </span>             
+                </span>    
+                  
             </div>             
             </li>
           
@@ -118,13 +129,13 @@
         </div><!-- /.navbar-collapse -->
       </nav>
 
-      <div ng-view></div> <!-- TUDO QUE ESTÁ DECLARADO EM router.js SERÁ INJETADO DENTRO DESSA DIV -->
+      <div ng-view class="ng-view"></div> <!-- TUDO QUE ESTÁ DECLARADO EM router.js SERÁ INJETADO DENTRO DESSA DIV -->
 
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     
@@ -139,6 +150,14 @@
     
     <script src="js/tablesorter/jquery.tablesorter.js"></script>
     <script src="js/tablesorter/tables.js"></script>
+    
+     
+    <!-- Page Specific Plugins -->
+  
+    <script type="text/javascript" src="js/jquery-app.js"></script>
+    
+    
+    
 
   </body>
 </html>

@@ -21,70 +21,129 @@
         <div class="form-group input-group">
                 
                 <span class="btn"><h4>Cadastrar novo produto</h4></span>
-                <button class="btn btn-success" ng-click="alternar()"><i class="fa fa-plus"></i></button>
+                <button title="testeste" class="btn btn-success" ng-click="uiproduto.formulario = 'mostrar'"><i class="fa fa-plus"></i></button>
 
               </div>
         </div>
         
-         <div ng-show="mostrar">
+         <div ng-show="uiproduto.formulario == 'mostrar'">
       
-        
-          <div class="col-lg-12 formulario">
-
-            
-            <form class="">
+    
+			<ul class="nav nav-tabs">
+				<li ng-class="{ active: uiproduto.tab == 'basico' || !uiproduto.tab }" ng-click="uiproduto.tab = 'basico'">
+					<a>Básico</a>
+				</li>
+				<li ng-class="{ active: uiproduto.tab == 'media' }" ng-click="uiproduto.tab = 'media'">
+					<a>Media</a>
+				</li>
+				<li ng-class="{ active: uiproduto.tab == 'caracterisca' }" ng-click="uiproduto.tab = 'caracterisca'">
+					<a>Caracteristica</a>
+				</li>
+				<li ng-class="{ active: uiproduto.tab == 'disponibilidade'}" ng-click="uiproduto.tab = 'disponibilidade'">
+					<a>Disponibilidade</a>
+				</li>
+				<li ng-class="{ active: uiproduto.tab == 'tags'}" ng-click="uiproduto.tab = 'tags'">
+					<a>Tags</a>
+				</li>
+				
+			</ul>
+			
+	         <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'basico' || !uiproduto.tab">
+            <form >
             <fieldset>
             
             <!-- Form Name -->
-            <legend>Cadastro de produto</legend>
-            
-            
               <div class="form-group">
                 <label>Nome</label>
                 <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
-                
               </div>
-               <div class="form-group">
-                <label>teste</label>
               
-                 <input class="form-control  " placeholder="teste" ng-model="produto.teste">
-              </div>
-              <div class="form-group">
-                <label>Descrição</label>
-                <input class="form-control" placeholder="Descrição" ng-model="produto.descricao">
-              </div>
-               <div class="form-group">
-                <label>Unidade</label>
-                <input   class="form-control" placeholder="Unidade" ng-model="produto.unidade">
+              
+              <label>Valor</label>
+              <div class="form-group input-group">
+                
+                <span class="input-group-addon">$</span>
+                <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
                
               </div>
-               <div class="form-group">
-                <label>Peso</label>
-                <input  class="form-control" placeholder="Peso" ng-model="produto.peso">
+              
+              <label>Valor desconto</label>
+              <div class="form-group input-group">
+                 <span class="input-group-addon">$</span>
+                <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
+               
               </div>
-               <div class="form-group">
-                <label>Fornecedor</label>
-                <input class="form-control" placeholder="Fornecedor" ng-model="produto.fornecedor">
+                  <div class="form-group">
+                <label>Descrição</label>
+                <textarea class="form-control" placeholder="Descrição" ng-model="produto.descricao"></textarea>
               </div>
-              <div class="form-group">
-                <label>Código de Barra</label>
-                <input class="form-control" placeholder="Código de Barra" ng-model="produto.codbarra">
-              </div>
-              <div class="form-group">
-                <label>Resumo</label>
-                <textarea class="form-control" placeholder="Resumo" rows="3" ng-model="produto.resumo"></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+                       <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
               <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
 
             </fieldset>
             </form>
-
-          </div>
+            
+             
           </div>
           
-          <br><br>          
+          
+          <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'caracterisca' || !uiproduto.tab">
+           <form class="form-inline">
+           <div class="form-group">
+              <input type="text" class="input-large" placeholder="Email" ng-model="_tmp.caracteristica.caracteristica">
+              <input type="text" class="input-large" placeholder="Senha" ng-model="_tmp.caracteristica.valor">
+              <button class="btn btn-success" ng-click="addCaracteristica()"><i class="fa fa-plus"></i></button>
+              </div>
+            </form>
+             
+             <table class="table table-bordered table-hover tablesorter table-striped">
+                <thead>
+                  <tr>
+                    <th>Caracteristica<i class="fa fa-sort"></i></th>
+                    <th>Valor<i class="fa fa-sort"></i></th>
+                    <th>Excluir</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="caracteristica in _tmp.caracteristicas">
+                    <td>{{caracteristica.caracteristica}}</td>
+                    <td>{{caracteristica.valor}}</td>
+                      <td><button class="btn btn-danger" ng-click="excluirCaracteristica(caracteristica)"><i class="fa fa-times"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+          </div>
+          
+           <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'tags' || !uiproduto.tab">
+           <form class="form-inline">
+           <div class="form-group">
+              <input type="text" class="input-large" placeholder="TAG" ng-model="_tmp.tag.nome">
+              <button class="btn btn-success" ng-click="addTag()"><i class="fa fa-plus"></i></button>
+              </div>
+            </form>
+             
+             <table class="table table-bordered table-hover tablesorter table-striped">
+                <thead>
+                  <tr>
+                    <th>Tag<i class="fa fa-tag"></i></th>
+                    <th>Excluir</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="tag in _tmp.tags">
+                    <td>{{tag.nome}}</td>
+                      <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+          </div>
+          
+          
+        </div>
+          
+          <br>          
         
           <div class="col-lg-12">
             <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
@@ -109,8 +168,8 @@
                     <td>{{produto.unidade}}</td>
                     <td>{{produto.teste}}</td>
                     <td>{{produto.codbarra}}</td>
-                      <td><a type="submit" class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
-                      <td><button type="submit" class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>
+                      <td><a class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
+                      <td><button class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>
                   </tr>
                 </tbody>
               </table>
