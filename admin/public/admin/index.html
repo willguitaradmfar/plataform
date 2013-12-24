@@ -17,16 +17,16 @@
     <!-- Page Specific CSS -->
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     
-    <!-- Jquery UI CSS -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    
     
     </head>
 
   <body>
+
     <div id="wrapper">
-      <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="MenuController">
       
+      <!-- Sidebar -->
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="MenuController">
       
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -37,108 +37,106 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           
-              </button>
+          </button>
           <a class="navbar-brand" href="#/">Shop Online</a>
          
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        
-        
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-         
-         
-         
-          <ul class="nav navbar-nav side-nav ocutar">
-          
-            <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard fa-4x"></i> <span class="textomenu">Monitor</span></a></li>
-            <li ng-class="{ active: isActive('/produto') }"><a href="#/produto"><i class="fa fa-barcode fa-4x" ></i><span class="textomenu"> Produtos</span></a></li>
-            <li ng-class="{ active: isActive('/cliente') }"><a href="#/cliente"><i class="fa fa-users fa-4x"></i> <span class="textomenu">Clientes</span></a></li>
-            <li ng-class="{ active: isActive('/venda') }"><a href="#/venda"><i class="fa fa-bar-chart-o fa-4x"></i> <span class="textomenu">Venda</span></a></li>
-           
-          </ul>
-          
-          
+        
+            <ul class="nav navbar-nav side-nav ocutar">
+                <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard fa-4x"></i> <span class="textomenu">Monitor</span></a></li>
+                <li ng-class="{ active: isActive('/produto') }"><a href="#/produto"><i class="fa fa-barcode fa-4x" ></i><span class="textomenu"> Produtos</span></a></li>
+                <li ng-class="{ active: isActive('/cliente') }"><a href="#/cliente"><i class="fa fa-users fa-4x"></i> <span class="textomenu">Clientes</span></a></li>
+                <li ng-class="{ active: isActive('/venda') }"><a href="#/venda"><i class="fa fa-bar-chart-o fa-4x"></i> <span class="textomenu">Venda</span></a></li>
+            </ul>
             
-          <ul class="nav navbar-nav navbar-right navbar-user">
+            <ul class="nav navbar-nav navbar-right navbar-user">
           
-                 <!--PESQUISAR TOPO-->
-            <li class="dropdown messages-dropdown">
-            <div class="pesquisar form-group input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                </span>    
-                  
-            </div>             
-            </li>
+                <!--PESQUISAR TOPO-->
+                <li class="dropdown messages-dropdown">
+                    <div class="pesquisar form-group input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>             
+                </li>
           
-            <li class="dropdown messages-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">7</span> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">7 New Messages</li>
-                <li class="message-preview">
-                  <a href="#">
-                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                    <span class="name">John Smith:</span>
-                    <span class="message">Hey there, I wanted to ask you something...</span>
-                    <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
-                  </a>
+                <li class="dropdown messages-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">7</span> <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-header">7 New Messages</li>
+                    <li class="message-preview">
+                      <a href="#">
+                        <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                        <span class="name">John Smith:</span>
+                        <span class="message">Hey there, I wanted to ask you something...</span>
+                        <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="message-preview">
+                      <a href="#">
+                        <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                        <span class="name">John Smith:</span>
+                        <span class="message">Hey there, I wanted to ask you something...</span>
+                        <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="message-preview">
+                      <a href="#">
+                        <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                        <span class="name">John Smith:</span>
+                        <span class="message">Hey there, I wanted to ask you something...</span>
+                        <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#">View Inbox <span class="badge">7</span></a></li>
+                  </ul>
                 </li>
-                <li class="divider"></li>
-                <li class="message-preview">
-                  <a href="#">
-                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                    <span class="name">John Smith:</span>
-                    <span class="message">Hey there, I wanted to ask you something...</span>
-                    <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
-                  </a>
+
+                <li class="dropdown alerts-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Notificações<span class="badge">{{notificacoes.length}}</span> <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li ng-repeat="notificacao in notificacoes | orderBy:'$$hashKey':true">
+                        <a href="#/{{notificacao.entidade}}/{{notificacao._id}}">{{notificacao.date}}<span class="label label-{{notificacao.nivel}}">{{notificacao.text}}</span></a>
+                    </li>
+                  </ul>
                 </li>
-                <li class="divider"></li>
-                <li class="message-preview">
-                  <a href="#">
-                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                    <span class="name">John Smith:</span>
-                    <span class="message">Hey there, I wanted to ask you something...</span>
-                    <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
-                  </a>
+
+                <li class="dropdown user-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Java Mosntro <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+                    <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                  </ul>
                 </li>
-                <li class="divider"></li>
-                <li><a href="#">View Inbox <span class="badge">7</span></a></li>
-              </ul>
-            </li>
-            <li class="dropdown alerts-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Notificações<span class="badge">{{notificacoes.length}}</span> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li ng-repeat="notificacao in notificacoes">
-                    <a href="#/{{notificacao.entidade}}/{{notificacao._id}}">{{notificacao.date}}<span class="label label-{{notificacao.nivel}}">{{notificacao.text}}</span></a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-              </ul>
-            </li>
-          </ul>
+
+            </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
-
-      <div ng-view class="ng-view"></div> <!-- TUDO QUE ESTÁ DECLARADO EM router.js SERÁ INJETADO DENTRO DESSA DIV -->
+      
+        
+      <div ng-view class="ng-view"></div> 
 
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
     
+    
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    
+    <!-- Angular JS -->    
     <script type="text/javascript" src="/js/angular/angular.min.js"></script>
     <script type="text/javascript" src="/js/angular/angular-resource.min.js"></script>
     <script type="text/javascript" src="/js/angular/ng-socket-io.js"></script>
@@ -146,18 +144,13 @@
     <script type="text/javascript" src="/js/app/resources.js"></script>
     <script type="text/javascript" src="/js/app/routes.js"></script>
     
-    <!-- Page Specific Plugins -->
-    
+    <!-- Page Specific Plugins -->    
     <script src="js/tablesorter/jquery.tablesorter.js"></script>
     <script src="js/tablesorter/tables.js"></script>
-    
-     
-    <!-- Page Specific Plugins -->
-  
-    <script type="text/javascript" src="js/jquery-app.js"></script>
-    
-    
-    
 
+     
+    <!-- ui-->  
+    <script src="js/jquery-app.js"></script>
+    
   </body>
 </html>

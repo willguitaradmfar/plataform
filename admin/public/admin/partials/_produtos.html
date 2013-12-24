@@ -1,187 +1,285 @@
+<script>$( "#bt" ).click(function() { 
+
+ $( ".ng-view" ).scrollTop( 130 );
+
+ $(".btnav").css("padding-top", "70px");
+
+});
+
+</script>
 
 <div id="page-wrapper">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Produtos <small>Teste de comunicação com o servidor</small></h1>
-            <ol class="breadcrumb">
-              <li><a href="#/"><i class="fa fa-dashboard"></i> Principal</a></li>
-              <li class="active"><i class="fa fa-table"></i> Produtos</li>
-            </ol>
-            <div class="alert alert-info alert-dismissable" ng-show="msg && msg.text">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              {{ msg.text }}
-            </div>
-          </div>
-        </div><!-- /.row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Produtos <small>Cadastre novos produtos</small></h1>
+      <ol class="breadcrumb">
+        <li><a href="#/"><i class="fa fa-dashboard"></i> Principal</a></li>
+        <li class="active"><i class="fa fa-barcode"></i> Produtos</li>
+      </ol>
+      <div class="alert alert-info alert-dismissable" ng-show="msg && msg.text">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{ msg.text }}
+      </div>
+    </div>
+  </div><!-- /.row -->
 
-        <div class="row">
-        
-        <div class="col-lg-12">
-        
-        <div class="form-group input-group">
-                
-                <span class="btn"><h4>Cadastrar novo produto</h4></span>
-                <button title="testeste" class="btn btn-success" ng-click="uiproduto.formulario = 'mostrar'"><i class="fa fa-plus"></i></button>
+  <div class="row">    
+    <div class="col-lg-12">
+      <nav class="navbar  navbar-default testar celNew" ><!-- TESTAR = CLASS SCRIPT PARA MUDAR POR NEW-->
+        <span class="btn"><h3>NOVO</h3><p id="div"></p></span>
+        <button title="Cadastrar Produto" class="btn btn-success" id="bt" ng-click="uiproduto.formulario = 'mostrar'"><i class="fa fa-3x fa-plus"></i></button>
+      </nav>
+    </div><!-- /.row -->
 
-              </div>
-        </div>
-        
-         <div ng-show="uiproduto.formulario == 'mostrar'">
-      
-    
-			<ul class="nav nav-tabs">
-				<li ng-class="{ active: uiproduto.tab == 'basico' || !uiproduto.tab }" ng-click="uiproduto.tab = 'basico'">
-					<a>Básico</a>
-				</li>
-				<li ng-class="{ active: uiproduto.tab == 'media' }" ng-click="uiproduto.tab = 'media'">
-					<a>Media</a>
-				</li>
-				<li ng-class="{ active: uiproduto.tab == 'caracterisca' }" ng-click="uiproduto.tab = 'caracterisca'">
-					<a>Caracteristica</a>
-				</li>
-				<li ng-class="{ active: uiproduto.tab == 'disponibilidade'}" ng-click="uiproduto.tab = 'disponibilidade'">
-					<a>Disponibilidade</a>
-				</li>
-				<li ng-class="{ active: uiproduto.tab == 'tags'}" ng-click="uiproduto.tab = 'tags'">
-					<a>Tags</a>
-				</li>
-				
-			</ul>
-			
-	         <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'basico' || !uiproduto.tab">
-            <form >
-            <fieldset>
-            
+    <!--CADASTRO DE PRODUTOS-->   
+    <div ng-show="uiproduto.formulario == 'mostrar'">   
+
+     <div class="tabbable custom-tabs tabs-animated  flat flat-all hide-label-980 shadow track-url auto-scroll"> 
+
+       <ul class="nav nav-tabs  btnav ">
+        <li ng-class="{ active: uiproduto.tab == 'basico' || !uiproduto.tab }" ng-click="uiproduto.tab = 'basico'">
+          <a><i class="fa fa-pencil-square-o"></i> Básico</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'media' }" ng-click="uiproduto.tab = 'media'">
+          <a><i class="fa fa-camera"></i> Midia</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'caracterisca' }" ng-click="uiproduto.tab = 'caracterisca'">
+          <a><i class="fa fa-info-circle"></i> Caracteristica</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'disponibilidade'}" ng-click="uiproduto.tab = 'disponibilidade'">
+          <a><i class="fa fa-truck"></i>  Disponibilidade</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'tags'}" ng-click="uiproduto.tab = 'tags'">
+          <a><i class="fa fa-tag"></i> Tag's</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+       <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'basico' || !uiproduto.tab">
+        <form >
+          <fieldset>
             <!-- Form Name -->
-              <div class="form-group">
-                <label>Nome</label>
-                <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
+            <div class="form-group">
+              <label>Nome</label>
+              <input id="campoNome" class="form-control " placeholder="Nome" ng-model="produto.nome">
+            </div>
+            <div class="row">
+              <div class="col-xs-5 celular">
+                <label>Valor</label>
+                <div class="form-group input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="campoValor" type="text" class="form-control" placeholder="Valor" ng-model="produto.nome">
+                </div>
               </div>
-              
-              
-              <label>Valor</label>
-              <div class="form-group input-group">
-                
+              <div class="col-xs-5 celular">
+               <label>Valor Desconto</label>
+               <div class="form-group input-group">
                 <span class="input-group-addon">$</span>
-                <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
-               
+                <input type="text" class="form-control" placeholder="Nome" ng-model="produto.nome">
               </div>
-              
-              <label>Valor desconto</label>
-              <div class="form-group input-group">
-                 <span class="input-group-addon">$</span>
-                <input class="form-control  " placeholder="Nome" ng-model="produto.nome">
-               
-              </div>
-                  <div class="form-group">
-                <label>Descrição</label>
-                <textarea class="form-control" placeholder="Descrição" ng-model="produto.descricao"></textarea>
-              </div>
-                       <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
-              <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
-
-            </fieldset>
-            </form>
-            
-             
-          </div>
-          
-          
-          <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'caracterisca' || !uiproduto.tab">
-           <form class="form-inline">
-           <div class="form-group">
-              <input type="text" class="input-large" placeholder="Email" ng-model="_tmp.caracteristica.caracteristica">
-              <input type="text" class="input-large" placeholder="Senha" ng-model="_tmp.caracteristica.valor">
-              <button class="btn btn-success" ng-click="addCaracteristica()"><i class="fa fa-plus"></i></button>
-              </div>
-            </form>
-             
-             <table class="table table-bordered table-hover tablesorter table-striped">
-                <thead>
-                  <tr>
-                    <th>Caracteristica<i class="fa fa-sort"></i></th>
-                    <th>Valor<i class="fa fa-sort"></i></th>
-                    <th>Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="caracteristica in _tmp.caracteristicas">
-                    <td>{{caracteristica.caracteristica}}</td>
-                    <td>{{caracteristica.valor}}</td>
-                      <td><button class="btn btn-danger" ng-click="excluirCaracteristica(caracteristica)"><i class="fa fa-times"></i></button></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-          </div>
-          
-           <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'tags' || !uiproduto.tab">
-           <form class="form-inline">
-           <div class="form-group">
-              <input type="text" class="input-large" placeholder="TAG" ng-model="_tmp.tag.nome">
-              <button class="btn btn-success" ng-click="addTag()"><i class="fa fa-plus"></i></button>
-              </div>
-            </form>
-             
-             <table class="table table-bordered table-hover tablesorter table-striped">
-                <thead>
-                  <tr>
-                    <th>Tag<i class="fa fa-tag"></i></th>
-                    <th>Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="tag in _tmp.tags">
-                    <td>{{tag.nome}}</td>
-                      <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-          </div>
-          
-          
-        </div>
-          
-          <br>          
-        
-          <div class="col-lg-12">
-            <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover tablesorter table-striped">
-                <thead>
-                  <tr>
-                    <th>Nome <i class="fa fa-sort"></i></th>
-                    <th>Descrição <i class="fa fa-sort"></i></th>
-                    <th>Unidade <i class="fa fa-sort"></i></th>
-                    <th>teste</th>
-                    <th>Cod. Barra <i class="fa fa-sort"></i></th>
-                     
-                     <th>Editar</th>
-                    <th>Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="produto in produtos">
-                    <td>{{produto.nome}}</td>
-                    <td>{{produto.descricao}}</td>
-                    <td>{{produto.unidade}}</td>
-                    <td>{{produto.teste}}</td>
-                    <td>{{produto.codbarra}}</td>
-                      <td><a class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
-                      <td><button class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
-          
-
-       
-          <div class="col-lg-6">
-            <h2>Bootstrap Docs</h2>
-            <p>For complete documentation, please visit <a target="_blank" href="http://getbootstrap.com/css/#tables">Bootstrap's Tables Documentation</a>.</p>
+          <div class="form-group">
+            <label>Descrição</label>
+            <textarea class="form-control" placeholder="Descrição" ng-model="produto.descricao"></textarea>
           </div>
-        </div><!-- /.row -->
+          <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
+        </fieldset>
+      </form>
+    </div>
 
-      </div><!-- /#page-wrapper -->
+    <!--CADASTRO/CARACTERISTICA-->
+    <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'caracterisca'">
+
+       <div class="row">
+            <div class="col-xs-4 celular">
+             <div class="form-group">
+               <label for="">Caracteristica</label>
+               <input type="text" class="form-control form-campo" placeholder="Ex: Cor" ng-model="_tmp.caracteristica.caracteristica">
+             </div>
+           </div>
+           <div class="col-xs-4 celular">
+            <div class="form-group">
+              <label for="">Valor</label>
+              <input type="text" class="form-control form-campo" placeholder="Ex: Vermelha" ng-model="_tmp.caracteristica.valor">
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div style="padding-top:25px;">
+             <button class="btn btn-success"  ng-click="addCaracteristica()"><i class="fa fa-plus"></i></button>
+           </div>
+          </div>
+      </div><!-- /.ROW-->
+
+        <hr>
+        
+        <table class="table table-bordered table-hover tablesorter table-striped">            
+            <thead>
+              <tr>
+                <th>Caracteristica<i class="fa fa-sort"></i></th>
+                <th>Valor<i class="fa fa-sort"></i></th>
+                <th>Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="caracteristica in produto.caracteristicas">
+                <td>{{caracteristica.caracteristica}}</td>
+                <td>{{caracteristica.valor}}</td>
+                <td><button class="btn btn-danger" ng-click="excluirCaracteristica(caracteristica)"><i class="fa fa-times"></i></button></td>
+              </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+        <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button> 
+
+    </div>
+
+         <!--CADASTRO/DISPONIBILIDADE-->
+        <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'disponibilidade'">
+        
+          <div class="row">
+
+            <div class="col-xs-4 celular">
+             <div class="form-group" >
+               <label class="form-campo">Caracteristica</label>
+               <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="_tmp.nome">
+             </div>
+            </div>
+
+             <div class="col-xs-2 celular">
+              <div style="padding-top:25px;">
+                <button class="btn btn-success" ng-click="addTag()"><i class="fa fa-plus"></i></button>
+              </div>
+             </div>
+
+          </div><!-- /.ROW-->
+
+          <hr>
+
+           <div class="row">
+           
+                  <div class="col-xs-4 celular">
+                  <table class="table table-bordered table-hover tablesorter table-striped">
+                    <thead>
+                      <tr>
+                        <th>Caracteristica</th>
+                        <th>Excluir</th>
+                      </tr>
+                      
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="tag in produto.tags">
+                        <td>{{tag.nome}}</td>
+                        <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  
+                  <div class="col-xs-4 celular">
+                  <table class="table table-bordered table-hover tablesorter table-striped">
+                    <thead>
+                      <tr>
+                        <th>Caracteristica</th>
+                        <th>Excluir</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="tag in produto.tags">
+                        <td>{{tag.nome}}</td>
+                        <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+          
+          </div><!--/row-->
+
+          <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
+
+        </div><!--/DISPONIBILIDADE-->
+
+        <!--CADASTRO/TAG-->
+        <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'tags'">
+        
+          <div class="row">
+
+            <div class="col-xs-4 celular">
+             <div class="form-group" >
+               <label class="form-campo">Tag's</label>
+               <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="_tmp.tag.nome">
+             </div>
+            </div>
+
+             <div class="col-xs-2 celular">
+              <div style="padding-top:25px;">
+                <button class="btn btn-success" ng-click="addTag()"><i class="fa fa-plus"></i></button>
+              </div>
+             </div>
+
+          </div><!-- /.ROW-->
+
+          <hr>
+
+          <table class="table table-bordered table-hover tablesorter table-striped">
+            <thead>
+              <tr>
+                <th>Tag<i class="fa fa-tag"></i></th>
+                <th>Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="tag in produto.tags">
+                <td>{{tag.nome}}</td>
+                <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
+
+        </div><!--/TAG-->
+
+
+      </div> <!--/CONTEUDO DAS TABS -->
+    </div> <!--/CUSTOM-TABLE -->
+  </div> <!--/CADASTRO DE PRODUTOS -->
+
+  <br>   
+
+  <div class="col-lg-12">
+    <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover tablesorter table-striped">
+        <thead>
+          <tr>
+            <th>Nome <i class="fa fa-sort"></i></th>
+            <th>Descrição <i class="fa fa-sort"></i></th>
+            <th>Unidade <i class="fa fa-sort"></i></th>
+            <th>Cod. Barra <i class="fa fa-sort"></i></th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+                 <tbody>
+                    <tr ng-repeat="produto in produtos">
+                      <td>{{produto.nome.substring(0, 40)+"..."}}</td>
+                      <td>{{produto.descricao.substring(0, 20)+"..."}}</td> <!-- WESLEY AQUI O CÓDIGO .substring(0, 10)+"..." LIMITA EM 10 CARACTERE PARA NÃO QUEBRAR A COLUNA-->
+                     <td>{{produto.unidade}}</td>
+                      
+                      <td>{{produto.codbarra}}</td>
+                        <td><a class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
+                        <td><button class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>
+                    </tr> 
+                  </tbody>         
+                </table>              
+              </div>
+            </div> 
+            
+             </div><!-- /.row -->
+
+  </div><!-- /#page-wrapper -->

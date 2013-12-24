@@ -1,7 +1,7 @@
 module.exports = function(app, config, db, query, redisClient) {
 
 	app.get('/produtos/all', function(req, res) {
-		query.produto.getProdutos(function(produto) {
+		query.produto.getProdutosPaginate(10, 0, function(produto) {
 			res.send(produto);
 		});
 	});
@@ -28,6 +28,8 @@ module.exports = function(app, config, db, query, redisClient) {
 		newProduto.unidade = req.body.unidade;
 		newProduto.peso = req.body.peso;
 		newProduto.fornecedor = req.body.fornecedor;
+		newProduto.caracteristicas = req.body.caracteristicas;
+		newProduto.tags = req.body.tags;
         
 		newProduto.save(function (err, produto) {
 		    io.sockets.emit('produto::create', produto);
@@ -59,6 +61,9 @@ module.exports = function(app, config, db, query, redisClient) {
 				newProduto.unidade = req.body.unidade;
 				newProduto.peso = req.body.peso;
 				newProduto.fornecedor = req.body.fornecedor;
+				newProduto.caracteristicas = req.body.caracteristicas;
+				newProduto.tags = req.body.tags;
+				
 				newProduto.dtupdate = new Date();
 				newProduto.save(function (err, produto) {
 				    

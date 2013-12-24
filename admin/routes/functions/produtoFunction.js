@@ -10,7 +10,18 @@ module.exports = function(app, db) {
 				}
 			});
 		},
-
+		
+		getProdutosPaginate: function(perPage, page, callback) {
+			db.Produto.find(function(err, produtos) {
+			    if(err)console.error(err);
+				if (produtos && produtos.length != 0) {
+					callback(produtos);
+				} else {
+					callback(null);
+				}
+			}).limit((perPage));
+		},
+		
 		getProdutoById: function(id, callback) {
 			db.Produto.findOne({
 				_id: id

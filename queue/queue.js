@@ -9,7 +9,7 @@ module.exports = function(config, db, query, redisClient) {
         var doc = {};
         doc.id = produto._id;
         for(var i in produto){
-            doc[i+'_t'] = produto[i];
+            doc[i+'_t'] = JSON.stringify(produto[i]);
         }
         
         solrClient.add(doc, function(err,obj){
@@ -28,7 +28,7 @@ module.exports = function(config, db, query, redisClient) {
          var doc = {};
         doc.id = produto._id;
         for(var i in produto){
-            doc[i+'_t'] = produto[i];
+            doc[i+'_t'] = JSON.stringify(produto[i]);
         }
         deletaProdutoSolr(produto, function () {
             solrClient.add(doc, function(err,obj){
