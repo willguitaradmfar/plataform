@@ -95,16 +95,17 @@ module.exports = function(app, config, db, query, redisClient) {
 		var id = req.params.id;
 
 		query.produto.getProdutoById(id, function(newProduto) {
-
-			newProduto.remove(function (err, produto) {
-			   	io.sockets.emit('produto::remove', newProduto);
-    			redisClient.rpush('produto::remove', JSON.stringify(newProduto));
-    
-    			res.send(200, {
-    				status: "Ok",
-    				id: newProduto._id
-    			}); 
-			});
+            if(newProduto){
+    			newProduto.remove(function (err, produto) {
+    			   	io.sockets.emit('produto::remove', newProduto);
+        			redisClient.rpush('produto::remove', JSON.stringify(newProduto));
+        
+        			res.send(200, {
+        				status: "Ok",
+        				id: newProduto._id
+        			}); 
+    			});
+            }
 		});
 	});
 };
