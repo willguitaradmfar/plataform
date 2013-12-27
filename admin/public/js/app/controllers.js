@@ -14,21 +14,40 @@ angular.module('app.controllers', ['socket-io'])
 	function($scope, $location,  $http, $templateCache, $routeParams, Produto, socket) {
 		console.log('ProdutoController');
 		$scope.msg = {};
-		
-		var ojson = JSON.parse(json);
-		for(var i in ojson){
-		    var obj = ojson[i];
-		    var tags = obj.nome.split(' ');
-		    obj.tags = [];
-		    for(var i in tags){
-		        obj.tags.push({nome : tags[i]});
-		    }
-		     /*
-		    Produto.save(obj, function () {
-                    
-            });*/
-		}
-		
+
+		$scope.options = {
+                    url: 'http://127.0.0.1'
+        };
+    
+		/*
+        var file = $scope.file,
+	            state;
+	        if (file.url) {
+	            file.$state = function () {
+	                return state;
+	            };
+	            file.$destroy = function () {
+	                state = 'pending';
+	                return $http({
+	                    url: file.deleteUrl,
+	                    method: file.deleteType
+	                }).then(
+	                    function () {
+	                        state = 'resolved';
+	                        $scope.clear(file);
+	                    },
+	                    function () {
+	                        state = 'rejected';
+	                    }
+	                );
+	            };
+	        } else if (!file.$cancel && !file._index) {
+	            file.$cancel = function () {
+	                $scope.clear(file);
+	            };
+	        }*/
+
+
 		//Inicia o obj produto do formulário vario
 		$scope.produto = {};
 	
