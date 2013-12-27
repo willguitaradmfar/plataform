@@ -16,7 +16,7 @@ angular.module('app.controllers', ['socket-io'])
 		$scope.msg = {};
 
 		$scope.options = {
-                    url: 'http://127.0.0.1'
+                    url: 'http://192.241.176.21:8080'
         };
     
 		/*
