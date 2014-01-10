@@ -33,7 +33,7 @@
 
      <div class="tabbable custom-tabs tabs-animated  flat flat-all hide-label-980 shadow track-url auto-scroll"> 
 
-       <ul class="nav nav-tabs  btnav ">
+       <ul class="nav nav-tabs nav-justified btnav ">
         <li ng-class="{ active: uiproduto.tab == 'basico' || !uiproduto.tab }" ng-click="uiproduto.tab = 'basico'">
           <a><i class="fa fa-pencil-square-o"></i> Básico</a>
         </li>
@@ -95,17 +95,17 @@
             <div class="col-lg-7">
                 <!-- The fileinput-button span is used to style the file input field as button -->
                 <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <span>Add files...</span>
+                    <i class="fa fa-plus"></i>
+                    <span>Adcionar Arquivos</span>
                     <input type="file" name="files[]" multiple ng-disabled="disabled">
                 </span>
                 <button type="button" class="btn btn-primary start" data-ng-click="submit()">
-                    <i class="glyphicon glyphicon-upload"></i>
-                    <span>Start upload</span>
+                    <i class="fa fa-upload"></i>
+                    <span>Enviar</span>
                 </button>
                 <button type="button" class="btn btn-warning cancel" data-ng-click="cancel()">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Cancel upload</span>
+                    <i class="fa fa-ban"></i>
+                    <span>Cancelar Envio</span>
                 </button>
                 <!-- The global file processing state -->
                 <span class="fileupload-process"></span>
@@ -143,12 +143,12 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary start" data-ng-click="file.$submit()" data-ng-hide="!file.$submit || options.autoUpload" data-ng-disabled="file.$state() == 'pending' || file.$state() == 'rejected'">
-                        <i class="glyphicon glyphicon-upload"></i>
-                        <span>Start</span>
+                        <i class="fa fa-upload"></i>
+                        <span>Enviar</span>
                     </button>
                     <button type="button" class="btn btn-warning cancel" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel">
-                        <i class="glyphicon glyphicon-ban-circle"></i>
-                        <span>Cancel</span>
+                        <i class="fa fa-ban"></i>
+                        <span>Cancelar</span>
                     </button>
                     <button type="button" class="btn btn-danger destroy" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy">
                         <i class="glyphicon glyphicon-trash"></i>
@@ -231,13 +231,13 @@
             <div class="col-xs-4 celular">
              <div class="form-group" >
                <label class="form-campo">Caracteristica</label>
-               <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="_tmp.nome">
+               <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="_tmp.disponibilidade.nome">
              </div>
             </div>
 
              <div class="col-xs-2 celular">
               <div style="padding-top:25px;">
-                <button class="btn btn-success" ng-click="addTag()"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-success" ng-click="addDisponibilidade()"><i class="fa fa-plus"></i></button>
               </div>
              </div>
 
@@ -247,40 +247,42 @@
 
            <div class="row">
            
-                  <div class="col-xs-4 celular">
+                  <div class="col-xs-4 celular" ng-repeat="disponibilidade in produto.disponibilidades">
+                  <div class="row">
+
+                    <div class="col-xs-4 celular">
+                     <div class="form-group" >
+                       <label class="form-campo">Valor</label>
+                       <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="disponibilidade.valor">
+                     </div>
+                    </div>
+        
+                     <div class="col-xs-2 celular">
+                      <div style="padding-top:25px;">
+                        <button class="btn btn-success" ng-click="addDisponibilidadeValor(disponibilidade)"><i class="fa fa-plus"></i></button>
+                      </div>
+                     </div>
+        
+                  </div><!-- /.ROW-->
+                  
                   <table class="table table-bordered table-hover tablesorter table-striped">
                     <thead>
                       <tr>
-                        <th>Caracteristica</th>
+                        <th>{{disponibilidade.nome}}</th>
                         <th>Excluir</th>
                       </tr>
                       
                     </thead>
                     <tbody>
-                      <tr ng-repeat="tag in produto.tags">
-                        <td>{{tag.nome}}</td>
-                        <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
+                      <tr ng-repeat="valor in disponibilidade.valores">
+                        <td>{{valor}}</td>
+                        <td><button class="btn btn-danger" ng-click="excluirValor(valor, disponibilidade)"><i class="fa fa-times"></i></button></td>
                       </tr>
                     </tbody>
                   </table>
                   </div>
                   
-                  <div class="col-xs-4 celular">
-                  <table class="table table-bordered table-hover tablesorter table-striped">
-                    <thead>
-                      <tr>
-                        <th>Caracteristica</th>
-                        <th>Excluir</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="tag in produto.tags">
-                        <td>{{tag.nome}}</td>
-                        <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  </div>
+                  
           
           </div><!--/row-->
 

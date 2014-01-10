@@ -19,33 +19,6 @@ angular.module('app.controllers', ['socket-io'])
                     url: 'http://192.241.176.21:8080'
         };
     
-		/*
-        var file = $scope.file,
-	            state;
-	        if (file.url) {
-	            file.$state = function () {
-	                return state;
-	            };
-	            file.$destroy = function () {
-	                state = 'pending';
-	                return $http({
-	                    url: file.deleteUrl,
-	                    method: file.deleteType
-	                }).then(
-	                    function () {
-	                        state = 'resolved';
-	                        $scope.clear(file);
-	                    },
-	                    function () {
-	                        state = 'rejected';
-	                    }
-	                );
-	            };
-	        } else if (!file.$cancel && !file._index) {
-	            file.$cancel = function () {
-	                $scope.clear(file);
-	            };
-	        }*/
 
 
 		//Inicia o obj produto do formulário vario
@@ -61,6 +34,7 @@ angular.module('app.controllers', ['socket-io'])
 		$scope.list();
 	
         $scope.salvar = function () {
+            console.log($scope);
             if($scope.produto._id){
                 Produto.update({id : $scope.produto._id}, $scope.produto, function () {
                     $scope.msg.text = "Produto "+$scope.produto.nome+" Atualizado com sucesso";
@@ -106,6 +80,25 @@ angular.module('app.controllers', ['socket-io'])
     		});
 		}
 		
+		$scope.addDisponibilidade = function () {
+		    
+		    if(!$scope.produto.disponibilidades)
+		        $scope.produto.disponibilidades = [];
+		    var obj = {};
+		    obj.nome = $scope._tmp.disponibilidade.nome;
+		    $scope.produto.disponibilidades.push(obj);
+		    $scope._tmp.disponibilidade = {};
+		}
+		
+		$scope.addDisponibilidadeValor = function (disponibilidade) {
+		    if(!disponibilidade.valores)
+		        disponibilidade.valores = [];
+		    
+		    disponibilidade.valores.push(disponibilidade.valor);
+		    disponibilidade.valor = "";
+		}
+		
+		
 		$scope.addCaracteristica = function () {
 		    if(!$scope.produto.caracteristicas)
 		        $scope.produto.caracteristicas = [];
@@ -117,6 +110,14 @@ angular.module('app.controllers', ['socket-io'])
 		    for(var c in $scope.produto.caracteristicas){
 		        if(caracteristica.$$hashKey == $scope.produto.caracteristicas[c].$$hashKey){
 		            $scope.produto.caracteristicas.splice(c, 1);
+		        }
+		    }
+		}
+		
+		$scope.excluirValor = function (valor, disponibilidade) {
+		    for(var c in disponibilidade.valores){
+		        if(valor.$$hashKey == disponibilidade.valores[c].$$hashKey){
+		            disponibilidade.valores.splice(c, 1);
 		        }
 		    }
 		}
@@ -136,6 +137,8 @@ angular.module('app.controllers', ['socket-io'])
 		        }
 		    }
 		}
+		
+		
 	}
 ])
 
