@@ -176,7 +176,7 @@ function enable_arrows( dataslide ) {
 	if ( dataslide != 6 ) {
 		$('#arrow-down').removeClass('disabled');
 	}
-	if ( dataslide == 3 ) {
+	if ( dataslide == 4 ) {
 		$('#arrow-left').removeClass('disabled');
 		$('#arrow-right').removeClass('disabled');
 	}
