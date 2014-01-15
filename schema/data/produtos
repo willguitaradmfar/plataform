@@ -1,24 +1,12 @@
-{"k":"0000000080","o":"0000000217","v":"001"}
-{"_id":24,"_uid":24,"_dt":1389049622633,"_s":"459221b1ce9982defb6b5edbdcd2293d"}
-{"nome":"ddsadsdasdas","_id":{"$wrap":"$oid","v":24},"dtupdate":{"$wrap":"$date","v":1389049622626,"h":"2014-01-06T23:07:02.626Z"},"dtcreate":{"$wrap":"$date","v":1389049622626,"h":"2014-01-06T23:07:02.626Z"},"__v":0}
-{"k":"0000000080","o":"0000000221","v":"001"}
-{"_id":25,"_uid":25,"_dt":1389049628816,"_s":"41caceea842af24ab7eee0ba66369065"}
-{"nome":"dfgegrewgw4egfew","_id":{"$wrap":"$oid","v":25},"dtupdate":{"$wrap":"$date","v":1389049628815,"h":"2014-01-06T23:07:08.815Z"},"dtcreate":{"$wrap":"$date","v":1389049628815,"h":"2014-01-06T23:07:08.815Z"},"__v":0}
-{"k":"0000000080","o":"0000000221","v":"001"}
-{"_id":26,"_uid":26,"_dt":1389049634236,"_s":"1521545680230e14eef907c1cff9c496"}
-{"nome":"wefewfwefwefwefe","_id":{"$wrap":"$oid","v":26},"dtupdate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"dtcreate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"__v":0}
-{"k":"0000000080","o":"0000000195","v":"001"}
-{"_id":27,"_uid":27,"_dt":1389050962276,"_s":"04974217e08b3683e8eaccc369350def"}
-{"_id":{"$wrap":"$oid","v":27},"dtupdate":{"$wrap":"$date","v":1389050962274,"h":"2014-01-06T23:29:22.274Z"},"dtcreate":{"$wrap":"$date","v":1389050962274,"h":"2014-01-06T23:29:22.274Z"},"__v":0}
-{"k":"0000000080","o":"0000000486","v":"001"}
-{"_id":28,"_uid":33,"_dt":1389313374613,"_s":"2fa4209c4e1c8f5d579804a9dc2289bb"}
-{"descricao":"teste","nome":"celular galaxy","_id":{"$wrap":"$oid","v":28},"dtupdate":{"$wrap":"$date","v":1389313374611,"h":"2014-01-10T00:22:54.611Z"},"dtcreate":{"$wrap":"$date","v":1389313185653,"h":"2014-01-10T00:19:45.653Z"},"__v":3,"caracteristicas":[{"caracteristica":"cor","valor":"vermelho","_id":{"$wrap":"$oid","v":29}}],"tags":[{"nome":"teste1","_id":{"$wrap":"$oid","v":30}},{"nome":"teste2","_id":{"$wrap":"$oid","v":31}},{"nome":"teste4","_id":{"$wrap":"$oid","v":33}}]}
-{"k":"0000000080","o":"0000000211","v":"001"}
-{"_id":34,"_uid":34,"_dt":1389316863306,"_s":"a9111d89a6fe60bb78ba253f9ebb44bf"}
-{"nome":"lklklk","_id":{"$wrap":"$oid","v":34},"dtupdate":{"$wrap":"$date","v":1389316863297,"h":"2014-01-10T01:21:03.297Z"},"dtcreate":{"$wrap":"$date","v":1389316863297,"h":"2014-01-10T01:21:03.297Z"},"__v":0}
-{"k":"0000000080","o":"0000000208","v":"001"}
-{"_id":35,"_uid":35,"_dt":1389317009863,"_s":"734f90fa1c8f7cd1ded7ded5c3a00b68"}
-{"nome":"wer","_id":{"$wrap":"$oid","v":35},"dtupdate":{"$wrap":"$date","v":1389317009861,"h":"2014-01-10T01:23:29.861Z"},"dtcreate":{"$wrap":"$date","v":1389317009861,"h":"2014-01-10T01:23:29.861Z"},"__v":0}
-{"k":"0000000080","o":"0000000285","v":"001"}
-{"_id":36,"_uid":36,"_dt":1389319410178,"_s":"3f1993a2f22a2bf74105ff4d6d157550"}
-{"descricao":"lçkaskjdflçaj","nome":"sdsdfçalsdjflçajskdflçakjsdflçkjasdlçfkjlçkj","_id":{"$wrap":"$oid","v":36},"dtupdate":{"$wrap":"$date","v":1389319410177,"h":"2014-01-10T02:03:30.177Z"},"dtcreate":{"$wrap":"$date","v":1389319410177,"h":"2014-01-10T02:03:30.177Z"},"__v":0}
+{"k":"0000000080","o":"0000000870","v":"001"}
+{"_id":26,"_uid":51,"_dt":1389800224861,"_s":"68c4a51ead858e868f4676345c773f6e"}
+{"nome":"RADIO AM/FM MP3","_id":{"$wrap":"$oid","v":26},"dtupdate":{"$wrap":"$date","v":1389800224858,"h":"2014-01-15T15:37:04.858Z"},"dtcreate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"__v":5,"caracteristicas":[{"caracteristica":"COR","valor":"PRETA","_id":{"$wrap":"$oid","v":43}}],"tags":[{"nome":"BLUSA","_id":{"$wrap":"$oid","v":44}},{"nome":"MP3","_id":{"$wrap":"$oid","v":48}},{"nome":"SOM","_id":{"$wrap":"$oid","v":49}},{"nome":"MUSICA","_id":{"$wrap":"$oid","v":50}},{"nome":"RITMO","_id":{"$wrap":"$oid","v":51}}],"disponibilidades":[{"nome":"TAM","_id":{"$wrap":"$oid","v":45},"valores":["16","27","25"]},{"nome":"COR","_id":{"$wrap":"$oid","v":46},"valores":["AZUL","PRETO","VERMELHO"]},{"nome":"VOLTS","_id":{"$wrap":"$oid","v":47},"valores":["110V","220V"]}],"descricao":"RADIO AM/FM MP3 ;;; RADIO AM/FM MP3 ;; RADIO AM/FM MP3"}
+{"k":"0000000080","o":"0000000946","v":"001"}
+{"_id":26,"_uid":52,"_dt":1389800389179,"_s":"d91be329576da31924ecf6bb518142af"}
+{"nome":"RADIO AM/FM MP3","_id":{"$wrap":"$oid","v":26},"dtupdate":{"$wrap":"$date","v":1389800389164,"h":"2014-01-15T15:39:49.164Z"},"dtcreate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"__v":6,"caracteristicas":[{"caracteristica":"COR","valor":"PRETA","_id":{"$wrap":"$oid","v":43}},{"caracteristica":"VOLTS","valor":"110/220V","_id":{"$wrap":"$oid","v":52}}],"tags":[{"nome":"BLUSA","_id":{"$wrap":"$oid","v":44}},{"nome":"MP3","_id":{"$wrap":"$oid","v":48}},{"nome":"SOM","_id":{"$wrap":"$oid","v":49}},{"nome":"MUSICA","_id":{"$wrap":"$oid","v":50}},{"nome":"RITMO","_id":{"$wrap":"$oid","v":51}}],"disponibilidades":[{"nome":"TAM","_id":{"$wrap":"$oid","v":45},"valores":["16","27","25"]},{"nome":"COR","_id":{"$wrap":"$oid","v":46},"valores":["AZUL","PRETO","VERMELHO"]},{"nome":"VOLTS","_id":{"$wrap":"$oid","v":47},"valores":["110V","220V"]}],"descricao":"RADIO AM/FM MP3 ;;; RADIO AM/FM MP3 ;; RADIO AM/FM MP3"}
+{"k":"0000000080","o":"0000000870","v":"001"}
+{"_id":26,"_uid":52,"_dt":1389800406957,"_s":"8034771650707fb9afa9c6ad6af5c6e0"}
+{"nome":"RADIO AM/FM MP3","_id":{"$wrap":"$oid","v":26},"dtupdate":{"$wrap":"$date","v":1389800406953,"h":"2014-01-15T15:40:06.953Z"},"dtcreate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"__v":7,"caracteristicas":[{"caracteristica":"COR","valor":"PRETA","_id":{"$wrap":"$oid","v":43}}],"tags":[{"nome":"BLUSA","_id":{"$wrap":"$oid","v":44}},{"nome":"MP3","_id":{"$wrap":"$oid","v":48}},{"nome":"SOM","_id":{"$wrap":"$oid","v":49}},{"nome":"MUSICA","_id":{"$wrap":"$oid","v":50}},{"nome":"RITMO","_id":{"$wrap":"$oid","v":51}}],"disponibilidades":[{"nome":"TAM","_id":{"$wrap":"$oid","v":45},"valores":["16","27","25"]},{"nome":"COR","_id":{"$wrap":"$oid","v":46},"valores":["AZUL","PRETO","VERMELHO"]},{"nome":"VOLTS","_id":{"$wrap":"$oid","v":47},"valores":["110V","220V"]}],"descricao":"RADIO AM/FM MP3 ;;; RADIO AM/FM MP3 ;; RADIO AM/FM MP3"}
+{"k":"0000000080","o":"0000000823","v":"001"}
+{"_id":26,"_uid":52,"_dt":1389800423705,"_s":"66585d06e069ba67da8be14d7560ebe8"}
+{"nome":"RADIO AM/FM MP3","_id":{"$wrap":"$oid","v":26},"dtupdate":{"$wrap":"$date","v":1389800423701,"h":"2014-01-15T15:40:23.701Z"},"dtcreate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"__v":8,"caracteristicas":[{"caracteristica":"COR","valor":"PRETA","_id":{"$wrap":"$oid","v":43}}],"tags":[{"nome":"MP3","_id":{"$wrap":"$oid","v":48}},{"nome":"SOM","_id":{"$wrap":"$oid","v":49}},{"nome":"MUSICA","_id":{"$wrap":"$oid","v":50}},{"nome":"RITMO","_id":{"$wrap":"$oid","v":51}}],"disponibilidades":[{"nome":"TAM","_id":{"$wrap":"$oid","v":45},"valores":["16","27","25"]},{"nome":"COR","_id":{"$wrap":"$oid","v":46},"valores":["AZUL","PRETO","VERMELHO"]},{"nome":"VOLTS","_id":{"$wrap":"$oid","v":47},"valores":["110V","220V"]}],"descricao":"RADIO AM/FM MP3 ;;; RADIO AM/FM MP3 ;; RADIO AM/FM MP3"}

@@ -339,6 +339,12 @@ body .tabbable {
 color: #141314;
 }
 
+
+.bordona{
+    padding-top:15px;
+    border: solid #ccc 1px;
+    border-radius:4px;}
+
 .tabbable.custom-tabs>.nav-tabs, .tabbable.custom-tabs>.nav-tabs>li, .tabbable.custom-tabs>.nav-tabs>li>a {
 margin: 0;
 padding: 0;

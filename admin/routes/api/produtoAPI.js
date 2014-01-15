@@ -29,6 +29,7 @@ module.exports = function(app, config, db, query, redisClient) {
 		newProduto.peso = req.body.peso;
 		newProduto.fornecedor = req.body.fornecedor;
 		newProduto.caracteristicas = req.body.caracteristicas;
+		newProduto.disponibilidades = req.body.disponibilidades;
 		newProduto.tags = req.body.tags;
         
 		newProduto.save(function (err, produto) {
@@ -62,6 +63,7 @@ module.exports = function(app, config, db, query, redisClient) {
 				newProduto.peso = req.body.peso;
 				newProduto.fornecedor = req.body.fornecedor;
 				newProduto.caracteristicas = req.body.caracteristicas;
+				newProduto.disponibilidades = req.body.disponibilidades;
 				newProduto.tags = req.body.tags;
 				
 				newProduto.dtupdate = new Date();

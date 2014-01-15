@@ -88,6 +88,7 @@ angular.module('app.controllers', ['socket-io'])
 		    obj.nome = $scope._tmp.disponibilidade.nome;
 		    $scope.produto.disponibilidades.push(obj);
 		    $scope._tmp.disponibilidade = {};
+		    console.log($scope.produto.disponibilidades);
 		}
 		
 		$scope.addDisponibilidadeValor = function (disponibilidade) {

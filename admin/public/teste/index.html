@@ -37,6 +37,14 @@
                   <li class="active"><a href="#">Inicio</a></li>
                   <li><a href="#">quem somos</a></li>
                   <li><a href="#">Contato</a></li>
+                   <li class="dropdown alerts-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Notificações<span class="badge">{{notificacoes.length}}</span> <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li ng-repeat="notificacao in notificacoes | orderBy:'$$hashKey':true">
+                        <a href="#/{{notificacao.entidade}}/{{notificacao._id}}">{{notificacao.date}}<span class="label label-{{notificacao.nivel}}">{{notificacao.text}}</span></a>
+                    </li>
+                  </ul>
+                </li>
                 </ul>
                 
               </div><!-- /.navbar-collapse -->

@@ -247,7 +247,7 @@
 
            <div class="row">
            
-                  <div class="col-xs-4 celular" ng-repeat="disponibilidade in produto.disponibilidades">
+                  <div class="col-xs-4 celular bordona" ng-repeat="disponibilidade in produto.disponibilidades">
                   <div class="row">
 
                     <div class="col-xs-4 celular">
@@ -269,7 +269,7 @@
                     <thead>
                       <tr>
                         <th>{{disponibilidade.nome}}</th>
-                        <th>Excluir</th>
+                        <th><button class="btn btn-danger" ng-click="excluirValor(valor, disponibilidade)"><i class="fa fa-times"></i></button></th>
                       </tr>
                       
                     </thead>
@@ -285,7 +285,7 @@
                   
           
           </div><!--/row-->
-
+            <hr>
           <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
           <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
 

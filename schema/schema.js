@@ -16,6 +16,11 @@ mongoose.connect('tingodb://'+__dirname+'/data', function(err) {
 	}
 });
 
+
+var disponibilidadeObjSchema = {};
+disponibilidadeObjSchema.nome = "String";
+disponibilidadeObjSchema.valores = [String];
+
 var caracteristicaObjSchema = {};
 caracteristicaObjSchema.caracteristica = "String";
 caracteristicaObjSchema.valor = "String";
@@ -35,6 +40,7 @@ produtoObjSchema.unidade = "String";
 produtoObjSchema.peso = "Number";
 produtoObjSchema.fornecedor = "String";
 produtoObjSchema.caracteristicas = [caracteristicaObjSchema];
+produtoObjSchema.disponibilidades = [disponibilidadeObjSchema];
 produtoObjSchema.tags = [tagObjSchema];
 var produtoSchema = mongoose.Schema(produtoObjSchema);
 module.exports.Produto = mongoose.model('produto', produtoSchema);
