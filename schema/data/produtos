@@ -4,3 +4,12 @@
 {"k":"0000000080","o":"0000000446","v":"001"}
 {"_id":53,"_uid":56,"_dt":1389800604985,"_s":"679188b2e3bc9430751bbe8f18197520"}
 {"nome":"produto add weslley","_id":{"$wrap":"$oid","v":53},"disponibilidades":[{"nome":"teste","_id":{"$wrap":"$oid","v":54},"valores":["valor1","dois1"]},{"nome":"tetetet","_id":{"$wrap":"$oid","v":55},"valores":[]},{"nome":"produto3","_id":{"$wrap":"$oid","v":56},"valores":[]}],"dtupdate":{"$wrap":"$date","v":1389800604975,"h":"2014-01-15T15:43:24.975Z"},"dtcreate":{"$wrap":"$date","v":1389800604975,"h":"2014-01-15T15:43:24.975Z"},"__v":0}
+{"k":"0000000051","o":"0000000000","v":"001"}
+{"_id":26,"_uid":56,"_dt":1389883637812,"_a":"del"}
+
+{"k":"0000000051","o":"0000000000","v":"001"}
+{"_id":53,"_uid":56,"_dt":1389883638987,"_a":"del"}
+
+{"k":"0000000080","o":"0000000478","v":"001"}
+{"_id":57,"_uid":61,"_dt":1389883883236,"_s":"9b849ea3c4f4ce039195a5b82899abf4"}
+{"nome":"cone","_id":{"$wrap":"$oid","v":57},"tags":[{"nome":"camisa","_id":{"$wrap":"$oid","v":58}},{"nome":"azxul","_id":{"$wrap":"$oid","v":59}}],"caracteristicas":[{"caracteristica":"cor","valor":"preto","_id":{"$wrap":"$oid","v":60}},{"caracteristica":"polegadas","valor":"35","_id":{"$wrap":"$oid","v":61}}],"dtupdate":{"$wrap":"$date","v":1389883883224,"h":"2014-01-16T14:51:23.224Z"},"dtcreate":{"$wrap":"$date","v":1389883883224,"h":"2014-01-16T14:51:23.224Z"},"__v":0}
