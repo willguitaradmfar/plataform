@@ -64,7 +64,10 @@ if ('development' == app.get('env')) {
 
 //redirecionamento temporário
 app.get('/', function(req, res) {
-	res.redirect("/admin/index.html");
+	if(process.env.REDIRECT_PATH)
+		res.redirect(process.env.REDIRECT_PATH);
+	else
+		res.redirect("/admin/index.html");
 });
 
 app.get('/postit/config', function(req, res) {
