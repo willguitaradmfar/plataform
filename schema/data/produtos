@@ -1,15 +1,6 @@
-{"k":"0000000080","o":"0000000823","v":"001"}
-{"_id":26,"_uid":52,"_dt":1389800423705,"_s":"66585d06e069ba67da8be14d7560ebe8"}
-{"nome":"RADIO AM/FM MP3","_id":{"$wrap":"$oid","v":26},"dtupdate":{"$wrap":"$date","v":1389800423701,"h":"2014-01-15T15:40:23.701Z"},"dtcreate":{"$wrap":"$date","v":1389049634235,"h":"2014-01-06T23:07:14.235Z"},"__v":8,"caracteristicas":[{"caracteristica":"COR","valor":"PRETA","_id":{"$wrap":"$oid","v":43}}],"tags":[{"nome":"MP3","_id":{"$wrap":"$oid","v":48}},{"nome":"SOM","_id":{"$wrap":"$oid","v":49}},{"nome":"MUSICA","_id":{"$wrap":"$oid","v":50}},{"nome":"RITMO","_id":{"$wrap":"$oid","v":51}}],"disponibilidades":[{"nome":"TAM","_id":{"$wrap":"$oid","v":45},"valores":["16","27","25"]},{"nome":"COR","_id":{"$wrap":"$oid","v":46},"valores":["AZUL","PRETO","VERMELHO"]},{"nome":"VOLTS","_id":{"$wrap":"$oid","v":47},"valores":["110V","220V"]}],"descricao":"RADIO AM/FM MP3 ;;; RADIO AM/FM MP3 ;; RADIO AM/FM MP3"}
-{"k":"0000000080","o":"0000000446","v":"001"}
-{"_id":53,"_uid":56,"_dt":1389800604985,"_s":"679188b2e3bc9430751bbe8f18197520"}
-{"nome":"produto add weslley","_id":{"$wrap":"$oid","v":53},"disponibilidades":[{"nome":"teste","_id":{"$wrap":"$oid","v":54},"valores":["valor1","dois1"]},{"nome":"tetetet","_id":{"$wrap":"$oid","v":55},"valores":[]},{"nome":"produto3","_id":{"$wrap":"$oid","v":56},"valores":[]}],"dtupdate":{"$wrap":"$date","v":1389800604975,"h":"2014-01-15T15:43:24.975Z"},"dtcreate":{"$wrap":"$date","v":1389800604975,"h":"2014-01-15T15:43:24.975Z"},"__v":0}
-{"k":"0000000051","o":"0000000000","v":"001"}
-{"_id":26,"_uid":56,"_dt":1389883637812,"_a":"del"}
-
-{"k":"0000000051","o":"0000000000","v":"001"}
-{"_id":53,"_uid":56,"_dt":1389883638987,"_a":"del"}
-
 {"k":"0000000080","o":"0000000478","v":"001"}
 {"_id":57,"_uid":61,"_dt":1389883883236,"_s":"9b849ea3c4f4ce039195a5b82899abf4"}
 {"nome":"cone","_id":{"$wrap":"$oid","v":57},"tags":[{"nome":"camisa","_id":{"$wrap":"$oid","v":58}},{"nome":"azxul","_id":{"$wrap":"$oid","v":59}}],"caracteristicas":[{"caracteristica":"cor","valor":"preto","_id":{"$wrap":"$oid","v":60}},{"caracteristica":"polegadas","valor":"35","_id":{"$wrap":"$oid","v":61}}],"dtupdate":{"$wrap":"$date","v":1389883883224,"h":"2014-01-16T14:51:23.224Z"},"dtcreate":{"$wrap":"$date","v":1389883883224,"h":"2014-01-16T14:51:23.224Z"},"__v":0}
+{"k":"0000000080","o":"0000000563","v":"001"}
+{"_id":57,"_uid":62,"_dt":1389895431953,"_s":"4a7eb81c571c8410c3d31b70cd32b477"}
+{"nome":"cone","_id":{"$wrap":"$oid","v":57},"tags":[{"nome":"camisa","_id":{"$wrap":"$oid","v":58}},{"nome":"azxul","_id":{"$wrap":"$oid","v":59}}],"caracteristicas":[{"caracteristica":"cor","valor":"preto","_id":{"$wrap":"$oid","v":60}},{"caracteristica":"polegadas","valor":"35","_id":{"$wrap":"$oid","v":61}}],"dtupdate":{"$wrap":"$date","v":1389895431896,"h":"2014-01-16T18:03:51.896Z"},"dtcreate":{"$wrap":"$date","v":1389883883224,"h":"2014-01-16T14:51:23.224Z"},"__v":1,"disponibilidades":[{"nome":"teste","_id":{"$wrap":"$oid","v":62},"valores":["se"]}]}
