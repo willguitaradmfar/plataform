@@ -2,8 +2,20 @@
 var schedule = require('node-schedule');
 //---------------------------------------------------------------//
 
+var mail = require("nodemailer").mail;
 
 module.exports = function(config, db, query, redisClient) {
+    
+    var sendMailAdministrator = function(obj){
+        mail({
+            from: "JOMOW <admnistrator@jomow.com.br>", // sender address
+            to: "willguitaradmfar@gmail.com", // list of receivers
+            subject: "Notificação JOMOW", // Subject line
+            text: obj.text,//"Hello world", // plaintext body
+            html: obj.html//"<b>Hello world</b>" // html body
+        });
+        console.log('Enviando email para administrador');
+    }
     
     var indexProdutoSolr = function (produto, cb) {
         var doc = {};
@@ -73,6 +85,10 @@ module.exports = function(config, db, query, redisClient) {
         queueLPOP("produto::update", atualizaProdutoSolr);
         
         queueLPOP("produto::remove", deletaProdutoSolr);
+        
+        queueLPOP("system::mail::administrator", sendMailAdministrator);
        
     });
+    
+    
 };

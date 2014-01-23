@@ -81,4 +81,5 @@ require('../queue/queue.js')(config, db, query, redisClient);
 
 server.listen(app.get('port'), function() {
 	console.log('Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP);
+	redisClient.rpush('system::mail::administrator', JSON.stringify({text : 'Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP, html : '<b>Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP+'</b>'}));
 });
