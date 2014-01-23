@@ -73,7 +73,7 @@ app.get('/', function(req, res) {
 app.get('/postit/config', function(req, res) {
 	res.send(config.public);
 });
-
+require('./routes/api/emailAPI')(app, config, db, query, redisClient);
 require('./routes/api/produtoAPI')(app, config, db, query, redisClient);
 require('./routes/api/loginAPI')(app, config, db, query, redisClient);
 

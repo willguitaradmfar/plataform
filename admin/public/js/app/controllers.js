@@ -10,8 +10,8 @@ angular.module('app.controllers', ['socket-io'])
 	}
 ])
 
-.controller('ProdutoController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Produto', 'socket',
-	function($scope, $location,  $http, $templateCache, $routeParams, Produto, socket) {
+.controller('ProdutoController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Produto', 'socket', 'Email', 
+	function($scope, $location,  $http, $templateCache, $routeParams, Produto, socket, Email) {
 		console.log('ProdutoController');
 		$scope.msg = {};
 
@@ -19,8 +19,6 @@ angular.module('app.controllers', ['socket-io'])
                     url: 'http://192.241.176.21:8080'
         };
     
-
-
 		//Inicia o obj produto do formulário vario
 		$scope.produto = {};
 	
@@ -33,7 +31,15 @@ angular.module('app.controllers', ['socket-io'])
 		
 		$scope.list();
 	
+	
+	
         $scope.salvar = function () {
+            Email.enviar({
+                from : 'contato@jomow.com.br',
+                to : 'willguitaradmfar@gmail.com',
+                subject : 'Contato',
+                text : 'HAHAHAHAH'
+            })
             console.log($scope);
             if($scope.produto._id){
                 Produto.update({id : $scope.produto._id}, $scope.produto, function () {

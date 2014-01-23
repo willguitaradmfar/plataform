@@ -4,3 +4,6 @@
 {"k":"0000000080","o":"0000000563","v":"001"}
 {"_id":57,"_uid":62,"_dt":1389895431953,"_s":"4a7eb81c571c8410c3d31b70cd32b477"}
 {"nome":"cone","_id":{"$wrap":"$oid","v":57},"tags":[{"nome":"camisa","_id":{"$wrap":"$oid","v":58}},{"nome":"azxul","_id":{"$wrap":"$oid","v":59}}],"caracteristicas":[{"caracteristica":"cor","valor":"preto","_id":{"$wrap":"$oid","v":60}},{"caracteristica":"polegadas","valor":"35","_id":{"$wrap":"$oid","v":61}}],"dtupdate":{"$wrap":"$date","v":1389895431896,"h":"2014-01-16T18:03:51.896Z"},"dtcreate":{"$wrap":"$date","v":1389883883224,"h":"2014-01-16T14:51:23.224Z"},"__v":1,"disponibilidades":[{"nome":"teste","_id":{"$wrap":"$oid","v":62},"valores":["se"]}]}
+{"k":"0000000080","o":"0000000230","v":"001"}
+{"_id":63,"_uid":63,"_dt":1390500853938,"_s":"23717a89ac89ab3209398cbe8849ae70"}
+{"descricao":"adf","nome":"asdffad","_id":{"$wrap":"$oid","v":63},"dtupdate":{"$wrap":"$date","v":1390500853896,"h":"2014-01-23T18:14:13.896Z"},"dtcreate":{"$wrap":"$date","v":1390500853896,"h":"2014-01-23T18:14:13.896Z"},"__v":0}

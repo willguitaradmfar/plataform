@@ -17,6 +17,17 @@ module.exports = function(config, db, query, redisClient) {
         console.log('Enviando email para administrador');
     }
     
+    var sendMail = function(obj){
+        mail({
+            from: obj.from,
+            to: obj.to,
+            subject: obj.subject,
+            text: obj.text
+            
+        });
+        console.log('Enviando email');
+    }
+    
     var indexProdutoSolr = function (produto, cb) {
         var doc = {};
         doc.id = produto._id;
@@ -87,6 +98,8 @@ module.exports = function(config, db, query, redisClient) {
         queueLPOP("produto::remove", deletaProdutoSolr);
         
         queueLPOP("system::mail::administrator", sendMailAdministrator);
+        
+        queueLPOP("email::send", sendMail);
        
     });
     
