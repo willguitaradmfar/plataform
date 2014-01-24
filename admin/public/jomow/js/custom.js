@@ -1,3 +1,8 @@
+$( document ).click(function() {
+            
+         var a = $(document).scrollTop();
+        console.log(a);
+});
 //to declarando a posição da pagina
 var site = $("#site").offset().top;
 var loja = $("#loja").offset().top;
