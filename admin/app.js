@@ -3,6 +3,10 @@ var express = require('express'),
 	path = require('path');
 
 //---------------------------------------------------------------//
+moment = require('moment');
+//---------------------------------------------------------------//
+
+//---------------------------------------------------------------//
 var app = express();
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
@@ -80,7 +84,7 @@ require('./routes/api/loginAPI')(app, config, db, query, redisClient);
 require('../queue/queue.js')(config, db, query, redisClient);
 
 server.listen(app.get('port'), function() {
-    var msg = 'Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+new Date().toLocaleString() + '\n'
+    var msg = 'Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
         + JSON.stringify(config);
 	console.log(msg);
 	redisClient.rpush('system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
