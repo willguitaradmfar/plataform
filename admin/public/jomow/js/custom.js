@@ -1,5 +1,12 @@
 
 $(document).ready(function(){
+  
+  $("#btnmix").click(function() {
+ 
+    $('#myModal').modal('show');
+  
+ 
+});
           $(document).mousemove(function(e){
              TweenLite.to($('.siteconteudo'), 
                 .5, 

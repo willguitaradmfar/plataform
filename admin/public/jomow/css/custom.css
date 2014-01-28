@@ -164,7 +164,7 @@ SITES
 */
 .font-center{
     text-align:center;
-    color:#fff;
+   
   }
 .font-center a{
     color:#fff;
@@ -180,6 +180,39 @@ SITES
     padding-top:100px;
     background-color: rgb(54, 169, 225);
     color: #fff;
+}
+
+.col-align-igual{
+    text-align:center;
+    font-size: 159px;
+    padding-top: 76px;
+}
+
+@media (max-width: 768px) {
+ 
+    .col-align-igual{
+    padding-top: 28px;
+    font-size: 100px;
+    }
+    
+}
+#myModal{
+    overflow:hidden;
+}
+#myframe{
+  position: absolute;
+  top: 89px;
+  left: 37px;
+  height: 441px;
+  width: 251px;
+}
+.btniframe{
+  position: absolute;
+  top: 538px;
+  left: 133px;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
 }
 
 
