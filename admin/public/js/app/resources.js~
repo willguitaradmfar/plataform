@@ -4,7 +4,7 @@ angular.module('app.resource', ["ngResource"])
 
 .factory('Produto', function ($resource) {
       return $resource('/produto/:id', {}, {
-        list: {method:'GET', params : {id : 'all'}, isArray:true},
+        list: {method:'GET', params : {id : 'all', s : 's'}, isArray:true},
         get: {method:'GET', params : {id : 'idPassado'}},
         save: {method:'POST'},
         update: {method:'PUT', params : {id : 'idPassado'}},

@@ -4,7 +4,7 @@ var schedule = require('node-schedule');
 
 var mail = require("nodemailer").mail;
 
-module.exports = function(config, redisClient) {
+module.exports = function(config, db, query, redisClient) {
     
     var sendMailAdministrator = function(obj){
         mail({
