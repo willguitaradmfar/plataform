@@ -1,9 +1,3 @@
-{"k":"0000000080","o":"0000000286","v":"001"}
-{"_id":67,"_uid":67,"_dt":1390962323744,"_s":"04a27f872d828b8f5b102df5bd4b68fc"}
-{"nome":"yyyyyyy","_id":{"$wrap":"$oid","v":67},"dtupdate":{"$wrap":"$date","v":1390962323737,"h":"2014-01-29T02:25:23.737Z"},"dtcreate":{"$wrap":"$date","v":1390962288734,"h":"2014-01-29T02:24:48.734Z"},"__v":1,"caracteristicas":[],"descricao":"pppppp","disponibilidades":[],"tags":[]}
-{"k":"0000000080","o":"0000000289","v":"001"}
-{"_id":67,"_uid":67,"_dt":1390963243676,"_s":"0bd339c3582926ef425e261519748de6"}
-{"nome":"yyyyyyy","_id":{"$wrap":"$oid","v":67},"dtupdate":{"$wrap":"$date","v":1390963243668,"h":"2014-01-29T02:40:43.668Z"},"dtcreate":{"$wrap":"$date","v":1390962288734,"h":"2014-01-29T02:24:48.734Z"},"__v":1,"caracteristicas":[],"descricao":"ppppppddf","disponibilidades":[],"tags":[]}
 {"k":"0000000080","o":"0000000291","v":"001"}
 {"_id":67,"_uid":67,"_dt":1390963723798,"_s":"3109eed352074fee11f086207412c4df"}
 {"nome":"yyyyyyy","_id":{"$wrap":"$oid","v":67},"dtupdate":{"$wrap":"$date","v":1390963723791,"h":"2014-01-29T02:48:43.791Z"},"dtcreate":{"$wrap":"$date","v":1390962288734,"h":"2014-01-29T02:24:48.734Z"},"__v":1,"caracteristicas":[],"descricao":"aaaaaaaaaaa","disponibilidades":[],"tags":[]}
