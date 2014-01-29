@@ -205,6 +205,7 @@ SITES
   left: 37px;
   height: 441px;
   width: 251px;
+  overflow-x:hidden;
 }
 .btniframe{
   position: absolute;
@@ -224,7 +225,7 @@ Time line do site
 
 .timeline {
     list-style: none;
-    padding: 20px 0 20px;
+    padding: 20px 0 20px; 
     position: relative;
 }
 
@@ -243,6 +244,7 @@ Time line do site
     .timeline > li {
         margin-bottom: 20px;
         position: relative;
+        margin-top: 70px;
     }
 
         .timeline > li:before,
@@ -417,10 +419,57 @@ LOJAS
 =========================
 */
 #loja{
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 100px;
-  background-color: rgb(160, 169, 225);
+  background-color: rgb(52, 73, 94);
   color: #fff;
+}
+.lojavirtual{
+    width:440px;
+    margin-left: -40px;
+
+}
+@media (max-width: 767px) {
+    .lojavirtual{
+        width: 100%;
+        margin-left: 0px;
+    }
+    
+}
+
+.shape{	
+	border-style: solid;
+	border-width: 0 90px 80px 0;
+	float:right; height: 0px; width: 0px;
+	-ms-transform:rotate(360deg); /* IE 9 */
+	-o-transform: rotate(360deg);  /* Opera 10.5 */
+	-webkit-transform:rotate(360deg); /* Safari and Chrome */
+	transform:rotate(360deg);
+}
+
+.offer-primary {	border-color: #428bca; }
+.offer-primary .shape{
+	border-color: transparent #428bca transparent transparent;
+	border-color: rgba(255,255,255,0) #428bca rgba(255,255,255,0) rgba(255,255,255,0);
+}
+
+.shape-text{
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    position: relative;
+    right: -50px;
+    top: 20px;
+	}	
+.offer-content{
+	padding:0 20px 10px;
+}
+.offer{
+    color:#000;
+	background:#fff;border: 2px solid #428bca;; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 15px 0; overflow:hidden;
+}
+.offer-radius{
+	border-radius:7px;
 }
 /*
 =========================
@@ -428,7 +477,7 @@ CONTATO
 =========================
 */
 #contato{
-  padding-top: 50px;
+  padding-top: 70px;
   background-color: #ff5454;
   color: #fff;
 }

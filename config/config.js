@@ -17,7 +17,7 @@ var config = {
 	redis : {
 	    host : 'pub-redis-15819.us-east-1-3.1.ec2.garantiadata.com',
 	    port : '15819',
-	    password : 'willguitaradmfar'
+	    password : 'admfarguitarwill'
 	},
 	solr : {
 	    host : '192.241.176.21',

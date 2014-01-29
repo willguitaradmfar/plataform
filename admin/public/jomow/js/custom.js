@@ -49,13 +49,15 @@ $('a.menu').click(function(){
    
 });
 
-$('.contato').click(function(){
+$('.contato,.btncontato').click(function(){
      $('html, body').animate({scrollTop:contato}, 1000);
       return false;
 });
+
 
 $('.bntsitetopo').click(function(){
      $('html, body').animate({scrollTop:siteconteudo}, 1000);
       return false;
 });
+
 
