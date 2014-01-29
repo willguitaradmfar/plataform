@@ -68,7 +68,7 @@ app.configure(function() {
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto');
 require('../module/emailAPI')(app, config, redisClient);
-require('../queue/queue.js')(config, redisClient);
+require('../module/queue.js')(config, redisClient);
 
 server.listen(app.get('port'), function() {
     var msg = 'Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'

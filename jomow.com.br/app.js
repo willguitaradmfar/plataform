@@ -1,7 +1,8 @@
+
 var express = require('express'),
-	db = require('../schema/schema.js'),
-	path = require('path');		
-	_moduless = require('../module/_module.js');
+        db = require('../schema/schema.js'),
+        path = require('path');                
+        _moduless = require('../module/_module.js');
 
 
 //---------------------------------------------------------------//
@@ -15,7 +16,7 @@ var app = express();
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//
-var config = require('./config.js');
+config = require('./config.js');
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//
@@ -38,33 +39,34 @@ solrClient.autoCommit = true;
 /---------------------------------------------------------------//
 
 app.configure(function() {
-	app.set('port', process.env.PORT || config.domain.port);
-	app.set('views', __dirname + '/views');
-	app.set('view engine', 'ejs');
-	app.use(express.favicon(__dirname+'/public/favicon/favicon.ico'));
-	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
-	app.use(express.cookieParser());
-	app.use(express.session({
-		secret: 'monkey'
-	}));
-	app.use(app.router);
-	app.use(require('stylus').middleware(__dirname + '/public'));
-	app.use(express.bodyParser({
-		uploadDir: process.env.TMP
-	}));
-	app.use(express.static(path.join(__dirname, 'public')));
+        app.set('port', process.env.PORT || config.domain.port);
+        app.set('views', __dirname + '/views');
+        app.set('view engine', 'ejs');
+        app.use(express.favicon(__dirname+'/public/favicon/favicon.ico'));
+        app.use(express.logger('dev'));
+        app.use(express.bodyParser());
+        app.use(express.methodOverride());
+        app.use(express.cookieParser());
+        app.use(express.session({
+                secret: 'monkey'
+        }));
+        app.use(app.router);
+        app.use(require('stylus').middleware(__dirname + '/public'));
+        app.use(express.bodyParser({
+                uploadDir: process.env.TMP
+        }));
+        app.use(express.static(path.join(__dirname, 'public')));
 });
 
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto');
 require('../module/emailAPI')(app, config, redisClient);
-require('../queue/queue.js')(config, redisClient);
+require('../module/queue.js')(config, redisClient);
 
 server.listen(app.get('port'), function() {
     var msg = 'Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
         + JSON.stringify(config);
-	console.log(msg);
-	redisClient.rpush('system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
+        console.log(msg);
+        redisClient.rpush('system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
 });
+

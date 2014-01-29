@@ -9,7 +9,7 @@ var config = {
                 credentials: '', // username:password@
                 host: 'localhost',
                 port: ':27017', // :port
-                dbName: 'jomow'
+                dbName: 'jomow.com.br'
         },
         twitter: {
                 consumerKey: process.env.consumerKey,
@@ -26,8 +26,8 @@ var config = {
             password : ''
         },
         public: {
-                blogName: 'jomow',
-                blogDescription: 'jomow',
+                blogName: 'jomow.com.br',
+                blogDescription: 'jomow.com.br',
                 url: {
                         site: '/',
                         admin: '/admin',
