@@ -1,12 +1,12 @@
-export JO_DOMAIN=jomow.com.br
-export JO_MODELO=modelo/produto.xml
+export JO_DOMAIN=$1 || reiscon.com.br
+export JO_MODELO=xslt/modelo/produto.xml
 
 mkdir -p $JO_DOMAIN/public/js
 
-xsltproc --stringparam domain $JO_DOMAIN node-package-json.xslt $JO_MODELO > $JO_DOMAIN/package.json
-xsltproc --stringparam domain $JO_DOMAIN node-app.xslt $JO_MODELO > $JO_DOMAIN/app.js
-xsltproc --stringparam domain $JO_DOMAIN node-config.xslt $JO_MODELO > $JO_DOMAIN/config.js
-xsltproc --stringparam domain $JO_DOMAIN node-resource.xslt $JO_MODELO > $JO_DOMAIN/public/js/resource.js
-xsltproc --stringparam domain $JO_DOMAIN node-controller.xslt $JO_MODELO > $JO_DOMAIN/public/js/controller.js
-xsltproc --stringparam domain $JO_DOMAIN node-router.xslt $JO_MODELO > $JO_DOMAIN/public/js/router.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-package-json.xslt $JO_MODELO > $JO_DOMAIN/package.json
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-app.xslt $JO_MODELO > $JO_DOMAIN/app.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-config.xslt $JO_MODELO > $JO_DOMAIN/config.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-resource.xslt $JO_MODELO > $JO_DOMAIN/public/js/resource.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-controller.xslt $JO_MODELO > $JO_DOMAIN/public/js/controller.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-router.xslt $JO_MODELO > $JO_DOMAIN/public/js/router.js
 

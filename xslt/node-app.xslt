@@ -71,7 +71,7 @@ require('../module/emailAPI')(app, config, redisClient);
 require('../module/queue.js')(config, redisClient);
 
 server.listen(app.get('port'), function() {
-    var msg = 'Projeto admin esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
+    var msg = 'Projeto <xsl:value-of select="$domain"/> esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
         + JSON.stringify(config);
         console.log(msg);
         redisClient.rpush('system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
