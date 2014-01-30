@@ -1,0 +1,62 @@
+/* Styles go here */
+html,body{
+  margin: 0;
+  height:100%;
+  
+  }
+.wrapper{
+  padding-top: 170px;
+  width:100%;
+  height:100%;
+  background-color: rgb(40,40,40);
+  }
+.wrapper h1,h2{
+  text-align:center;
+  color: rgb(255,255,255);
+  }
+.wrapper h1{
+  margin-top:0px;
+  margin-left:10px;
+  font-size:80px;
+  }
+.wrapper h2{
+  margin-left: -145px;
+  }
+.logo{
+  width:100px;
+  height:100px;
+  border:3px solid rgb(255,255,255);
+  border-radius:15px;
+  }
+.logotipo{
+  width:300px;
+  height:100px;
+  margin: 0 auto;
+  }
+
+@media (max-width: 768px) {
+  .wrapper{
+    padding-top: 120px;
+  }
+  .wrapper h1{
+    margin-top:-4px;
+    margin-left:9px;
+    font-size:55px;
+    }
+  .wrapper h2{
+    font-size:25px;
+    margin-left: -80px;
+  }
+  .logo{
+    width:64px;
+    height:64px;
+    border:2px solid rgb(255,255,255);
+    border-radius:10px;
+    }
+  .logotipo{
+    width:210px;
+    height:75px;
+    margin: 0 auto;
+  }
+}
+
