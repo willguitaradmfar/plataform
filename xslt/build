@@ -3,9 +3,11 @@ export JO_MODELO=xslt/modelo/produto.xml
 
 mkdir -p $JO_DOMAIN/public/js
 mkdir -p $JO_DOMAIN/public/css
+mkdir -p $JO_DOMAIN/public/favicon
 
 cp -R xslt/resource/js/vendors $JO_DOMAIN/public/js
 cp -R xslt/resource/css/vendors $JO_DOMAIN/public/css
+cp -R xslt/resource/favicon/favicon.png $JO_DOMAIN/public/favicon
 
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-package-json.xslt $JO_MODELO > $JO_DOMAIN/package.json
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-app.xslt $JO_MODELO > $JO_DOMAIN/app.js
@@ -13,4 +15,5 @@ xsltproc --stringparam domain $JO_DOMAIN xslt/node-config.xslt $JO_MODELO > $JO_
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-resource.xslt $JO_MODELO > $JO_DOMAIN/public/js/resource.js
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-controller.xslt $JO_MODELO > $JO_DOMAIN/public/js/controller.js
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-router.xslt $JO_MODELO > $JO_DOMAIN/public/js/router.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-analytics.xslt $JO_MODELO > $JO_DOMAIN/public/js/analytics.js
 

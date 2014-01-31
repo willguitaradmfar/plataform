@@ -42,7 +42,7 @@ app.configure(function() {
         app.set('port', process.env.PORT || config.domain.port);
         app.set('views', __dirname + '/views');
         app.set('view engine', 'ejs');
-        app.use(express.favicon(__dirname+'/public/favicon/favicon.ico'));
+        app.use(express.favicon(__dirname+'/public/favicon/favicon.png'));
         app.use(express.logger('dev'));
         app.use(express.bodyParser());
         app.use(express.methodOverride());

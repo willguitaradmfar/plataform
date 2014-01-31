@@ -1,8 +1,0 @@
-module.exports = function(width) {
-  return {
-    area: function() {
-	console.log(width);
-      return width * width;
-    }
-  };
-}

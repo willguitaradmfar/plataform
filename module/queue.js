@@ -4,7 +4,7 @@ var schedule = require('node-schedule');
 
 var mail = require("nodemailer").mail;
 
-module.exports = function(config, redisClient) {
+module.exports = function(config, redisClient, tenant) {
     
     var sendMailAdministrator = function(obj){
         mail({
@@ -38,9 +38,9 @@ module.exports = function(config, redisClient) {
         solrClient.add(doc, function(err,obj){
            if(err){
               console.log("error solr : "+err);
-              redisClient.rpush('produto::create', JSON.stringify(produto));
+              redisClient.rpush(tenant+'::::produto::create', JSON.stringify(produto));
            }else{
-              io.sockets.emit('produto::indexSolr', produto);
+              io.sockets.emit(tenant+'::::produto::indexSolr', produto);
               console.log('Solr response:' + obj);
               if(cb)cb();
            }
@@ -57,9 +57,9 @@ module.exports = function(config, redisClient) {
             solrClient.add(doc, function(err,obj){
                if(err){
                   console.log("error solr : "+err);
-                  redisClient.rpush('produto::update', JSON.stringify(produto));
+                  redisClient.rpush(tenant+'::::produto::update', JSON.stringify(produto));
                }else{
-                   io.sockets.emit('produto::updateSolr', produto);
+                   io.sockets.emit(tenant+'::::produto::updateSolr', produto);
                   console.log('Solr response:' + obj);
                     if(cb)cb();
                }
@@ -71,9 +71,9 @@ module.exports = function(config, redisClient) {
         solrClient.deleteByID(produto._id,function(err,obj){
            if(err){
                    console.log("error solr : "+err);
-                   redisClient.rpush('produto::remove', JSON.stringify(produto));
+                   redisClient.rpush(tenant+'::::produto::remove', JSON.stringify(produto));
            }else{
-               io.sockets.emit('produto::deletaSolr', produto);
+               io.sockets.emit(tenant+'::::produto::deletaSolr', produto);
                 if(cb)cb();       
            }
         });
@@ -91,15 +91,15 @@ module.exports = function(config, redisClient) {
 	var j = schedule.scheduleJob('* * * * *', function(){
         console.log("## PROCESSANDO FILA ##");
         
-        queueLPOP("produto::create", indexProdutoSolr);
+        queueLPOP(tenant+"::::produto::create", indexProdutoSolr);
         
-        queueLPOP("produto::update", atualizaProdutoSolr);
+        queueLPOP(tenant+"::::produto::update", atualizaProdutoSolr);
         
-        queueLPOP("produto::remove", deletaProdutoSolr);
+        queueLPOP(tenant+"::::produto::remove", deletaProdutoSolr);
         
-        queueLPOP("system::mail::administrator", sendMailAdministrator);
+        queueLPOP(tenant+"::::system::mail::administrator", sendMailAdministrator);
         
-        queueLPOP("email::send", sendMail);
+        queueLPOP(tenant+"::::email::send", sendMail);
        
     });
     

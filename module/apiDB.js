@@ -1,4 +1,4 @@
-module.exports = function(app, config, db, query, redisClient, domain) {
+module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
 	app.get('/'+domain+'/all', function(req, res) {
 		query[domain].getPaginate(10, 0, function(obj) {
@@ -22,8 +22,8 @@ module.exports = function(app, config, db, query, redisClient, domain) {
 		}		
         
 		_new.save(function (err, obj) {
-		    io.sockets.emit(domain+'::create', obj);
-	    		redisClient.rpush(domain+'::create', JSON.stringify(obj));		    
+		    io.sockets.emit(tenant+'::::'+domain+'::create', obj);
+	    		redisClient.rpush(tenant+'::::'+domain+'::create', JSON.stringify(obj));		    
 	    		res.send(200, {
 	    			status: "Ok"
 	    		});
@@ -44,8 +44,8 @@ module.exports = function(app, config, db, query, redisClient, domain) {
 				_new.dtupdate = new Date();
 				_new.save(function (err, obj) {
 				    
-				io.sockets.emit(domain+'::update', obj);
-    				redisClient.rpush(domain+'::update', JSON.stringify(obj));
+				io.sockets.emit(tenant+'::::'+domain+'::update', obj);
+    				redisClient.rpush(tenant+'::::'+domain+'::update', JSON.stringify(obj));
     
 	    				res.send(200, {
 	    					status: "Ok"
@@ -71,8 +71,8 @@ module.exports = function(app, config, db, query, redisClient, domain) {
 		query[domain].getById(id, function(_new) {
 	            if(_new){
     			_new.remove(function (err, obj) {
-    			   	io.sockets.emit(domain+'::remove', _new);
-        			redisClient.rpush(domain+'::remove', JSON.stringify(_new));
+    			   	io.sockets.emit(tenant+'::::'+domain+'::remove', _new);
+        			redisClient.rpush(tenant+'::::'+domain+'::remove', JSON.stringify(_new));
         
         			res.send(200, {
         				status: "Ok"

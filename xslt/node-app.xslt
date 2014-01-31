@@ -1,5 +1,3 @@
-
-
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output encoding="UTF-8"/>
 <xsl:output method="html"/>
@@ -49,7 +47,7 @@ app.configure(function() {
         app.set('port', process.env.PORT || config.domain.port);
         app.set('views', __dirname + '/views');
         app.set('view engine', 'ejs');
-        app.use(express.favicon(__dirname+'/public/favicon/favicon.ico'));
+        app.use(express.favicon(__dirname+'/public/favicon/favicon.png'));
         app.use(express.logger('dev'));
         app.use(express.bodyParser());
         app.use(express.methodOverride());
@@ -66,15 +64,15 @@ app.configure(function() {
 });
 
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto');
-require('../module/emailAPI')(app, config, redisClient);
-require('../module/queue.js')(config, redisClient);
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', '<xsl:value-of select="$domain"/>');
+require('../module/emailAPI')(app, config, redisClient, '<xsl:value-of select="$domain"/>');
+require('../module/queue.js')(config, redisClient, '<xsl:value-of select="$domain"/>');
 
 server.listen(app.get('port'), function() {
     var msg = 'Projeto <xsl:value-of select="$domain"/> esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
         + JSON.stringify(config);
         console.log(msg);
-        redisClient.rpush('system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
+        redisClient.rpush('<xsl:value-of select="$domain"/>::::system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
 });
 </xsl:template>
 </xsl:stylesheet>
