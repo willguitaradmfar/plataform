@@ -9,7 +9,6 @@ var express = require('express'),
         path = require('path');                
         _moduless = require('../module/_module.js');
 
-
 //---------------------------------------------------------------//
 moment = require('moment');
 //---------------------------------------------------------------//
@@ -56,13 +55,12 @@ app.configure(function() {
                 secret: 'monkey'
         }));
         app.use(app.router);
-        app.use(require('stylus').middleware(__dirname + '/public'));
+        app.use(require('stylus').middleware(__dirname + '/public'));   
         app.use(express.bodyParser({
                 uploadDir: process.env.TMP
         }));
         app.use(express.static(path.join(__dirname, 'public')));
 });
-
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', '<xsl:value-of select="$domain"/>');
 require('../module/emailAPI')(app, config, redisClient, '<xsl:value-of select="$domain"/>');
