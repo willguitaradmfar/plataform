@@ -1,0 +1,25 @@
+
+{
+        "name": "gessocentral.com.br",
+        "version": "0.1.0",
+        "private": true,
+        "scripts": {
+                "start": "node app.js"
+        },
+        "dependencies": {
+                "express": "3.2.6",
+                "nodemon": "*",
+                "jade": "0.32.0",
+                "stylus": "0.33.1",
+                "mongoose": "3.6.14",
+                "socket.io": "0.9.16",
+                "passport": "0.1.17",
+                "passport-twitter": "0.1.5",
+                "uglify-js": "*",
+                "active-x-obfuscator": "*",
+                "ejs": "~0.8.4",
+                "tingodb" : "*",
+                "tungus" : "*"
+        }
+}
+
