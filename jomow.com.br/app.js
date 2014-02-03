@@ -1,6 +1,7 @@
 
 var express = require('express'),
         db = require('../schema/schema.js'),
+        RedisStore = require("connect-redis")(express),
         path = require('path');                
         _moduless = require('../module/_module.js');
 
@@ -48,7 +49,8 @@ app.configure(function() {
         app.use(express.methodOverride());
         app.use(express.cookieParser());
         app.use(express.session({
-                secret: 'monkey'
+                secret: 'monkey',
+                store: new RedisStore({ host: config.redis.host, port: config.redis.port, client: redisClient })
         }));
         app.use(app.router);
         app.use(require('stylus').middleware(__dirname + '/public'));
@@ -60,8 +62,9 @@ app.configure(function() {
 
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto');
-require('../module/emailAPI')(app, config, redisClient);
-require('../module/queue.js')(config, redisClient);
+require('../module/emailAPI')(app, config, redisClient, 'jomow.com.br');
+require('../module/queue.js')(config, redisClient, 'jomow.com.br');
+require('../module/chat.js')(config, redis, 'jomow.com.br');
 
 server.listen(app.get('port'), function() {
     var msg = 'Projeto jomow.com.br esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'

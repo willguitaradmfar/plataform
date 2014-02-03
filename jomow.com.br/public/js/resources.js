@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.resource', ["ngResource"])
+angular.module('app.resource', ["ngResource", "socket-io"])
   
    .factory('Email', function ($resource) {
       return $resource('/mail', {}, {
@@ -8,4 +8,16 @@ angular.module('app.resource', ["ngResource"])
       });
   })
   
+   .factory('Chat', function (socket) {
+      return {
+          enviar : function (data) {
+              socket.emit('message', data);
+          },
+          receber : function (cb) {
+              socket.on('message', function (data) {
+                 cb(data); 
+              });
+          }
+      }
+  })
 ;

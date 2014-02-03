@@ -21,7 +21,8 @@
     "solr-client": "~0.2.7",
     "node-schedule": "~0.1.13",
     "nodemailer": "~0.6.0",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "connect-redis": "~1.4.6"
   },
   "devDependencies": {},
   "scripts": {

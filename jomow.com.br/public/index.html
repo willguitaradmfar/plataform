@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="app">
   <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -12,7 +12,9 @@
     
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/style.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     
+   
     <script type="text/javascript" >
           (function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
@@ -29,11 +31,11 @@
         
           ga('create', 'UA-47695210-1', 'jomow.com.br');
           ga('send', 'pageview');
-                
     </script>
+    
   </head>
 
-  <body>
+  <body ng-controller="JomowController">
     
     <div class="wrapper">
       <div class="container">
@@ -64,8 +66,53 @@
       </div><!-- container -->
     </div><!-- Wrapper -->
     
+    <div class="chat">
+      <div class="chatHeader">
+        <i class="fa fa-globe"></i> Fale com a jOmOw
+      </div>
+      <div class="chatBody">
+        <!-- Java aqui vai um ngrepeat, a cada nova mensagem nossa-->
+        <div class="jomow">
+          <img class="fotoMensagem" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/276820_406211176192406_326205441_q.jpg" />
+          <div class="mensagem">
+            Ola como podemos ajudar?
+            </div>
+            <h6><small>3 minutos</small></h6>
+        </div>
+        <!-- Java aqui vai um ngrepeat, a cada nova mensagem do cliente-->
+        <div class="cliente">
+          <img class="fotoMensagem" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/1118068_100001733872858_699454419_q.jpg" />
+          <div class="mensagem">
+              Por favor, quero leite.
+            </div>
+            <h6><small>2 minutos</small></h6>
+        </div>
+       
+      </div>
+      <div class="chatMensagem">
+        <textarea type="text" name="chatMensagem" placeholder="Escreva uma mensagem" id="chatMensagem" value=""></textarea>
+      </div>
+    </div>
+    
     <!-- script -->
-
+    <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/angular/ng-socket-io.js"></script>
+    <script type="text/javascript" src="js/resources.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    
+    <script type="text/javascript" >
+        $(function() {
+          $( ".chatBody, .chatMensagem" ).hide();
+          $('.chatHeader').click(function() {
+            $( ".chatBody, .chatMensagem" ).toggle();
+           
+          });
+        });
+    </script>
   
   </body>
 

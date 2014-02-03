@@ -6,6 +6,7 @@
 <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 var express = require('express'),
         db = require('../schema/schema.js'),
+        RedisStore = require("connect-redis")(express),
         path = require('path');                
         _moduless = require('../module/_module.js');
 
@@ -52,7 +53,8 @@ app.configure(function() {
         app.use(express.methodOverride());
         app.use(express.cookieParser());
         app.use(express.session({
-                secret: 'monkey'
+                secret: '<xsl:value-of select="$domain"/>',
+                store: new RedisStore({ host: config.redis.host, port: config.redis.port, client: redisClient })
         }));
         app.use(app.router);
         app.use(require('stylus').middleware(__dirname + '/public'));   
@@ -65,6 +67,7 @@ app.configure(function() {
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', '<xsl:value-of select="$domain"/>');
 require('../module/emailAPI')(app, config, redisClient, '<xsl:value-of select="$domain"/>');
 require('../module/queue.js')(config, redisClient, '<xsl:value-of select="$domain"/>');
+require('../module/chat.js')(config, redis, '<xsl:value-of select="$domain"/>');
 
 server.listen(app.get('port'), function() {
     var msg = 'Projeto <xsl:value-of select="$domain"/> esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
