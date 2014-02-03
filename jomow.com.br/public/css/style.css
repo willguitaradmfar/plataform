@@ -1,15 +1,12 @@
 /* Styles go here */
 html,body{
   margin: 0;
-  height:100%;
-  
+  background-color: rgb(40,40,40);
   }
 
 .wrapper{
   padding-top: 170px;
   width:100%;
-  height:100%;
-  background-color: rgb(40,40,40);
   }
 .wrapper h1,h2{
   text-align:center;
@@ -44,7 +41,7 @@ html,body{
 
 @media (max-width: 768px) {
   .wrapper{
-    padding-top: 120px;
+    padding-top: 50px;
   }
   .wrapper h1{
     margin-top:-4px;
@@ -65,6 +62,12 @@ html,body{
     width:210px;
     height:75px;
     margin: 0 auto;
+  }
+  .fb-logotipo{
+
+ 
+  padding-top: 30px;
+ 
   }
 }
 
