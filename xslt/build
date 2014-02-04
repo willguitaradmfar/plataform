@@ -16,4 +16,5 @@ xsltproc --stringparam domain $JO_DOMAIN xslt/node-resource.xslt $JO_MODELO > $J
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-controller.xslt $JO_MODELO > $JO_DOMAIN/public/js/controller.js
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-router.xslt $JO_MODELO > $JO_DOMAIN/public/js/router.js
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-analytics.xslt $JO_MODELO > $JO_DOMAIN/public/js/analytics.js
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-robot.xslt $JO_MODELO > $JO_DOMAIN/public/robot.txt
 
