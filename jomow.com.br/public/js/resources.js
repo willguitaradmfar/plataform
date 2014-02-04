@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.resource', ["ngResource", "socket-io"])
+angular.module('app.resource', ["ngResource", "socket-io", 'ngCookies'])
   
    .factory('Email', function ($resource) {
       return $resource('/mail', {}, {
@@ -8,13 +8,22 @@ angular.module('app.resource', ["ngResource", "socket-io"])
       });
   })
   
-   .factory('Chat', function (socket) {
+   .factory('Chat', function (socket, $cookieStore) {
+      if(!$cookieStore.get('chat.nickname')){        
+        $cookieStore.put('chat.nickname', Math.random());
+      }
+      var nickname = $cookieStore.get('chat.nickname');
       return {
-          enviar : function (data) {
-              socket.emit('message', data);
+          enviar : function (message, to) {
+              socket.emit('message', {message : message, type : 'chat', nicknameTo : to});
+              socket.emit('message', {message : message, type : 'chat', nicknameTo : nickname});
+          },
+          entrar : function (data) {
+              data.from = nickname;
+              socket.emit('message', {user : data, type : 'setUsername', nickname : nickname});
           },
           receber : function (cb) {
-              socket.on('message', function (data) {
+              socket.on(nickname, function (data) {
                  cb(data); 
               });
           }

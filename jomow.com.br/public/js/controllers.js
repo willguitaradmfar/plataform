@@ -5,17 +5,26 @@ var json ='[{"codbarra":"7891000043325","descricao":"- FARINHA LACTEA NESTLE 400
 angular.module('app.controllers', ['socket-io'])
 
 .controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Chat',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Chat) {
-		
-		console.log('JOMOW')
-		
-		Chat.enviar('Teste');
-		
-		Chat.receber(function (data) {
-		    console.log(data);
-		});
-	
-	}
-])
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Chat) {		
+		console.log('JomowController')
+		$scope.chat = {};
 
-;
+		Chat.entrar('william');
+
+		Chat.receber(function (data) {
+		    if(!$scope.chat.messages)
+		    	$scope.chat.messages = [];
+		    var obj = {};
+		    obj.message = data.message;
+		    obj.from = (data.from == 'admin' ? 'jomow' : 'cliente');
+		    obj.img = (data.from == 'admin' ? 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/276820_406211176192406_326205441_q.jpg' : 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/1118068_100001733872858_699454419_q.jpg');
+		    $scope.chat.messages.push(obj);
+		});
+
+		$scope.enviar = function () {			
+			Chat.enviar($scope.chat.message, 'admin');
+			$scope.chat.message = '';
+		}
+
+	}
+]);

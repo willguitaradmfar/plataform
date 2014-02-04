@@ -8,7 +8,7 @@
 <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 'use strict';
 
-angular.module('app', ['app.controllers', 'app.resource']).
+angular.module('app', ['app.controllers', 'app.resource', 'app.directive']).
     config(['$routeProvider', function($routeProvider) {
 
     $routeProvider.when('/', {controller: 'JomowController'});
