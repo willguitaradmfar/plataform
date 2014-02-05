@@ -71,13 +71,19 @@ html,body{
   }
   
 }
-
+.wrapper-chat{
+     position:fixed;
+   bottom: 0px;
+  right:10%;
+ height:30px;
+ }
   
 .chat{
+  
+  margin-left: 5px;
   width:260px;
-  position:absolute;
-  bottom: 0px;
-  right:10%;
+  float:right;
+  bottom:0;
 }
 
 .chatHeader{

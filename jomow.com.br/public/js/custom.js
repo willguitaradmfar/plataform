@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  
+    
   $("#btnmix").click(function() {
  
     $('#myModal').modal('show');
