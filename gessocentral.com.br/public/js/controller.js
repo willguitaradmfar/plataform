@@ -43,4 +43,3 @@ angular.module('app.controllers', ['socket-io'])
 ])
 
 ;
-
