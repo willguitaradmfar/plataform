@@ -322,12 +322,15 @@ h3.spec {
 	width: 100%;
 	line-height: 250px;
 	margin: 0;
+	font-family: algerian;
 	text-align: center;
 	text-shadow: none;	
 }
 
 #home-slider .slide-content {
 	font-size: 60px;
+	text-align:right;
+	
 	color: #FFFFFF;
 	letter-spacing: -3px;
 	text-transform: uppercase;	
@@ -1380,8 +1383,9 @@ footer .credits {
           transition: none;
 }
 
-#theMap {
-    width:100%;
-    height:300px;
+ #map {
+     height: 400px;
+     width:100%;
+ 
     background:#ccc;
 }
