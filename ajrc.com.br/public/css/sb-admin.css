@@ -31,7 +31,8 @@
 }
 
 .navbar-static-side ul li {
-    border-bottom: 1px solid rgb(114,114,114);
+    border-bottom: 1px solid rgb(83,83,83);
+    height:60px;
 }
 
 /* Navigation */
@@ -315,6 +316,13 @@ border-color: rgb(83,83,83);
 text-decoration: none;
 color: #fff;
 background-color: rgb(53,53,53);
+height:60px;
+}
+
+.active>a{
+    height:60px;
+color: #fff;
+background-color: rgb(54, 149, 213);
 }
 
 a {
