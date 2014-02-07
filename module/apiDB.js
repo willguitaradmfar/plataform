@@ -48,20 +48,27 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 		query[domain].getById(id, function(_new) {
 			try {
 				for(var i in req.body){
-					_new[i] = req.body[i];
+					if(i != '_id'){
+						_new[i] = req.body[i];
+					}					
 				}
 				
 				_new.dtupdate = new Date();
 				_new.save(function (err, obj) {
-				    
-				io.sockets.emit(tenant+'::::'+domain+'::update', obj);
-    				redisClient.rpush(tenant+'::::'+domain+'::update', JSON.stringify(obj));
-    
+					if(err){
+						res.send(200, {
+			    			erro: err
+			    		});	
+			    		console.log(err);
+					}else{
+						io.sockets.emit(tenant+'::::'+domain+'::update', obj);
+	    				redisClient.rpush(tenant+'::::'+domain+'::update', JSON.stringify(obj));    
 	    				res.send(200, {
 	    					status: "Ok"
 	    				});
-				});
+		    		}
 
+				});
 				
 			} catch (e) {
 				res.send(500, {
