@@ -329,8 +329,7 @@ h3.spec {
 
 #home-slider .slide-content {
 	font-size: 60px;
-	text-align:right;
-	
+	text-align:left;
 	color: #FFFFFF;
 	letter-spacing: -3px;
 	text-transform: uppercase;	
