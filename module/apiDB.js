@@ -18,16 +18,25 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 		var _new = new db[query.schema]();
 		
 		for(var i in req.body){
-			_new[i] = req.body[i];
-			console.log(req.body[i]);
-		}		
+			if(i != '_id'){
+				_new[i] = req.body[i];
+			}
+			
+		}
         
 		_new.save(function (err, obj) {
-		    io.sockets.emit(tenant+'::::'+domain+'::create', obj);
+			if(err){
+				res.send(200, {
+	    			erro: err
+	    		});
+	    		console.log(err);
+			}else{
+		    	io.sockets.emit(tenant+'::::'+domain+'::create', obj);
 	    		redisClient.rpush(tenant+'::::'+domain+'::create', JSON.stringify(obj));		    
 	    		res.send(200, {
 	    			status: "Ok"
 	    		});
+	    	}
 		});		
 	});
 

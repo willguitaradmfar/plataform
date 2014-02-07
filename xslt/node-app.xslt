@@ -4,6 +4,11 @@
 <xsl:template match="/">
 <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+
+//---------------------------------------------------------------//
+config = require('./config.js');
+//---------------------------------------------------------------//
+
 var express = require('express'),
         db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
@@ -18,10 +23,6 @@ moment = require('moment');
 var app = express();
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
-//---------------------------------------------------------------//
-
-//---------------------------------------------------------------//
-config = require('./config.js');
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//

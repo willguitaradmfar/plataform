@@ -7,21 +7,21 @@ var config = {
         env: 'dev', // dev or prod
         mongodb: {
                 credentials: '', // username:password@
-                host: 'localhost',
+                host: 'jomowdb',
                 port: ':27017', // :port
-                dbName: 'ajrc.com.br'
+                dbName: 'ajrc'
         },
         twitter: {
                 consumerKey: process.env.consumerKey,
                 consumerSecret: process.env.consumerSecret
         },
         redis : {
-            host : 'pub-redis-15819.us-east-1-3.1.ec2.garantiadata.com',
-            port : '15819',
-            password : 'admfarguitarwill'
+            host : 'jomowdb',
+            port : '6379',
+            password : ''
         },
         solr : {
-            host : '192.241.176.21',
+            host : 'jomowdb',
             user : '',
             password : ''
         },
