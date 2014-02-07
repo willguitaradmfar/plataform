@@ -1,3 +1,0 @@
-{"k":"0000000080","o":"0000000291","v":"001"}
-{"_id":67,"_uid":67,"_dt":1390963723798,"_s":"3109eed352074fee11f086207412c4df"}
-{"nome":"yyyyyyy","_id":{"$wrap":"$oid","v":67},"dtupdate":{"$wrap":"$date","v":1390963723791,"h":"2014-01-29T02:48:43.791Z"},"dtcreate":{"$wrap":"$date","v":1390962288734,"h":"2014-01-29T02:24:48.734Z"},"__v":1,"caracteristicas":[],"descricao":"aaaaaaaaaaa","disponibilidades":[],"tags":[]}

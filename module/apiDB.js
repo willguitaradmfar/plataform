@@ -19,6 +19,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 		
 		for(var i in req.body){
 			_new[i] = req.body[i];
+			console.log(req.body[i]);
 		}		
         
 		_new.save(function (err, obj) {

@@ -5,7 +5,7 @@
 <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 var express = require('express'),
-        db = require('../schema/schema.js'),
+        db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
         path = require('path');                
         _moduless = require('../module/_module.js');

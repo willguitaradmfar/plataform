@@ -1,6 +1,6 @@
 
 var express = require('express'),
-        db = require('../schema/schema.js'),
+        db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
         path = require('path');                
         _moduless = require('../module/_module.js');
@@ -59,7 +59,7 @@ app.configure(function() {
         app.use(express.static(path.join(__dirname, 'public')));
 });
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', 'ajrc.com.br');
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pedido'), redisClient, 'pedido', 'ajrc.com.br');
 require('../module/emailAPI')(app, config, redisClient, 'ajrc.com.br');
 require('../module/queue.js')(config, redisClient, 'ajrc.com.br');
 require('../module/chat.js')(config, redis, 'ajrc.com.br');
