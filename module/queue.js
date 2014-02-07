@@ -38,9 +38,9 @@ module.exports = function(config, redisClient, tenant) {
         solrClient.add(doc, function(err,obj){
            if(err){
               console.log("error solr : "+err);
-              redisClient.rpush(tenant+'::::produto::create', JSON.stringify(produto));
+              redisClient.rpush(tenant+'::::pedido::create', JSON.stringify(produto));
            }else{
-              io.sockets.emit(tenant+'::::produto::indexSolr', produto);
+              io.sockets.emit(tenant+'::::pedido::indexSolr', produto);
               console.log('Solr response:' + obj);
               if(cb)cb();
            }
@@ -57,9 +57,9 @@ module.exports = function(config, redisClient, tenant) {
             solrClient.add(doc, function(err,obj){
                if(err){
                   console.log("error solr : "+err);
-                  redisClient.rpush(tenant+'::::produto::update', JSON.stringify(produto));
+                  redisClient.rpush(tenant+'::::pedido::update', JSON.stringify(produto));
                }else{
-                   io.sockets.emit(tenant+'::::produto::updateSolr', produto);
+                   io.sockets.emit(tenant+'::::pedido::updateSolr', produto);
                   console.log('Solr response:' + obj);
                     if(cb)cb();
                }
@@ -71,9 +71,9 @@ module.exports = function(config, redisClient, tenant) {
         solrClient.deleteByID(produto._id,function(err,obj){
            if(err){
                    console.log("error solr : "+err);
-                   redisClient.rpush(tenant+'::::produto::remove', JSON.stringify(produto));
+                   redisClient.rpush(tenant+'::::pedido::remove', JSON.stringify(produto));
            }else{
-               io.sockets.emit(tenant+'::::produto::deletaSolr', produto);
+               io.sockets.emit(tenant+'::::pedido::deletaSolr', produto);
                 if(cb)cb();       
            }
         });
@@ -91,11 +91,11 @@ module.exports = function(config, redisClient, tenant) {
 	var j = schedule.scheduleJob('* * * * *', function(){
         console.log("## PROCESSANDO FILA ##");
         
-        queueLPOP(tenant+"::::produto::create", indexProdutoSolr);
+        queueLPOP(tenant+"::::pedido::create", indexProdutoSolr);
         
-        queueLPOP(tenant+"::::produto::update", atualizaProdutoSolr);
+        queueLPOP(tenant+"::::pedido::update", atualizaProdutoSolr);
         
-        queueLPOP(tenant+"::::produto::remove", deletaProdutoSolr);
+        queueLPOP(tenant+"::::pedido::remove", deletaProdutoSolr);
         
         queueLPOP(tenant+"::::system::mail::administrator", sendMailAdministrator);
         
