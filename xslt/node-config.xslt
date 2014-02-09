@@ -6,6 +6,9 @@
 <xsl:template match="/">
 <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
 <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+
+<xsl:variable name="domainNormal" select="translate($domain,'.','_')"/>
+
 var config = {
         domain: {
                 host: process.env.host,
@@ -16,7 +19,7 @@ var config = {
                 credentials: '', // username:password@
                 host: 'jomowdb',
                 port: ':27017', // :port
-                dbName: '<xsl:value-of select="$domain"/>'
+                dbName: '<xsl:value-of select="$domainNormal"/>'
         },
         twitter: {
                 consumerKey: process.env.consumerKey,

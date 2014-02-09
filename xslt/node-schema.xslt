@@ -22,34 +22,23 @@ mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host
     }
 });*/
 
-var pedidoObjSchema = {};
-pedidoObjSchema.dtcreate = {type: Date,default: Date.now};
-pedidoObjSchema.dtupdate = {type: Date,default: Date.now};
-pedidoObjSchema.condicaoDePagamento = "String";
-pedidoObjSchema.dataPedido = "Date";
-pedidoObjSchema.telefone = "String";
-pedidoObjSchema.endereco = "String";
-pedidoObjSchema.bairro = "String";
-pedidoObjSchema.cidade = "String";
-pedidoObjSchema.cliente = "String";
-pedidoObjSchema.userSystem = "String";
-pedidoObjSchema.codigo = "Number";
-pedidoObjSchema.nomeCliente = "String";
-pedidoObjSchema.referenciaEndereco = "String";
-pedidoObjSchema.troco = "Number";
-pedidoObjSchema.txEntrega = "Number";
-pedidoObjSchema.valorCompra = "Number";
-pedidoObjSchema.qtde = "Number";
-pedidoObjSchema.codigoProduto = "String";
-pedidoObjSchema.descricaoProduto = "String";
-pedidoObjSchema.valorProduto = "Number";
-pedidoObjSchema.horarioPedido = "String";
-pedidoObjSchema.total = "Number";
-pedidoObjSchema.status = "String";
+<xsl:for-each select="modelos/modelo">
+			<xsl:variable name="nome" select='nome' />
+		    <xsl:variable name="Nome" select='concat(
+		                    translate(substring(nome, 1, 1), $smallcase, $uppercase),
+		                    translate(substring(nome, 2), $uppercase, $smallcase))' />
+// ########################## Schema de produto <xsl:value-of select="$Nome"/> ###################
+var <xsl:value-of select="$nome"/>ObjSchema = {};
+<xsl:value-of select="$nome"/>ObjSchema.dtcreate = {type: Date,default: Date.now};
+<xsl:value-of select="$nome"/>ObjSchema.dtupdate = {type: Date,default: Date.now};
 
-var pedidoSchema = mongoose.Schema(pedidoObjSchema);
-module.exports.Pedido = mongoose.model('pedido', pedidoSchema);
+<xsl:for-each select="atributos/atributo">			
+<xsl:value-of select="$nome"/>ObjSchema.<xsl:value-of select="nome"/> = <xsl:value-of select="tipo"/>;
+</xsl:for-each>
 
+var <xsl:value-of select="$nome"/>Schema = mongoose.Schema(<xsl:value-of select="$nome"/>ObjSchema);
+module.exports.<xsl:value-of select="$Nome"/> = mongoose.model('<xsl:value-of select="$nome"/>', <xsl:value-of select="$nome"/>Schema);
 
+</xsl:for-each>
 </xsl:template>
 </xsl:stylesheet>

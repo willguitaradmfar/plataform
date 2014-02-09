@@ -64,8 +64,14 @@ app.configure(function() {
         }));
         app.use(express.static(path.join(__dirname, 'public')));
 });
+<xsl:for-each select="modelos/modelo">
+    <xsl:variable name="nome" select='nome' />
+    <xsl:variable name="Nome" select='concat(
+                    translate(substring(nome, 1, 1), $smallcase, $uppercase),
+                    translate(substring(nome, 2), $uppercase, $smallcase))' />
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, '<xsl:value-of select="$Nome"/>'), redisClient, '<xsl:value-of select="$nome"/>', '<xsl:value-of select="$domain"/>');
+</xsl:for-each>
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', '<xsl:value-of select="$domain"/>');
 require('../module/emailAPI')(app, config, redisClient, '<xsl:value-of select="$domain"/>');
 require('../module/queue.js')(config, redisClient, '<xsl:value-of select="$domain"/>');
 require('../module/chat.js')(config, redis, '<xsl:value-of select="$domain"/>');

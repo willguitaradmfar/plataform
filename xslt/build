@@ -1,14 +1,17 @@
 export JO_DOMAIN=$1 || reiscon.com.br
-export JO_MODELO=xslt/modelo/produto.xml
+export JO_MODELO=$2 || xslt/modelo/produto.xml
 
 mkdir -p $JO_DOMAIN/public/js
 mkdir -p $JO_DOMAIN/public/css
 mkdir -p $JO_DOMAIN/public/favicon
+mkdir -p $JO_DOMAIN/public/partials
 mkdir -p $JO_DOMAIN/schema
 
 cp -R xslt/resource/js/vendors $JO_DOMAIN/public/js
 cp -R xslt/resource/css/vendors $JO_DOMAIN/public/css
 cp -R xslt/resource/favicon/favicon.png $JO_DOMAIN/public/favicon
+cp -R xslt/resource/jomow.css $JO_DOMAIN/public/css/$JO_DOMAIN'.css'
+cp -R xslt/resource/font-awesome $JO_DOMAIN/public
 
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-package-json.xslt $JO_MODELO > $JO_DOMAIN/package.json
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-app.xslt $JO_MODELO > $JO_DOMAIN/app.js
@@ -20,4 +23,6 @@ xsltproc --stringparam domain $JO_DOMAIN xslt/node-analytics.xslt $JO_MODELO > $
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-robot.xslt $JO_MODELO > $JO_DOMAIN/public/robot.txt
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-diretivas.xslt $JO_MODELO > $JO_DOMAIN/public/js/diretivas.js
 xsltproc --stringparam domain $JO_DOMAIN xslt/node-schema.xslt $JO_MODELO > $JO_DOMAIN/schema/schema.js
-
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-index.xslt $JO_MODELO > $JO_DOMAIN/public/index.html
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-partials-construcao.xslt $JO_MODELO > $JO_DOMAIN/public/partials/_construcao.tpl
+xsltproc --stringparam domain $JO_DOMAIN xslt/node-homolog.xslt $JO_MODELO > $JO_DOMAIN/public/homolog.html
