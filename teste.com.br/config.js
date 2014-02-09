@@ -8,7 +8,7 @@ var config = {
         env: 'dev', // dev or prod
         mongodb: {
                 credentials: '', // username:password@
-                host: 'jomowdb',
+                host: '107.170.15.88', //
                 port: ':27017', // :port
                 dbName: 'teste_com_br'
         },

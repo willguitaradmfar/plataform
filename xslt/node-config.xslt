@@ -17,7 +17,7 @@ var config = {
         env: 'dev', // dev or prod
         mongodb: {
                 credentials: '', // username:password@
-                host: 'jomowdb',
+                host: '<xsl:value-of select="modelos/jomowdb"/>', //
                 port: ':27017', // :port
                 dbName: '<xsl:value-of select="$domainNormal"/>'
         },
@@ -26,12 +26,12 @@ var config = {
                 consumerSecret: process.env.consumerSecret
         },
         redis : {
-            host : 'jomowdb',
+            host : '<xsl:value-of select="modelos/jomowdb"/>',
             port : '6379',
             password : ''
         },
         solr : {
-            host : 'jomowdb',
+            host : '<xsl:value-of select="modelos/jomowdb"/>',
             user : '',
             password : ''
         },

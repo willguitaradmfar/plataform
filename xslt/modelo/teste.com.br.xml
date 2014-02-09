@@ -3,6 +3,7 @@
 
 <modelos>
 	<nome>Reiscon Obras</nome>
+	<jomowdb>107.170.15.88</jomowdb>
 	<modelo>
 		<nome>produto</nome>
 		<atributos>
