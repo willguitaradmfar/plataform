@@ -25,7 +25,7 @@
 
     <div id="wrapper">
 
-        <nav class="navbar navbar-default navbar-static-top navbar-color" role="navigation" ng-controller="MenuController" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top navbar-color" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -122,7 +122,7 @@
         </nav>
         <!-- /.navbar-static-top -->
 
-        <nav class="navbar-default navbar-static-side" role="navigation">
+        <nav class="navbar-default navbar-static-side" role="navigation" ng-controller="MenuController">
             <div class="sidebar-collapse">
                 
                 
@@ -142,10 +142,10 @@
                     </li>
                     <!-- /input-group -->
                     
-                    <li ng-class="{ active: isActive('/') }"><a href="/"><i class="fa fa-dashboard fa-fw fa-2x"></i> Início</a>
+                    <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard fa-fw fa-2x"></i> Início</a>
                     </li>
                   
-                    <li ng-class="{ active: isActive('/relatorio') }"><a href="/relatorio"><i class="fa fa-bar-chart-o fa-fw fa-2x"></i> Relatório</a>
+                    <li ng-class="{ active: isActive('/relatorio') }"><a href="#/relatorio"><i class="fa fa-bar-chart-o fa-fw fa-2x"></i> Relatório</a>
                     </li>
                    
                 </ul>
@@ -182,6 +182,10 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="js/demo/dashboard-demo.js"></script>
+    
+    
+    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="js/plugins/morris/morris.js"></script>
 
 </body>
 

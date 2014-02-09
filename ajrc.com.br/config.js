@@ -7,7 +7,7 @@ var config = {
         env: 'dev', // dev or prod
         mongodb: {
                 credentials: '', // username:password@
-                host: 'jomowdb',
+                host: '107.170.15.88',
                 port: ':27017', // :port
                 dbName: 'ajrc'
         },
@@ -16,12 +16,12 @@ var config = {
                 consumerSecret: process.env.consumerSecret
         },
         redis : {
-            host : 'jomowdb',
+            host : '107.170.15.88',
             port : '6379',
             password : ''
         },
         solr : {
-            host : 'jomowdb',
+            host : '107.170.15.88',
             user : '',
             password : ''
         },

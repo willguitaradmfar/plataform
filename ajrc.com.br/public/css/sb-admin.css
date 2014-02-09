@@ -315,7 +315,7 @@ border-color: rgb(83,83,83);
 .nav>li>a:hover, .nav>li>a:focus {
 text-decoration: none;
 color: #fff;
-background-color: rgb(53,53,53);
+background-color: rgb(54, 149, 213);
 height:60px;
 }
 
@@ -332,4 +332,10 @@ color: rgb(114,114,114);
 
 .navbar-color{
     background-color: #fff;
+}
+
+.teste{
+    
+    overflow-y : auto;
+    
 }
