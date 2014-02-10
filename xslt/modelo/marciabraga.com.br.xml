@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelos>
+	<nome>Marcia Braga</nome>
+	<jomowdb>107.170.15.88</jomowdb>
+	<modelo>
+		<nome>post</nome>
+		<atributos>
+			<atributo>
+				<nome>descricao</nome> 
+				<tipo>"String"</tipo> 
+			</atributo>
+			<atributo>
+				<nome>fotoUrl</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>arquivado</nome>
+				<tipo>"Boolean"</tipo> 
+			</atributo>
+			<atributo>
+				<nome>autor</nome>
+				<tipo>"String"</tipo> 
+			</atributo>
+			<atributo>
+				<nome>tag</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+		</atributos>	
+	</modelo>
+	
+	<modelo>
+    		<nome>cliente</nome> 
+		<atributos>
+			<atributo>
+				<nome>nome</nome> 
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>email</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>telefone</nome>
+				<tipo>"String"</tipo> 
+			</atributo>
+		</atributos>	
+	</modelo>
+	<!--  Observe ... -->
+</modelos>

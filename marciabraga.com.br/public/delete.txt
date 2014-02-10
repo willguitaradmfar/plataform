@@ -1,6 +1,0 @@
-tirar bootstrap
-criar jomow.css
-
-jquery-1.10.2 delete
-
-bootstrap.js delete

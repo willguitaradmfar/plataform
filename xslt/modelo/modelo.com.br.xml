@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited by XMLSpy(R) -->
+<!-- Esse aquivo descreve como vai ser o esqueleto do projeto . -->
+<!-- Então toda a vez que quiser montar um novo esqueleto copiar e colar um e alterar ok ????? mais o ou menos . -->
+<!-- Vamos fazer juntos um ok -->
+<!-- Qual dominio precisa fazer ? marciabraga.com.br copia e cola esse arquivo com o nome de marciabraga.com.br.xml-->
+<modelos>
+	<nome>Reiscon Obras</nome>
+	<jomowdb>107.170.15.88</jomowdb>
+	<modelo>
+		<nome>produto</nome>
+		<atributos>
+			<atributo>
+				<nome>descricao</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>preco</nome>
+				<tipo>"Number"</tipo>
+			</atributo>
+		</atributos>	
+	</modelo>
+	<modelo>
+		<nome>contato</nome>
+		<atributos>
+			<atributo>
+				<nome>nome</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>telefone</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>endereco</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+		</atributos>
+	</modelo>
+	<modelo>
+		<nome>post</nome>
+	</modelo>
+</modelos>

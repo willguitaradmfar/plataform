@@ -60,7 +60,11 @@ app.configure(function() {
         app.use(express.static(path.join(__dirname, 'public')));
 });
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', 'marciabraga.com.br');
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Post'), redisClient, 'post', 'marciabraga.com.br');
+
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Cliente'), redisClient, 'cliente', 'marciabraga.com.br');
+
+
 require('../module/emailAPI')(app, config, redisClient, 'marciabraga.com.br');
 require('../module/queue.js')(config, redisClient, 'marciabraga.com.br');
 require('../module/chat.js')(config, redis, 'marciabraga.com.br');

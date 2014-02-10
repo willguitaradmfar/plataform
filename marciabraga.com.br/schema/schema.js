@@ -17,33 +17,34 @@ mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host
     }
 });*/
 
-var pedidoObjSchema = {};
-pedidoObjSchema.dtcreate = {type: Date,default: Date.now};
-pedidoObjSchema.dtupdate = {type: Date,default: Date.now};
-pedidoObjSchema.condicaoDePagamento = "String";
-pedidoObjSchema.dataPedido = "Date";
-pedidoObjSchema.telefone = "String";
-pedidoObjSchema.endereco = "String";
-pedidoObjSchema.bairro = "String";
-pedidoObjSchema.cidade = "String";
-pedidoObjSchema.cliente = "String";
-pedidoObjSchema.userSystem = "String";
-pedidoObjSchema.codigo = "Number";
-pedidoObjSchema.nomeCliente = "String";
-pedidoObjSchema.referenciaEndereco = "String";
-pedidoObjSchema.troco = "Number";
-pedidoObjSchema.txEntrega = "Number";
-pedidoObjSchema.valorCompra = "Number";
-pedidoObjSchema.qtde = "Number";
-pedidoObjSchema.codigoProduto = "String";
-pedidoObjSchema.descricaoProduto = "String";
-pedidoObjSchema.valorProduto = "Number";
-pedidoObjSchema.horarioPedido = "String";
-pedidoObjSchema.total = "Number";
-pedidoObjSchema.status = "String";
 
-var pedidoSchema = mongoose.Schema(pedidoObjSchema);
-module.exports.Pedido = mongoose.model('pedido', pedidoSchema);
+// ########################## Schema de produto Post ###################
+var postObjSchema = {};
+postObjSchema.dtcreate = {type: Date,default: Date.now};
+postObjSchema.dtupdate = {type: Date,default: Date.now};
 
+postObjSchema.descricao = "String";
+postObjSchema.fotoUrl = "String";
+postObjSchema.arquivado = "Boolean";
+postObjSchema.autor = "String";
+postObjSchema.tag = "String";
+
+
+var postSchema = mongoose.Schema(postObjSchema);
+module.exports.Post = mongoose.model('post', postSchema);
+
+
+// ########################## Schema de produto Cliente ###################
+var clienteObjSchema = {};
+clienteObjSchema.dtcreate = {type: Date,default: Date.now};
+clienteObjSchema.dtupdate = {type: Date,default: Date.now};
+
+clienteObjSchema.nome = "String";
+clienteObjSchema.email = "String";
+clienteObjSchema.telefone = "String";
+
+
+var clienteSchema = mongoose.Schema(clienteObjSchema);
+module.exports.Cliente = mongoose.model('cliente', clienteSchema);
 
 

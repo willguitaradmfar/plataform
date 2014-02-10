@@ -1,5 +1,5 @@
-export JO_DOMAIN=$1 || reiscon.com.br
-export JO_MODELO=$2 || xslt/modelo/produto.xml
+export JO_DOMAIN=$1 || modelo.com.br
+export JO_MODELO=$2 || xslt/modelo/$JO_DOMAIN.xml
 
 mkdir -p $JO_DOMAIN/public/js
 mkdir -p $JO_DOMAIN/public/css

@@ -1,4 +1,5 @@
 
+
 var config = {
         domain: {
                 host: process.env.host,
@@ -7,21 +8,21 @@ var config = {
         env: 'dev', // dev or prod
         mongodb: {
                 credentials: '', // username:password@
-                host: 'jomowdb',
+                host: '107.170.15.88', //
                 port: ':27017', // :port
-                dbName: 'marciabraga.com.br'
+                dbName: 'marciabraga_com_br'
         },
         twitter: {
                 consumerKey: process.env.consumerKey,
                 consumerSecret: process.env.consumerSecret
         },
         redis : {
-            host : 'jomowdb',
+            host : '107.170.15.88',
             port : '6379',
             password : ''
         },
         solr : {
-            host : 'jomowdb',
+            host : '107.170.15.88',
             user : '',
             password : ''
         },
