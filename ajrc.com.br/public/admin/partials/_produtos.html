@@ -1,0 +1,385 @@
+
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Produtos <small>Cadastre novos produtos</small></h1>
+      <ol class="breadcrumb">
+        <li><a href="#/"><i class="fa fa-dashboard"></i> Principal</a></li>
+        <li class="active"><i class="fa fa-barcode"></i> Produtos</li>
+      </ol>
+    </div>
+  </div><!-- /.row -->
+
+  <div class="row">    
+    <div class="col-lg-12">
+      <nav class="navbar  navbar-default testar celNew" ><!-- TESTAR = CLASS SCRIPT PARA MUDAR POR NEW-->
+        <div class="row">
+        <div class="col-xs-3 celular">
+        <span class="btn"><h3>NOVO</h3><p></p></span>
+        <button title="Cadastrar Produto" class="btn btn-success bt-cadastro-produto" ng-click="uiproduto.formulario = 'mostrar'"><i class="fa fa-3x fa-plus"></i></button>
+         </div>
+         <div class="col-xs-8 celular">
+         <div class="alert alert-info alert-dismissable" ng-show="msg && msg.text">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ msg.text }}
+          </div>
+          </div>
+          </div>
+      </nav>
+    </div><!-- /.row -->
+
+    <!--CADASTRO DE PRODUTOS-->   
+    <div ng-show="uiproduto.formulario == 'mostrar'">   
+
+     <div class="tabbable custom-tabs tabs-animated  flat flat-all hide-label-980 shadow track-url auto-scroll"> 
+
+       <ul class="nav nav-tabs nav-justified btnav ">
+        <li ng-class="{ active: uiproduto.tab == 'basico' || !uiproduto.tab }" ng-click="uiproduto.tab = 'basico'">
+          <a><i class="fa fa-pencil-square-o"></i> Básico</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'media' }" ng-click="uiproduto.tab = 'media'">
+          <a><i class="fa fa-camera"></i> Midia</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'caracterisca' }" ng-click="uiproduto.tab = 'caracterisca'">
+          <a><i class="fa fa-info-circle"></i> Caracteristica</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'disponibilidade'}" ng-click="uiproduto.tab = 'disponibilidade'">
+          <a><i class="fa fa-truck"></i>  Disponibilidade</a>
+        </li>
+        <li ng-class="{ active: uiproduto.tab == 'tags'}" ng-click="uiproduto.tab = 'tags'">
+          <a><i class="fa fa-tag"></i> Tag's</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+       <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'basico' || !uiproduto.tab">
+        <form >
+          <fieldset>
+            <!-- Form Name -->
+            <div class="form-group">
+              <label>Nome</label>
+              <input id="campoNome" class="form-control " placeholder="Nome" ng-model="produto.nome">
+            </div>
+            <div class="row">
+              <div class="col-xs-5 celular">
+                <label>Valor</label>
+                <div class="form-group input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="campoValor" type="text" class="form-control" placeholder="Valor" ng-model="produto.nome">
+                </div>
+              </div>
+              <div class="col-xs-5 celular">
+               <label>Valor Desconto</label>
+               <div class="form-group input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" placeholder="Nome" ng-model="produto.nome">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Descrição</label>
+            <textarea class="form-control" placeholder="Descrição" ng-model="produto.descricao"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
+        </fieldset>
+      </form>
+    </div>
+
+     <!--CADASTRO/MEDIA-->
+    <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'media'">
+
+      <form id="fileupload" method="POST" enctype="multipart/form-data" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+        
+        <div class="row fileupload-buttonbar">
+            <div class="col-lg-7">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+                    <i class="fa fa-plus"></i>
+                    <span>Adcionar Arquivos</span>
+                    <input type="file" name="files[]" multiple ng-disabled="disabled">
+                </span>
+                <button type="button" class="btn btn-primary start" data-ng-click="submit()">
+                    <i class="fa fa-upload"></i>
+                    <span>Enviar</span>
+                </button>
+                <button type="button" class="btn btn-warning cancel" data-ng-click="cancel()">
+                    <i class="fa fa-ban"></i>
+                    <span>Cancelar Envio</span>
+                </button>
+                <!-- The global file processing state -->
+                <span class="fileupload-process"></span>
+            </div>
+            <!-- The global progress state -->
+            <div class="col-lg-5 fade" data-ng-class="{in: active()}">
+                <!-- The global progress bar -->
+                <div class="progress progress-striped active" data-file-upload-progress="progress()"><div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div></div>
+                <!-- The extended global progress state -->
+                <div class="progress-extended">&nbsp;</div>
+            </div>
+        </div>
+        <!-- The table listing the files available for upload/download -->
+        <table class="table table-striped files ng-cloak">
+            <tr data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}">
+                <td data-ng-switch data-on="!!file.thumbnailUrl">
+                    <div class="preview" data-ng-switch-when="true">
+                        <a data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a>
+                    </div>
+                    <div class="preview" data-ng-switch-default data-file-upload-preview="file"></div>
+                </td>
+                <td>
+                    <p class="name" data-ng-switch data-on="!!file.url">
+                        <span data-ng-switch-when="true" data-ng-switch data-on="!!file.thumbnailUrl">
+                            <a data-ng-switch-when="true" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery>{{file.name}}</a>
+                            <a data-ng-switch-default data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}">{{file.name}}</a>
+                        </span>
+                        <span data-ng-switch-default>{{file.name}}</span>
+                    </p>
+                    <strong data-ng-show="file.error" class="error text-danger">{{file.error}}</strong>
+                </td>
+                <td>
+                    <p class="size">{{file.size | formatFileSize}}</p>
+                    <div class="progress progress-striped active fade" data-ng-class="{pending: 'in'}[file.$state()]" data-file-upload-progress="file.$progress()"><div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div></div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary start" data-ng-click="file.$submit()" data-ng-hide="!file.$submit || options.autoUpload" data-ng-disabled="file.$state() == 'pending' || file.$state() == 'rejected'">
+                        <i class="fa fa-upload"></i>
+                        <span>Enviar</span>
+                    </button>
+                    <button type="button" class="btn btn-warning cancel" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel">
+                        <i class="fa fa-ban"></i>
+                        <span>Cancelar</span>
+                    </button>
+                    <button type="button" class="btn btn-danger destroy" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span>Delete</span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+        <!-- The blueimp Gallery widget -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+       
+        <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+        <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button> 
+
+    </div>
+
+    <!--CADASTRO/CARACTERISTICA-->
+    <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'caracterisca'">
+
+       <div class="row">
+            <div class="col-xs-4 celular">
+             <div class="form-group">
+               <label for="">Caracteristica</label>
+               <input type="text" class="form-control form-campo" placeholder="Ex: Cor" ng-model="_tmp.caracteristica.caracteristica">
+             </div>
+           </div>
+           <div class="col-xs-4 celular">
+            <div class="form-group">
+              <label for="">Valor</label>
+              <input type="text" class="form-control form-campo" placeholder="Ex: Vermelha" ng-model="_tmp.caracteristica.valor">
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div style="padding-top:25px;">
+             <button class="btn btn-success"  ng-click="addCaracteristica()"><i class="fa fa-plus"></i></button>
+           </div>
+          </div>
+      </div><!-- /.ROW-->
+
+        <hr>
+        
+        <table class="table table-bordered table-hover tablesorter table-striped">            
+            <thead>
+              <tr>
+                <th>Caracteristica<i class="fa fa-sort"></i></th>
+                <th>Valor<i class="fa fa-sort"></i></th>
+                <th>Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="caracteristica in produto.caracteristicas">
+                <td>{{caracteristica.caracteristica}}</td>
+                <td>{{caracteristica.valor}}</td>
+                <td><button class="btn btn-danger" ng-click="excluirCaracteristica(caracteristica)"><i class="fa fa-times"></i></button></td>
+              </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+        <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button> 
+
+    </div>
+
+         <!--CADASTRO/DISPONIBILIDADE-->
+        <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'disponibilidade'">
+        
+          <div class="row">
+
+            <div class="col-xs-4 celular">
+             <div class="form-group" >
+               <label class="form-campo">Caracteristica</label>
+               <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="_tmp.disponibilidade.nome">
+             </div>
+            </div>
+
+             <div class="col-xs-2 celular">
+              <div style="padding-top:25px;">
+                <button class="btn btn-success" ng-click="addDisponibilidade()"><i class="fa fa-plus"></i></button>
+              </div>
+             </div>
+
+          </div><!-- /.ROW-->
+
+          <hr>
+
+           <div class="row">
+           
+                  <div class="col-xs-4 celular bordona" ng-repeat="disponibilidade in produto.disponibilidades">
+                  <div class="row">
+
+                    <div class="col-xs-4 celular">
+                     <div class="form-group" >
+                       <label class="form-campo">Valor</label>
+                       <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="disponibilidade.valor">
+                     </div>
+                    </div>
+        
+                     <div class="col-xs-2 celular">
+                      <div style="padding-top:25px;">
+                        <button class="btn btn-success" ng-click="addDisponibilidadeValor(disponibilidade)"><i class="fa fa-plus"></i></button>
+                      </div>
+                     </div>
+        
+                  </div><!-- /.ROW-->
+                  
+                  <table class="table table-bordered table-hover tablesorter table-striped">
+                    <thead>
+                      <tr>
+                        <th>{{disponibilidade.nome}}</th>
+                        <th><button class="btn btn-danger" ng-click="excluirValor(valor, disponibilidade)"><i class="fa fa-times"></i></button></th>
+                      </tr>
+                      
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="valor in disponibilidade.valores">
+                        <td>{{valor}}</td>
+                        <td><button class="btn btn-danger" ng-click="excluirValor(valor, disponibilidade)"><i class="fa fa-times"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  
+                  
+          
+          </div><!--/row-->
+            <hr>
+          <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
+
+        </div><!--/DISPONIBILIDADE-->
+
+        <!--CADASTRO/TAG-->
+        <div class="col-lg-12 formulario" ng-show="uiproduto.tab == 'tags'">
+        
+          <div class="row">
+
+            <div class="col-xs-4 celular">
+             <div class="form-group" >
+               <label class="form-campo">Tag's</label>
+               <input type="text" class="form-control form-campo" placeholder="Ex: Nome" ng-model="_tmp.tag.nome">
+             </div>
+            </div>
+
+             <div class="col-xs-2 celular">
+              <div style="padding-top:25px;">
+                <button class="btn btn-success" ng-click="addTag()"><i class="fa fa-plus"></i></button>
+              </div>
+             </div>
+
+          </div><!-- /.ROW-->
+
+          <hr>
+
+          <table class="table table-bordered table-hover tablesorter table-striped">
+            <thead>
+              <tr>
+                <th>Tag<i class="fa fa-tag"></i></th>
+                <th>Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="tag in produto.tags">
+                <td>{{tag.nome}}</td>
+                <td><button class="btn btn-danger" ng-click="excluirTag(tag)"><i class="fa fa-times"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button type="submit" class="btn btn-success" ng-click="salvar()">Salvar</button>
+          <button type="reset" class="btn btn-danger" ng-click="limpar()">Limpar</button>  
+
+        </div><!--/TAG-->
+
+
+      </div> <!--/CONTEUDO DAS TABS -->
+    </div> <!--/CUSTOM-TABLE -->
+  </div> <!--/CADASTRO DE PRODUTOS -->
+
+  <br>   
+
+  <div class="col-lg-12">
+    <h2>Lista de Produtos <small>Aqui ja vem do Banco</small></h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover tablesorter table-striped">
+        <thead>
+          <tr>
+            <th>Nome <i class="fa fa-sort"></i></th>
+            <th>Descrição <i class="fa fa-sort"></i></th>
+            <th>Unidade <i class="fa fa-sort"></i></th>
+            <th>Cod. Barra <i class="fa fa-sort"></i></th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+                 <tbody>
+                    <tr ng-repeat="produto in produtos">
+                      <td>{{produto.nome.substring(0, 40)+"..."}}</td>
+                      <td>{{produto.descricao.substring(0, 20)+"..."}}</td> <!-- WESLEY AQUI O CÓDIGO .substring(0, 10)+"..." LIMITA EM 10 CARACTERE PARA NÃO QUEBRAR A COLUNA-->
+                     <td>{{produto.unidade}}</td>
+                      
+                      <td>{{produto.codbarra}}</td>
+                        <td><a class="btn btn-warning" href="#/produto/{{produto._id}}"><i class="fa fa-pencil"></i></a></td>
+                        <td><button class="btn btn-danger" ng-click="excluir(produto)"><i class="fa fa-times"></i></button></td>
+                    </tr> 
+                  </tbody>         
+                </table>              
+              </div>
+            </div> 
+            
+             </div><!-- /.row -->
+
+  </div><!-- /#page-wrapper -->
+  
+  <script type="text/javascript">
+      $(function () {
+          $('.bt-cadastro-produto').bind('click', function () {
+            $( ".ng-view" ).scrollTop( 130 );
+            $(".btnav").css("padding-top", "70px");  
+          });
+        // colocar aqui
+        
+      });
+  </script>>

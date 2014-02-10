@@ -18,6 +18,7 @@ angular.module('app', ['app.controllers', 'app.resource', 'app.directive']).
 		                    translate(substring(nome, 1, 1), $smallcase, $uppercase),
 		                    translate(substring(nome, 2), $uppercase, $smallcase))' />
 	$routeProvider.when('/<xsl:value-of select="$nome"/>', {templateUrl: 'partials/_<xsl:value-of select="$nome"/>.html', controller: '<xsl:value-of select="$Nome"/>Controller'});
+	$routeProvider.when('/<xsl:value-of select="$nome"/>/:id', {templateUrl: 'partials/_<xsl:value-of select="$nome"/>.html', controller: '<xsl:value-of select="$Nome"/>Controller'});
     </xsl:for-each>
 
     $routeProvider.otherwise({redirectTo: '/'});

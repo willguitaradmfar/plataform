@@ -315,7 +315,7 @@ border-color: rgb(83,83,83);
 .nav>li>a:hover, .nav>li>a:focus {
 text-decoration: none;
 color: #fff;
-background-color: rgb(54, 149, 213);
+background-color: rgba(54, 149, 213, 0.8);
 height:60px;
 }
 
@@ -334,8 +334,13 @@ color: rgb(114,114,114);
     background-color: #fff;
 }
 
-.teste{
-    
-    overflow-y : auto;
-    
+.table {
+    table-layout:fixed;
+    margin-bottom: -2px;
+}
+
+.div-table-content {
+    border-bottom: 2px solid #ccc;
+  height:350px;
+  overflow-y:auto;
 }

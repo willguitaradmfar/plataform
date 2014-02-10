@@ -1,6 +1,11 @@
 
+
+//---------------------------------------------------------------//
+config = require('./config.js');
+//---------------------------------------------------------------//
+
 var express = require('express'),
-        db = require('../schema/schema.js'),
+        db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
         path = require('path');                
         _moduless = require('../module/_module.js');
@@ -13,10 +18,6 @@ moment = require('moment');
 var app = express();
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
-//---------------------------------------------------------------//
-
-//---------------------------------------------------------------//
-config = require('./config.js');
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//
@@ -59,7 +60,9 @@ app.configure(function() {
         app.use(express.static(path.join(__dirname, 'public')));
 });
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Produto'), redisClient, 'produto', 'reisconobras.com.br');
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Contato'), redisClient, 'Contato', 'reisconobras.com.br');
+
+
 require('../module/emailAPI')(app, config, redisClient, 'reisconobras.com.br');
 require('../module/queue.js')(config, redisClient, 'reisconobras.com.br');
 require('../module/chat.js')(config, redis, 'reisconobras.com.br');

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modelos>
+	<nome>Reiscon Obras</nome>
+	<jomowdb>107.170.15.88</jomowdb>
+	
+	<modelo>
+    		<nome>Contato</nome> 
+		<atributos>
+			<atributo>
+				<nome>nome</nome> 
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>email</nome>
+				<tipo>"String"</tipo>
+			</atributo>
+			<atributo>
+				<nome>telefone</nome>
+				<tipo>"String"</tipo> 
+			</atributo>
+			<atributo>
+				<nome>cidade</nome>
+				<tipo>"String"</tipo> 
+			</atributo>
+			<atributo>
+				<nome>estado</nome>
+				<tipo>"String"</tipo> 
+			</atributo>
+			<atributo>
+				<nome>mensagem</nome>
+				<tipo>"String"</tipo> 
+			</atributo>
+		</atributos>	
+	</modelo>
+	<!--  Observe ... -->
+</modelos>

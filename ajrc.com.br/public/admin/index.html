@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Online</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Add custom CSS here -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="/css/upload/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="/css/upload/jquery.fileupload.css">
+    <link rel="stylesheet" href="/css/upload/jquery.fileupload-ui.css">
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="/css/upload/jquery.fileupload-noscript.css"></noscript>
+    <noscript><link rel="stylesheet" href="/css/upload/jquery.fileupload-ui-noscript.css"></noscript>    
+    
+    </head>
+
+  <body>
+
+    <div id="wrapper">
+      
+      <!-- Sidebar -->
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="MenuController">
+      
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          
+          </button>
+          <a class="navbar-brand" href="#/">Shop Online</a>
+         
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        
+            <ul class="nav navbar-nav side-nav ocutar">
+                <li ng-class="{ active: isActive('/') }"><a href="#/"><i class="fa fa-dashboard fa-4x"></i> <span class="textomenu">Monitor</span></a></li>
+                <li ng-class="{ active: isActive('/produto') }"><a href="#/produto"><i class="fa fa-barcode fa-4x" ></i><span class="textomenu"> Produtos</span></a></li>
+                <li ng-class="{ active: isActive('/cliente') }"><a href="#/cliente"><i class="fa fa-users fa-4x"></i> <span class="textomenu">Clientes</span></a></li>
+                <li ng-class="{ active: isActive('/venda') }"><a href="#/venda"><i class="fa fa-bar-chart-o fa-4x"></i> <span class="textomenu">Venda</span></a></li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right navbar-user">
+          
+                <!--PESQUISAR TOPO-->
+                <li class="dropdown messages-dropdown">
+                    <div class="pesquisar form-group input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>             
+                </li>
+          
+                <li class="dropdown messages-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">7</span> <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-header">7 New Messages</li>
+                    <li class="message-preview">
+                      <a href="#">
+                        <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                        <span class="name">John Smith:</span>
+                        <span class="message">Hey there, I wanted to ask you something...</span>
+                        <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="message-preview">
+                      <a href="#">
+                        <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                        <span class="name">John Smith:</span>
+                        <span class="message">Hey there, I wanted to ask you something...</span>
+                        <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="message-preview">
+                      <a href="#">
+                        <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                        <span class="name">John Smith:</span>
+                        <span class="message">Hey there, I wanted to ask you something...</span>
+                        <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#">View Inbox <span class="badge">7</span></a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown alerts-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Notificações<span class="badge">{{notificacoes.length}}</span> <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li ng-repeat="notificacao in notificacoes | orderBy:'$$hashKey':true">
+                        <a href="#/{{notificacao.entidade}}/{{notificacao._id}}">{{notificacao.date}}<span class="label label-{{notificacao.nivel}}">{{notificacao.text}}</span></a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown user-dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Java Mosntro <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+                    <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+      
+        
+      <div ng-view class="ng-view"></div> 
+
+    </div><!-- /#wrapper -->
+
+    <!-- JavaScript -->
+    <script  src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script  src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    
+    <!-- Angular JS -->    
+    <script type="text/javascript" src="/js/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/js/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/angular/ng-socket-io.js"></script>
+    <script type="text/javascript" src="/js/app/controllers.js"></script>
+    <script type="text/javascript" src="/js/app/resources.js"></script>
+    <script type="text/javascript" src="/js/app/routes.js"></script>
+    
+    <!-- Page Specific Plugins -->    
+    <script src="js/tablesorter/jquery.tablesorter.js"></script>
+    <script src="js/tablesorter/tables.js"></script>    
+    
+    <script src="/js/upload/vendor/jquery.ui.widget.js"></script>
+    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+    <script src="/js/upload/load-image.min.js"></script>
+    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+    <script src="/js/upload/canvas-to-blob.min.js"></script>
+    <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+    <script src="/js/upload/bootstrap.min.js"></script>
+    <!-- blueimp Gallery script -->
+    <script src="/js/upload/jquery.blueimp-gallery.min.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="/js/upload/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="/js/upload/jquery.fileupload.js"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="/js/upload/jquery.fileupload-process.js"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="/js/upload/jquery.fileupload-image.js"></script>
+    <!-- The File Upload audio preview plugin -->
+    <script src="/js/upload/jquery.fileupload-audio.js"></script>
+    <!-- The File Upload video preview plugin -->
+    <script src="/js/upload/jquery.fileupload-video.js"></script>
+    <!-- The File Upload validation plugin -->
+    <script src="/js/upload/jquery.fileupload-validate.js"></script>
+    <!-- The File Upload Angular JS module -->
+    <script src="/js/upload/jquery.fileupload-angular.js"></script>
+    
+
+     
+    <!-- ui-->  
+    <script src="js/jquery-app.js"></script>
+    
+  </body>
+</html>
