@@ -1,7 +1,24 @@
 module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
+    app.get('/'+domain+'/query/:perPage/:page/:query', function(req, res) {
+		
+		if(!req.params.query){
+		    req.params.query = {};
+		}
+		if(!req.params.perPage){
+		    req.params.perPage = 50;
+		}
+		if(!req.params.page){
+		    req.params.page = 0;
+		}
+		console.log(req.params.query)
+		query[domain].getPaginate(req.params.query, req.params.perPage, req.params.page, function(obj) {
+			res.send(obj);
+		});
+	});
+
 	app.get('/'+domain+'/all', function(req, res) {
-		query[domain].getPaginate(10, 0, function(obj) {
+		query[domain].get(function(obj) {
 			res.send(obj);
 		});
 	});

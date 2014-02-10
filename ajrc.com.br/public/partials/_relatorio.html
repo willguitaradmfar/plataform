@@ -35,8 +35,9 @@
                                             <td>{{pedido.nomeCliente}}</td>
                                             <td>{{pedido.descricaoProduto}}</td>
                                             <td>{{pedido.valorProduto | currency:"R$ "}}</td>
-                                            <td><span class="label label-info">{{pedido.status}}</span></td>
+                                            <td><span  ng-class="{'label label-success' : pedido.status == 'ENTREGUE', 'label label-warning' : pedido.status == 'EM ABERTO'}">{{pedido.status}}</span></td>
                                             <td>{{pedido.dataPedido | date:'dd/MM/yyyy'}}</td>
+                                          
                                         </tr>
                                         
                                     </tbody>

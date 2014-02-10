@@ -2,6 +2,7 @@ module.exports = function(app, db, schema) {
 	var query = {};
 	query.schema = schema;
 	query[schema.toLowerCase()] =  {
+	    
 		get: function(callback) {
 			db[schema].find(function(err, objs) {
 			    if(err)console.error(err);
@@ -13,15 +14,18 @@ module.exports = function(app, db, schema) {
 			});
 		},
 		
-		getPaginate: function(perPage, page, callback) {
-			db[schema].find(function(err, objs) {
+		getPaginate: function(query, perPage, page, callback) {
+			db[schema].find(JSON.parse(query))
+			.skip(perPage * page)
+			.limit((perPage))
+			.exec(function (err, objs) {
 			    if(err)console.error(err);
-				if (objs && objs.length != 0) {
+			    if (objs && objs.length != 0) {
 					callback(objs);
 				} else {
 					callback(null);
 				}
-			}).limit((perPage));
+			});
 		},
 		
 		getById: function(id, callback) {
