@@ -14,7 +14,19 @@ angular.module('app.controllers', ['socket-io'])
 	}
 ])
 
-.controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+.controller('ServicosController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
+		console.log('JomowController');
+		
+	}
+])
+.controller('ClientesController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
+		console.log('JomowController');
+		
+	}
+])
+.controller('ObrasController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('JomowController');
 		

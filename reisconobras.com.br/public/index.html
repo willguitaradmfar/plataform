@@ -9,9 +9,111 @@
 <title>jOmOw</title>
 <link rel="stylesheet" href="/css/vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="/css/reisconobras.com.br.css">
+<link rel='stylesheet' type='text/css'href='css/google.css'>
 </head>
 <body>
+
+<div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+     <div class="carousel-caption">
+            <div class="logo">
+            	<h1 class="font-semibold"><span class="reis">R</span>EISCON</h1>
+				<h2 class="font-thin">Terraplanagem, Locação de maquinas, e Obras.<span class="font-semibold"></span></h2>
+	        </div>
+	    </div>
+    
+    <ol class="carousel-indicators">
+        
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+    
+       
+	    
+        <div class="item active">
+            <div class="fill" style="background-image:url('https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash2/t1/309814_333989100039899_2074743325_n.jpg');"></div>
+           
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash3/t1/1524995_467259226712885_696511482_n.jpg');"></div>
+            
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('https://scontent-b-mia.xx.fbcdn.net/hphotos-ash3/t1/400585_375846109187531_1197085164_n.jpg');"></div>
+           
+        </div>
+        
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+    </div>
+
+     <nav class="navbar navbar-inverse" role="navigation"  ng-controller="MenuController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>              
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ ativado: isActive('/') }"><a href="#/">EMPRESA</a>
+                    </li>
+                    <li ng-class="{ ativado: isActive('/servicos') }"><a class="cliente" href="#/servicos">SERVIÇOS</a>
+                    </li>
+                    <li ng-class="{ ativado: isActive('/clientes') }"><a href="#/clientes">CLIENTES</a>
+                    </li>
+                    <li ng-class="{ ativado: isActive('/obras') }"><a href="#/obras">OBRAS</a>
+                    </li>
+                    <li ng-class="{ ativado: isActive('/contato') }"><a href="#/contato">CONTATO</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
 <div ng-view=""></div>
+
+ <div class="container">
+         <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Company 2013</p>
+                </div>
+            </div>
+        </footer>
+</div>        
 <script src="/js/vendors/jquery/jquery-2.0.2.min.js"></script><script type="text/javascript" src="/js/vendors/bootstrap/bootstrap.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-resource.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-cookies.min.js"></script><script type="text/javascript" src="/js/vendors/angular/ng-socket-io.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-loader.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-sanitize.min.js"></script><script type="text/javascript" src="/socket.io/socket.io.js"></script><script type="text/javascript" src="/js/resource.js"></script><script type="text/javascript" src="/js/controller.js"></script><script type="text/javascript" src="/js/diretivas.js"></script><script type="text/javascript" src="/js/router.js"></script><script type="text/javascript" src="/js/analytics.js"></script>
+    <script>
+  //   $( ".cliente" ).click(function() {
+    //     alert("teste");
+      $('.carousel').carousel({
+          
+            interval: 5000 //changes the speed
+        });
+    //});
+       
+    </script>
+    
 </body>
 </html>

@@ -1,170 +1,134 @@
-html,body{
-  margin: 0;
-  background-color: rgb(40,40,40);
-  }
-.wrapper{
-  padding-top: 20px;
-  width:95%;
-  
-  }
-.wrapper h1,h2{
-  text-align:center;
-  color: rgb(255,255,255);
-  }
-.wrapper h1{
-  margin-top:0px;
-  margin-left:10px;
-  font-size:80px;
-  }
-
-.logo{
-  width:100px;
-  height:100px;
-  border:3px solid rgb(255,255,255);
-  border-radius:15px;
-  }
-.logotipo{
-  width:300px;
-  height:100px;
-  margin: 0 auto;
-  }
-  
- .fb-logotipo{
-  width:300px;
-  height:100px;
-  padding-top: 30px;
-  margin: 0 auto;
-  }
-
-@media (max-width: 768px) {
-  .wrapper{
-    padding-top: 50px;
-   
-  }
-  .wrapper h1{
-    margin-top:-4px;
-    margin-left:9px;
-    font-size:55px;
-    }
-  .wrapper h2{
-    font-size:25px;
-   
-  }
-  .logo{
-    width:64px;
-    height:64px;
-    border:2px solid rgb(255,255,255);
-    border-radius:10px;
-    }
-  .logotipo{
-    width:210px;
-    height:75px;
-    margin: 0 auto;
-  }
-  .fb-logotipo{
-
- 
-  padding-top: 30px;
- 
-  }
-  
-}
-.wrapper-chat{
-     position:fixed;
-   bottom: 0px;
-  right:10%;
- height:30px;
- }
-  
-.chat{
-  
-  margin-left: 5px;
-  width:260px;
-  float:right;
-  bottom:0;
+html, body {
+	height:100%;
+	overflow:initial;
+	font-family: "Titillium Web", sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased !important;
 }
 
-.chatHeader{
-  
- width:260px;
-  background-color:rgb(73, 102, 167);
-  border:solid 1px rgb(46, 69, 136);
-  height:30px;
-  -webkit-border-top-left-radius: 3px;
-  -webkit-border-top-right-radius: 3px;
-  cursor:pointer;
-  color:#fff;
-  font-weight:bold;
-  padding-top:5px;
-  padding-left:5px;
-}
-.fa-globe{
-  color:rgb(148, 204, 102);
+.font-thin {
+	font-family: "Titillium Web", sans-serif;
+	font-weight: 500;
 }
 
-.chatBody{
-  
-  height:230px;
-  overflow-y:scroll;
-  padding-top:5px;
-  background-color:rgb(229, 229, 229);
-  border:solid 1px rgb(100, 100, 100);
- 
-}
-.jomow, .cliente{
-  background-color:#fff;
-  min-height:20px;
-  padding:5px;
-  margin-bottom:5px;
-  font-family: 'Arial',sans-serif;
-  font-size: 13px;
-  color: #262626;
-}
-.jomow{
-   float:left;
-
+.font-semibold {
+	font-family: "Titillium Web", sans-serif;
+	font-weight: 600;
 }
 
-.jomow .fotoMensagem{
-  float:left;
-  margin-right:10px;
-}
-.jomow .mensagem{
-  
-  width:230px;
-
-  
-}
-.cliente{
-  margin-right:0px;
-  float:right;
-} 
-.cliente .fotoMensagem{
-  float:right;
-
-}
-.cliente .mensagem{
- 
-  width:225px;
-  margin: 0 0 1px;
-  
+.font-light {
+	font-family: "Titillium Web", sans-serif;
+	font-weight: 300;
 }
 
-
-.chatMensagem{
-  height:50px;
-  background-color:rgb(255, 255, 255);
-  border-left:solid 1px rgb(100, 100, 100);
-  border-right:solid 1px rgb(100, 100, 100);
-}
-.chatMensagem textarea{
-  width:100%;
-  
-  border:none;
-  padding:5px;
-  
-}
-:focus {
-outline: none;
+.carousel {
+	height:50%;
 }
 
+.item,
+.active,
+.carousel-inner {
+	height:100%;
+}
+
+.fill {
+	width:100%;
+	height:100%;
+	background-position: center;
+	background-size: cover;
+}
+
+.section {
+	margin: 50px 0;
+}
+
+footer {
+	margin: 50px 0;
+}
+
+.navbar {
+border-radius: 0px !important; 
+}
+.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
+.navbar {min-height:40px !important}
+
+.navbar-inverse .navbar-nav>li>a {
+color: #FFF;
+}
+
+.ativado > a {
+color: red !important;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+color:rgb(205,32,39);
+}
+
+.carousel-caption {
+    
+    padding-bottom: 110px;
+}
+
+.logo h1{font-size: 74px;}
+.reis{
+    color:rgb(205,32,39);
+}
+
+@media (max-width: 767px) {
+	.carousel-caption {
+    
+    padding-bottom: 5px;
+}
+
+.logo h1{font-size: 44px;}
+.logo h2{font-size: 24px;}
+.content-row {
+		
+		padding-bottom:1px;
+	}
+}
+
+/*
+======================
+SERVICOS
+======================
+*/
+
+@media (min-width: 992px){
+    .col-md-4{padding-bottom:60px;}
+}
+
+@media (min-width: 100px){
+    .col-md-4{padding-bottom:60px;}
+}
+
+.col-sm-6>h3{
+    text-align:center;
+}
+.text-center {
+
+margin: 0 auto;
+}
+
+	.title-row {
+		font-size: 45px;
+		padding-bottom: 50px;
+		text-align:center;
+	}
+	
+	.line-row .hr {
+		background-color: #e4e6e5;
+		height: 5px;
+		margin: 0 auto;
+		width: 33%;
+	}
+	
+	.subtitle-row {
+		font-size: 35px;
+		padding-bottom: 40px;
+		padding-top: 40px;
+	}
+	
+	.content-row {
+		padding-top: 45px;
+		
+	}
