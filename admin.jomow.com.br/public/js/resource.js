@@ -12,6 +12,8 @@ angular.module('app.resource', ["ngResource"])
  .factory('Login', function ($resource) {
       return $resource('/login/:id', {}, {
         sair: {method:'GET', params : {id : 'sair'}},
+        get: {method:'GET', params : {id : ''}},
+        restaurar: {method:'POST', params : {id : 'restaurar'}},
         logar: {method:'POST'}
       });
   })

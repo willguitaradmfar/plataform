@@ -17,115 +17,78 @@ angular.module('app.controllers', ['socket-io'])
 .controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('JomowController');
-		
+location.href = '/';
 	}
 ])
 
-.controller('PessoaController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Login',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Login) {
+.controller('PessoaController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Login', 'Pessoa',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Login, Pessoa) {
 		console.log('PessoaController');
-		
-		$scope.autenticar = function () {
-		    console.log($scope.pessoa)
+		$scope.uipessoa = {};
+		$scope.uipessoa.login = {};
+		$scope.uipessoa.cadastro = {};
+		$scope.uipessoa.restaurar = {};
+
+		$scope.autenticar = function () {		    
 		    Login.logar($scope.pessoa, function (res) {
-		        console.log(res);
+		        if(res.status === "oK"){
+		        	location.href = '/';
+		        }else{
+		        	$scope.uipessoa.login.msg = res.msg;
+		        }
 		    })
 		}
-		
-		
+
+		$scope.restaurar = function () {		    
+		    Login.restaurar($scope.restaurarpessoa, function (res) {
+		        if(res.status === "oK"){
+		        	$scope.restaurarpessoa = {};
+		        	$scope.uipessoa.restaurar.msg = res.msg;
+		        }else{
+		        	$scope.uipessoa.restaurar.msg = res.msg;
+		        }
+		    })
+		}
+
+		$scope.salvarPessoa = function () {		    
+		    if($scope.newpessoa.senha != $scope.newpessoa.csenha){
+		    	$scope.uipessoa.cadastro.msg = "Senhas não conferem";
+		    	return ;
+		    }
+
+		    if(!$scope.newpessoa.acceptPolicy){
+		    	$scope.uipessoa.cadastro.msg = "Deve aceitar o contrato de uso";
+		    	return ;
+		    }
+		    $scope.uipessoa.cadastro.msg = "";
+		    
+		    Pessoa.save($scope.newpessoa, function (res) {
+		    	if(res.status === "Ok"){
+		    		$scope.uipessoa.cadastro.msg = "Usuário cadastrado com sucesso";
+		    		$scope.newpessoa = {};
+		    	}
+		    });
+		}
 	}
 ])
 
-.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Menu',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Menu) {
-		console.log('MenuController');
+.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Menu', 'Login',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Menu, Login) {
+		console.log('MenuController');		
 		
-			//################################## Controle básico de Menu ####################################
-			$scope.uimenu = {}
-			$scope.uimenu.msg = {};		
-			$scope.menu = {};
-			
-			$scope.recarregarMenus = function(){
-				$scope.menus = Menu.list(function(res){
-					return res;
-				});            
+		Login.get(function (res) {
+			if(res.status === "oK"){
+				$scope.user = res.user;
 			}
+		})
 
-			$scope.salvarMenu = function(){
-				if($scope.menu._id){
-					Menu.update({id : $scope.menu._id}, $scope.menu, function(res){
-						$scope.uimenu.msg.text = "Menu "+$scope.menu._id+" Atualizado com sucesso";
-						$scope.limparMenu();
-						$scope.recarregarMenus();
-					});
-				}else{
-					Menu.save($scope.menu, function(res){
-						$scope.uimenu.msg.text = "Menu "+$scope.menu._id+" Salvo com sucesso";
-						$scope.limparMenu();
-						$scope.recarregarMenus();
-					});
+		$scope.sair = function () {
+			Login.sair(function(res) {
+				if(res.status === "oK"){
+					location.href = '/';
 				}
-			}
-
-			$scope.limparMenu = function () {
-			    $scope.menu = {};
-			}
-
-			$scope.excluirMenu = function(menu){ 
-				if (menu._id){
-					Menu.excluir({id : menu._id }, function () {
-						$scope.limparMenu();
-						$scope.recarregarMenus();
-						$scope.uimenu.msg.text = "O Menu "+menu._id+" foi exluido do servidor ..";
-					});
-				}
-			}
-
-			$scope.selecionaMenu = function (menu) {
-			    $scope.menu = menu;
-			}
-
-			if($routeParams.id){
-				Menu.get({id : $routeParams.id}, function (menu) {
-					$scope.selecionaMenu(menu);
-					if(menu._id){
-						console.log('Função não implementada');
-					}
-				});
-			}
-        
-
-		//Exemplo de Envio de Email
-		$scope.enviarEmail = function () {
-		    
-		    var msg = 'Nome : '+$scope.contato.nome
-		            + '\nLocal : '+$scope.contato.local
-		            + '\nEmail : '+$scope.contato.email
-		            + '\nMensagem : '+$scope.contato.mensagem;
-		    
-		     Email.enviar({
-                from : 'contato@jomow.com.br',
-                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
-                subject : 'Contato '+$scope.contato.nome,
-                text : msg
-            }, function (data) {
-                console.log(data);
-                if(data.status)
-                	if(data.status == "Ok"){
-	                    $scope.contato = {};
-	                    $scope.contato.msg = data.msg;
-	                    $scope.contato.enviado = true;
-	                }
-            })
-		};
-		
-		/*$scope.notificacoes = [];
-		socket.on('produto::create', function(data) {
-		    data.text = "Um Produto foi adicionado";
-		    data.entidade = "produto";
-		    data.nivel = "success";
-            $scope.notificacoes.push(data)
-        });*/
+			});
+		}		
 	}
 ])
 

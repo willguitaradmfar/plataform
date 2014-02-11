@@ -42,7 +42,7 @@ solrClient.autoCommit = true;
 app.configure(function() {
         app.set('port', process.env.PORT || config.domain.port);
         app.set('views', __dirname + '/views');
-        app.set('view engine', 'ejs');
+        app.set('view engine', 'ejs');                
         app.use(express.favicon(__dirname+'/public/favicon/favicon.png'));
         app.use(express.logger('dev'));
         app.use(express.bodyParser());
@@ -63,7 +63,6 @@ app.configure(function() {
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'), redisClient, 'pessoa', 'admin.jomow.com.br');
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', 'admin.jomow.com.br');
-
 
 require('../module/emailAPI')(app, config, redisClient, 'admin.jomow.com.br');
 require('../module/queue.js')(config, redisClient, 'admin.jomow.com.br');
