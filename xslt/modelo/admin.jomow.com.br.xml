@@ -3,33 +3,7 @@
 	<nome>Admin</nome>
 	<jomowdb>107.170.15.88</jomowdb>
 	<modelo>
-		<nome>post</nome>
-		<atributos>
-			<atributo>
-				<nome>descricao</nome> 
-				<tipo>"String"</tipo> 
-			</atributo>
-			<atributo>
-				<nome>fotoUrl</nome>
-				<tipo>"String"</tipo>
-			</atributo>
-			<atributo>
-				<nome>arquivado</nome>
-				<tipo>"Boolean"</tipo> 
-			</atributo>
-			<atributo>
-				<nome>autor</nome>
-				<tipo>"String"</tipo> 
-			</atributo>
-			<atributo>
-				<nome>tag</nome>
-				<tipo>"String"</tipo>
-			</atributo>
-		</atributos>	
-	</modelo>
-	
-	<modelo>
-    	<nome>cadastro</nome> 
+    	<nome>pessoa</nome> 
 		<atributos>
 			<atributo>
 				<nome>nome</nome> 
@@ -40,18 +14,14 @@
 				<tipo>"String"</tipo>
 			</atributo>
 			<atributo>
-				<nome>telefone</nome>
-				<tipo>"String"</tipo> 
-			</atributo>
-			<atributo>
-				<nome>usuario</nome>
+				<nome>senha</nome>
 				<tipo>"String"</tipo> 
 			</atributo>
 		</atributos>	
 	</modelo>
-	
-	<modelo>
-    	<nome>produto</nome> 
+
+    <modelo>
+    	<nome>menu</nome> 
 		<atributos>
 			<atributo>
 				<nome>nome</nome> 
@@ -59,20 +29,17 @@
 			</atributo>
 			<atributo>
 				<nome>descricao</nome> 
-				<tipo>"String"</tipo> 
-			</atributo>
-			<atributo>
-				<nome>fotoUrl</nome>
 				<tipo>"String"</tipo>
 			</atributo>
 			<atributo>
-				<nome>valor</nome>
-				<tipo>"number"</tipo> 
+				<nome>link</nome>
+				<tipo>"String"</tipo>
 			</atributo>
 			<atributo>
-				<nome>tag</nome>
+				<nome>class</nome>
 				<tipo>"String"</tipo> 
 			</atributo>
-		</atributos>	
-    	</modelo>
+		</atributos>
+	</modelo>
+
     </modelos>

@@ -23,6 +23,7 @@ angular.module('app.resource', ["ngResource"])
                     translate(substring(nome, 2), $uppercase, $smallcase))' />
   .factory('<xsl:value-of select="$Nome"/>', function ($resource) {
       return $resource('/<xsl:value-of select="$nome"/>/:id', {}, {
+        query: {method:'GET', params : {id : 'query', perPage : 50, page : 0, query : "{}"}, isArray:true},
         list: {method:'GET', params : {id : 'all'}, isArray:true},
         get: {method:'GET', params : {id : 'idPassado'}},
         save: {method:'POST'},

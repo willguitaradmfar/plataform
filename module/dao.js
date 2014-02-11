@@ -4,7 +4,9 @@ module.exports = function(app, db, schema) {
 	query[schema.toLowerCase()] =  {
 	    
 		get: function(callback) {
-			db[schema].find(function(err, objs) {
+			db[schema]
+			.find({})
+			.exec(function (err, objs) {
 			    if(err)console.error(err);
 				if (objs && objs.length != 0) {
 					callback(objs);
@@ -15,7 +17,8 @@ module.exports = function(app, db, schema) {
 		},
 		
 		getPaginate: function(query, perPage, page, callback) {
-			db[schema].find(JSON.parse(query))
+			db[schema]
+			.find(JSON.parse(query))
 			.skip(perPage * page)
 			.limit((perPage))
 			.exec(function (err, objs) {

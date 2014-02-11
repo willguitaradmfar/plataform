@@ -4,9 +4,10 @@
 angular.module('app.controllers', ['socket-io'])
 
 
-.controller('PrincipalController', ['$scope','$location', '$http', '$templateCache', '$routeParams',
-	function($scope, $location,  $http, $templateCache, $routeParams) {
+.controller('PrincipalController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Pedido',
+	function($scope, $location,  $http, $templateCache, $routeParams, Pedido) {
 		console.log('PrincipalController');
+	
 	}
 ])
 
@@ -15,7 +16,10 @@ angular.module('app.controllers', ['socket-io'])
 	function($scope, $location,  $http, $templateCache, $routeParams, Pedido) {
 		console.log('RelatorioController');
 		
-		$scope.pedidos = Pedido.list(function (res) {
+		var pedidoFilter = {};
+		pedidoFilter.codigo = {"$gt" : 10, "$lt" : 21};
+		
+		$scope.pedidos = Pedido.query({query : JSON.stringify(pedidoFilter)}, function (res) {
 		    $scope.pedido = {};
 		    $scope.pedido.total = 0;
 		    for(var i in $scope.pedidos){
@@ -23,7 +27,6 @@ angular.module('app.controllers', ['socket-io'])
 		    }      
 		    return res;
 		})
-		
 	}
 ])
 
