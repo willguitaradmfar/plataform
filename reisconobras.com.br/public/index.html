@@ -10,6 +10,11 @@
 <link rel="stylesheet" href="/css/vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="/css/reisconobras.com.br.css">
 <link rel='stylesheet' type='text/css'href='css/google.css'>
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="_gallery/css/cloud-admin.css" >	
+<link rel="stylesheet" type="text/css" href="_gallery/css/animatecss/animate.min.css" />
+<link rel="stylesheet" type="text/css" href="_gallery/js/colorbox/colorbox.min.css" />
+	
 </head>
 <body>
 
@@ -35,15 +40,15 @@
     
        
 	    
-        <div class="item active">
+        <div class="item tem active">
             <div class="fill" style="background-image:url('https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash2/t1/309814_333989100039899_2074743325_n.jpg');"></div>
            
         </div>
-        <div class="item">
+        <div class="item tem">
             <div class="fill" style="background-image:url('https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash3/t1/1524995_467259226712885_696511482_n.jpg');"></div>
             
         </div>
-        <div class="item">
+        <div class="item tem">
             <div class="fill" style="background-image:url('https://scontent-b-mia.xx.fbcdn.net/hphotos-ash3/t1/400585_375846109187531_1197085164_n.jpg');"></div>
            
         </div>
@@ -104,15 +109,36 @@
         </footer>
 </div>        
 <script src="/js/vendors/jquery/jquery-2.0.2.min.js"></script><script type="text/javascript" src="/js/vendors/bootstrap/bootstrap.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-resource.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-cookies.min.js"></script><script type="text/javascript" src="/js/vendors/angular/ng-socket-io.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-loader.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-sanitize.min.js"></script><script type="text/javascript" src="/socket.io/socket.io.js"></script><script type="text/javascript" src="/js/resource.js"></script><script type="text/javascript" src="/js/controller.js"></script><script type="text/javascript" src="/js/diretivas.js"></script><script type="text/javascript" src="/js/router.js"></script><script type="text/javascript" src="/js/analytics.js"></script>
+    
+    <!-- ISOTOPE -->
+	<script type="text/javascript" src="_gallery/js/isotope/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="_gallery/js/isotope/imagesloaded.pkgd.min.js"></script>
+	<!-- COLORBOX -->
+	<script type="text/javascript" src="_gallery/js/colorbox/jquery.colorbox.min.js"></script>
+	
+	<!-- CUSTOM SCRIPT -->
+	<script src="_gallery/js/script.js"></script>
+
     <script>
-  //   $( ".cliente" ).click(function() {
-    //     alert("teste");
+        function close_toggle() {
+   if ($(window).width() <= 768) {
+      $('.nav a').on('click', function(){
+          $(".navbar-toggle").click();
+      });
+   }
+   else {
+     $('.nav a').off('click');
+   }
+}
+close_toggle();
+
+$(window).resize(close_toggle);
+ 
       $('.carousel').carousel({
           
             interval: 5000 //changes the speed
         });
-    //});
-       
+  
     </script>
     
 </body>

@@ -25,7 +25,7 @@ html, body {
 	height:50%;
 }
 
-.item,
+.tem,
 .active,
 .carousel-inner {
 	height:100%;
@@ -132,3 +132,18 @@ margin: 0 auto;
 		padding-top: 45px;
 		
 	}
+	
+
+.btn-primary{
+    border-color:rgb(84, 84, 84)!important;
+    background-color:rgb(84, 84, 84)!important;
+}
+.btn-primary:hover{
+    border-color:rgb(64, 64, 64)!important;
+    background-color:rgb(64, 64, 64)!important;
+}
+
+ .well{
+     width: 130% !important;
+    background-color:rgba(84, 84, 84,0.5)!important;
+}	
