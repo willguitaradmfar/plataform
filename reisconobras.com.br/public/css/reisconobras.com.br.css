@@ -116,7 +116,7 @@ margin: 0 auto;
 	}
 	
 	.line-row .hr {
-		background-color: #e4e6e5;
+		background-color: #fff;
 		height: 5px;
 		margin: 0 auto;
 		width: 33%;
@@ -142,8 +142,48 @@ margin: 0 auto;
     border-color:rgb(64, 64, 64)!important;
     background-color:rgb(64, 64, 64)!important;
 }
-
+.large{
+    width: 120% !important;
+}
  .well{
-     width: 130% !important;
-    background-color:rgba(84, 84, 84,0.5)!important;
-}	
+  
+    background-color:rgba(84, 84, 84,0.1)!important;
+}
+
+#map-canvas 
+{ 
+height: 510px;
+width:100%;
+}
+
+footer {
+    position: absolute;
+    left:0px;
+    margin:0;
+    width:100%;
+    color: #fff;
+    padding-bottom: 20px;
+    min-height: 30px;
+    font-size: 14px;
+    background: #2d2d2d;
+}
+footer a{
+    color:rgb(205,32,39);
+}
+footer a:hover{
+    color:#fff;
+}
+footer hr {
+border-top: 1px solid black;
+border-bottom: 1px solid rgb(64,64,64);
+margin: 8px 0px 0px 0px;
+}
+.face{
+    padding-top:60px;
+}
+
+@media (min-width: 100px){
+.col-md-4 {
+padding-bottom: 0px;
+}
+}

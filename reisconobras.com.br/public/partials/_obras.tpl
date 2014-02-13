@@ -1,9 +1,14 @@
 <div class="container">
+    <div class="row">
+        <div class="container">
+             <div class="col-md-12 well">
+
+        <div class="container">
    
     <div class="row">
         <div class="col-md-3">
             <div id="filter-controls" class="btn-group">
-            <div class="well">
+            <div class="well large">
 			  <div class="hidden-xs">
 				  <a href="#" class="btn btn-primary btn-lg btn-block" data-filter="*"> Todas as Obras </a>
 				  <a href="#" class="btn btn-primary btn-lg btn-block" data-filter=".category_1"> Arena Corinthians </a>
@@ -127,6 +132,12 @@
 	</div>
 	
 </div>
+
+	</div><!-- /.row -->	
+        </div><!-- /.container -->
+    </div><!-- /.container -->
+</div><!-- /.container -->
+
 
 	<script>
 	jQuery(document).ready(function() {		

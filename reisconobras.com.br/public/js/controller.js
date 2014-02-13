@@ -96,12 +96,13 @@ angular.module('app.controllers', ['socket-io'])
 		$scope.enviarEmail = function () {
 		    
 		    var msg = 'Nome : '+$scope.contato.nome
-		            + '\nLocal : '+$scope.contato.local
+		            + '\nTelefone : '+$scope.contato.telefone
 		            + '\nEmail : '+$scope.contato.email
+		            + '\nEstado : '+$scope.contato.estado
+		            + '\nCidade : '+$scope.contato.cidade
 		            + '\nMensagem : '+$scope.contato.mensagem;
 		    
 		     Email.enviar({
-                from : 'contato@jomow.com.br',
                 to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
                 subject : 'Contato '+$scope.contato.nome,
                 text : msg

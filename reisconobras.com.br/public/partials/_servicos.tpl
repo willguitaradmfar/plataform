@@ -1,4 +1,10 @@
 <div class="container">
+    <div class="row">
+        <div class="container">
+             <div class="col-md-12 well">
+
+        
+        <div class="container">
     <div class="row title-row">
 			<div class="col-12 font-thin"><span class="reis">S</span>erviços</div>
 		</div><!-- /row -->
@@ -129,4 +135,7 @@
 	<!-- /row -->
 </div><!-- /container -->
   
-
+	</div><!-- /.row -->	
+        </div><!-- /.container -->
+    </div><!-- /.container -->
+</div><!-- /.container -->

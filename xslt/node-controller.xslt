@@ -99,7 +99,6 @@ angular.module('app.controllers', ['socket-io'])
 		            + '\nMensagem : '+$scope.contato.mensagem;
 		    
 		     Email.enviar({
-                from : 'contato@jomow.com.br',
                 to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
                 subject : 'Contato '+$scope.contato.nome,
                 text : msg
