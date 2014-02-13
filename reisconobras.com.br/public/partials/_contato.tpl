@@ -51,7 +51,8 @@
                             </select>
                           </div>
                       <div class="col-md-2 col-md-offset-2">
-                          <label class="control-label" for="Nome">Estado:</label>  
+                          <label class="control-label" for="Nome">Estado:</label>
+                          <!-- teste -->
                           <select class="form-control" ng-model="contato.estado">
                               <option>SP</option>
                               <option>RJ</option>
