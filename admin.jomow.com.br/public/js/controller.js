@@ -3,21 +3,16 @@
 
 angular.module('app.controllers', ['socket-io'])
 
-.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
-		console.log('MenuController');
 
-		$scope.isActive = function (viewLocation) {
-			var active = (viewLocation === $location.path());
-			return active;
-		};
+.controller('HomeController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
+		console.log('HomeController');
 	}
 ])
 
-.controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+.controller('RelatorioController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
-		console.log('JomowController');
-location.href = '/';
+		console.log('RelatorioController');
 	}
 ])
 
@@ -32,7 +27,7 @@ location.href = '/';
 		$scope.autenticar = function () {		    
 		    Login.logar($scope.pessoa, function (res) {
 		        if(res.status === "oK"){
-		        	location.href = '/';
+		        	location.href = '/#/home';
 		        }else{
 		        	$scope.uipessoa.login.msg = res.msg;
 		        }
@@ -50,7 +45,7 @@ location.href = '/';
 		    })
 		}
 
-		$scope.salvarPessoa = function () {		    
+		$scope.salvarPessoa = function () {
 		    if($scope.newpessoa.senha != $scope.newpessoa.csenha){
 		    	$scope.uipessoa.cadastro.msg = "Senhas não conferem";
 		    	return ;
@@ -76,16 +71,58 @@ location.href = '/';
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Menu, Login) {
 		console.log('MenuController');		
 		
+		$scope.uimenu = {};
+		$scope.uimenu.msg = {};
+		
+		$scope.recarregarMenus = function(){
+			$scope.menus = Menu.list(function(res){
+				return res;
+			});
+		}
+		
+		$scope.recarregarMenus();
+		
+		
 		Login.get(function (res) {
 			if(res.status === "oK"){
 				$scope.user = res.user;
 			}
 		})
+		
+		$scope.salvarMenu = function(){
+			if($scope.menu._id){
+				Menu.update({id : $scope.menu._id}, $scope.menu, function(res){
+					$scope.uimenu.msg.text = "Menu "+$scope.menu._id+" Atualizado com sucesso";
+					$scope.limparMenu();
+					$scope.recarregarMenus();
+				});
+			}else{
+				Menu.save($scope.menu, function(res){
+					$scope.uimenu.msg.text = "Menu "+$scope.menu._id+" Salvo com sucesso";
+					$scope.limparMenu();
+					$scope.recarregarMenus();
+				});
+			}
+		}
+		
+		$scope.limparMenu = function () {
+		    $scope.menu = {};
+		}
+
+		$scope.excluirMenu = function(menu){ 
+			if (menu._id){
+				Menu.excluir({id : menu._id }, function () {
+					$scope.limparMenu();
+					$scope.recarregarMenus();
+					$scope.uimenu.msg.text = "O Menu "+menu._id+" foi exluido do servidor ..";
+				});
+			}
+		}
 
 		$scope.sair = function () {
 			Login.sair(function(res) {
 				if(res.status === "oK"){
-					location.href = '/';
+					location.href = '/login.html';
 				}
 			});
 		}		

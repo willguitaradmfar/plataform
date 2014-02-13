@@ -19,6 +19,18 @@ mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host
 
 
 // ########################## Schema de produto Pessoa ###################
+var menuObjSchema = {};
+menuObjSchema.dtcreate = {type: Date,default: Date.now};
+menuObjSchema.dtupdate = {type: Date,default: Date.now};
+
+menuObjSchema.nome = "String";
+menuObjSchema.icone = "String";
+menuObjSchema.url = "String";
+
+var menuSchema = mongoose.Schema(menuObjSchema);
+module.exports.Menu = mongoose.model('menu', menuSchema);
+
+// ########################## Schema de produto Pessoa ###################
 var pessoaObjSchema = {};
 pessoaObjSchema.dtcreate = {type: Date,default: Date.now};
 pessoaObjSchema.dtupdate = {type: Date,default: Date.now};
@@ -32,18 +44,5 @@ var pessoaSchema = mongoose.Schema(pessoaObjSchema);
 module.exports.Pessoa = mongoose.model('pessoa', pessoaSchema);
 
 
-// ########################## Schema de produto Menu ###################
-var menuObjSchema = {};
-menuObjSchema.dtcreate = {type: Date,default: Date.now};
-menuObjSchema.dtupdate = {type: Date,default: Date.now};
-
-menuObjSchema.nome = "String";
-menuObjSchema.descricao = "String";
-menuObjSchema.link = "String";
-menuObjSchema.class = "String";
-
-
-var menuSchema = mongoose.Schema(menuObjSchema);
-module.exports.Menu = mongoose.model('menu', menuSchema);
 
 

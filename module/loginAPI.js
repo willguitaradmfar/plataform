@@ -1,21 +1,5 @@
 module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
-	app.get('/', function (req, res, next) {
-	    if(!req.session.autentication){        
-	        res.sendfile('public/login_bg.html');
-	    }else{
-	        res.sendfile('public/fixed_header_sidebar.html');
-	    }    
-	});
-
-	app.get('/fixed_header_sidebar.html', function (req, res, next) {
-	    if(!req.session.autentication){        
-	        res.sendfile('public/login_bg.html');
-	    }else{
-	        next();
-	    }    
-	});
-	
 	app.post('/login', function(req, res) {
 		var user = {};
 		user.email = req.body.email;

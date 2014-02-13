@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
@@ -20,7 +20,7 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 </head>
-<body class="login">	
+<body class="login" ng-controller="PessoaController">	
 	<!-- PAGE -->
 	<section id="page">
 			<!-- HEADER -->
@@ -44,28 +44,28 @@
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
 							<div class="login-box-plain">
-								<h2 class="bigintro">Sign In</h2>
-								<div class="divide-40"></div>
+								<h2 class="bigintro">Entrar</h2>
+								<div class="divide-40">{{uipessoa.login.msg}}</div>
 								<form role="form">
 								  <div class="form-group">
-									<label for="exampleInputEmail1">Email address</label>
+									<label for="exampleInputEmail1">Email</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" >
+									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="pessoa.email">
 								  </div>
 								  <div class="form-group"> 
-									<label for="exampleInputPassword1">Password</label>
+									<label for="exampleInputPassword1">Senha</label>
 									<i class="fa fa-lock"></i>
-									<input type="password" class="form-control" id="exampleInputPassword1" >
+									<input type="password" class="form-control" id="exampleInputPassword1" ng-model="pessoa.senha">
 								  </div>
-								  <div class="form-actions">
-									<label class="checkbox"> <input type="checkbox" class="uniform" value=""> Remember me</label>
-									<button type="submit" class="btn btn-danger">Submit</button>
+								  <div>
+									<label class="checkbox"> <input type="checkbox" class="uniform" value=""> Relembre-me</label>
+									<button type="submit" class="btn btn-danger" ng-click="autenticar()">Entrar</button>
 								  </div>
 								</form>
-								<!-- SOCIAL LOGIN -->
+							<!-- SOCIAL LOGIN -->
 								<div class="divide-20"></div>
 								<div class="center">
-									<strong>Or login using your social account</strong>
+									<strong>ou login por redes sociais</strong>
 								</div>
 								<div class="divide-20"></div>
 								<div class="social-login center">
@@ -81,9 +81,8 @@
 								</div>
 								<!-- /SOCIAL LOGIN -->
 								<div class="login-helpers">
-									<a href="#" onclick="swapScreen('forgot');return false;">Forgot Password?</a> <br>
-									Don't have an account with us? <a href="#" onclick="swapScreen('register');return false;">Register
-										now!</a>
+									<a href="#" onclick="swapScreen('forgot');return false;">Envie-me a senha?</a> <br>
+									Não é cadastrado? <a href="#" onclick="swapScreen('register');return false;">Registre-se agora</a>
 								</div>
 							</div>
 						</div>
@@ -98,42 +97,38 @@
 						<div class="col-md-4 col-md-offset-4">
 							<div class="login-box-plain">
 								<h2 class="bigintro">Register</h2>
-								<div class="divide-40"></div>
+								<div class="divide-40">{{uipessoa.cadastro.msg}}</div>
 								<form role="form">
-								  <div class="form-group">
-									<label for="exampleInputName">Full Name</label>
+								 <div class="form-group">
+									<label for="exampleInputName">Nome Completo</label>
 									<i class="fa fa-font"></i>
-									<input type="text" class="form-control" id="exampleInputName" >
+									<input type="text" class="form-control" id="exampleInputName" ng-model="newpessoa.nome">
 								  </div>
+								  
 								  <div class="form-group">
-									<label for="exampleInputUsername">Username</label>
-									<i class="fa fa-user"></i>
-									<input type="text" class="form-control" id="exampleInputUsername" >
-								  </div>
-								  <div class="form-group">
-									<label for="exampleInputEmail1">Email address</label>
+									<label for="exampleInputEmail1">Email</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" >
+									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="newpessoa.email">
 								  </div>
 								  <div class="form-group"> 
-									<label for="exampleInputPassword1">Password</label>
+									<label for="exampleInputPassword1" >Senha</label>
 									<i class="fa fa-lock"></i>
-									<input type="password" class="form-control" id="exampleInputPassword1" >
+									<input type="password" class="form-control" id="exampleInputPassword1" ng-model="newpessoa.senha">
 								  </div>
 								  <div class="form-group"> 
-									<label for="exampleInputPassword2">Repeat Password</label>
+									<label for="exampleInputPassword2">Confirme a senha</label>
 									<i class="fa fa-check-square-o"></i>
-									<input type="password" class="form-control" id="exampleInputPassword2" >
+									<input type="password" class="form-control" id="exampleInputPassword2" ng-model="newpessoa.csenha">
 								  </div>
-								  <div class="form-actions">
-									<label class="checkbox"> <input type="checkbox" class="uniform" value=""> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-									<button type="submit" class="btn btn-success">Sign Up</button>
+								  <div>
+									<label class="checkbox"> <input type="checkbox" class="uniform" value="" ng-model="newpessoa.acceptPolicy"> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+									<button type="submit" class="btn btn-success" ng-click="salvarPessoa()">Cadastrar</button>
 								  </div>
 								</form>
 								<!-- SOCIAL REGISTER -->
 								<div class="divide-20"></div>
 								<div class="center">
-									<strong>Or register using your social account</strong>
+									<strong>ou login por redes sociais</strong>
 								</div>
 								<div class="divide-20"></div>
 								<div class="social-login center">
@@ -147,9 +142,9 @@
 										<i class="fa fa-google-plus"></i>
 									</a>
 								</div>
-								<!-- /SOCIAL REGISTER -->
+									<!-- /SOCIAL REGISTER -->
 								<div class="login-helpers">
-									<a href="#" onclick="swapScreen('login');return false;"> Back to Login</a> <br>
+									<a href="#" onclick="swapScreen('login');return false;"> Voltar ao Login</a> <br>
 								</div>
 							</div>
 						</div>
@@ -163,20 +158,20 @@
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
 							<div class="login-box-plain">
-								<h2 class="bigintro">Reset Password</h2>
-								<div class="divide-40"></div>
+									<h2 class="bigintro">Restaurar Senha</h2>
+								<div class="divide-40">{{uipessoa.restaurar.msg}}</div>
 								<form role="form">
 								  <div class="form-group">
-									<label for="exampleInputEmail1">Enter your Email address</label>
+									<label for="exampleInputEmail1">Enviar senha para o email</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" >
+									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="restaurarpessoa.email">
 								  </div>
-								  <div class="form-actions">
-									<button type="submit" class="btn btn-info">Send Me Reset Instructions</button>
+								  <div>
+									<button type="submit" class="btn btn-info" ng-click="restaurar()">Envie-me as instruções de restauração</button>
 								  </div>
 								</form>
 								<div class="login-helpers">
-									<a href="#" onclick="swapScreen('login');return false;">Back to Login</a> <br>
+									<a href="#" onclick="swapScreen('login');return false;">Voltar ao Login</a> <br>
 								</div>
 							</div>
 						</div>
@@ -195,6 +190,20 @@
 	<!-- BOOTSTRAP -->
 	<script src="bootstrap-dist/js/bootstrap.min.js"></script>
 	
+		<!-- Js/vendors ANGULAR -->
+    <script type="text/javascript" src="/js/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/js/vendors/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/vendors/angular/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/js/vendors/angular/ng-socket-io.js"></script>
+    <script type="text/javascript" src="/js/vendors/angular/angular-loader.min.js"></script>
+    <script type="text/javascript" src="/js/vendors/angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <!-- Js -->
+    <script type="text/javascript" src="/js/resource.js"></script>
+    <script type="text/javascript" src="/js/controller.js"></script>
+    <script type="text/javascript" src="/js/diretivas.js"></script>
+    <script type="text/javascript" src="/js/router.js"></script>
+    <script type="text/javascript" src="/js/analytics.js"></script>
 	
 	<!-- UNIFORM -->
 	<script type="text/javascript" src="js/uniform/jquery.uniform.min.js"></script>

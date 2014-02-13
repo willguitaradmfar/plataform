@@ -1,0 +1,64 @@
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+					<!-- BASIC -->
+					<div class="box border orange">
+						<div class="box-title">
+							<h4><i class="fa fa-bars"></i>Cadastro de Menu</h4>
+						</div>
+						<div class="box-body big">
+							<h3 class="form-title">Menu</h3>
+							<form role="form">
+							  <div class="form-group">
+								<label for="exampleInputEmail1">Nome</label>
+								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="menu.nome">
+							  </div>
+							  <div class="form-group">
+								<label for="exampleInputPassword1">URL</label>
+								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="URL ex.: #/home" ng-model="menu.url">
+							  </div>
+							  <div class="form-group">
+								<label for="exampleInputPassword1">Icone</label>
+								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Icone ex.: fa-android" ng-model="menu.icone">
+							  </div>
+							  <button type="submit" class="btn btn-success" ng-click="salvarMenu()">Salvar</button>
+						</form>
+						</div>
+					</div>
+					<!-- /BASIC -->
+				</div>
+				<div class="col-md-12">
+						<!-- BOX -->
+						<div class="box border purple">
+							<div class="box-title">
+								<h4><i class="fa fa-table"></i>Menus</h4>
+							</div>
+							<div class="box-body">
+								
+								<table id="datatable2" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover dataTable" aria-describedby="datatable2_info">
+									<thead>
+										<tr role="row">
+										    <th width="30%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Nome</th>
+										    <th width="40%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Url</th>
+										    <th width="20%" class="hidden-xs sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Icone</th>
+										    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Excluir</th>
+										</tr>
+									</thead>
+								
+									<tbody role="alert" aria-live="polite" aria-relevant="all">
+									        <tr class="gradeA odd" ng-repeat="menu in menus">
+												<td class=" sorting_1">{{menu.nome}}</td>
+												<td class=" ">{{menu.url}}</td>
+												<td class="hidden-xs ">{{menu.icone}}</td>
+												<td class="center hidden-xs "><button class="btn btn-danger" ng-click="excluirMenu(menu)">X</button></td>
+											</tr>
+											    
+									</tbody>
+								   
+								</table>
+							
+						</div>
+						<!-- /BOX -->
+					</div>
+		</div>
+	</div>
