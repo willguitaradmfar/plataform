@@ -76,7 +76,7 @@
                     <div class="form-group">
     
                       <div class="col-md-12">
-                      <button id="singlebutton" name="singlebutton" class="btn btn-warning btn-lg btn-block" ng-click="enviarEmail()">Enviar</button>
+                      <button id="singlebutton" name="singlebutton" class="btn btn-reis btn-lg btn-block" ng-click="enviarEmail()">Enviar</button>
                       </div>
                     </div>
     
@@ -85,10 +85,10 @@
                      
                     <div class="form-group"  ng-show="contato.enviado">
                     <label class="col-md-12 control-label" for="msg"></label>
-                             <div class="col-md-6">
+                             <div class="col-md-12">
                                     <div id="msg" class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    {{ contato.msg }}
+                                    <p>Mensagem enviada.</p>
                                   </div>
                             </div>
                     </div>

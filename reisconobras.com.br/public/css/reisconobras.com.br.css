@@ -138,6 +138,11 @@ margin: 0 auto;
     border-color:rgb(84, 84, 84)!important;
     background-color:rgb(84, 84, 84)!important;
 }
+.btn-reis{
+    border-color:rgb(205, 32, 39)!important;
+    background-color:rgb(205, 32, 39)!important;
+    color:#fff;
+}
 .btn-primary:hover{
     border-color:rgb(64, 64, 64)!important;
     background-color:rgb(64, 64, 64)!important;
@@ -182,6 +187,9 @@ margin: 8px 0px 0px 0px;
     padding-top:60px;
 }
 
+.tell{
+    padding-top:30px;
+}
 @media (min-width: 100px){
 .col-md-4 {
 padding-bottom: 0px;
