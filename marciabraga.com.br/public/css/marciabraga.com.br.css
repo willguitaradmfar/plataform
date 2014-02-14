@@ -19,7 +19,14 @@ html,body{
 .nav .active a{
     color: rgb(177, 65, 54);
 }
+.row{
+    margin-right: -45px;
+    margin-left: -45px;
+}
 
+.row-top{
+    margin-top: -20px;
+}
 .box{
     border-radius: 30px;
  }
@@ -35,6 +42,16 @@ html,body{
 }
 .navbar-toggle .icon-bar {
     background-color: #fff;
+}
+.img-responsive {
+    margin-top: -14px;
+    display: block;
+    height: auto;
+    max-width: 130%;
+    margin-left: -45px;
+}
+.title-logo{
+    font-family: 'Lily Script One', cursive;
 }
 
  .bg-rigth{
