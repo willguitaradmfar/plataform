@@ -1,6 +1,64 @@
 
 'use strict';
 
+var daoGenerics = function($scope, Model, sModel, sDomain) {
+        var smodelo = sModel.toLowerCase();
+    
+ 	    $scope['ui'+smodelo] = {};
+		$scope['ui'+smodelo].msg = {};
+		
+		$scope['recarregar'+sModel+'s'] = function(){
+			$scope[smodelo+'s'] = Model.list(function(res){
+			    console.log('recarregando lista size : '+res.length);
+				return res;
+			});
+		}
+		
+		$scope['salvar'+sModel] = function(){
+			if($scope[smodelo]._id){
+				Model.update({id : $scope[smodelo]._id}, $scope[smodelo], function(res){
+				    console.log('update em '+sModel+' id:'+$scope[smodelo]._id);
+					$scope['ui'+smodelo].msg.text = sModel+" "+$scope[smodelo]._id+" Atualizado com sucesso";
+					$scope['ui'+smodelo].msg.type = 'warning';
+					$scope['limpar'+sModel]();
+					$scope['recarregar'+sModel+'s']();
+				});
+			}else{
+				Model.save($scope[smodelo], function(res){
+				    console.log('save em '+sModel+' id:'+$scope[smodelo]._id);
+				    $scope['ui'+smodelo].msg.text = sModel+" Salvo com sucesso";
+				    $scope['ui'+smodelo].msg.type = 'success';
+					$scope['limpar'+sModel]();
+					$scope['recarregar'+sModel+'s']();
+				});
+			}
+		}
+		
+		$scope['limpar'+sModel] = function () {
+		    console.log('limpar'+sModel);
+		    $scope[smodelo] = {};
+		}
+		
+        $scope['closeMessage'+sModel] = function () {
+            console.log('closeMessage'+sModel);
+            $scope['ui'+smodelo].msg = {};
+        }
+        
+		$scope['excluir'+sModel] = function(res){ 
+			if (res._id){
+				Model.excluir({id : res._id }, function () {
+				    console.log('excluindo em '+sModel+' id:'+res._id);
+					$scope['limpar'+sModel]();
+					$scope['recarregar'+sModel+'s']();
+					$scope['ui'+smodelo].msg.text = sModel+" "+res._id+" foi exluido do servidor ..";
+					$scope['ui'+smodelo].msg.type = 'danger';
+				});
+			}
+		}
+    return $scope;
+}
+		
+
 angular.module('app.controllers', ['socket-io'])
 
 
@@ -19,6 +77,7 @@ angular.module('app.controllers', ['socket-io'])
 .controller('PessoaController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Login', 'Pessoa',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Login, Pessoa) {
 		console.log('PessoaController');
+		
 		$scope.uipessoa = {};
 		$scope.uipessoa.login = {};
 		$scope.uipessoa.cadastro = {};
@@ -74,51 +133,16 @@ angular.module('app.controllers', ['socket-io'])
 		$scope.uimenu = {};
 		$scope.uimenu.msg = {};
 		
-		$scope.recarregarMenus = function(){
-			$scope.menus = Menu.list(function(res){
-				return res;
-			});
-		}
+		daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br');
 		
 		$scope.recarregarMenus();
-		
 		
 		Login.get(function (res) {
 			if(res.status === "oK"){
 				$scope.user = res.user;
 			}
 		})
-		
-		$scope.salvarMenu = function(){
-			if($scope.menu._id){
-				Menu.update({id : $scope.menu._id}, $scope.menu, function(res){
-					$scope.uimenu.msg.text = "Menu "+$scope.menu._id+" Atualizado com sucesso";
-					$scope.limparMenu();
-					$scope.recarregarMenus();
-				});
-			}else{
-				Menu.save($scope.menu, function(res){
-					$scope.uimenu.msg.text = "Menu "+$scope.menu._id+" Salvo com sucesso";
-					$scope.limparMenu();
-					$scope.recarregarMenus();
-				});
-			}
-		}
-		
-		$scope.limparMenu = function () {
-		    $scope.menu = {};
-		}
-
-		$scope.excluirMenu = function(menu){ 
-			if (menu._id){
-				Menu.excluir({id : menu._id }, function () {
-					$scope.limparMenu();
-					$scope.recarregarMenus();
-					$scope.uimenu.msg.text = "O Menu "+menu._id+" foi exluido do servidor ..";
-				});
-			}
-		}
-
+	
 		$scope.sair = function () {
 			Login.sair(function(res) {
 				if(res.status === "oK"){
