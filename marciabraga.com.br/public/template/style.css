@@ -1,8 +1,6 @@
-/* Created by Artisteer v4.0.0.58475 */
-
 #art-main
 {
-   background: #FFFFFF url('images/bngmarcia1.jpg') center center fixed;
+   background: #FFFFFF url('../img/bg.jpg') center 0 fixed;
    margin:0 auto;
    font-size: 13px;
    font-family: Georgia, 'Times New Roman', Times, Serif;
@@ -13,7 +11,7 @@
    width: 100%;
    min-height: 100%;
    left: 0;
-   top: 0;
+   top: 0px;
    cursor:default;
    overflow:hidden;
 }
