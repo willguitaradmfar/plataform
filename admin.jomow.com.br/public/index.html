@@ -319,7 +319,7 @@
 					<li class="dropdown user" id="header-user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img alt="" src="img/avatars/avatar3.jpg" />
-							<span class="username">{{user.nome}}</span>
+							<span class="username" ng-bind="user.nome"></span>
 							<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
@@ -637,19 +637,18 @@
 						<div class="divide-20"></div>
 						<!-- SEARCH BAR -->
 						<div id="search-bar">
-							<input class="search" type="text" placeholder="Search"><i class="fa fa-search search-icon"></i>
+							<input class="search" type="text" placeholder="Busca ..." ng-model="uimenu.search.nome"><i class="fa fa-search search-icon"></i>
 						</div>
 						<!-- /SEARCH BAR -->
 						
 						<!-- SIDEBAR MENU -->
 						<ul>
-							<li ng-repeat="menu in menus">
+							<li ng-repeat="menu in menus | filter:uimenu.search">
 								<a href="{{menu.url}}">
-    								<i class="fa {{menu.icone}} fa-fw"></i> <span class="menu-text">{{menu.nome}}</span>
+    								<i class="fa {{menu.icone}} fa-fw"></i> <span class="menu-text" ng-bind="menu.nome"></span>
     								<span class="selected"></span>
 								</a>					
 							</li>
-						
 						</ul>
 						<!-- /SIDEBAR MENU -->
 					</div>

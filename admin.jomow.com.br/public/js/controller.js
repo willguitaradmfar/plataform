@@ -3,7 +3,6 @@
 
 var daoGenerics = function($scope, Model, sModel, sDomain) {
         var smodelo = sModel.toLowerCase();
-    
  	    $scope['ui'+smodelo] = {};
 		$scope['ui'+smodelo].msg = {};
 		
@@ -34,15 +33,15 @@ var daoGenerics = function($scope, Model, sModel, sDomain) {
 			}
 		}
 		
+		$scope['seleciona'+sModel] = function (m) {
+		    console.log('seleciona'+sModel+' '+m._id);
+		    $scope[smodelo] = m;
+		}
+		
 		$scope['limpar'+sModel] = function () {
 		    console.log('limpar'+sModel);
 		    $scope[smodelo] = {};
 		}
-		
-        $scope['closeMessage'+sModel] = function () {
-            console.log('closeMessage'+sModel);
-            $scope['ui'+smodelo].msg = {};
-        }
         
 		$scope['excluir'+sModel] = function(res){ 
 			if (res._id){
@@ -59,12 +58,13 @@ var daoGenerics = function($scope, Model, sModel, sDomain) {
 }
 		
 
-angular.module('app.controllers', ['socket-io'])
+var module = angular.module('app.controllers', ['socket-io']);
 
-
-.controller('HomeController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+module.controller('HomeController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('HomeController');
+		
+		
 	}
 ])
 
@@ -83,7 +83,7 @@ angular.module('app.controllers', ['socket-io'])
 		$scope.uipessoa.cadastro = {};
 		$scope.uipessoa.restaurar = {};
 
-		$scope.autenticar = function () {		    
+		$scope.autenticar = function () {
 		    Login.logar($scope.pessoa, function (res) {
 		        if(res.status === "oK"){
 		        	location.href = '/#/home';
@@ -118,23 +118,31 @@ angular.module('app.controllers', ['socket-io'])
 		    
 		    Pessoa.save($scope.newpessoa, function (res) {
 		    	if(res.status === "Ok"){
-		    		$scope.uipessoa.cadastro.msg = "Usuário cadastrado com sucesso";
-		    		$scope.newpessoa = {};
+		    		 var msg = 'Email de confirmação de cadastro em http://admin.jOmOw.com.br \nusuário:'+$scope.newpessoa.email+'\nsenha:'+$scope.newpessoa.senha;
+        		     Email.enviar({
+                        from : 'contato@jomow.com.br',
+                        to : $scope.newpessoa.email,
+                        subject : 'Cadastro efetuado '+$scope.newpessoa.nome,
+                        text : msg
+                    }, function (data) {
+                        console.log(data);
+                        if(data.status)
+                        	if(data.status == "Ok"){
+        	                    $scope.uipessoa.cadastro.msg = "Usuário cadastrado com sucesso";
+		    		            $scope.newpessoa = {};
+        	                }
+                    });
 		    	}
 		    });
 		}
 	}
 ])
 
-.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Menu', 'Login',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Menu, Login) {
-		console.log('MenuController');		
-		
-		$scope.uimenu = {};
-		$scope.uimenu.msg = {};
+.controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Menu', 'Login',
+	function($scope, $location,  $http, $templateCache, $routeParams, Menu, Login) {
+		console.log('MenuController');
 		
 		daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br');
-		
 		$scope.recarregarMenus();
 		
 		Login.get(function (res) {
@@ -149,7 +157,7 @@ angular.module('app.controllers', ['socket-io'])
 					location.href = '/login.html';
 				}
 			});
-		}		
+		}
 	}
 ])
 

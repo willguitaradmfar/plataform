@@ -26,6 +26,8 @@ menuObjSchema.dtupdate = {type: Date,default: Date.now};
 menuObjSchema.nome = "String";
 menuObjSchema.icone = "String";
 menuObjSchema.url = "String";
+menuObjSchema.controller = "String";
+menuObjSchema.partial = "String";
 
 var menuSchema = mongoose.Schema(menuObjSchema);
 module.exports.Menu = mongoose.model('menu', menuSchema);
