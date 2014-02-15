@@ -53,6 +53,11 @@ html,body{
 .title-logo{
     font-family: 'Lily Script One', cursive;
 }
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+background-color: rgb(177, 65, 54);
+border-color: transparent;
+
+}
 
  .bg-rigth{
    

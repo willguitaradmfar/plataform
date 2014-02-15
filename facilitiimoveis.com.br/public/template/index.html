@@ -1,0 +1,180 @@
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" xml:lang="pt-br" lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Faciliti Soluções</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="description" content="Aqui digite a descrição"/>
+    <meta name="keywords" content="Aqui digite as keywords"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+     <link rel="stylesheet" href="css/slider.css" type="text/css" media="screen" />    
+	<link rel="shortcut icon" href="Aqui insira o caminho do ícone" />
+     <script type="text/javascript">
+		// Indentifica o User Agent do navegador cliente
+		// AAA - Out 09
+		
+		var ua = navigator.userAgent.toLowerCase();
+		
+		var uMobile = '';
+		
+		
+		// === REDIRECIONAMENTO PARA iPhone, Windows Phone, Android, NokiaE71 etc. ===
+		
+		// Lista de substrings a procurar para ser identificado como mobile WAP
+		uMobile = '';
+		uMobile += 'iphone;ipod;windows phone;android;iemobile 8;nokiae71';
+		
+		// Sapara os itens individualmente em um array
+		v_uMobile = uMobile.split(';');
+		//alert(window.location.href.slice(window.location.href.indexOf('?') + 1).split('&'));
+		
+		//alert(window.location.href.slice(window.location.href.indexOf('?',0)+1));
+		// percorre todos os itens verificando se eh mobile
+		var boolMovel = false;
+		for (i=0;i<=v_uMobile.length;i++)
+		{
+			if ((ua.indexOf(v_uMobile[i]) != -1) && window.location.href.slice(window.location.href.indexOf('?') + 1).split('&') != 'vip=1')
+			{
+				boolMovel = true;
+			}
+		}
+		
+		if (boolMovel == true)
+			{
+				location.href='http://www.facilitisolucoes.com.br/mobile/index.html'; //AQUI DEFINE A PÁGINA PARA BROWSERS DE TELEFONE MÓVEIS COMO BLACKBERRY, IPHONE, WINDOWS MOBILE, ETC. (3G)
+			}
+		
+		// ===================================================================
+		
+		
+		
+		
+		
+		// === REDIRECIONAMENTO PARA O WAP ===================================
+		
+		// Lista de substrings a procurar para ser identificado como mobile WAP
+		uMobile = '';
+		uMobile += 'playstation;wap;windows ce;Windows phone;iemobile;';
+		uMobile += 'series60;symbian;series60;series70;series80;series90;';
+		uMobile += 'blackberry;midp;wml;brew;palm;xiino;blazer;pda;nitro;netfront;';
+		uMobile += 'sonyericsson;ericsson;sec-sgh;docomo;kddi;vodafone;mot;sony';
+		
+		// Sapara os itens individualmente em um array
+		v_uMobile = uMobile.split(';');
+		
+		// percorre todos os itens verificando se eh mobile
+		var boolMovel = false;
+		for (i=0;i<=v_uMobile.length;i++)
+		{
+			if (ua.indexOf(v_uMobile[i]) != -1)
+			{
+				boolMovel = true;
+			}
+		}
+		
+		if (boolMovel == true)
+			{
+				//location.href='http://wap.seusite.com.br/mobile/index.html'; //ESTE REDIRECIONA PARA CELULARES MAIS SIMPLES 2G (obs. Modelos Antigos, que fazem o acesso 2g com páginas simples no conteúdo!
+			}
+		
+		
+		// =================================================================== ESTE CÓDIGO PODE SER VISTO NA PÁGINA OFICIAL DO BRADESCO. http://bradesco.com.br aperte Ctrl-U e veja a linha: <script language="javascript" type="text/javascript" src="http://bradesco.com.br/html/js/Mobile2Detect.jss">
+
+</script>     
+	<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+</head>
+<body>
+	<div class="topo">
+    	<div class="gen-conteudo">
+        	<div class="logo">
+            	<a href="index.php"><img src="img/logo_faciliti.png" /></a>
+            </div>
+            <div class="fone">(11) 2374.9795
+            </div>
+            
+         <div id="menu">
+                  <ul class="tabs">
+                    <li class="m_home selected"><a href="index.php" >Home</a></li>
+                    <li class="m_sobre"><a href="quem_somos.php" >Quem Somos</a></li>
+                    <li class="m_produtos"><a href="produtos.php" >Produtos</a></li>
+                    <li class="m_clube"><a href="clube.php" >Clube</a></li>
+                    <li class="m_contato"><a href="contato.php" >Contato</a></li>
+                    <li class="m_parceiros"><a href="parceiros.php" >Parceiros</a></li>
+                  </ul>
+                  <!--tabs-->
+          </div><!--menu-->
+        </div><!--logo-->
+    </div><!--topo-->
+    <div class="clear"></div>    <div class="banner_principal_fundo">
+    	
+        <div class="gen-conteudo">
+            <div id="banner">
+                <div id="slider" class="nivoSlider">
+                	<img src="img/banner01.png" alt="" />
+                    <img src="img/banner02.png" alt="" />
+				</div><!--slider-->
+        	</div><!--banner-->
+            <div class="clear"><img src="img/sombra.png" /></div>
+        </div><!--gen-conteudo-->
+    
+    
+    </div>
+    <div id="principal" class="gen-conteudo">
+    	
+        <a href="produtos_financiamento.php#one">
+            <div class="sub-banner">
+                <img src="img/sub-banner01.png" />
+                <div class="sub-banner-titulo">FINANCIAMENTO</div>
+                <div class="sub-banner-texto">Financiamento de carros com ano de fabricação a partir de 1986 e de caminhões a partir de 1970. 
+Conheça todos.</div>
+            </div>
+        </a>
+        
+        <a href="produtos_seguro.php#one">
+        <div class="sub-banner-margin">
+        	<img src="img/sub-banner02.png" />
+            <div class="sub-banner-titulo">SEGUROS</div>
+            <div class="sub-banner-texto">Seguro de carros, motos e caminhões. ,residenciais, de biciletas, de vida e empresarial. Conheça todos.</div>
+        </div>
+        </a>
+        
+        <a href="produtos_refinanciamento.php#one">
+    	<div class="sub-banner-margin">
+        	<img src="img/sub-banner03.png" />
+            <div class="sub-banner-titulo">REFINANCIAMENTOS</div>
+            <div class="sub-banner-texto">É possível fazer o refinanciamento e diminuir o valor da parcela estendendo o prazo para pagamento. Conheça todos.</div>
+        </div> 
+   		</a>
+		<a href="clube.php">
+    	<div class="sub-banner-margin">
+        	<img src="img/sub-banner04.png" />
+            <div class="sub-banner-titulo">CLUBE FACILITI</div>
+            <div class="sub-banner-texto"> Um clube único onde você pode ter seu espaço para anúncios de serviços, ou bens. Conheça nosso clube.</div>
+        </div>
+    	</a>
+    </div><!--rod_principal gen-conteudo-->
+    
+	    <div class="footer">
+    <div class="clear"></div>
+    	<div class="gen-conteudo">
+            <div class="logo" style="margin-top:20px;">
+            	<img src="img/logo_faciliti_negativa.png" />
+            </div>
+            <div class="footer_texto">
+             Av. Piraporinha, 368, Loja 1, <br />
+Planalto – São Bernardo do Campo, <br />
+CEP: 09891-000 – São Paulo
+            </div>
+            <div style="float:right; margin-top:70px;"><a href="http://www.boxmob.com.br" target="_blank"><img src="img/logo_boxmob.png" /></a></div>
+         </div>
+    </div>
+
+</body>
+</html>
