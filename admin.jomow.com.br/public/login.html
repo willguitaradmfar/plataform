@@ -20,7 +20,7 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 </head>
-<body class="login" ng-controller="PessoaController">	
+<body class="login" ng-controller="UsuarioController">	
 	<!-- PAGE -->
 	<section id="page">
 			<!-- HEADER -->
@@ -45,17 +45,17 @@
 						<div class="col-md-4 col-md-offset-4">
 							<div class="login-box-plain">
 								<h2 class="bigintro">Entrar</h2>
-								<div class="divide-40" ng-bind="uipessoa.login.msg"></div>
+								<div class="divide-40" ng-bind="uiusuario.login.msg"></div>
 								<form role="form">
 								  <div class="form-group">
 									<label for="exampleInputEmail1">Email</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="pessoa.email">
+									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="usuario.email">
 								  </div>
 								  <div class="form-group"> 
 									<label for="exampleInputPassword1">Senha</label>
 									<i class="fa fa-lock"></i>
-									<input type="password" class="form-control" id="exampleInputPassword1" ng-model="pessoa.senha">
+									<input type="password" class="form-control" id="exampleInputPassword1" ng-model="usuario.senha">
 								  </div>
 								  <div>
 									<label class="checkbox"> <input type="checkbox" class="uniform" value=""> Relembre-me</label>
@@ -97,32 +97,32 @@
 						<div class="col-md-4 col-md-offset-4">
 							<div class="login-box-plain">
 								<h2 class="bigintro">Register</h2>
-								<div class="divide-40"ng-bind="uipessoa.cadastro.msg"></div>
+								<div class="divide-40"ng-bind="uiusuario.cadastro.msg"></div>
 								<form role="form">
 								 <div class="form-group">
 									<label for="exampleInputName">Nome Completo</label>
 									<i class="fa fa-font"></i>
-									<input type="text" class="form-control" id="exampleInputName" ng-model="newpessoa.nome">
+									<input type="text" class="form-control" id="exampleInputName" ng-model="newusuario.nome">
 								  </div>
 								  
 								  <div class="form-group">
 									<label for="exampleInputEmail1">Email</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="newpessoa.email">
+									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="newusuario.email">
 								  </div>
 								  <div class="form-group"> 
 									<label for="exampleInputPassword1" >Senha</label>
 									<i class="fa fa-lock"></i>
-									<input type="password" class="form-control" id="exampleInputPassword1" ng-model="newpessoa.senha">
+									<input type="password" class="form-control" id="exampleInputPassword1" ng-model="newusuario.senha">
 								  </div>
 								  <div class="form-group"> 
 									<label for="exampleInputPassword2">Confirme a senha</label>
 									<i class="fa fa-check-square-o"></i>
-									<input type="password" class="form-control" id="exampleInputPassword2" ng-model="newpessoa.csenha">
+									<input type="password" class="form-control" id="exampleInputPassword2" ng-model="newusuario.csenha">
 								  </div>
 								  <div>
-									<label class="checkbox"> <input type="checkbox" class="uniform" value="" ng-model="newpessoa.acceptPolicy"> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-									<button type="submit" class="btn btn-success" ng-click="salvarPessoa()">Cadastrar</button>
+									<label class="checkbox"> <input type="checkbox" class="uniform" value="" ng-model="newusuario.acceptPolicy"> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+									<button type="submit" class="btn btn-success" ng-click="salvarUsuario()">Cadastrar</button>
 								  </div>
 								</form>
 								<!-- SOCIAL REGISTER -->
@@ -159,12 +159,12 @@
 						<div class="col-md-4 col-md-offset-4">
 							<div class="login-box-plain">
 									<h2 class="bigintro">Restaurar Senha</h2>
-								<div class="divide-40" ng-bind="uipessoa.restaurar.msg"></div>
+								<div class="divide-40" ng-bind="uiusuario.restaurar.msg"></div>
 								<form role="form">
 								  <div class="form-group">
 									<label for="exampleInputEmail1">Enviar senha para o email</label>
 									<i class="fa fa-envelope"></i>
-									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="restaurarpessoa.email">
+									<input type="email" class="form-control" id="exampleInputEmail1" ng-model="restaurarusuario.email">
 								  </div>
 								  <div>
 									<button type="submit" class="btn btn-info" ng-click="restaurar()">Envie-me as instruções de restauração</button>

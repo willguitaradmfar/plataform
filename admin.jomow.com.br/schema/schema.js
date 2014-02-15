@@ -29,6 +29,8 @@ menuObjSchema.url = "String";
 menuObjSchema.controller = "String";
 menuObjSchema.partial = "String";
 
+
+
 var menuSchema = mongoose.Schema(menuObjSchema);
 module.exports.Menu = mongoose.model('menu', menuSchema);
 
@@ -41,6 +43,7 @@ pessoaObjSchema.nome = "String";
 pessoaObjSchema.email = "String";
 pessoaObjSchema.senha = "String";
 
+pessoaObjSchema.dominios = [{nome : "String"}];
 
 var pessoaSchema = mongoose.Schema(pessoaObjSchema);
 module.exports.Pessoa = mongoose.model('pessoa', pessoaSchema);

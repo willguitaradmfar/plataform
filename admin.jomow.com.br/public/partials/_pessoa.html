@@ -1,0 +1,164 @@
+	<div class="container">
+	
+    	<div class="row">
+    	    <div class="col-md-12">
+        	    <div class="alert alert-block alert-{{uipessoa.msg.type}} fade in">
+        	        <button class="close" aria-hidden="true">×</button>
+        	        <p ng-bind="uipessoa.msg.text"></p>
+        	    </div>
+    	    </div>
+    	</div>
+    	
+		<div class="row">
+			<div class="col-md-12">
+                <div class="box border red">
+						<div class="box-title">
+							<h4><i class="fa fa-columns"></i><span class="hidden-inline-mobile">Gerenciamento de Pessoas <label ng-bind="pessoa.nome"></label></span></h4>
+						</div>
+						<div class="box-body">
+							<div class="tabbable header-tabs">
+							  <ul class="nav nav-tabs">
+								 <li><a href="#box_tab3" data-toggle="tab"><i class="fa fa-circle-o"></i> <span class="hidden-inline-mobile">Menu</span></a></li>
+								 <li><a href="#box_tab2" data-toggle="tab"><i class="fa fa-laptop"></i> <span class="hidden-inline-mobile">Dominios</span></a></li>
+								 <li class="active"><a href="#box_tab1" data-toggle="tab"><i class="fa fa-calendar-o"></i> <span class="hidden-inline-mobile">Basico</span></a></li>
+							  </ul>
+							  <div class="tab-content">
+								 <div class="tab-pane fade in active" id="box_tab1">
+									<!-- BASIC -->
+                					<div class="box border orange">
+                						<div class="box-title">
+                							<h4><i class="fa fa-bars"></i>Cadastro de Pessoa</h4>
+                						</div>
+                						<div class="box-body big">
+                							<h3 class="form-title">Pessoa</h3>
+                							<form role="form">
+                							  <div class="form-group">
+                								<label for="exampleInputEmail1">Nome</label>
+                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="pessoa.nome">
+                							  </div>
+                							  <div class="form-group">
+                								<label for="exampleInputPassword1">Email</label>
+                								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="URL ex.: #/home" ng-model="pessoa.email">
+                							  </div>
+                		
+                							  <div class="form-group">
+                								<label for="exampleInputPassword1">Senha</label>
+                								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Icone ex.: HomeController" ng-model="pessoa.controller">
+                							  </div>
+                							  
+                							  <button type="submit" class="btn btn-success" ng-click="salvarPessoa()">Salvar</button>
+                						</form>
+                						</div>
+                					</div>
+                					<!-- /BASIC -->
+                                    
+                    					<!-- BOX -->
+                    					<div class="box border purple">
+                    						<div class="box-title">
+                    							<h4><i class="fa fa-table"></i>Pessoas</h4>
+                    						</div>
+                    						<div class="box-body">
+                    							
+                    							<table id="datatable2" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover dataTable" aria-describedby="datatable2_info">
+                    								<thead>
+                    									<tr role="row">
+                    									    <th width="20%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Nome</th>
+                    									    <th width="20%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Email</th>
+                    									    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Editar</th>
+                    									    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Excluir</th>
+                    									</tr>
+                    								</thead>
+                    							
+                    								<tbody role="alert" aria-live="polite" aria-relevant="all">
+                    							        <tr class="gradeA odd" ng-repeat="pessoa in pessoas">
+                    										<td class=" sorting_1">{{pessoa.nome}}</td>
+                    										<td class=" ">{{pessoa.email}}</td>
+                    										<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaPessoa(pessoa)"></button></td>
+                    										<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirPessoa(pessoa)"></button></td>
+                    									</tr>
+                    								</tbody>
+                    							</table>
+                    					<!-- /BOX -->
+                    				</div>
+                            	</div>
+								 </div>
+								 <div class="tab-pane fade" id="box_tab2">
+								 <!-- BASIC -->
+                					<div class="box border orange">
+                						<div class="box-title">
+                							<h4><i class="fa fa-bars"></i>Adicionar Domínios</h4>
+                						</div>
+                						<div class="box-body big">
+                							<h3 class="form-title">Domínio</h3>
+                							<form role="form">
+                							  <div class="form-group">
+                								<label for="exampleInputEmail1">Domínio</label>
+                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="_tmp.dominio.nome">
+                							  </div>
+                							  <button type="submit" class="btn btn-success" ng-click="addDominioToPessoa()">Salvar</button>
+                						</form>
+                						</div>
+                					</div>
+                					<!-- /BASIC -->
+										<table id="datatable2" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover dataTable" aria-describedby="datatable2_info">
+    									<thead>
+    										<tr role="row">
+    										    <th width="20%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Dominio</th>
+    										    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Editar</th>
+    										    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Excluir</th>
+    										</tr>
+    									</thead>
+    									<tbody role="alert" aria-live="polite" aria-relevant="all">
+    									        <tr class="gradeA odd" ng-repeat="dominio in pessoa.dominios">
+    												<td class=" sorting_1">{{dominio.nome}}</td>
+    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaDominioFromPessoa(dominio)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirDominioFromPessoa(dominio)"></button></td>
+    											</tr>
+    									</tbody>
+								</table>
+								
+								 </div>
+								 <div class="tab-pane fade" id="box_tab3">
+									<!-- BASIC -->
+                					<div class="box border orange">
+                						<div class="box-title">
+                							<h4><i class="fa fa-bars"></i>Adicionar Menu</h4>
+                						</div>
+                						<div class="box-body big">
+                							<h3 class="form-title">Menu</h3>
+                							<form role="form">
+                							  <div class="form-group">
+                								<label for="exampleInputEmail1">Menu</label>
+                								<select class="form-control input-lg" ng-model="_tmp.menu.nome">
+								                    <option value="{{menu_id}}" ng-repeat="menu in menus" ng-bind="menu.nome"></option>
+								                </select>
+                							  </div>
+                							  <button type="submit" class="btn btn-success" ng-click="addMenuToPessoa()">Salvar</button>
+                						</form>
+                						</div>
+                					</div>
+                					<!-- /BASIC -->
+										<table id="datatable2" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover dataTable" aria-describedby="datatable2_info">
+    									<thead>
+    										<tr role="row">
+    										    <th width="20%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Nome</th>
+    										    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Editar</th>
+    										    <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Excluir</th>
+    										</tr>
+    									</thead>
+    									<tbody role="alert" aria-live="polite" aria-relevant="all">
+    									        <tr class="gradeA odd" ng-repeat="menu in pessoa.menus">
+    												<td class=" sorting_1">{{menu.nome}}</td>
+    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaMenuFromPessoa(menu)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirMenuFromPessoa(menu)"></button></td>
+    											</tr>
+    									</tbody>
+								</table>
+								 </div>
+							  </div>
+						   </div>
+						</div>
+					</div>
+					
+				</div>
+	</div>

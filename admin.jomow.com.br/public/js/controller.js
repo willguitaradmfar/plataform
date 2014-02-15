@@ -1,9 +1,10 @@
 
 'use strict';
 
-var daoGenerics = function($scope, Model, sModel, sDomain) {
+var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
         var smodelo = sModel.toLowerCase();
  	    $scope['ui'+smodelo] = {};
+ 	    $scope[smodelo] = {};
 		$scope['ui'+smodelo].msg = {};
 		
 		$scope['recarregar'+sModel+'s'] = function(){
@@ -54,9 +55,60 @@ var daoGenerics = function($scope, Model, sModel, sDomain) {
 				});
 			}
 		}
+		
+		for(var i in listSubObj){
+		    var $this = listSubObj[i];
+		    var ssmodelo = $this.toLowerCase();
+		    var ssmodelos = $this.toLowerCase()+'s';
+		    $scope._tmp = {};
+		    
+		    console.log('registrando ... add'+$this+'To'+sModel);
+		    $scope['add'+$this+'To'+sModel] = function(){ 
+    		    console.log('call add'+$this+'To'+sModel);
+    		    if(!$scope[smodelo][ssmodelos]){
+    		        $scope[smodelo][ssmodelos] = [];
+    		    }
+    		    if(!$scope._tmp[ssmodelo]._id){
+    		        $scope[smodelo][ssmodelos].push($scope._tmp[ssmodelo]);
+    		    }
+    		    
+    		    Model.update({id : $scope[smodelo]._id}, $scope[smodelo], function(res){
+				    console.log('update do '+'add'+$this+'To'+sModel+' em '+sModel+' id:'+$scope[smodelo]._id);
+				    $scope[smodelo] = Model.get({id : $scope[smodelo]._id}, function () {
+				        $scope._tmp[ssmodelo] = {};    
+				    })
+				    
+				});
+		    
+    		    console.log($scope[smodelo]);
+    		}
+    		
+    		console.log('registrando ... seleciona'+$this+'From'+sModel+'(dominio)');
+		    $scope['seleciona'+$this+'From'+sModel] = function(d){ 
+    		    $scope._tmp[ssmodelo] = d;
+    		    console.log('selecionado ... '+JSON.stringify($scope._tmp[ssmodelo]));
+    		}
+    		
+    		console.log('registrando ... excluir'+$this+'From'+sModel+'(dominio)');
+		    $scope['excluir'+$this+'From'+sModel] = function(d){ 
+    		    for(var c in $scope[smodelo][ssmodelos]){
+     		        if(d.$$hashKey == $scope[smodelo][ssmodelos][c].$$hashKey){
+     		            $scope[smodelo][ssmodelos].splice(c, 1);
+     		        }
+     		    }
+     		    Model.update({id : $scope[smodelo]._id}, $scope[smodelo], function(res){
+				    console.log('update do '+'add'+$this+'To'+sModel+' em '+sModel+' id:'+$scope[smodelo]._id);
+				    $scope[smodelo] = Model.get({id : $scope[smodelo]._id}, function () {
+				        $scope._tmp[ssmodelo] = {};    
+				    })
+				});
+    		    console.log('excluindo ... '+JSON.stringify($scope[smodelo][ssmodelos]));
+    		}
+		}
+	
+		
     return $scope;
 }
-		
 
 var module = angular.module('app.controllers', ['socket-io']);
 
@@ -74,62 +126,62 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	}
 ])
 
-.controller('PessoaController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Login', 'Pessoa',
+.controller('UsuarioController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Login', 'Pessoa',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Login, Pessoa) {
-		console.log('PessoaController');
+		console.log('UsuarioController');
 		
-		$scope.uipessoa = {};
-		$scope.uipessoa.login = {};
-		$scope.uipessoa.cadastro = {};
-		$scope.uipessoa.restaurar = {};
+		$scope.uiusuario = {};
+		$scope.uiusuario.login = {};
+		$scope.uiusuario.cadastro = {};
+		$scope.uiusuario.restaurar = {};
 
 		$scope.autenticar = function () {
-		    Login.logar($scope.pessoa, function (res) {
+		    Login.logar($scope.usuario, function (res) {
 		        if(res.status === "oK"){
 		        	location.href = '/#/home';
 		        }else{
-		        	$scope.uipessoa.login.msg = res.msg;
+		        	$scope.uiusuario.login.msg = res.msg;
 		        }
 		    })
 		}
 
 		$scope.restaurar = function () {		    
-		    Login.restaurar($scope.restaurarpessoa, function (res) {
+		    Login.restaurar($scope.restaurarusuario, function (res) {
 		        if(res.status === "oK"){
-		        	$scope.restaurarpessoa = {};
-		        	$scope.uipessoa.restaurar.msg = res.msg;
+		        	$scope.restaurarusuario = {};
+		        	$scope.uiusuario.restaurar.msg = res.msg;
 		        }else{
-		        	$scope.uipessoa.restaurar.msg = res.msg;
+		        	$scope.uiusuario.restaurar.msg = res.msg;
 		        }
 		    })
 		}
 
-		$scope.salvarPessoa = function () {
-		    if($scope.newpessoa.senha != $scope.newpessoa.csenha){
-		    	$scope.uipessoa.cadastro.msg = "Senhas não conferem";
+		$scope.salvarUsuario = function () {
+		    if($scope.newusuario.senha != $scope.newusuario.csenha){
+		    	$scope.uiusuario.cadastro.msg = "Senhas não conferem";
 		    	return ;
 		    }
 
-		    if(!$scope.newpessoa.acceptPolicy){
-		    	$scope.uipessoa.cadastro.msg = "Deve aceitar o contrato de uso";
+		    if(!$scope.newusuario.acceptPolicy){
+		    	$scope.uiusuario.cadastro.msg = "Deve aceitar o contrato de uso";
 		    	return ;
 		    }
-		    $scope.uipessoa.cadastro.msg = "";
+		    $scope.uiusuario.cadastro.msg = "";
 		    
-		    Pessoa.save($scope.newpessoa, function (res) {
+		    Pessoa.save($scope.newusuario, function (res) {
 		    	if(res.status === "Ok"){
-		    		 var msg = 'Email de confirmação de cadastro em http://admin.jOmOw.com.br \nusuário:'+$scope.newpessoa.email+'\nsenha:'+$scope.newpessoa.senha;
+		    		 var msg = 'Email de confirmação de cadastro em http://admin.jOmOw.com.br \nusuário:'+$scope.newusuario.email+'\nsenha:'+$scope.newusuario.senha;
         		     Email.enviar({
                         from : 'contato@jomow.com.br',
-                        to : $scope.newpessoa.email,
-                        subject : 'Cadastro efetuado '+$scope.newpessoa.nome,
+                        to : $scope.newusuario.email,
+                        subject : 'Cadastro efetuado '+$scope.newusuario.nome,
                         text : msg
                     }, function (data) {
                         console.log(data);
                         if(data.status)
                         	if(data.status == "Ok"){
-        	                    $scope.uipessoa.cadastro.msg = "Usuário cadastrado com sucesso";
-		    		            $scope.newpessoa = {};
+        	                    $scope.uiusuario.cadastro.msg = "Usuário cadastrado com sucesso";
+		    		            $scope.newusuario = {};
         	                }
                     });
 		    	}
@@ -158,6 +210,19 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 				}
 			});
 		}
+	}
+])
+
+.controller('PessoaController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Pessoa', 'Menu',
+	function($scope, $location,  $http, $templateCache, $routeParams, Pessoa, Menu) {
+		console.log('PessoaController');
+		
+		daoGenerics($scope, Pessoa, 'Pessoa', 'admin.jomow.com.br', ["Dominio", "Menu"]);
+		//daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br', []);
+		$scope.recarregarPessoas();
+		//$scope.recarregarMenus();
+		console.log($scope);
+
 	}
 ])
 
