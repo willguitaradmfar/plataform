@@ -20,9 +20,9 @@
 .navbar .navbar-brand img {
   position: absolute;
   max-width: 60%;
-  height: 30px;
+  height: 40px;
   width: 120px;
-  top: 8px;
+  top: 4px;
   left: 60px;
 }
 .navbar .dropdown-toggle {
