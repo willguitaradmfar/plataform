@@ -1,8 +1,6 @@
 
 'use strict';
 
-
-
 var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
         var smodelo = sModel.toLowerCase();
  	    $scope['ui'+smodelo] = {};
@@ -57,47 +55,47 @@ var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
 				});
 			}
 		}
-		function registraAdd(ssmodelo, ssmodelos, type) {
-		    $scope['add'+$this.domain+'To'+sModel] = function(){
-    		    console.log('call add'+$this.domain+'To'+sModel);
-    		    if(!$scope[smodelo][ssmodelos]){
-    		        $scope[smodelo][ssmodelos] = [];
+		
+		function registraAdd(ssmodelo, ssmodelos) {
+		    $scope['add'+$this.domain+'To'+sModel] = function(_tmp, spath, forcePush){
+		        
+    		    console.log('call add'+ssmodelo+'To'+sModel);
+    		    if(!eval('$scope.'+spath)){
+    		        eval('$scope.'+spath.split('.')[0])[spath.split('.')[spath.split('.').length-1]] = [];
     		    }
-    		    if(!$scope._tmp[ssmodelo]._id || type == 'select'){
-    		        $scope[smodelo][ssmodelos].push($scope._tmp[ssmodelo]);
+    		    if(!$scope[_tmp]._id || forcePush){
+    		        eval('$scope.'+spath).push($scope[_tmp]);
     		    }
-    		    
     		    Model.update({id : $scope[smodelo]._id}, $scope[smodelo], function(res){
-				    console.log('update do '+'add'+$this.domain+'To'+sModel+' em '+sModel+' id:'+$scope[smodelo]._id);
-				    $scope[smodelo] = Model.get({id : $scope[smodelo]._id}, function () {
-				        $scope._tmp[ssmodelo] = {};    
+				    console.log('update do '+'add'+ssmodelo+'To'+sModel+' em '+sModel+' id:'+$scope[smodelo]._id);
+				    $scope[smodelo] = Model.get({id : $scope[smodelo]._id}, function (res) {
+				        $scope[_tmp] = {};
+				        return res;
 				    })
-				    
 				});
-		    
     		    console.log($scope[smodelo]);
     		}
 		}
 		
 		function registraSeleciona(ssmodelo, ssmodelos) {
-		    $scope['seleciona'+$this.domain+'From'+sModel] = function(d){ 
-    		    $scope._tmp[ssmodelo] = d;
-    		    console.log('selecionado ... '+JSON.stringify($scope._tmp[ssmodelo]));
+		    $scope['seleciona'+$this.domain+'From'+sModel] = function(_tmp, d){ 
+    		    $scope[_tmp] = d;
+    		    console.log('selecionado ... '+JSON.stringify($scope[_tmp]));
     		}
 		}
 		
 		function registraExclui(ssmodelo, ssmodelos) {
-		    $scope['excluir'+$this.domain+'From'+sModel] = function(d){
-    		    for(var c in $scope[smodelo][ssmodelos]){
-     		        if(d.$$hashKey == $scope[smodelo][ssmodelos][c].$$hashKey){
-     		            $scope[smodelo][ssmodelos].splice(c, 1);
+		    $scope['excluir'+$this.domain+'From'+sModel] = function(d, spath){
+    		    for(var c in eval('$scope.'+spath.split('.')[0])[spath.split('.')[spath.split('.').length-1]]){
+     		        if(d.$$hashKey == eval('$scope.'+spath.split('.')[0])[spath.split('.')[spath.split('.').length-1]][c].$$hashKey){
+     		            eval('$scope.'+spath.split('.')[0])[spath.split('.')[spath.split('.').length-1]].splice(c, 1);
      		        }
      		    }
      		    Model.update({id : $scope[smodelo]._id}, $scope[smodelo], function(res){
-				    console.log('update do '+'add'+$this.domain+'To'+sModel+' em '+sModel+' id:'+$scope[smodelo]._id);
+				    console.log('update do '+'add'+ssmodelo.domain+'To'+sModel+' em '+sModel+' id:'+$scope[smodelo]._id);
 				    $scope[smodelo] = Model.get({id : $scope[smodelo]._id}, function () {
-				        $scope._tmp[ssmodelo] = {};    
-				    })
+				        $scope._tmp[ssmodelo] = {};
+				    });
 				});
     		    console.log('excluindo ... '+JSON.stringify($scope[smodelo][ssmodelos]));
     		}
@@ -107,19 +105,17 @@ var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
 		    var $this = listSubObj[i];
 		    var ssmodelo = $this.domain.toLowerCase();
 		    var ssmodelos = $this.domain.toLowerCase()+'s';
-		    var type = $this.type;
 		    $scope._tmp = {};
 		    
 		    console.log('registrando ... add'+$this.domain+'To'+sModel);
-		    registraAdd(ssmodelo, ssmodelos, type);
+		    registraAdd(ssmodelo, ssmodelos);
     		
     		console.log('registrando ... seleciona'+$this.domain+'From'+sModel+'(dominio)');
-		    registraSeleciona(ssmodelo, ssmodelos, type);
+		    registraSeleciona(ssmodelo, ssmodelos);
     		
     		console.log('registrando ... excluir'+$this.domain+'From'+sModel+'(dominio)');
-		    registraExclui(ssmodelo, ssmodelos, type);
+		    registraExclui(ssmodelo, ssmodelos);
 		}
-	
 		
     return $scope;
 }
@@ -130,13 +126,13 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('HomeController');
 		
-		
 	}
 ])
 
 .controller('RelatorioController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('RelatorioController');
+		
 	}
 ])
 
@@ -204,8 +200,6 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	}
 ])
 
-
-
 .controller('UserMenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Menu', 'Login',
 	function($scope, $location,  $http, $templateCache, $routeParams, Menu, Login) {
 		console.log('UserMenuController');
@@ -239,7 +233,7 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	function($scope, $location,  $http, $templateCache, $routeParams, Pessoa, Menu) {
 		console.log('PessoaController');
 		
-		daoGenerics($scope, Pessoa, 'Pessoa', 'admin.jomow.com.br', [{domain : "Dominio"}, {domain : "Menu", type: 'select'}]);
+		daoGenerics($scope, Pessoa, 'Pessoa', 'admin.jomow.com.br', [{domain : "Dominio"}, {domain : "Menu"}]);
 		$scope.recarregarPessoas();
 		
 		daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br', []);

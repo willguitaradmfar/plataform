@@ -30,7 +30,6 @@ menuObjSchema.controller = "String";
 menuObjSchema.partial = "String";
 
 
-
 var menuSchema = mongoose.Schema(menuObjSchema);
 module.exports.Menu = mongoose.model('menu', menuSchema);
 
@@ -43,7 +42,7 @@ pessoaObjSchema.nome = "String";
 pessoaObjSchema.email = "String";
 pessoaObjSchema.senha = "String";
 
-pessoaObjSchema.dominios = [{nome : "String"}];
+pessoaObjSchema.dominios = [{nome : "String", menus : [menuObjSchema]}];
 pessoaObjSchema.menus = [menuObjSchema];
 
 var pessoaSchema = mongoose.Schema(pessoaObjSchema);

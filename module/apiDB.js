@@ -105,12 +105,19 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 		query[domain].getById(id, function(_new) {
 	            if(_new){
     			_new.remove(function (err, obj) {
-    			   	io.sockets.emit(tenant+'::::'+domain+'::remove', _new);
-        			redisClient.rpush(tenant+'::::'+domain+'::remove', JSON.stringify(_new));
-        
-        			res.send(200, {
-        				status: "Ok"
-	       			}); 
+    			    if(err){
+						res.send(200, {
+			    			erro: err
+			    		});	
+			    		console.log(err);
+        			}else{
+        			   	io.sockets.emit(tenant+'::::'+domain+'::remove', _new);
+            			redisClient.rpush(tenant+'::::'+domain+'::remove', JSON.stringify(_new));
+            
+            			res.send(200, {
+            				status: "Ok"
+    	       			}); 
+        			}
     			});
   		     }
 		});

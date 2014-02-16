@@ -18,7 +18,7 @@
 						<div class="box-body">
 							<div class="tabbable header-tabs">
 							  <ul class="nav nav-tabs">
-								 <li ng-show="pessoa._id"><a href="#box_tab3" data-toggle="tab"><i class="fa fa-circle-o"></i> <span class="hidden-inline-mobile">Menu</span></a></li>
+								 <li ng-show="_tmpdominio._id"><a href="#box_tab3" data-toggle="tab"><i class="fa fa-circle-o"></i> <span class="hidden-inline-mobile">Menu</span></a></li>
 								 <li ng-show="pessoa._id"><a href="#box_tab2" data-toggle="tab"><i class="fa fa-laptop"></i> <span class="hidden-inline-mobile">Dominios</span></a></li>
 								 <li class="active"><a href="#box_tab1" data-toggle="tab"><i class="fa fa-calendar-o"></i> <span class="hidden-inline-mobile">Basico</span></a></li>
 							  </ul>
@@ -43,7 +43,7 @@
                 		
                 							  <div class="form-group">
                 								<label for="exampleInputPassword1">Senha</label>
-                								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Icone ex.: HomeController" ng-model="pessoa.senha">
+                								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" ng-model="pessoa.senha">
                 							  </div>
                 							  
                 							  <button type="submit" class="btn btn-success" ng-click="salvarPessoa()">Salvar</button>
@@ -93,9 +93,9 @@
                 							<form role="form">
                 							  <div class="form-group">
                 								<label for="exampleInputEmail1">Domínio</label>
-                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="_tmp.dominio.nome">
+                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="_tmpdominio.nome">
                 							  </div>
-                							  <button type="submit" class="btn btn-success" ng-click="addDominioToPessoa(_tmp.dominio)">Salvar</button>
+                							  <button type="submit" class="btn btn-success" ng-click="addDominioToPessoa('_tmpdominio', 'pessoa.dominios')">Salvar</button>
                 						</form>
                 						</div>
                 					</div>
@@ -111,8 +111,8 @@
     									<tbody role="alert" aria-live="polite" aria-relevant="all">
     									        <tr class="gradeA odd" ng-repeat="dominio in pessoa.dominios">
     												<td class=" sorting_1">{{dominio.nome}}</td>
-    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaDominioFromPessoa(dominio)"></button></td>
-    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirDominioFromPessoa(dominio)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaDominioFromPessoa('_tmpdominio', dominio)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirDominioFromPessoa(dominio, 'pessoa.dominios')"></button></td>
     											</tr>
     									</tbody>
 								</table>
@@ -129,10 +129,10 @@
                 							<form role="form">
                 							  <div class="form-group">
                 								<label for="exampleInputEmail1">Menu</label>
-                								<select class="form-control input-lg" ng-model="_tmp.menu" ng-options="menu.nome for menu in menus">
+                								<select class="form-control input-lg" ng-model="_tmpmenu" ng-options="menu.nome for menu in menus">
 								                </select>
                 							  </div>
-                							  <button type="submit" class="btn btn-success" ng-click="addMenuToPessoa()">Salvar</button>
+                							  <button type="submit" class="btn btn-success" ng-click="addMenuToPessoa('_tmpmenu', '_tmpdominio.menus', true)">Salvar</button>
                 						</form>
                 						</div>
                 					</div>
@@ -145,9 +145,9 @@
     										</tr>
     									</thead>
     									<tbody role="alert" aria-live="polite" aria-relevant="all">
-    									        <tr class="gradeA odd" ng-repeat="menu in pessoa.menus">
+    									        <tr class="gradeA odd" ng-repeat="menu in _tmpdominio.menus">
     												<td class=" sorting_1">{{menu.nome}}</td>
-    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirMenuFromPessoa(menu)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirMenuFromPessoa(menu, '_tmpdominio.menus')"></button></td>
     											</tr>
     									</tbody>
 								</table>
