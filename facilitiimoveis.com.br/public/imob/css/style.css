@@ -40,27 +40,23 @@
 }
 
 .carousel-destaque{
-  position: absolute;
+  position: relative;
   bottom: 0;
-  z-index: 10;
-  width:300px;
-  height: 300px;
+  width:30%;
+  left:5%;
+  height: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
-  border:1px solid red;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  float:left;
+  
+    background-position: center;
+    background-repeat:no-repeat;
 }
-.destaque-1{
-    left:5%;
-}
-.destaque-2{
-    right:5%;
-}
-.destaque-3{
-    left:37%;
-}
+
+
 .carousel-caption .btn {
   text-shadow: none;
 }
