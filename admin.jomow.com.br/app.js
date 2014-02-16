@@ -60,6 +60,10 @@ app.configure(function() {
         app.use(express.static(path.join(__dirname, 'public')));
 });
 
+app.get('/', function (req, res) {
+    res.redirect('/login.html');
+})
+
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'), redisClient, 'pessoa', 'admin.jomow.com.br');
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', 'admin.jomow.com.br');

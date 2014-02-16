@@ -44,6 +44,7 @@ pessoaObjSchema.email = "String";
 pessoaObjSchema.senha = "String";
 
 pessoaObjSchema.dominios = [{nome : "String"}];
+pessoaObjSchema.menus = [menuObjSchema];
 
 var pessoaSchema = mongoose.Schema(pessoaObjSchema);
 module.exports.Pessoa = mongoose.model('pessoa', pessoaSchema);

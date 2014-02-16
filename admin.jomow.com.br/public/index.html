@@ -18,9 +18,9 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="MenuController">
+<body ng-controller="UserMenuController">
 	<!-- HEADER -->
-	<header class="navbar clearfix navbar-fixed-top" id="header" >
+	<header class="navbar clearfix navbar-fixed-top" id="header">
 		<div class="container">
 				<div class="navbar-brand">
 					<!-- COMPANY LOGO -->
@@ -630,7 +630,7 @@
 	<!--/HEADER -->
 	
 	<!-- PAGE -->
-	<section>
+	<section >
 				<!-- SIDEBAR -->
 				<div id="sidebar" class="sidebar sidebar-fixed">
 					<div class="sidebar-menu nav-collapse">
@@ -643,7 +643,7 @@
 						
 						<!-- SIDEBAR MENU -->
 						<ul>
-							<li ng-repeat="menu in menus | filter:uimenu.search">
+							<li ng-repeat="menu in user.menus | filter:uimenu.search">
 								<a href="{{menu.url}}">
     								<i class="fa {{menu.icone}} fa-fw"></i> <span class="menu-text" ng-bind="menu.nome"></span>
     								<span class="selected"></span>
@@ -655,7 +655,7 @@
 				</div>
 				<!-- /SIDEBAR -->
 		<div id="main-content">
-		<div ng-view></div>
+		    <div ng-view></div>
 		</div>
 	</section>
 	<!--/PAGE -->
