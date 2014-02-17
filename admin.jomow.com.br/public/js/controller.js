@@ -1,6 +1,8 @@
 
 'use strict';
 
+
+
 var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
         var smodelo = sModel.toLowerCase();
  	    $scope['ui'+smodelo] = {};
@@ -233,8 +235,20 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	function($scope, $location,  $http, $templateCache, $routeParams, Pessoa, Menu) {
 		console.log('PessoaController');
 		
+	    var Model = function (_this) {
+		    this = _this;
+		}
+		
+		Model.prototype.adicionar = function (list) {
+                list.push(this);
+        }
+		
 		daoGenerics($scope, Pessoa, 'Pessoa', 'admin.jomow.com.br', [{domain : "Dominio"}, {domain : "Menu"}]);
 		$scope.recarregarPessoas();
+		
+		for(var i in $scope.pessoas){
+		    $scope.pessoas[i] = new Model($scope.pessoas[i]);
+		}
 		
 		daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br', []);
 		$scope.recarregarMenus();

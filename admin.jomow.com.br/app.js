@@ -4,6 +4,7 @@
 config = require('./config.js');
 //---------------------------------------------------------------//
 
+
 var express = require('express'),
         db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
@@ -58,6 +59,10 @@ app.configure(function() {
                 uploadDir: process.env.TMP
         }));
         app.use(express.static(path.join(__dirname, 'public')));
+        
+        app.use(require('connect-livereload')({
+            port: 35729
+          }));
 });
 
 app.get('/', function (req, res) {
