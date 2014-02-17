@@ -59,10 +59,6 @@ app.configure(function() {
                 uploadDir: process.env.TMP
         }));
         app.use(express.static(path.join(__dirname, 'public')));
-        
-        app.use(require('connect-livereload')({
-            port: 35729
-          }));
 });
 
 app.get('/', function (req, res) {
