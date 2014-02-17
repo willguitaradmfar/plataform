@@ -27,55 +27,67 @@
 	float:left;
 }
 
-.carousel {
-    margin-top: 10px;
-    height: 300px;
+/* slider */
+.carousel{
+    padding-top:10px;
 }
-
-.fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-repeat:no-repeat;
-}
-
 .carousel-destaque{
-  position: relative;
-  bottom: 0;
-  width:30%;
-  left:5%;
-  height: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-  float:left;
-  
+    position: relative;
+    width:33.3%;
+    float:left;
     background-position: center;
-    background-repeat:no-repeat;
+    background-size: cover;
+    height:300px;
 }
-
-
-.carousel-caption .btn {
-  text-shadow: none;
+.carousel-title{
+    width:100%;
+    height:45px;
+    padding:5px;
+    
 }
-@media screen and (min-width: 768px) {
-  .carousel-control .glyphicon-chevron-left,
-  .carousel-control .glyphicon-chevron-right,
-  .carousel-control .icon-prev,
-  .carousel-control .icon-next {
-    width: 30px;
-    height: 30px;
-    margin-top: -15px;
-    margin-left: -15px;
-    font-size: 30px;
-  }
-  .carousel-caption {
-    right: 20%;
-    left: 20%;
-    padding-bottom: 30px;
-  }
+.carousel-title h2, .destaque-valor h3{
+    color:#fff;
+    margin:0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+.destaque-valor{
+    position:absolute;
+    bottom:0;
+    padding:10px;
+    height:45px;
+    background-color:rgba(0,0,0,0.4);
+}
+.btn-ver-destaque{
+    position:absolute;
+    bottom:5px;
+    right:5px;
+}
+.destaque-left{
+    position:absolute;
+    top:50%;
+    left:-40px;
+    color:rgba(205,205,205,1);
+}
+.destaque-right{
+    position:absolute;
+    top:50%;
+    right:-40px;
+    color:rgba(205,205,205,1);
+}
+.destaque-left:hover,.destaque-right:hover{
+    color:rgba(255,255,255,1);
+}
+@media screen and (max-width: 768px) {
+    .carousel-destaque{
+        width:100%;
+    }
+    .destaque-left{
+        left:0;
+    }
+    .destaque-right{
+        right:0;
+    }
+}
 
 
 .fone{
