@@ -8,7 +8,7 @@
 				<div class="container">
 				    <!--convites-->
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-10 col-lg-8 col-md-offset-1">
 							<h2>
 								Convites
 							</h2>
@@ -36,7 +36,7 @@
 					
 				    <!--lembrancinhas-->
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-10 col-lg-8 col-md-offset-1">
 							<h2>
 								Lembrancinhas
 							</h2>
@@ -150,7 +150,7 @@
 					
 				    <!--Personalizados-->
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-10 col-lg-8 col-md-offset-1">
 							<h2>
 								Personalizados
 							</h2>
