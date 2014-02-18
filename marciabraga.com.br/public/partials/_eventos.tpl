@@ -86,7 +86,7 @@
             			</h4>
             		    </div>
             		    <div class="col-md-3 enventos-menu col-md-offset-1">
-                			<a href="#/"><img class="img-circle img-responsive text-center" src="http://placehold.it/200x200/e67e22/ffffff&text=HTML5"></a>
+                			<a href="#/15anos"><img class="img-circle img-responsive text-center" src="http://placehold.it/200x200/e67e22/ffffff&text=HTML5"></a>
             			<h2>
             			    15 Anos	
             			</h2>
