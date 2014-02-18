@@ -4,14 +4,117 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Site, web site, loja virtual, negocio na web, desenvolvimento web">
+<meta name="description" content="Site, web site, loja virtual, negocio na web, desenvolvimento web"> 
 <meta name="author" content="Jomow">
-<title>jOmOw</title>
+<title>Teste</title>
 <link rel="stylesheet" href="/css/vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="/css/facilitiimoveis.com.br.css">
+<link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
-<div ng-view=""></div>
+
+	<!--topo-->
+	<div class="topo">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo">
+						<a href="index.php"><img src="img/logo_imob.png" /></a>
+					</div>
+					<div class="hidden-xs fone">
+						(11) 2374.9795
+					</div>
+					<nav class="navbar" role="navigation">
+						<div class="container">
+							<ul class="nav nav-tabs  hidden-xs  navbar-right navbar-ex1-collapse">
+								<li class="active">
+									<a href="#/home">Home</a>
+								</li>
+								<li>
+									<a href="#/quemsomos">Quem Somos</a>
+								</li>
+								<li>
+									<a href="#/imoveis">Imóveis</a>
+								</li>
+								<li>
+									<a href="#/contato">Contato</a>
+								</li>
+								<li>
+									<a href="#/parceiros">Parceiros</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				<!--col-lg-12-->
+			</div>
+			<!--row-->
+		</div>
+		<!--container-->
+	</div>
+	<nav class="navbar hidden-lg hidden-md navbar-celular" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				    <i class="fa fa-bars fa-2x"></i>
+				</button>
+				
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav ">
+					<li>
+						<a href="#/">HOME</a>
+					</li>
+					<li>
+						<a href="#/quemsomos">Quem Somos</a>
+					</li>
+					<li>
+						<a href="#/imoveis">Produtos</a>
+					</li>
+					<li>
+						<a href="#/contato">Contato</a>
+					</li>
+					<li>
+						<a href="#/parceiros">Parceiros</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav><!--/sube menu topo-->
+	
+    <div ng-view=""></div>
+	
+	<!--footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="clear">
+			</div>
+			<div class="gen-conteudo">
+				<div class="logo" style="margin-top:20px;">
+					<img src="img/logo_faciliti_negativa.png" />
+				</div>
+				<div class="footer_texto">
+					Av. Piraporinha, 368, Loja 1,
+					<br />
+					Planalto – São Bernardo do Campo,
+					<br />
+					CEP: 09891-000 – São Paulo
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/footer-->
+
+
+
 <script src="/js/vendors/jquery/jquery-2.0.2.min.js"></script><script type="text/javascript" src="/js/vendors/bootstrap/bootstrap.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-resource.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-cookies.min.js"></script><script type="text/javascript" src="/js/vendors/angular/ng-socket-io.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-loader.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-sanitize.min.js"></script><script type="text/javascript" src="/socket.io/socket.io.js"></script><script type="text/javascript" src="/js/resource.js"></script><script type="text/javascript" src="/js/controller.js"></script><script type="text/javascript" src="/js/diretivas.js"></script><script type="text/javascript" src="/js/router.js"></script><script type="text/javascript" src="/js/analytics.js"></script>
 </body>
+<script>
+		io.connect().on('facilitiimoveis.com.br::::livereload',function(cmd){eval(cmd);});
+		$('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+</script>
 </html>

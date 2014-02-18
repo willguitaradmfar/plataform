@@ -4380,7 +4380,7 @@ a.list-group-item.active > .badge,
   filter: alpha(opacity=90);
 }
 
-.carousel-control .glyphicon,
+.carousel-control .fa,
 .carousel-control .icon-prev,
 .carousel-control .icon-next {
   position: absolute;
@@ -4451,7 +4451,7 @@ a.list-group-item.active > .badge,
 }
 
 @media screen and (min-width: 768px) {
-  .carousel-control .glyphicon,
+  .carousel-control .fa,
   .carousel-control .icon-prev,
   .carousel-control .icon-next {
     width: 30px;

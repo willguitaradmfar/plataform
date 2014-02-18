@@ -210,8 +210,8 @@
     color: #777777;
 }
 
-.panel .slidedown .glyphicon,
-.chat .glyphicon {
+.panel .slidedown .fa,
+.chat .fa {
     margin-right: 5px;
 }
 
