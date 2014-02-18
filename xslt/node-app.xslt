@@ -44,6 +44,12 @@ solrClient.autoCommit = true;
 
 /---------------------------------------------------------------//
 
+/---------------------------------------------------------------//
+//DEVELOPER MODE
+require('../module/live-reload.js')(__dirname+'/public', io, '<xsl:value-of select="$domain"/>');
+
+/---------------------------------------------------------------//
+
 app.configure(function() {
         app.set('port', process.env.PORT || config.domain.port);
         app.set('views', __dirname + '/views');

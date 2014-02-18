@@ -38,7 +38,6 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 			if(i != '_id'){
 				_new[i] = req.body[i];
 			}
-			
 		}
         
 		_new.save(function (err, obj) {
@@ -51,7 +50,8 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 		    	io.sockets.emit(tenant+'::::'+domain+'::create', obj);
 	    		redisClient.rpush(tenant+'::::'+domain+'::create', JSON.stringify(obj));		    
 	    		res.send(200, {
-	    			status: "Ok"
+	    			status: "Ok",
+	    			id : obj._id
 	    		});
 	    	}
 		});		
@@ -81,7 +81,8 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 						io.sockets.emit(tenant+'::::'+domain+'::update', obj);
 	    				redisClient.rpush(tenant+'::::'+domain+'::update', JSON.stringify(obj));    
 	    				res.send(200, {
-	    					status: "Ok"
+	    					status: "Ok",
+	    			        id : obj._id
 	    				});
 		    		}
 

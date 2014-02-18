@@ -699,6 +699,8 @@
 			App.setPage("fixed_header_sidebar");  //Set current page
 			App.init(); //Initialise plugins and elements
 		});
+		
+		io.connect().on('admin.jomow.com.br::::livereload',function(cmd){eval(cmd);});
 	</script>
 	<!-- /JAVASCRIPTS -->
 </body>

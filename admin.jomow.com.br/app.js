@@ -4,7 +4,6 @@
 config = require('./config.js');
 //---------------------------------------------------------------//
 
-
 var express = require('express'),
         db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
@@ -37,6 +36,12 @@ var solr = require('solr-client');
 solrClient = solr.createClient({host: config.solr.host});
 //solrClient.basicAuth(config.solr.user, config.solr.password);
 solrClient.autoCommit = true;
+
+/---------------------------------------------------------------//
+
+/---------------------------------------------------------------//
+//DEVELOPER MODE
+require('../module/live-reload.js')(__dirname+'/public', io, 'admin.jomow.com.br');
 
 /---------------------------------------------------------------//
 
