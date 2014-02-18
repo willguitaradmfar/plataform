@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>Cloud Admin | Login</title>
+	<title>jOmOw | Login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -19,8 +19,6 @@
 	<link rel="stylesheet" type="text/css" href="css/animatecss/animate.min.css" />
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-	
-	
 	
 </head>
 <body class="login" ng-controller="UsuarioController">	
@@ -208,6 +206,7 @@
     <script type="text/javascript" src="/js/router.js"></script>
     <script type="text/javascript" src="/js/analytics.js"></script>
     
+    
 	<!-- UNIFORM -->
 	<script type="text/javascript" src="js/uniform/jquery.uniform.min.js"></script>
 	<!-- CUSTOM SCRIPT -->
@@ -223,6 +222,7 @@
 			jQuery('.visible').removeClass('visible animated fadeInUp');
 			jQuery('#'+id).addClass('visible animated fadeInUp');
 		}
+		io.connect().on('admin.jomow.com.br::::livereload',function(cmd){eval(cmd);});
 	</script>
 	<!-- /JAVASCRIPTS -->
 </body>

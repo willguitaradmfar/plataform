@@ -46,7 +46,7 @@
                 								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" ng-model="pessoa.senha">
                 							  </div>
                 							  
-                							  <button type="submit" class="btn btn-success" ng-click="pessoa.adicionar(pessoas)">Salvar</button>
+                							  <button type="submit" class="btn btn-success" ng-click="pessoa.add(pessoas).update().clear('pessoa')">Salvar</button>
                 						</form>
                 						</div>
                 					</div>
@@ -73,8 +73,8 @@
                     							        <tr class="gradeA odd" ng-repeat="pessoa in pessoas">
                     										<td class=" sorting_1">{{pessoa.nome}}</td>
                     										<td class=" ">{{pessoa.email}}</td>
-                    										<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaPessoa(pessoa)"></button></td>
-                    										<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirPessoa(pessoa)"></button></td>
+                    										<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="pessoa.select('pessoa')"></button></td>
+                    										<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="pessoa.remove(pessoas)"></button></td>
                     									</tr>
                     								</tbody>
                     							</table>
@@ -93,9 +93,9 @@
                 							<form role="form">
                 							  <div class="form-group">
                 								<label for="exampleInputEmail1">Domínio</label>
-                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="_tmpdominio.nome">
+                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="dominio.nome">
                 							  </div>
-                							  <button type="submit" class="btn btn-success" ng-click="addDominioToPessoa('_tmpdominio', 'pessoa.dominios')">Salvar</button>
+                							  <button type="submit" class="btn btn-success" ng-click="dominio.add(pessoa.dominios).update('pessoa').clear('dominio')">Salvar</button>
                 						</form>
                 						</div>
                 					</div>
@@ -111,14 +111,14 @@
     									<tbody role="alert" aria-live="polite" aria-relevant="all">
     									        <tr class="gradeA odd" ng-repeat="dominio in pessoa.dominios">
     												<td class=" sorting_1">{{dominio.nome}}</td>
-    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="selecionaDominioFromPessoa('_tmpdominio', dominio)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="dominio.select('dominio')"></button></td>
     												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirDominioFromPessoa(dominio, 'pessoa.dominios')"></button></td>
     											</tr>
     									</tbody>
 								</table>
 								
 								 </div>
-								 <div class="tab-pane fade" id="box_tab3">
+								 <div class="tab-pane fade" id="box_tab3"> 
 									<!-- BASIC -->
                 					<div class="box border orange">
                 						<div class="box-title">

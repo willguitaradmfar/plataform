@@ -1,6 +1,74 @@
 
 'use strict';
 
+var jomowModel = function (Model, $scope) {
+    Model.prototype.update = function (obj) {
+        var $this = $scope[obj] || this;
+	    if($this._id){
+	        $this.statusUpdate = Model.update({id : $this._id}, $this, function (res) {
+	            return res;
+	        });
+	    }else{
+	        $this.statusUpdate = Model.save($this, function (res) {
+	            return res;
+	        });
+	    }
+	    
+	    return $this;
+	}
+	
+	Model.prototype.select = function (obj) {
+	    if(!obj._id &&  this.statusUpdate){
+	         this._id = this.statusUpdate.id;
+	    }
+        $scope[obj] = this;
+	    return this;
+	}
+	
+	Model.prototype.clear = function (obj) {
+        $scope[obj] = new Model();
+	    return this;
+	}
+	
+	Model.prototype.parse = function (obj) {
+        for(var i in obj){
+	        this[i] = obj[i];
+	    }
+	    return this;
+	}
+	
+	Model.prototype.add = function (list) {
+	    if(list && !this._id)
+	        list.push(this);
+	    return this;
+	}
+	
+	Model.prototype.remove = function (list) {
+	    for(var c in list){
+ 	        if(this.$$hashKey == list[c].$$hashKey){
+ 	            list.splice(c, 1);
+ 	        }
+ 	    }
+ 	    Model.excluir({id : this._id}, function (res) {
+ 	        return res;
+ 	    })
+ 	    return this;
+	}
+	
+	Model.prototype.reloadAll = function (obj) {
+	    $scope[obj] = Model.list(function (res) {
+	        var r = function (l) {
+	            for(var i in l){
+    	             var m = new Model();
+    	             m.parse(l[i]);
+    	        }    
+	        }
+	        r(res);
+	        return res;
+	    });
+	}
+}
+
 
 
 var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
@@ -142,6 +210,8 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Login, Pessoa) {
 		console.log('UsuarioController');
 		
+	
+		
 		$scope.uiusuario = {};
 		$scope.uiusuario.login = {};
 		$scope.uiusuario.cadastro = {};
@@ -202,8 +272,8 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	}
 ])
 
-.controller('UserMenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Menu', 'Login',
-	function($scope, $location,  $http, $templateCache, $routeParams, Menu, Login) {
+.controller('UserMenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Menu', 'Login',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Menu, Login) {
 		console.log('UserMenuController');
 		
     	Login.get(function (res) {
@@ -228,6 +298,8 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 		
 	    daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br', []);
 		$scope.recarregarMenus();
+		
+	
 	}
 ])
 
@@ -235,25 +307,12 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	function($scope, $location,  $http, $templateCache, $routeParams, Pessoa, Menu) {
 		console.log('PessoaController');
 		
-	    var Model = function (_this) {
-		    this = _this;
-		}
+		jomowModel(Pessoa, $scope);
 		
-		Model.prototype.adicionar = function (list) {
-                list.push(this);
-        }
+		$scope.pessoa = new Pessoa();
+		$scope.pessoa.reloadAll('pessoas');
+		$scope.dominio = new Pessoa();
 		
-		daoGenerics($scope, Pessoa, 'Pessoa', 'admin.jomow.com.br', [{domain : "Dominio"}, {domain : "Menu"}]);
-		$scope.recarregarPessoas();
-		
-		for(var i in $scope.pessoas){
-		    $scope.pessoas[i] = new Model($scope.pessoas[i]);
-		}
-		
-		daoGenerics($scope, Menu, 'Menu', 'admin.jomow.com.br', []);
-		$scope.recarregarMenus();
-		
-		console.log($scope.menus);
 	}
 ])
 ;

@@ -17,12 +17,15 @@ angular.module('app.controllers', ['socket-io'])
 			var active = (viewLocation === $location.path());
 			return active;
 		};
+		
+		
 	}
 ])
 
 .controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
 		console.log('JomowController');
+	
 		
 	}
 ])

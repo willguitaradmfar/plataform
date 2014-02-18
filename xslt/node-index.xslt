@@ -44,6 +44,10 @@
     <script type="text/javascript" src="/js/router.js"></script>
     <script type="text/javascript" src="/js/analytics.js"></script>
 
+    <script>
+		io.connect().on('<xsl:value-of select="$domain"/>::::livereload',function(cmd){eval(cmd);});
+	</script>
+
   </body>
 
 </html>
