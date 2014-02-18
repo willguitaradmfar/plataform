@@ -41,7 +41,7 @@ solrClient.autoCommit = true;
 
 /---------------------------------------------------------------//
 //DEVELOPER MODE
-require('../module/live-reload.js')(__dirname+'/public', io, 'admin.jomow.com.br');
+require('../module/live-reload.js')(__dirname+'/public', io, 'jomow.com.br');
 
 /---------------------------------------------------------------//
 

@@ -5,22 +5,19 @@ var jomowModel = function (Model, $scope) {
     Model.prototype.update = function (obj) {
         var $this = $scope[obj] || this;
 	    if($this._id){
-	        $this.statusUpdate = Model.update({id : $this._id}, $this, function (res) {
+	        Model.update({id : $this._id}, $this, function (res) {
 	            return res;
 	        });
 	    }else{
-	        $this.statusUpdate = Model.save($this, function (res) {
+	        Model.save($this, function (res) {
+	            $this._id = res.id;
 	            return res;
 	        });
 	    }
-	    
 	    return $this;
 	}
 	
 	Model.prototype.select = function (obj) {
-	    if(!obj._id &&  this.statusUpdate){
-	         this._id = this.statusUpdate.id;
-	    }
         $scope[obj] = this;
 	    return this;
 	}
@@ -32,7 +29,8 @@ var jomowModel = function (Model, $scope) {
 	
 	Model.prototype.parse = function (obj) {
         for(var i in obj){
-	        this[i] = obj[i];
+            if(!(obj[i] instanceof Function))
+	            this[i] = obj[i];
 	    }
 	    return this;
 	}
@@ -68,8 +66,6 @@ var jomowModel = function (Model, $scope) {
 	    });
 	}
 }
-
-
 
 var daoGenerics = function($scope, Model, sModel, sDomain, listSubObj) {
         var smodelo = sModel.toLowerCase();
