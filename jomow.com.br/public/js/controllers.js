@@ -28,6 +28,18 @@ angular.module('app.controllers', ['socket-io'])
 
 	}
 ])
+
+.controller('JomowHomologController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Chat',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Chat) {		
+		console.log('JomowHomologController');
+		var path = $location.$$path.substr(1, $location.$$path.length);
+		console.log(path)
+		$scope.iframes = [{pagina : path}];
+	}
+])
+
+
+
 .controller('JomowControllerAdmin', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Chat',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Chat) {		
 		console.log('JomowController');

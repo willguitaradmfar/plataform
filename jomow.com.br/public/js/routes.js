@@ -6,5 +6,7 @@ config(['$routeProvider', function($routeProvider) {
 
 $routeProvider.when('/', {controller: 'JomowController'});
 
+$routeProvider.when('/url/:url', {controller: 'JomowController'});
+
 $routeProvider.otherwise({redirectTo: '/'});
 }]);
