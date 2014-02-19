@@ -4,6 +4,8 @@
 config = require('./config.js');
 //---------------------------------------------------------------//
 
+var _tenant = config.app.tenant;
+
 var express = require('express'),
         db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
@@ -41,7 +43,7 @@ solrClient.autoCommit = true;
 
 /---------------------------------------------------------------//
 //DEVELOPER MODE
-require('../module/live-reload.js')(__dirname+'/public', io, 'admin.jomow.com.br');
+require('../module/live-reload.js')(__dirname+'/public', io, _tenant);
 
 /---------------------------------------------------------------//
 
@@ -55,7 +57,7 @@ app.configure(function() {
         app.use(express.methodOverride());
         app.use(express.cookieParser());
         app.use(express.session({
-                secret: 'admin.jomow.com.br',
+                secret: _tenant,
                 store: new RedisStore({ host: config.redis.host, port: config.redis.port, client: redisClient })
         }));
         app.use(app.router);
@@ -70,22 +72,19 @@ app.get('/', function (req, res) {
     res.redirect('/login.html');
 })
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'), redisClient, 'pessoa', 'admin.jomow.com.br');
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'), redisClient, 'pessoa', _tenant);
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', _tenant);
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', _tenant);
 
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', 'admin.jomow.com.br');
 
-
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', 'admin.jomow.com.br');
-
-require('../module/emailAPI')(app, config, redisClient, 'admin.jomow.com.br');
-require('../module/queue.js')(config, redisClient, 'admin.jomow.com.br');
-require('../module/loginAPI.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'),redisClient, 'pessoa',  'admin.jomow.com.br');
-require('../module/chat.js')(config, redis, 'admin.jomow.com.br');
+require('../module/emailAPI')(app, config, redisClient, _tenant);
+require('../module/queue.js')(config, redisClient, _tenant);
+require('../module/loginAPI.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'),redisClient, 'pessoa',  _tenant);
+require('../module/chat.js')(config, redis, _tenant);
 
 server.listen(app.get('port'), function() {
-    var msg = 'Projeto admin.jomow.com.br esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
+    var msg = 'Projeto '+_tenant+' esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
         + JSON.stringify(config);
         console.log(msg);
-        redisClient.rpush('admin.jomow.com.br::::system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
+        redisClient.rpush(_tenant+'::::system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
 });
-

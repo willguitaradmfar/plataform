@@ -1,6 +1,9 @@
 
 
 var config = {
+        app : {
+                tenant : 'admin.jomow.com.br'  
+        },
         domain: {
                 host: process.env.host,
                 port: ''

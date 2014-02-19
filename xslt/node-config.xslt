@@ -10,6 +10,9 @@
 <xsl:variable name="domainNormal" select="translate($domain,'.','_')"/>
 
 var config = {
+        app : {
+                tenant : '<xsl:value-of select="$domain"/>'  
+        },
         domain: {
                 host: process.env.host,
                 port: ''

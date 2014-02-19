@@ -9,6 +9,8 @@
 config = require('./config.js');
 //---------------------------------------------------------------//
 
+var _tenant = config.app.tenant;
+
 var express = require('express'),
         db = require('./schema/schema.js'),
         RedisStore = require("connect-redis")(express),
@@ -46,7 +48,7 @@ solrClient.autoCommit = true;
 
 /---------------------------------------------------------------//
 //DEVELOPER MODE
-require('../module/live-reload.js')(__dirname+'/public', io, '<xsl:value-of select="$domain"/>');
+require('../module/live-reload.js')(__dirname+'/public', io, _tenant);
 
 /---------------------------------------------------------------//
 
@@ -60,7 +62,7 @@ app.configure(function() {
         app.use(express.methodOverride());
         app.use(express.cookieParser());
         app.use(express.session({
-                secret: '<xsl:value-of select="$domain"/>',
+                secret: _tenant,
                 store: new RedisStore({ host: config.redis.host, port: config.redis.port, client: redisClient })
         }));
         app.use(app.router);
@@ -75,18 +77,18 @@ app.configure(function() {
     <xsl:variable name="Nome" select='concat(
                     translate(substring(nome, 1, 1), $smallcase, $uppercase),
                     translate(substring(nome, 2), $uppercase, $smallcase))' />
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, '<xsl:value-of select="$Nome"/>'), redisClient, '<xsl:value-of select="$nome"/>', '<xsl:value-of select="$domain"/>');
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, '<xsl:value-of select="$Nome"/>'), redisClient, '<xsl:value-of select="$nome"/>', _tenant);
 </xsl:for-each>
 
-require('../module/emailAPI')(app, config, redisClient, '<xsl:value-of select="$domain"/>');
-require('../module/queue.js')(config, redisClient, '<xsl:value-of select="$domain"/>');
-require('../module/chat.js')(config, redis, '<xsl:value-of select="$domain"/>');
+require('../module/emailAPI')(app, config, redisClient, _tenant);
+require('../module/queue.js')(config, redisClient, _tenant);
+require('../module/chat.js')(config, redis, _tenant);
 
 server.listen(app.get('port'), function() {
-    var msg = 'Projeto <xsl:value-of select="$domain"/> esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
+    var msg = 'Projeto '+_tenant+' esta executando na porta ' + app.get('port') + ' e IP '+process.env.IP +' em '+moment().format('MMMM Do YYYY, h:mm:ss a'); + '\n'
         + JSON.stringify(config);
         console.log(msg);
-        redisClient.rpush('<xsl:value-of select="$domain"/>::::system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
+        redisClient.rpush(_tenant+'::::system::mail::administrator', JSON.stringify({text : msg, html : '<b>'+msg+'</b>'}));
 });
 </xsl:template>
 </xsl:stylesheet>

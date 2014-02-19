@@ -74,15 +74,12 @@ imovelObjSchema.complemento = "String";
 imovelObjSchema.pontoReferencia = "String";
 imovelObjSchema.lat = "Number";
 imovelObjSchema.lon = "Number";
-imovelObjSchema.proprietario = {nome : "String", email : "String", telefones : [String]};
+imovelObjSchema.proprietario = {nome : "String", email : "String", telefones : [{contato : "String", telefone : "String"}]};
 
-imovelObjSchema.categorias = [String];
+imovelObjSchema.categorias = [{val : "String"}];
 imovelObjSchema.caracteristicas = [{chave : "String",valor : "String"}];
 
-
 imovelObjSchema.imagens = [String];
-
-
 
 var imovelSchema = mongoose.Schema(imovelObjSchema);
 module.exports.Imovel = mongoose.model('imovel', imovelSchema);

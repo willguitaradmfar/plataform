@@ -30,6 +30,11 @@ var jomowModel = function (Model, $scope) {
 	    return list.push(new Model())-1;
 	}
 	
+	$scope.initArray = function (obj, _sObj) {
+	    if(!obj[_sObj])
+	        obj[_sObj] = [];
+	}
+	
 	Model.prototype.select = function (o1, o2) {
 	    $scope[o1] = o2;
 	}
