@@ -74,6 +74,9 @@ require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, 
 
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', 'admin.jomow.com.br');
 
+
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', 'admin.jomow.com.br');
+
 require('../module/emailAPI')(app, config, redisClient, 'admin.jomow.com.br');
 require('../module/queue.js')(config, redisClient, 'admin.jomow.com.br');
 require('../module/loginAPI.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'),redisClient, 'pessoa',  'admin.jomow.com.br');

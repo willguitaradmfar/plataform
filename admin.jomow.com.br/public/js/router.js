@@ -9,6 +9,11 @@ angular.module('app', ['app.controllers', 'app.resource', 'app.directive']).
 	$routeProvider.when('/relatorio', {templateUrl: 'partials/_relatorio.html', controller: 'RelatorioController'});
 	$routeProvider.when('/menu', {templateUrl: 'partials/_menu.html', controller: 'MenuController'});
 	$routeProvider.when('/pessoa', {templateUrl: 'partials/_pessoa.html', controller: 'PessoaController'});
+	
+	
+	$routeProvider.when('/imovel', {templateUrl: 'partials/_imoveis.html', controller: 'ImovelController'});
+	
+	
 
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

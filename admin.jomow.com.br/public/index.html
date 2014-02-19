@@ -633,17 +633,28 @@
 	<section >
 				<!-- SIDEBAR -->
 				<div id="sidebar" class="sidebar sidebar-fixed">
+				
 					<div class="sidebar-menu nav-collapse">
+					
 						<div class="divide-20"></div>
+						
 						<!-- SEARCH BAR -->
 						<div id="search-bar">
 							<input class="search" type="text" placeholder="Busca ..." ng-model="uimenu.search.nome"><i class="fa fa-search search-icon"></i>
+        						
 						</div>
+						
+							<div class="input-group-btn center">
+            						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" ng-bind="dominio.nome"><span class="caret"></span></button>
+            						<ul class="dropdown-menu pull-right context">
+            						  <li ng-repeat="dominio in dominios"><a href="#" ng-click="selectDominio(dominio)"ng-bind="dominio.nome"></a></li>
+            						</ul>
+            					  </div>
 						<!-- /SEARCH BAR -->
 						
 						<!-- SIDEBAR MENU -->
 						<ul>
-							<li ng-repeat="menu in user.menus | filter:uimenu.search">
+							<li ng-repeat="menu in menus | filter:uimenu.search">
 								<a href="{{menu.url}}">
     								<i class="fa {{menu.icone}} fa-fw"></i> <span class="menu-text" ng-bind="menu.nome"></span>
     								<span class="selected"></span>

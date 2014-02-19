@@ -1,0 +1,224 @@
+<div class="container">
+<div class="row">
+   <div class="col-md-12">
+      <div class="alert alert-block alert-{{uiimovel.msg.type}} fade in">
+         <button class="close" aria-hidden="true">×</button>
+         <p ng-bind="uiimovel.msg.text"></p>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-12">
+      <button type="submit" class="btn btn-success" ng-click="imovelIndex = novo(imovels)">Novo</button>
+      <!-- BASIC -->
+      <div class="box border orange"ng-show="imovels[imovelIndex]">
+         <div class="box-title">
+            <h4><i class="fa fa-bars"></i>Cadastro de Imóveis</h4>
+         </div>
+         <div class="box-body big" >
+            <h3 class="form-title">Imóvel</h3>
+            <form role="form">
+               <div class="col-lg-12">
+                  <div class="panel panel-default">
+                     <div class="panel-body">
+                        <div class="tabbable">
+                           <ul class="nav nav-tabs">
+                              <li class="active"><a href="#tab_3_1" data-toggle="tab">Básico</a></li>
+                              <li><a href="#tab_3_2" data-toggle="tab">Números</a></li>
+                              <li><a href="#tab_3_3" data-toggle="tab">Valores</a></li>
+                              <li><a href="#tab_3_4" data-toggle="tab">Endereço</a></li>
+                              <li><a href="#tab_3_5" data-toggle="tab">Proprietário</a></li>
+                              <li><a href="#tab_3_6" data-toggle="tab">Tags</a></li>
+                              <li><a href="#tab_3_7" data-toggle="tab">Imagens</a></li>
+                           </ul>
+                           <div class="tab-content">
+                              <div class="tab-pane fade in active" id="tab_3_1">
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Título</label>
+                                    <input type="text" class="form-control"  placeholder="Título" ng-model="imovels[imovelIndex].titulo">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">Descrição</label>
+                                    <textarea type="text" class="form-control"  placeholder="Descrição" ng-model="imovels[imovelIndex].descricao"> </textarea>
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab_3_2">
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">Númer de Quartos</label>
+                                    <input type="number" class="form-control"  placeholder="numeroQuartos" ng-model="imovels[imovelIndex].numeroQuartos">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">Área Útil</label>
+                                    <input type="number" class="form-control"  placeholder="areaUtil" ng-model="imovels[imovelIndex].areaUtil">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">numeroVagas</label>
+                                    <input type="number" class="form-control"  placeholder="numeroVagas" ng-model="imovels[imovelIndex].numeroVagas">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">numeroSuite</label>
+                                    <input type="number" class="form-control"  placeholder="numeroSuite" ng-model="imovels[imovelIndex].numeroSuite">
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab_3_3">
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Preço</label>
+                                    <div class="input-group">
+                                       <span class="input-group-addon">R$</span>
+                                       <input type="text" class="form-control" ng-model="imovels[imovelIndex].preco">
+                                    </div>
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">valorIPTU</label>
+                                    <div class="input-group">
+                                       <span class="input-group-addon">R$</span>
+                                       <input type="text" class="form-control" ng-model="imovels[imovelIndex].valorIPTU">
+                                    </div>
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">valorCondominio</label>
+                                    <div class="input-group">
+                                       <span class="input-group-addon">R$</span>
+                                       <input type="text" class="form-control" ng-model="imovels[imovelIndex].valorCondominio">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab_3_4">
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Rua</label>
+                                    <input type="text" class="form-control"  placeholder="Rua" ng-model="imovels[imovelIndex].rua">
+                                 </div>
+                                  
+                                  <div class="form-group col-lg-3">
+                                        <label for="exampleInputEmail1">numero</label>
+                                        <input type="text" class="form-control"  placeholder="numero" ng-model="imovels[imovelIndex].numero">
+                                   </div>
+                                   <div class="form-group col-lg-3">
+                                        <label for="exampleInputEmail1">CEP</label>
+                                        <input type="text" class="form-control"  placeholder="CEP" ng-model="imovels[imovelIndex].cep">
+                                   </div>
+                                   
+                                   <div class="form-group col-lg-6">
+                                        <label for="exampleInputEmail1">complemento</label>
+                                        <input type="text" class="form-control"  placeholder="complemento" ng-model="imovels[imovelIndex].complemento">
+                                     </div>
+                                     
+                                     <div class="form-group col-lg-6">
+                                        <label for="exampleInputEmail1">pontoReferencia</label>
+                                        <input type="text" class="form-control"  placeholder="pontoReferencia" ng-model="imovels[imovelIndex].pontoReferencia">
+                                     </div>
+                                   
+                                   <div class="form-group col-lg-4">
+                                        <label for="exampleInputEmail1">bairro</label>
+                                        <input type="text" class="form-control"  placeholder="bairro" ng-model="imovels[imovelIndex].bairro">
+                                   </div>
+                                   
+                                   <div class="form-group col-lg-4">
+                                        <label for="exampleInputEmail1">cidade</label>
+                                        <input type="text" class="form-control"  placeholder="cidade" ng-model="imovels[imovelIndex].cidade">
+                                   </div>
+                                   
+                                   <div class="form-group col-lg-4">
+                                        <label for="exampleInputEmail1">UF</label>
+                                        <input type="text" class="form-control"  placeholder="UF" ng-model="imovels[imovelIndex].UF">
+                                   </div>
+                                   
+                                   <div class="form-group col-lg-4">
+                                        <label for="exampleInputEmail1">Pais</label>
+                                        <input type="text" class="form-control"  placeholder="Pais" ng-model="imovels[imovelIndex].Pais">
+                                   </div>
+                                   <div class="form-group col-lg-4">
+                                        <label for="exampleInputEmail1">Latitude</label>
+                                        <input type="text" class="form-control"  placeholder="Latitude (Opcional)" ng-model="imovels[imovelIndex].lat">
+                                   </div>
+                                   <div class="form-group col-lg-4">
+                                        <label for="exampleInputEmail1">Longitude</label>
+                                        <input type="text" class="form-control"  placeholder="Longitude (Opcional)" ng-model="imovels[imovelIndex].lon">
+                                   </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab_3_5">
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Nome</label>
+                                    <input type="text" class="form-control"  placeholder="Nome" ng-model="imovels[imovelIndex].proprietario.nome">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">Email</label>
+                                    <div class="input-group">
+									  <span class="input-group-addon">@</span>
+									  <input type="text" class="form-control" placeholder="Email" ng-model="imovels[imovelIndex].proprietario.email">
+									</div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab_3_6">
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Nome</label>
+                                    <input type="text" class="form-control"  placeholder="Nome" ng-model="imovels[imovelIndex].proprietario.nome">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">Email</label>
+                                    <div class="input-group">
+									  <span class="input-group-addon">@</span>
+									  <input type="text" class="form-control" placeholder="Email" ng-model="imovels[imovelIndex].proprietario.email">
+									</div>
+                                 </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab_3_7">
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Nome</label>
+                                    <input type="text" class="form-control"  placeholder="Nome" ng-model="imovels[imovelIndex].proprietario.nome">
+                                 </div>
+                                 <div class="form-group col-lg-6">
+                                    <label for="exampleInputPassword1">Email</label>
+                                    <div class="input-group">
+									  <span class="input-group-addon">@</span>
+									  <input type="text" class="form-control" placeholder="Email" ng-model="imovels[imovelIndex].proprietario.email">
+									</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <button type="submit" class="btn btn-success" ng-click="imovels[imovelIndex].update().select('imovelIndex', -1)">Salvar</button>
+            </form>
+         </div>
+      </div>
+      <!-- /BASIC -->
+   </div>
+   <div class="col-md-12">
+      <!-- BOX -->
+      <div class="box border purple">
+         <div class="box-title">
+            <h4><i class="fa fa-table"></i>Imóveis</h4>
+         </div>
+         <div class="box-body">
+            <table id="datatable2" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover dataTable" aria-describedby="datatable2_info">
+               <thead>
+                  <tr role="row">
+                     <th width="20%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Nome</th>
+                     <th width="20%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Url</th>
+                     <th width="30%" class="hidden-xs sorting" role="columnheader"tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Icone</th>
+                     <th width="10%" class="hidden-xs sorting" role="columnheader"tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Controller</th>
+                     <th width="10%" class="hidden-xs sorting" role="columnheader"tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Partial</th>
+                     <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Editar</th>
+                     <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Excluir</th>
+                  </tr>
+               </thead>
+               <tbody role="alert" aria-live="polite" aria-relevant="all">
+                  <tr class="gradeA odd" ng-repeat="imovel in imovels">
+                     <td class=" sorting_1">{{imovel.nome}}</td>
+                     <td class=" ">{{imovel.url}}</td>
+                     <td class="hidden-xs "><a href="../icon/credit-card"><i class="fa {{imovel.icone}}"></i> {{imovel.icone}}</a></td>
+                     <td class="hidden-xs ">{{imovel.controller}}</td>
+                     <td class="hidden-xs ">{{imovel.partial}}</td>
+                     <td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="imovels[$index].select('imovelIndex', $index)"></button></td>
+                     <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[$index].remove(imovels, $index)"></button></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <!-- /BOX -->
+      </div>
+   </div>
+</div>

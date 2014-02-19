@@ -18,7 +18,7 @@ mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host
 });*/
 
 
-// ########################## Schema de produto Pessoa ###################
+// ########################## Schema de produto Menu ###################
 var menuObjSchema = {};
 menuObjSchema.dtcreate = {type: Date,default: Date.now};
 menuObjSchema.dtupdate = {type: Date,default: Date.now};
@@ -49,5 +49,42 @@ var pessoaSchema = mongoose.Schema(pessoaObjSchema);
 module.exports.Pessoa = mongoose.model('pessoa', pessoaSchema);
 
 
+// ########################## Schema de produto Imovel ###################
+var imovelObjSchema = {};
+imovelObjSchema.dtcreate = {type: Date,default: Date.now};
+imovelObjSchema.dtupdate = {type: Date,default: Date.now};
+
+imovelObjSchema.titulo = "String";
+imovelObjSchema.descricao = "String";
+imovelObjSchema.preco = "Number";
+imovelObjSchema.numeroQuartos = "Number";
+imovelObjSchema.areaUtil = "Number";
+imovelObjSchema.numeroVagas = "Number";
+imovelObjSchema.numeroSuite = "Number";
+imovelObjSchema.valorIPTU = "Number";
+imovelObjSchema.valorCondominio = "Number";
+imovelObjSchema.rua = "String";
+imovelObjSchema.cep = "String";
+imovelObjSchema.numero = "String";
+imovelObjSchema.bairro = "String";
+imovelObjSchema.cidade = "String";
+imovelObjSchema.UF = "String";
+imovelObjSchema.Pais = "String";
+imovelObjSchema.complemento = "String";
+imovelObjSchema.pontoReferencia = "String";
+imovelObjSchema.lat = "Number";
+imovelObjSchema.lon = "Number";
+imovelObjSchema.proprietario = {nome : "String", email : "String", telefones : [String]};
+
+imovelObjSchema.categorias = [String];
+imovelObjSchema.caracteristicas = [{chave : "String",valor : "String"}];
+
+
+imovelObjSchema.imagens = [String];
+
+
+
+var imovelSchema = mongoose.Schema(imovelObjSchema);
+module.exports.Imovel = mongoose.model('imovel', imovelSchema);
 
 
