@@ -13,19 +13,21 @@
 			<div class="col-md-12">
                 <div class="box border red">
 						<div class="box-title">
-							<h4><i class="fa fa-columns"></i><span class="hidden-inline-mobile">Gerenciamento de Pessoas <label ng-bind="pessoa.nome"></label></span></h4>
+							<h4><i class="fa fa-columns"></i><span class="hidden-inline-mobile">Gerenciamento de Pessoas <label ng-bind="pessoas[pessoaIndex].nome"></label></span></h4>
 						</div>
 						<div class="box-body">
 							<div class="tabbable header-tabs">
 							  <ul class="nav nav-tabs">
-								 <li ng-show="_tmpdominio._id"><a href="#box_tab3" data-toggle="tab"><i class="fa fa-circle-o"></i> <span class="hidden-inline-mobile">Menu</span></a></li>
-								 <li ng-show="pessoa._id"><a href="#box_tab2" data-toggle="tab"><i class="fa fa-laptop"></i> <span class="hidden-inline-mobile">Dominios</span></a></li>
+								 <li ng-show="pessoas[pessoaIndex].dominios[dominioIndex]"><a href="#box_tab3" data-toggle="tab"><i class="fa fa-circle-o"></i> <span class="hidden-inline-mobile">Menu</span></a></li>
+								 <li ng-show="pessoas[pessoaIndex]"><a href="#box_tab2" data-toggle="tab"><i class="fa fa-laptop"></i> <span class="hidden-inline-mobile">Dominios</span></a></li>
 								 <li class="active"><a href="#box_tab1" data-toggle="tab"><i class="fa fa-calendar-o"></i> <span class="hidden-inline-mobile">Basico</span></a></li>
 							  </ul>
 							  <div class="tab-content">
+							  
 								 <div class="tab-pane fade in active" id="box_tab1">
 									<!-- BASIC -->
-                					<div class="box border orange">
+									<button type="submit" class="btn btn-success" ng-click="pessoaIndex = novo(pessoas)">Novo</button>
+                					<div class="box border orange" ng-show="pessoas[pessoaIndex]">
                 						<div class="box-title">
                 							<h4><i class="fa fa-bars"></i>Cadastro de Pessoa</h4>
                 						</div>
@@ -34,20 +36,19 @@
                 							<form role="form">
                 							  <div class="form-group">
                 								<label for="exampleInputEmail1">Nome</label>
-                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="pessoa.nome">
+                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome" ng-model="pessoas[pessoaIndex].nome">
                 							  </div>
                 							  <div class="form-group">
                 								<label for="exampleInputPassword1">Email</label>
-                								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="URL ex.: #/home" ng-model="pessoa.email">
+                								<input type="text" class="form-control" id="exampleInputPassword1" placeholder="URL ex.: #/home" ng-model="pessoas[pessoaIndex].email">
                 							  </div>
                 		
                 							  <div class="form-group">
                 								<label for="exampleInputPassword1">Senha</label>
-                								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" ng-model="pessoa.senha">
+                								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" ng-model="pessoas[pessoaIndex].senha">
                 							  </div>
-                							  
-                							  <button type="submit" class="btn btn-success" ng-click="pessoa.add(pessoas).update().clear('pessoa')">Salvar</button>
-                						</form>
+                							  <button type="submit" class="btn btn-success" ng-click="pessoas[pessoaIndex].update().select('pessoaIndex', -1)">Salvar</button>
+                						</form >
                 						</div>
                 					</div>
                 					<!-- /BASIC -->
@@ -58,7 +59,6 @@
                     							<h4><i class="fa fa-table"></i>Pessoas</h4>
                     						</div>
                     						<div class="box-body">
-                    							
                     							<table id="datatable2" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover dataTable" aria-describedby="datatable2_info">
                     								<thead>
                     									<tr role="row">
@@ -72,9 +72,9 @@
                     								<tbody role="alert" aria-live="polite" aria-relevant="all">
                     							        <tr class="gradeA odd" ng-repeat="pessoa in pessoas">
                     										<td class=" sorting_1">{{pessoa.nome}}</td>
-                    										<td class=" ">{{pessoa.email}}</td>
-                    										<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="pessoa.select('pessoa')"></button></td>
-                    										<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="pessoa.remove(pessoas)"></button></td>
+                    										<td class=" sorting_1">{{pessoa.email}}</td>
+                    										<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="pessoas[$index].select('pessoaIndex', $index)"></button></td>
+                    										<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="pessoas[$index].remove(pessoas, $index)"></button></td>
                     									</tr>
                     								</tbody>
                     							</table>
@@ -83,8 +83,9 @@
                             	</div>
 								 </div>
 								 <div class="tab-pane fade" id="box_tab2">
+								 <button type="submit" class="btn btn-success" ng-click="dominioIndex = novo(pessoas[pessoaIndex].dominios)">Novo</button>
 								 <!-- BASIC -->
-                					<div class="box border orange">
+                					<div class="box border orange" ng-show="pessoas[pessoaIndex].dominios[dominioIndex]">
                 						<div class="box-title">
                 							<h4><i class="fa fa-bars"></i>Adicionar Domínios</h4>
                 						</div>
@@ -93,9 +94,9 @@
                 							<form role="form">
                 							  <div class="form-group">
                 								<label for="exampleInputEmail1">Domínio</label>
-                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="dominio.nome">
+                								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Domínio ex.: nomedodominio.com.br" ng-model="pessoas[pessoaIndex].dominios[dominioIndex].nome">
                 							  </div>
-                							  <button type="submit" class="btn btn-success" ng-click="dominio.add(pessoa.dominios).update('pessoa').clear('dominio')">Salvar</button>
+                							  <button type="submit" class="btn btn-success" ng-click="pessoas[pessoaIndex].update().select('dominioIndex', -1)">Salvar</button>
                 						</form>
                 						</div>
                 					</div>
@@ -109,10 +110,10 @@
     										</tr>
     									</thead>
     									<tbody role="alert" aria-live="polite" aria-relevant="all">
-    									        <tr class="gradeA odd" ng-repeat="dominio in pessoa.dominios">
+    									        <tr class="gradeA odd" ng-repeat="dominio in pessoas[pessoaIndex].dominios">
     												<td class=" sorting_1">{{dominio.nome}}</td>
-    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="dominio.select('dominio')"></button></td>
-    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirDominioFromPessoa(dominio, 'pessoa.dominios')"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="pessoas[pessoaIndex].select('dominioIndex', $index)"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="pessoas[pessoaIndex].remove(pessoas[pessoaIndex].dominios, $index)"></button></td>
     											</tr>
     									</tbody>
 								</table>
@@ -120,7 +121,8 @@
 								 </div>
 								 <div class="tab-pane fade" id="box_tab3"> 
 									<!-- BASIC -->
-                					<div class="box border orange">
+									<button type="submit" class="btn btn-success" ng-click="menuIndex = novo(pessoas[pessoaIndex].dominios[dominioIndex].menus)">Novo</button>
+                					<div class="box border orange" ng-show="pessoas[pessoaIndex].dominios[dominioIndex].menus[menuIndex]">
                 						<div class="box-title">
                 							<h4><i class="fa fa-bars"></i>Adicionar Menu</h4>
                 						</div>
@@ -129,10 +131,10 @@
                 							<form role="form">
                 							  <div class="form-group">
                 								<label for="exampleInputEmail1">Menu</label>
-                								<select class="form-control input-lg" ng-model="_tmpmenu" ng-options="menu.nome for menu in menus">
+                								<select class="form-control input-lg" ng-model="pessoas[pessoaIndex].dominios[dominioIndex].menus[menuIndex]" ng-options="menu.nome for menu in menus">
 								                </select>
                 							  </div>
-                							  <button type="submit" class="btn btn-success" ng-click="addMenuToPessoa('_tmpmenu', '_tmpdominio.menus', true)">Salvar</button>
+                							  <button type="submit" class="btn btn-success" ng-click="pessoas[pessoaIndex].update().select('menuIndex', -1)">Salvar</button>
                 						</form>
                 						</div>
                 					</div>
@@ -145,9 +147,9 @@
     										</tr>
     									</thead>
     									<tbody role="alert" aria-live="polite" aria-relevant="all">
-    									        <tr class="gradeA odd" ng-repeat="menu in _tmpdominio.menus">
+    									        <tr class="gradeA odd" ng-repeat="menu in pessoas[pessoaIndex].dominios[dominioIndex].menus">
     												<td class=" sorting_1">{{menu.nome}}</td>
-    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="excluirMenuFromPessoa(menu, '_tmpdominio.menus')"></button></td>
+    												<td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="pessoas[pessoaIndex].remove(pessoas[pessoaIndex].dominios[dominioIndex].menus, $index)"></button></td>
     											</tr>
     									</tbody>
 								</table>

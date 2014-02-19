@@ -2,66 +2,59 @@
 'use strict';
 
 var jomowModel = function (Model, $scope) {
-    Model.prototype.update = function (obj) {
-        var $this = $scope[obj] || this;
+    
+    Model.prototype.update = function () {
+        var $this = this;
 	    if($this._id){
 	        Model.update({id : $this._id}, $this, function (res) {
+	            parse(res.obj, $this);
 	            return res;
 	        });
 	    }else{
 	        Model.save($this, function (res) {
-	            $this._id = res.id;
+	            parse(res.obj, $this);
 	            return res;
 	        });
 	    }
 	    return $this;
 	}
 	
-	Model.prototype.select = function (obj) {
-        $scope[obj] = this;
-	    return this;
-	}
-	
-	Model.prototype.clear = function (obj) {
-        $scope[obj] = new Model();
-	    return this;
-	}
-	
-	Model.prototype.parse = function (obj) {
-        for(var i in obj){
-            if(!(obj[i] instanceof Function))
-	            this[i] = obj[i];
+	var parse = function (de, para) {
+	    for(var i in de){
+	        if(!(de[i] instanceof Function))
+	            para[i] = de[i];
 	    }
-	    return this;
 	}
 	
-	Model.prototype.add = function (list) {
-	    if(list && !this._id)
-	        list.push(this);
-	    return this;
+	$scope.novo = function (list) {
+	    return list.push(new Model())-1;
 	}
 	
-	Model.prototype.remove = function (list) {
-	    for(var c in list){
- 	        if(this.$$hashKey == list[c].$$hashKey){
- 	            list.splice(c, 1);
- 	        }
- 	    }
- 	    Model.excluir({id : this._id}, function (res) {
- 	        return res;
- 	    })
+	Model.prototype.select = function (o1, o2) {
+	    $scope[o1] = o2;
+	}
+	
+	Model.prototype.remove = function (list, $index) {
+	    var $this = this;
+	    if(list[$index].update){
+     	    Model.excluir({id : this._id}, function (res) {
+     	        if(res.status == "Ok")
+     	            list.splice($index, 1);
+     	        return res;
+     	    });
+	    }else{
+	        list.splice($index, 1 );
+	        Model.update({id : $this._id}, $this, function (res) {
+	            parse(res.obj, $this);
+     	        return res;
+     	    });
+	    }
  	    return this;
 	}
 	
 	Model.prototype.reloadAll = function (obj) {
 	    $scope[obj] = Model.list(function (res) {
-	        var r = function (l) {
-	            for(var i in l){
-    	             var m = new Model();
-    	             m.parse(l[i]);
-    	        }    
-	        }
-	        r(res);
+	        console.log(res);
 	        return res;
 	    });
 	}
@@ -302,12 +295,15 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 .controller('PessoaController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'Pessoa', 'Menu',
 	function($scope, $location,  $http, $templateCache, $routeParams, Pessoa, Menu) {
 		console.log('PessoaController');
-		
+	
 		jomowModel(Pessoa, $scope);
-		
 		$scope.pessoa = new Pessoa();
 		$scope.pessoa.reloadAll('pessoas');
-		$scope.dominio = new Pessoa();
+		
+		$scope.menus = Menu.list(function (res) {
+		    return res;
+		})
+		
 		
 	}
 ])

@@ -51,7 +51,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 	    		redisClient.rpush(tenant+'::::'+domain+'::create', JSON.stringify(obj));		    
 	    		res.send(200, {
 	    			status: "Ok",
-	    			id : obj._id
+	    			obj : obj
 	    		});
 	    	}
 		});		
@@ -82,7 +82,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 	    				redisClient.rpush(tenant+'::::'+domain+'::update', JSON.stringify(obj));    
 	    				res.send(200, {
 	    					status: "Ok",
-	    			        id : obj._id
+	    			        obj : obj
 	    				});
 		    		}
 
