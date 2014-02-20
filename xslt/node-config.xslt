@@ -22,7 +22,7 @@ var config = {
                 credentials: '', // username:password@
                 host: '<xsl:value-of select="modelos/jomowdb"/>', //
                 port: ':27017', // :port
-                dbName: '<xsl:value-of select="$domainNormal"/>'
+                dbName: 'admin_jomow_com_br'
         },
         twitter: {
                 consumerKey: process.env.consumerKey,

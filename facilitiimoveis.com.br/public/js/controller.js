@@ -1,6 +1,70 @@
 
 'use strict';
 
+var jomowModel = function (Model, $scope) {
+    
+    Model.prototype.update = function () {
+        var $this = this;
+	    if($this._id){
+	        Model.update({id : $this._id}, $this, function (res) {
+	            parse(res.obj, $this);
+	            return res;
+	        });
+	    }else{
+	        Model.save($this, function (res) {
+	            parse(res.obj, $this);
+	            return res;
+	        });
+	    }
+	    return $this;
+	}
+	
+	var parse = function (de, para) {
+	    for(var i in de){
+	        if(!(de[i] instanceof Function))
+	            para[i] = de[i];
+	    }
+	}
+	
+	$scope.novo = function (list) {
+	    return list.push(new Model())-1;
+	}
+	
+	$scope.initArray = function (obj, _sObj) {
+	    if(!obj[_sObj])
+	        obj[_sObj] = [];
+	}
+	
+	Model.prototype.select = function (o1, o2) {
+	    $scope[o1] = o2;
+	}
+	
+	Model.prototype.remove = function (list, $index) {
+	    var $this = this;
+	    if(list[$index].update){
+     	    Model.excluir({id : this._id}, function (res) {
+     	        if(res.status == "Ok")
+     	            list.splice($index, 1);
+     	        return res;
+     	    });
+	    }else{
+	        list.splice($index, 1 );
+	        Model.update({id : $this._id}, $this, function (res) {
+	            parse(res.obj, $this);
+     	        return res;
+     	    });
+	    }
+ 	    return this;
+	}
+	
+	Model.prototype.reloadAll = function (obj) {
+	    $scope[obj] = Model.list(function (res) {
+	        console.log(res);
+	        return res;
+	    });
+	}
+}
+
 angular.module('app.controllers', ['socket-io'])
 
 .controller('MenuController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
@@ -24,92 +88,9 @@ angular.module('app.controllers', ['socket-io'])
 .controller('ImovelController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Imovel',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Imovel) {
 		console.log('ImovelController');
-		
-			//################################## Controle básico de Imovel ####################################
-			$scope.uiimovel = {}
-			$scope.uiimovel.msg = {};		
-			$scope.imovel = {};
-			
-			$scope.recarregarImovels = function(){
-				$scope.imovels = Imovel.list(function(res){
-					return res;
-				});            
-			}
-
-			$scope.salvarImovel = function(){
-				if($scope.imovel._id){
-					Imovel.update({id : $scope.imovel._id}, $scope.imovel, function(res){
-						$scope.uiimovel.msg.text = "Imovel "+$scope.imovel._id+" Atualizado com sucesso";
-						$scope.limparImovel();
-						$scope.recarregarImovels();
-					});
-				}else{
-					Imovel.save($scope.imovel, function(res){
-						$scope.uiimovel.msg.text = "Imovel "+$scope.imovel._id+" Salvo com sucesso";
-						$scope.limparImovel();
-						$scope.recarregarImovels();
-					});
-				}
-			}
-
-			$scope.limparImovel = function () {
-			    $scope.imovel = {};
-			}
-
-			$scope.excluirImovel = function(imovel){ 
-				if (imovel._id){
-					Imovel.excluir({id : imovel._id }, function () {
-						$scope.limparImovel();
-						$scope.recarregarImovels();
-						$scope.uiimovel.msg.text = "O Imovel "+imovel._id+" foi exluido do servidor ..";
-					});
-				}
-			}
-
-			$scope.selecionaImovel = function (imovel) {
-			    $scope.imovel = imovel;
-			}
-
-			if($routeParams.id){
-				Imovel.get({id : $routeParams.id}, function (imovel) {
-					$scope.selecionaImovel(imovel);
-					if(imovel._id){
-						console.log('Função não implementada');
-					}
-				});
-			}
-        
-
-		//Exemplo de Envio de Email
-		$scope.enviarEmail = function () {
-		    
-		    var msg = 'Nome : '+$scope.contato.nome
-		            + '\nLocal : '+$scope.contato.local
-		            + '\nEmail : '+$scope.contato.email
-		            + '\nMensagem : '+$scope.contato.mensagem;
-		    
-		     Email.enviar({
-                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
-                subject : 'Contato '+$scope.contato.nome,
-                text : msg
-            }, function (data) {
-                console.log(data);
-                if(data.status)
-                	if(data.status == "Ok"){
-	                    $scope.contato = {};
-	                    $scope.contato.msg = data.msg;
-	                    $scope.contato.enviado = true;
-	                }
-            })
-		};
-		
-		/*$scope.notificacoes = [];
-		socket.on('produto::create', function(data) {
-		    data.text = "Um Produto foi adicionado";
-		    data.entidade = "produto";
-		    data.nivel = "success";
-            $scope.notificacoes.push(data)
-        });*/
+		jomowModel(Imovel, $scope);
+		$scope.imovel = new Imovel();
+		$scope.imovel.reloadAll('imovels');
 	}
 ])
 

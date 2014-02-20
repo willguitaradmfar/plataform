@@ -15,13 +15,6 @@ mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host
     }
 });
 
-/*mongoose.connect('tingodb://'+__dirname+'/data', function(err) {
-    if (err) {
-        console.log('POSSIVEL SOLUCAO \nsudo service mongodb stop\nsudo rm /var/lib/mongodb/mongod.lock\nsudo chown -R mongodb:mongodb /var/lib/mongodb/\nsudo service mongodb start\n');
-        throw err;
-    }
-});*/
-
 <xsl:for-each select="modelos/modelo">
 			<xsl:variable name="nome" select='nome' />
 		    <xsl:variable name="Nome" select='concat(
@@ -37,7 +30,7 @@ var <xsl:value-of select="$nome"/>ObjSchema = {};
 </xsl:for-each>
 
 var <xsl:value-of select="$nome"/>Schema = mongoose.Schema(<xsl:value-of select="$nome"/>ObjSchema);
-module.exports.<xsl:value-of select="$Nome"/> = mongoose.model('<xsl:value-of select="$nome"/>', <xsl:value-of select="$nome"/>Schema);
+module.exports.<xsl:value-of select="$Nome"/> = mongoose.model('<xsl:value-of select="$domain"/>.<xsl:value-of select="$nome"/>', <xsl:value-of select="$nome"/>Schema);
 
 </xsl:for-each>
 </xsl:template>

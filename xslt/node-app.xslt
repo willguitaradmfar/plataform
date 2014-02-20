@@ -9,7 +9,14 @@
 config = require('./config.js');
 //---------------------------------------------------------------//
 
-var _tenant = config.app.tenant;
+var _tenant = "";
+
+if(process.env.JOMOW_PRODUCAO === "JOMOW"){
+    _tenant = config.app.tenant;
+}else{
+    _tenant = '_'+config.app.tenant;
+}
+console.log('tenant '+_tenant);
 
 var express = require('express'),
         db = require('./schema/schema.js'),

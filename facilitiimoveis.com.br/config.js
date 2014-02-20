@@ -1,6 +1,9 @@
 
 
 var config = {
+        app : {
+                tenant : 'facilitiimoveis.com.br'
+        },
         domain: {
                 host: process.env.host,
                 port: ''
@@ -10,7 +13,7 @@ var config = {
                 credentials: '', // username:password@
                 host: '107.170.15.88', //
                 port: ':27017', // :port
-                dbName: 'facilitiimoveis_com_br'
+                dbName: 'admin_jomow_com_br'
         },
         twitter: {
                 consumerKey: process.env.consumerKey,

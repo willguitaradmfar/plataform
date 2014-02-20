@@ -4,7 +4,14 @@
 config = require('./config.js');
 //---------------------------------------------------------------//
 
-var _tenant = config.app.tenant;
+_tenant = "";
+
+if(process.env.JOMOW_PRODUCAO === "JOMOW"){
+    _tenant = config.app.tenant;
+}else{
+    _tenant = '_'+config.app.tenant;
+}
+console.log('tenant '+_tenant);
 
 var express = require('express'),
         db = require('./schema/schema.js'),
@@ -72,10 +79,14 @@ app.get('/', function (req, res) {
     res.redirect('/login.html');
 })
 
+//RECURSO DO ADMIN
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'), redisClient, 'pessoa', _tenant);
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', _tenant);
-require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', _tenant);
 
+require('./api/api.js')(app, config, db, redisClient);
+
+//RECURSO DOS TENANTS
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', _tenant);
 
 require('../module/emailAPI')(app, config, redisClient, _tenant);
 require('../module/queue.js')(config, redisClient, _tenant);
