@@ -1,5 +1,4 @@
 
-
 //---------------------------------------------------------------//
 config = require('./config.js');
 //---------------------------------------------------------------//
@@ -87,6 +86,7 @@ require('./api/api.js')(app, config, db, redisClient);
 
 //RECURSO DOS TENANTS
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', _tenant);
+require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pedido'), redisClient, 'pedido', _tenant);
 
 require('../module/emailAPI')(app, config, redisClient, _tenant);
 require('../module/queue.js')(config, redisClient, _tenant);

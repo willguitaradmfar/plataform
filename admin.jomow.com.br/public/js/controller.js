@@ -74,13 +74,6 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	}
 ])
 
-.controller('RelatorioController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
-		console.log('RelatorioController');
-		
-	}
-])
-
 .controller('UsuarioController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Login', 'Pessoa',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Login, Pessoa) {
 		console.log('UsuarioController');
@@ -198,12 +191,22 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 	}
 ])
 
+.controller('RelatorioController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Pedido',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Pedido) {
+		console.log('RelatorioController');
+		jomowModel(Pedido, $scope);
+		$scope.pedido = new Pedido();
+		$scope.pedido.reloadAll('pedidos');
+	}
+])
+
 .controller('ImovelController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Menu', 'Imovel',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Menu, Imovel) {
 		console.log('ImovelController');
 		jomowModel(Imovel, $scope);
 		$scope.imovel = new Imovel();
 		$scope.imovel.reloadAll('imovels');
+		
 	}
 ])
 

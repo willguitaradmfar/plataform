@@ -94,5 +94,14 @@ angular.module('app.controllers', ['socket-io'])
 	}
 ])
 
+.controller('ImoveisController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Imovel',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Imovel) {
+		console.log('ImovelController');
+		jomowModel(Imovel, $scope);
+		$scope.imovel = new Imovel();
+		$scope.imovel.reloadAll('imovels');
+	}
+])
+
 ;
 

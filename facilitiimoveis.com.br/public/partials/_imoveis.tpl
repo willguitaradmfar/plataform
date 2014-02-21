@@ -114,55 +114,24 @@
 			        </div>
                     <div class="row">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="imovel in imovels">
                         <div class="thumbnail">
                             <img src="http://placehold.it/350x300" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">R$224.99</h4>
-                                <h4><a href="#">First Product</a>
+                                <h4 class="pull-right" ng-bind="imovel.preco | currency:'R$ '"></h4>
+                                <h4><a href="#" ng-bind="imovel.titulo"></a>
                                 </h4>
-                                <p>See more snippets like this online store item</p><br>
-                               
-                            
+                                <p ng-bind="imovel.descricao"></p><br>
                                
                             </div>
                             <div class="ratings">
-                                <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
+                                <p>
+                                    Dormis <strong ng-bind="imovel.numeroQuartos"></strong>&nbsp; Vagas <strong ng-bind="imovel.numeroVagas"></strong> &nbsp; Área <strong ng-bind="imovel.areaUtil"></strong> </p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">R$264.99</h4>
-                                <h4><a href="#">Second Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                              
-                            </div>
-                            <div class="ratings">
-                                <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">R$274.99</h4>
-                                <h4><a href="#">Third teste tete Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                               
-                            </div>
-                            <div class="ratings">
-                                <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="row">
 			            <div class="col-lg-12">
 			                  <!--<hgroup class="mb20">-->
