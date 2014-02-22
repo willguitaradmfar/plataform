@@ -206,6 +206,8 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 		jomowModel(Imovel, $scope);
 		$scope.imovel = new Imovel();
 		$scope.imovel.reloadAll('imovels');
+		$scope.teste = "William"
+		$scope.f = "eee";
 		
 	}
 ])

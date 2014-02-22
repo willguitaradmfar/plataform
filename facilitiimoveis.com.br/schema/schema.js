@@ -46,7 +46,7 @@ imovelObjSchema.proprietario = {nome : "String", email : "String", telefones : [
 imovelObjSchema.categorias = [{val : "String"}];
 imovelObjSchema.caracteristicas = [{chave : "String",valor : "String"}];
 
-imovelObjSchema.imagens = [String];
+imovelObjSchema.imagens = [{nome : "String", src : "String"}];
 
 var imovelSchema = mongoose.Schema(imovelObjSchema);
 module.exports.Imovel = mongoose.model('facilitiimoveis.com.br.imovel', imovelSchema);

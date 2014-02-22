@@ -25,7 +25,7 @@
           
                     <div class="carousel-inner cont-slider">
                         <div class="item active">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
+                          <img alt="" title="" ng-src="{{imovel.imagens[0].src}}" />
                         </div>
                         <div class="item">
                           <img alt="" title="" src="http://placehold.it/800x600" />
@@ -79,12 +79,12 @@
                         <div class="row">
                           <div class="col-sm-2">
                             <a class="thumbnail" href="#" data-slide-to="0" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
+                              <img alt="" ng-src="{{imovel.imagens[0].src}}" />
                             </a>
                           </div>
                           <div class="col-sm-2">
                             <a class="thumbnail" href="#" data-slide-to="1" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
+                              <img alt="" ng-src="{{imovel.imagens[1].src}}" />
                             </a>
                           </div>
                           <div class="col-sm-2">
@@ -264,6 +264,21 @@
                           </table>
                         </div>
                     </div>
+                  </div>
+                  
+                  <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="table-responsive">
+                          <table class="table table-striped table-bordered">
+                            <tr ng-repeat="caracteristica in imovel.caracteristicas">
+                                <td>{{caracteristica.chave}}</td> 
+                                <td><strong ng-bind="caracteristica.valor"></strong></td>
+                            </tr>
+                           
+                          </table>
+                        </div>
+                    </div>
+                   
                   </div>
                 </div>
             </div>

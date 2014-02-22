@@ -16,30 +16,28 @@ angular.module('app.directive' , [])
 })
 
 .directive('ngImage64', function () {
-    function link(scope, element, attrs) {
+    
+    function link(scope, element, attrs, $parse) {
         
         element.change(function() {
           var filesSelected = this.files;
         	if (filesSelected.length > 0){
         		var fileToLoad = filesSelected[0];
         		var fileReader = new FileReader();
-        	
         		
         		fileReader.onload = function(fileLoadedEvent){
-        			alert(fileLoadedEvent.target.result);
-        			scope.ngModelsrc = fileLoadedEvent.target.result;
-        			console.log(scope);
+                   scope.ngImage64 = fileLoadedEvent.target.result;
+                   scope.$digest();
         		};
-        		
         		fileReader.readAsDataURL(fileToLoad);
         	}
         });
     };
-    
+   
     return {
         link: link,
         scope : {
-                ngModelsrc: '&'
+                ngImage64: '='
             }
       };
 })

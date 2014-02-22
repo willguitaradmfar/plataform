@@ -244,10 +244,29 @@
                                  </div>
                               </div>
                                  <div class="tab-pane fade" id="tab_3_7">
-                                     <div class="form-group col-lg-6">
+                                 <button class="btn btn-default" type="button" ng-click="initArray(imovels[imovelIndex], 'imagens'); imagemIndex = novo(imovels[imovelIndex].imagens)">Incluir Foto</button>
+                                 
+                                     <div class="form-group col-lg-6" ng-show="imovels[imovelIndex].imagens[imagemIndex]">
                                         <label for="exampleInputEmail1">Imagem</label>
-                                        <input type="file" class="form-control"  placeholder="Imagem" ng-image64 ng-modelsrc="teste">
+                                        <input type="file" class="form-control"  placeholder="Imagem" ng-image64="imovels[imovelIndex].imagens[imagemIndex].src">
+                                        <button class="btn btn-default" type="button" ng-click="imovels[imovelIndex].update().select('imagemIndex', -1)">Upload</button>       
                                      </div>
+                                      <table class="table table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Nome</th>
+                                             <th>Imagem</th>
+                                             <th>Excluir</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr ng-repeat="imagem in imovels[imovelIndex].imagens">
+                                             <td>{{imagem.nome}}</td>
+                                             <td><img ng-src="{{imagem.src}}" style="width: 215px;"></td>
+                                             <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[$index].remove(imovels[imovelIndex].imagens, $index)"></button></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
                                      <div class="col-md-12">
     								<!-- /BOX -->
     							</div>

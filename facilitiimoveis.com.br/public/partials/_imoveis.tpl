@@ -101,7 +101,7 @@
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="imovel in imovelsDestaque | limitTo:3" ng-show="!imovelsPesquisa.length">
                         <div class="thumbnail">
                             <a href="#/imovel/{{imovel._id}}" title="imovel.titulo" class="thumbnail">
-            				    <img src="http://lorempixel.com/250/250/city" alt="Lorem ipsum" />
+            				    <img ng-src="{{imovel.imagens[0].src}}" alt="Lorem ipsum" />
             				</a>
                             <div class="caption">
                                 <h4 class="pull-right" ng-bind="imovel.preco | currency:'R$ '"></h4>
@@ -131,7 +131,7 @@
                             		<article class="search-result row">
                             			<div class="col-xs-12 col-sm-12 col-md-3">
                             				<a href="#/imovel/{{imovel._id}}" title="Lorem ipsum" class="thumbnail">
-                            				    <img src="http://lorempixel.com/250/250/city" alt="Lorem ipsum" />
+                            				    <img ng-src="{{imovel.imagens[0].src}}" alt="Lorem ipsum" />
                             				</a>
                             			</div>
                             			<div class="col-xs-12 col-sm-12 col-md-2">
