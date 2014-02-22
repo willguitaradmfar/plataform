@@ -6,8 +6,7 @@
     			<div class="col-lg-12">
     			    <h5>
         			    <a href="#/"><i class="fa fa-home"></i> home</a> 
-        			    <a href="#/imoveis"> imóveis</a> 
-        			    
+        			    <a href="#/imoveis"> imóveis</a>
     			    </h5>
     			</div>
     		</div>
@@ -17,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Titulo da casa</h2>
+                <h2 ng-bind="imovel.titulo"></h2>
             </div>
         </div>
         <div class="row">
@@ -173,30 +172,30 @@
             </div>
             <div class="col-sm-2 col-md-4">
                 <div class="well">
-                    <h4>Valor de venda <p class="label label-danger"> R$ 350.000</p></h4>
+                    <h4>Valor de venda <p class="label label-danger" ng-bind="imovel.preco | currency:'R$ '"></p></h4>
                     
                     <hr />
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
                             <td>Valor do condominio</td> 
-                            <td><strong>R$200,00</strong></td>
+                            <td><strong ng-bind="imovel.valorCondominio | currency:'R$ '"></strong></td>
                         </tr>
                         <tr>
                                 <td>Tipo</td> 
-                                <td><strong>Apartamento</strong></td>
+                                <td><strong ng-bind="imovel.valorCondominio"></strong></td>
                             </tr>
                         <tr>
                             <td>Quartos</td> 
-                            <td><strong>2</strong></td>
+                            <td><strong ng-bind="imovel.numeroQuartos"></strong></td>
                         </tr>
                         <tr>
                             <td>Vagas</td> 
-                            <td><strong>2</strong></td>
+                            <td><strong ng-bind="imovel.numeroVagas"></strong></td>
                         </tr>
                         <tr>
                             <td>Área</td> 
-                            <td><strong>250m²</strong></td>
+                            <td><strong ng-bind="imovel.areaUtil"></strong>m²</td>
                         </tr>
                        
                       </table>
@@ -204,12 +203,7 @@
                     <hr />
                     <h4>Descrição</h4>
                     <div>
-                        <p>Aqui vai uma descrição do imovel, detalhes...
-                            Aqui vai uma descrição do imovel, detalhes...
-                            Aqui vai uma descrição do imovel, detalhes...
-                            Aqui vai uma descrição do imovel, detalhes...
-                            Aqui vai uma descrição do imovel, detalhes...
-                            Aqui vai uma descrição do imovel, detalhes...
+                        <p ng-bind="imovel.descricao">
                         </p>
                     </div>
                     
@@ -229,19 +223,19 @@
                           <table class="table table-striped table-bordered">
                             <tr>
                                 <td>Valor do condominio</td> 
-                                <td><strong>R$200,00</strong></td>
+                                <td><strong ng-bind="imovel.valorCondominio | currency:'R$ '"></strong></td>
                             </tr>
                             <tr>
                                 <td>Quartos</td> 
-                                <td><strong>2</strong></td>
+                                <td><strong ng-bind="imovel.numeroQuartos"></strong></td>
                             </tr>
                             <tr>
                                 <td>Vagas</td> 
-                                <td><strong>2</strong></td>
+                                <td><strong ng-bind="imovel.numeroVagas"></strong></td>
                             </tr>
                             <tr>
                                 <td>Área</td> 
-                                <td><strong>250m²</strong></td>
+                                <td><strong ng-bind="imovel.areaUtil"></strong>m²</td>
                             </tr>
                            
                           </table>
@@ -252,11 +246,11 @@
                           <table class="table table-striped table-bordered">
                             <tr>
                                 <td>Cidade</td> 
-                                <td><strong>São Bernardo do Campo</strong></td>
+                                <td><strong ng-bind="imovel.cidade">São Bernardo do Campo</strong></td>
                             </tr>
                             <tr>
                                 <td>Bairro</td> 
-                                <td><strong>Planalto</strong></td>
+                                <td><strong ng-bind="imovel.bairro">Planalto</strong></td>
                             </tr>
                             <tr>
                                 <td>Tipo</td> 
@@ -264,7 +258,7 @@
                             </tr>
                             <tr>
                                 <td>IPTU</td> 
-                                <td><strong>R$200,00</strong></td>
+                                <td><strong ng-bind="imovel.valorIPTU"></strong></td>
                             </tr>
                             
                           </table>

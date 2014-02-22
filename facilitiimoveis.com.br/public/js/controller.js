@@ -78,19 +78,34 @@ angular.module('app.controllers', ['socket-io'])
 	}
 ])
 
-.controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
-	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
+.controller('JomowController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Imovel',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Imovel) {
 		console.log('JomowController');
 		
+		$scope.page = 0;
+		$scope.perPage = 50;
+		
+		var imoveisDestaque = {};
+		
+		var listar = function () {
+		    $scope.imovelsDestaque = Imovel.query({perPage : $scope.perPage, page : $scope.page, query : JSON.stringify(imoveisDestaque)}, function (res) {
+    		    return res;
+    		});    
+		}
+		listar();
+		
+	
 	}
 ])
 
 .controller('ImovelController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Imovel',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Imovel) {
 		console.log('ImovelController');
-		jomowModel(Imovel, $scope);
-		$scope.imovel = new Imovel();
-		$scope.imovel.reloadAll('imovels');
+		var imovel = {};
+		imovel.id = $routeParams.id;
+		$scope.imovel = Imovel.get(imovel, function (res) {
+		    return res;
+		})
 	}
 ])
 
@@ -99,7 +114,39 @@ angular.module('app.controllers', ['socket-io'])
 		console.log('ImovelController');
 		jomowModel(Imovel, $scope);
 		$scope.imovel = new Imovel();
-		$scope.imovel.reloadAll('imovels');
+		$scope.imovel.reloadAll('imovelsDestaque');
+		
+		$scope.pesquisar = function () {
+		    
+		    var pesquisa = {};
+		    
+		    if($scope.pesquisa.text){
+        		var titulo = {
+        		    titulo : {$regex :'.*'+$scope.pesquisa.text+'.*', $options: 'i'}
+        		};
+        		var descricao = {
+        		    descricao : {$regex :'.*'+$scope.pesquisa.text+'.*', $options: 'i'}
+        		};
+		    }
+    		
+    		//pedidoFilter.codigo = {"$gt" : 10, "$lt" : 21};
+    		
+    		if($scope.pesquisa.precoDeAte && $scope.pesquisa.precoDeAte.length > 0){
+    		    pesquisa.preco = {"$gt" : $scope.pesquisa.precoDeAte.split('|')[0], "$lt" : $scope.pesquisa.precoDeAte.split('|')[1]};
+    		}
+    		
+    		if($scope.pesquisa.numeroQuartos && $scope.pesquisa.numeroQuartos > 0){
+    		    pesquisa.numeroQuartos = $scope.pesquisa.numeroQuartos;
+    		}
+    		
+    		pesquisa.$or = [titulo, descricao];
+    		
+		    $scope.imovelsPesquisa = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
+    		    return res;
+    		});    
+    		
+		}
+		
 	}
 ])
 

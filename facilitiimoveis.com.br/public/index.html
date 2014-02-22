@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Site, web site, loja virtual, negocio na web, desenvolvimento web"> 
 <meta name="author" content="Jomow">
-<title>Teste</title>
+<title>Faciliti Imóveis</title>
 <link rel="stylesheet" href="/css/vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="/css/facilitiimoveis.com.br.css">
 <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -24,22 +24,22 @@
 					<div class="hidden-xs fone">
 						(11) 2374.9795
 					</div>
-					<nav class="navbar" role="navigation">
+					<nav class="navbar" role="navigation" ng-controller="MenuController">
 						<div class="container">
 							<ul class="nav nav-tabs  hidden-xs  navbar-right navbar-ex1-collapse">
-								<li class="active">
-									<a href="#/home">Home</a>
+								<li ng-class="{active : isActive('/')}">
+									<a href="#/">Home</a>
 								</li>
-								<li>
+								<li ng-class="{active : isActive('/quemsomos')}">
 									<a href="#/quemsomos">Quem Somos</a>
 								</li>
-								<li>
+								<li ng-class="{active : isActive('/imoveis')}">
 									<a href="#/imoveis">Imóveis</a>
 								</li>
-								<li>
+								<li ng-class="{active : isActive('/contato')}">
 									<a href="#/contato">Contato</a>
 								</li>
-								<li>
+								<li ng-class="{active : isActive('/parceiros')}">
 									<a href="#/parceiros">Parceiros</a>
 								</li>
 							</ul>

@@ -1,7 +1,7 @@
 module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
     app.get('/'+domain+'/query/:perPage/:page/:query', function(req, res) {
-		
+		console.log('call router query ');
 		if(!req.params.query){
 		    req.params.query = {};
 		}
