@@ -22,92 +22,22 @@
         <div class="row">
             <div class="col-sm-10 col-md-8">
                 <div class="carousel slide article-slide" id="article-photo-carousel">
-          
                     <div class="carousel-inner cont-slider">
-                        <div class="item active">
-                          <img alt="" title="" ng-src="{{imovel.imagens[0].src}}" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
-                        </div>
-                        <div class="item">
-                          <img alt="" title="" src="http://placehold.it/800x600" />
+                        <div ng-class="item active">
+                          <img alt="" title="{{imovel.imagens[imagemIndex].nome}}" ng-src="{{imovel.imagens[imagemIndex].src}}" />
                         </div>
                     </div>
-          
                 </div>
           
                 <div class="carousel slide media-carousel" id="media">
                     <div class="carousel-inner">
                       <div class="item  active">
                         <div class="row">
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="0" data-target="#article-photo-carousel">
-                              <img alt="" ng-src="{{imovel.imagens[0].src}}" />
+                          <div class="col-sm-2" ng-repeat="imagem in imovel.imagens">
+                            <a class="thumbnail" href="#" data-slide-to="0" data-target="#article-photo-carousel" ng-click="imagemIndex = 0">
+                              <img alt="" title="{{imagem.nome}}" ng-src="{{imagem.src}}" />
                             </a>
                           </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="1" data-target="#article-photo-carousel">
-                              <img alt="" ng-src="{{imovel.imagens[1].src}}" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="2" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="3" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="4" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="5" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                         
                         </div>
                       </div>
                       <div class="item">

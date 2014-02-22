@@ -168,12 +168,14 @@
                                           <tr>
                                              <th>Contato</th>
                                              <th>Telefone</th>
+                                             <th>Excluir</th>
                                           </tr>
                                        </thead>
                                        <tbody>
                                           <tr ng-repeat="tel in imovels[imovelIndex].proprietario.telefones">
                                              <td>{{tel.contato}}</td>
                                              <td>{{tel.telefone}}</td>
+                                             <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[imovelIndex].remove(imovels[imovelIndex].proprietario.telefones, $index)"></button></td>
                                           </tr>
                                        </tbody>
                                     </table>
@@ -198,11 +200,13 @@
                                        <thead>
                                           <tr>
                                              <th>Categoria</th>
+                                             <th>Excluir</th>
                                           </tr>
                                        </thead>
                                        <tbody>
                                           <tr ng-repeat="categoria in imovels[imovelIndex].categorias">
                                              <td>{{categoria.val}}</td>
+                                             <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[imovelIndex].remove(imovels[imovelIndex].categorias, $index)"></button></td>
                                           </tr>
                                        </tbody>
                                     </table>
@@ -221,7 +225,7 @@
                                        </div>
                                        <label for="exampleInputEmail1">Valor</label>
                                        <div class="input-group">
-                                          <input type="text" class="form-control"  placeholder="Valor" ng-model="imovels[imovelIndex].caracteristicas[caracteristicaIndex].valor">
+                                          <input type="text" class="form-control"  placeholder="Valor" ng-model="imovels[imovelIndex].caracteristicas[caracteristicaIndex].valor" >
                                        </div>
                                        <div class="input-group">
                                           <button class="btn btn-default" type="button" ng-click="imovels[imovelIndex].update().select('caracteristicaIndex', -1)">Add</button>
@@ -232,12 +236,14 @@
                                           <tr>
                                              <th>Chave</th>
                                              <th>Valor</th>
+                                             <th>Excluir</th>
                                           </tr>
                                        </thead>
                                        <tbody>
                                           <tr ng-repeat="caracteristica in imovels[imovelIndex].caracteristicas">
                                              <td>{{caracteristica.chave}}</td>
                                              <td>{{caracteristica.valor}}</td>
+                                             <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[imovelIndex].remove(imovels[imovelIndex].caracteristicas, $index)"></button></td>
                                           </tr>
                                        </tbody>
                                     </table>
@@ -247,6 +253,8 @@
                                  <button class="btn btn-default" type="button" ng-click="initArray(imovels[imovelIndex], 'imagens'); imagemIndex = novo(imovels[imovelIndex].imagens)">Incluir Foto</button>
                                  
                                      <div class="form-group col-lg-6" ng-show="imovels[imovelIndex].imagens[imagemIndex]">
+                                        <label for="exampleInputEmail1">Nome</label>
+                                        <input type="text" class="form-control"  placeholder="Nome" ng-model="imovels[imovelIndex].imagens[imagemIndex].nome">
                                         <label for="exampleInputEmail1">Imagem</label>
                                         <input type="file" class="form-control"  placeholder="Imagem" ng-image64="imovels[imovelIndex].imagens[imagemIndex].src">
                                         <button class="btn btn-default" type="button" ng-click="imovels[imovelIndex].update().select('imagemIndex', -1)">Upload</button>       
@@ -263,14 +271,12 @@
                                           <tr ng-repeat="imagem in imovels[imovelIndex].imagens">
                                              <td>{{imagem.nome}}</td>
                                              <td><img ng-src="{{imagem.src}}" style="width: 215px;"></td>
-                                             <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[$index].remove(imovels[imovelIndex].imagens, $index)"></button></td>
+                                             <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[imovelIndex].remove(imovels[imovelIndex].imagens, $index)"></button></td>
                                           </tr>
                                        </tbody>
                                     </table>
-                                     <div class="col-md-12">
-    								<!-- /BOX -->
-    							</div>
-                                 
+                                    <div class="col-md-12"></div>
+                                 <!-- /BOX -->
                               </div>
                            </div>
                         </div>
@@ -303,7 +309,7 @@
                <tbody role="alert" aria-live="polite" aria-relevant="all">
                   <tr class="gradeA odd" ng-repeat="imovel in imovels">
                      <td class=" sorting_1">{{imovel.titulo}}</td>
-                     <td class=" ">{{imovel.preco}}</td>
+                     <td class=" ">{{imovel.preco | currency:'R$ '}}</td>
                      <td class="hidden-xs ">{{imovel.proprietario.nome}}</td>
                      <td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="imovels[$index].select('imovelIndex', $index)"></button></td>
                      <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[$index].remove(imovels, $index)"></button></td>
