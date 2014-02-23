@@ -2,7 +2,9 @@
 
 var config = {
         app : {
-                tenant : 'facilitiimoveis.com.br'
+                tenant : 'facilitiimoveis.com.br',
+                pathFileImg : '/var/lib/stickshift/52fa6dabe0b8cd3c4d000328/app-root/data/767576/img'
+                
         },
         domain: {
                 host: process.env.host,

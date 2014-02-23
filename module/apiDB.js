@@ -1,3 +1,6 @@
+var fs = require("fs");
+var mkdirp = require('mkdirp');
+
 module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
     app.get('/'+domain+'/query/:perPage/:page/:query', function(req, res) {
@@ -28,6 +31,44 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 		query[domain].getById(id, function(obj) {
 			res.send(obj);
 		});
+	});
+	
+	app.post('/'+domain+'/uploadImg', function(req, res) {
+		
+		var b64string = req.body.base64;
+		
+		var base64 = b64string.replace(/^data:image\/(.*);base64,(.*)$/, "$2");
+		var ext = b64string.replace(/^data:image\/(.*);base64,(.*)$/, "$1");
+		
+        var buf = new Buffer(base64, 'base64');
+        
+        var nameFile = new Date().getTime();
+        
+        var path = config.app.pathFileImg+'/'+tenant;
+        var file = path+'/'+nameFile+'.'+ext;
+        
+        fs.exists(path, function (exists) {
+          console.log(exists ? path+" exists" : path+" no exists");
+              mkdirp(path, function (err) {
+                   if (err) console.error(err);
+                       
+                    fs.writeFile(file, buf, function(err) {
+                        if(err) {
+                            console.log(err);
+                            var obj = {};
+                            obj.err = err;
+                            res.send(obj);
+                        } else {
+                            var obj = {};
+                            obj.pathHttp = '/'+tenant+'/'+nameFile+'.'+ext;
+                            res.send(obj);
+                        }
+                    });   
+              });
+        });
+        
+      
+        
 	});
 
 	app.post('/'+domain, function(req, res) {

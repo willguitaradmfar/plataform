@@ -18,7 +18,7 @@
     					    
     						<div class="item active" >
     						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3">
-        							<div class="carousel-destaque destaque-1" style="background-image:url('http://imguol.com/2013/05/22/o-piso-de-madeira-que-percorre-toda-a-casa-culmina-no-deck-da-piscina-implantada-na-parte-de-tras-do-terreno-a-casa-boacava-foi-projetada-pelos-arquitetos-do-escritorio-una-para-um-1369255221155_300x300.jpg');">
+        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src}}');">
         								<div class="carousel-title">
         									<h2 ng-bind="imovel.titulo">
         									</h2>
@@ -35,7 +35,7 @@
     						</div>
     						<div class="item" >
     						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3">
-        							<div class="carousel-destaque destaque-1" style="background-image:url('http://imguol.com/2013/05/22/o-piso-de-madeira-que-percorre-toda-a-casa-culmina-no-deck-da-piscina-implantada-na-parte-de-tras-do-terreno-a-casa-boacava-foi-projetada-pelos-arquitetos-do-escritorio-una-para-um-1369255221155_300x300.jpg');">
+        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src}}');">
         								<div class="carousel-title">
         									<h2 ng-bind="imovel.titulo">
         									</h2>

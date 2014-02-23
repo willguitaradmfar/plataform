@@ -206,8 +206,16 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 		jomowModel(Imovel, $scope);
 		$scope.imovel = new Imovel();
 		$scope.imovel.reloadAll('imovels');
-		$scope.teste = "William"
-		$scope.f = "eee";
+		
+		$scope.upload = function () {
+		    Imovel.uploadImg($scope.img, function (res) {
+		        console.log(res);
+		        $scope.imovels[$scope.imovelIndex].imagens[$scope.imagemIndex].src = res.pathHttp;
+		        $scope.imovels[$scope.imovelIndex].update();
+		        $scope.imagemIndex = $scope.novo($scope.imovels[$scope.imovelIndex].imagens);
+		        $scope.img = {};
+		    });
+		}
 		
 	}
 ])

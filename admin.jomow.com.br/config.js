@@ -2,7 +2,8 @@
 
 var config = {
         app : {
-                tenant : 'admin.jomow.com.br'  
+                tenant : 'admin.jomow.com.br',
+                pathFileImg : '/var/lib/stickshift/52fa6dabe0b8cd3c4d000328/app-root/data/767576/img'
         },
         domain: {
                 host: process.env.host,

@@ -51,7 +51,6 @@ solrClient.autoCommit = true;
 /---------------------------------------------------------------//
 //DEVELOPER MODE
 require('../module/live-reload.js')(__dirname+'/public', io, _tenant);
-
 /---------------------------------------------------------------//
 
 app.configure(function() {
@@ -74,8 +73,6 @@ app.configure(function() {
         }));
         app.use(express.static(path.join(__dirname, 'public')));
 });
-
-
 
 //RECURSO DOS TENANTS
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', _tenant);
