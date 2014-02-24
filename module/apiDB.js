@@ -1,5 +1,6 @@
 var fs = require("fs");
 var mkdirp = require('mkdirp');
+var im = require('imagemagick');
 
 module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
@@ -46,6 +47,9 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
         
         var path = config.app.pathFileImg+'/'+tenant;
         var file = path+'/'+nameFile+'.'+ext;
+        var thumbPath300 = path+'/thumb300'+nameFile+'.'+ext;
+        var thumbPath200 = path+'/thumb200'+nameFile+'.'+ext;
+        var thumbPath100 = path+'/thumb100'+nameFile+'.'+ext;
         
         fs.exists(path, function (exists) {
           console.log(exists ? path+" exists" : path+" no exists");
@@ -59,8 +63,40 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
                             obj.err = err;
                             res.send(obj);
                         } else {
-                            var obj = {};
+                            //---------------------------------- 300
+                            im.resize({
+            				  srcPath: file,
+            				  dstPath: thumbPath300,
+            				  width:   300
+            				}, function(err, stdout, stderr){
+            				    if (err) console.log(err);
+            				});
+            				//---------------------------------- 300
+                            //---------------------------------- 200
+                            im.resize({
+            				  srcPath: file,
+            				  dstPath: thumbPath200,
+            				  width:   200
+            				}, function(err, stdout, stderr){
+            				    if (err) console.log(err);
+            				});
+            				//---------------------------------- 200
+            				
+            				//---------------------------------- 100 
+            				im.resize({
+            				  srcPath: file,
+            				  dstPath: thumbPath100,
+            				  width:   100
+            				}, function(err, stdout, stderr){
+            				    if (err) console.log(err);
+            				});
+            			    //---------------------------------- 100 
+            			    
+            			    var obj = {};
                             obj.pathHttp = '/'+tenant+'/'+nameFile+'.'+ext;
+                            obj.pathHttpthumb300 = '/'+tenant+'/thumb300'+nameFile+'.'+ext;
+                            obj.pathHttpthumb200 = '/'+tenant+'/thumb200'+nameFile+'.'+ext;
+                            obj.pathHttpthumb100 = '/'+tenant+'/thumb100'+nameFile+'.'+ext;
                             res.send(obj);
                         }
                     });   

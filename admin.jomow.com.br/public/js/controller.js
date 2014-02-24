@@ -211,6 +211,9 @@ module.controller('HomeController', ['$scope','$location', '$http', '$templateCa
 		    Imovel.uploadImg($scope.img, function (res) {
 		        console.log(res);
 		        $scope.imovels[$scope.imovelIndex].imagens[$scope.imagemIndex].src = res.pathHttp;
+		        $scope.imovels[$scope.imovelIndex].imagens[$scope.imagemIndex].src100 = res.pathHttpthumb100;
+		        $scope.imovels[$scope.imovelIndex].imagens[$scope.imagemIndex].src200 = res.pathHttpthumb200;
+		        $scope.imovels[$scope.imovelIndex].imagens[$scope.imagemIndex].src300 = res.pathHttpthumb300;
 		        $scope.imovels[$scope.imovelIndex].update();
 		        $scope.imagemIndex = $scope.novo($scope.imovels[$scope.imovelIndex].imagens);
 		        $scope.img = {};
