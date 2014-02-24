@@ -18,7 +18,7 @@
     					    
     						<div class="item active" >
     						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3">
-        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src}}');">
+        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src200}}');">
         								<div class="carousel-title">
         									<h2 ng-bind="imovel.titulo">
         									</h2>
@@ -35,7 +35,7 @@
     						</div>
     						<div class="item" >
     						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3">
-        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src}}');">
+        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src200}}');">
         								<div class="carousel-title">
         									<h2 ng-bind="imovel.titulo">
         									</h2>

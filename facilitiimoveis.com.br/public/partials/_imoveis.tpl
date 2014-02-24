@@ -30,7 +30,6 @@
                         </div>
                   </div>
                   <div class="panel-body panel-contato">
-                       
                          <!-- Select Basic -->
                       
                              <div class="input-group col-md-12">
@@ -54,9 +53,9 @@
                                     </select>
                                   </div>
                                    <div class="form-group">
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.precoDeAte">
                                     <option value="-1" >Todos os Valores</option>
-                                    <option value="0|100.00">até 100.000</option>
+                                    <option value="0|100000.00">até 100.000</option>
                                     <option value="100000.00|150000.00">100.000 a 150.000</option>
                                     <option value="150000.00|200000.00">150.000 a 200.000</option>
                                     <option value="200000.00|250000.00">200.000 a 250.000</option>
@@ -82,9 +81,7 @@
                                 <div class="form-group">
                                     <button class="btn btn-defaut btn-block" ng-click="pesquisar()"> <span class=" fa fa-search"></span> Pesquisar</button>
                                   </div>
-                                
                             </div>
-                       
                   </div>
                 </div>
 		    </div>
@@ -101,11 +98,11 @@
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="imovel in imovelsDestaque | limitTo:3" ng-show="!imovelsPesquisa.length">
                         <div class="thumbnail">
                             <a href="#/imovel/{{imovel._id}}" title="imovel.titulo" class="thumbnail">
-            				    <img ng-src="{{imovel.imagens[0].src}}" alt="Lorem ipsum" />
+            				    <img ng-src="{{imovel.imagens[0].src200}}" alt="Lorem ipsum" />
             				</a>
                             <div class="caption">
                                 <h4 class="pull-right" ng-bind="imovel.preco | currency:'R$ '"></h4>
-                                <h4><a href="#" ng-bind="imovel.titulo"></a>
+                                <h4><a href="#/imovel/{{imovel._id}}" ng-bind="imovel.titulo"></a>
                                 </h4>
                                 <p ng-bind="imovel.descricao"></p><br>
                                
@@ -131,7 +128,7 @@
                             		<article class="search-result row">
                             			<div class="col-xs-12 col-sm-12 col-md-3">
                             				<a href="#/imovel/{{imovel._id}}" title="Lorem ipsum" class="thumbnail">
-                            				    <img ng-src="{{imovel.imagens[0].src}}" alt="Lorem ipsum" />
+                            				    <img ng-src="{{imovel.imagens[0].src200}}" alt="Lorem ipsum" />
                             				</a>
                             			</div>
                             			<div class="col-xs-12 col-sm-12 col-md-2">
@@ -150,8 +147,7 @@
                             		</article>
                                 </div>
                                 <div>
-                                </div>
-                        
+                            </div>
                         	</section>
 			            </div>
 			        </div>

@@ -24,7 +24,7 @@
                 <div class="carousel slide article-slide" id="article-photo-carousel">
                     <div class="carousel-inner cont-slider">
                         <div ng-class="item active">
-                          <img alt="" title="{{imovel.imagens[imagemIndex].nome}}" ng-src="{{imovel.imagens[imagemIndex].src}}" />
+                          <img alt="" title="{{imovel.imagens[imagemIndex].nome}}" ng-src="{{imovel.imagens[imagemIndex].src200}}" />
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <div class="row">
                           <div class="col-sm-2" ng-repeat="imagem in imovel.imagens">
                             <a class="thumbnail" href="#" data-slide-to="0" data-target="#article-photo-carousel" ng-click="imagemIndex = 0">
-                              <img alt="" title="{{imagem.nome}}" ng-src="{{imagem.src}}" />
+                              <img alt="" title="{{imagem.nome}}" ng-src="{{imagem.src200}}" />
                             </a>
                           </div>
                         </div>

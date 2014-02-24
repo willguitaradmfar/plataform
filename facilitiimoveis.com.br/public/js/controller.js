@@ -119,6 +119,9 @@ angular.module('app.controllers', ['socket-io'])
 		$scope.pesquisar = function () {
 		    
 		    var pesquisa = {};
+		    if(!$scope.pesquisa){
+		        $scope.pesquisa = {};
+		    }
 		    
 		    if($scope.pesquisa.text){
         		var titulo = {
@@ -132,7 +135,7 @@ angular.module('app.controllers', ['socket-io'])
     		//pedidoFilter.codigo = {"$gt" : 10, "$lt" : 21};
     		
     		if($scope.pesquisa.precoDeAte && $scope.pesquisa.precoDeAte.length > 0){
-    		    pesquisa.preco = {"$gt" : $scope.pesquisa.precoDeAte.split('|')[0], "$lt" : $scope.pesquisa.precoDeAte.split('|')[1]};
+    		    pesquisa.preco = {"$gte" : $scope.pesquisa.precoDeAte.split('|')[0], "$lt" : $scope.pesquisa.precoDeAte.split('|')[1]};
     		}
     		
     		if($scope.pesquisa.numeroQuartos && $scope.pesquisa.numeroQuartos > 0){
@@ -144,7 +147,6 @@ angular.module('app.controllers', ['socket-io'])
 		    $scope.imovelsPesquisa = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
     		    return res;
     		});    
-    		
 		}
 		
 	}
