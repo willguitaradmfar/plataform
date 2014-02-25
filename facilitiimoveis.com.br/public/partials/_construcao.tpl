@@ -16,8 +16,8 @@
     					<!-- Wrapper for slides -->
     					<div class="carousel-inner carousel-radius">
     					    
-    						<div class="item active" >
-    						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3">
+    						<div  class="item  {{pagina.classActive}}" ng-repeat="pagina in pagnias">
+    						    <div class="col-md-4" ng-repeat="imovel in pagina.imoveis">
         							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src200}}');">
         								<div class="carousel-title">
         									<h2 ng-bind="imovel.titulo">
@@ -33,40 +33,7 @@
         							</div>
         						</div>
     						</div>
-    						<div class="item" >
-    						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3">
-        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src200}}');">
-        								<div class="carousel-title">
-        									<h2 ng-bind="imovel.titulo">
-        									</h2>
-        								</div>
-        								<div class="destaque-valor">
-        									<h3 ng-bind="imovel.preco | currency:'R$ '">
-        									</h3>
-        								</div>
-        								<div class=" btn-ver-destaque">
-        									<a href="#/imovel/{{imovel._id}}"><i class="fa fa-plus"></i> Detalhes</a>
-        								</div>
-        							</div>
-        						</div>
-    						</div>
-    						<div class="item" >
-    						    <div class="col-md-4"  ng-repeat="imovel in imovelsDestaque | limitTo:3"> 
-        							<div class="carousel-destaque destaque-1" style="background-image:url('http://imguol.com/2013/05/22/o-piso-de-madeira-que-percorre-toda-a-casa-culmina-no-deck-da-piscina-implantada-na-parte-de-tras-do-terreno-a-casa-boacava-foi-projetada-pelos-arquitetos-do-escritorio-una-para-um-1369255221155_300x300.jpg');">
-        								<div class="carousel-title">
-        									<h2 ng-bind="imovel.titulo">
-        									</h2>
-        								</div>
-        								<div class="destaque-valor">
-        									<h3 ng-bind="imovel.preco | currency:'R$ '">
-        									</h3>
-        								</div>
-        								<div class=" btn-ver-destaque">
-        									<a href="#/imovel/{{imovel._id}}"><i class="fa fa-plus"></i> Detalhes</a>
-        								</div>
-        							</div>
-        						</div>
-    						</div>
+    					
     										
     						
     					</div>
@@ -145,7 +112,6 @@
                                       <option value="2">Option two</option>
                                     </select>
                                   </div>
-                                
                             </div>
                              <div class="input-group col-md-12">
                                 <div class="form-group">
@@ -165,16 +131,13 @@
                                       <option value="2">Option two</option>
                                     </select>
                                   </div>
-                                
                             </div>
                              <div class="input-group col-md-12">
                                 <div class="form-group">
                                  
                                     <button class="btn btn-defaut btn-block" > <span class=" fa fa-search"></span> Pesquisar</button>
                                   </div>
-                                
                             </div>
-                       
                   </div>
                 </div>
 		    </div>
@@ -186,99 +149,22 @@
 			                <hr>
 			            </div>
 			        </div>
-                    <div class="row">
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="row"> 
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="imovel in imovelsDestaque" style="height:450px">
                         <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
+                        <div style="background-position: center;background-size: cover;background-image: url('{{imovel.imagens[0].src300}}');height : 200px"></div>
                             <div class="caption">
-                                <h4 class="pull-right">R$224.99</h4>
-                                <h4><a href="#">First Product</a>
+                                <h4 class="pull-right" ng-bind="imovel.preco | currency:'R$ '"></h4>
+                                <h4><a href="#/imovel/{{imovel._id}}" ng-bind="imovel.titulo"></a>
                                 </h4>
-                                <p>See more snippets like this online store item</p><br>
-                               
-                            
-                               
+                                <div class="ratings">
+                                    <p>Dormis <strong ng-bind="imovel.numeroQuartos"></strong>&nbsp; Vagas <strong ng-bind="imovel.numeroVagas"></strong> &nbsp; Área <strong ng-bind="imovel.areaUtil"></strong>m² </p>
+                                </div>
                             </div>
-                            <div class="ratings">
-                                <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
+                            <small><p ng-bind="imovel.descricao"></p></small>
                         </div>
                     </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">R$264.99</h4>
-                                <h4><a href="#">Second Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                              
-                            </div>
-                            <div class="ratings">
-                                <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">R$274.99</h4>
-                                <h4><a href="#">Third teste tete Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                               
-                            </div>
-                            <div class="ratings">
-                                <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">R$284.99</h4>
-                                <h4><a href="#">Fourth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                               <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <img src="http://placehold.it/350x300" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">R$294.99</h4>
-                                <h4><a href="#">Fifth Product</a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                               <p>Dormis <strong>3</strong>&nbsp; Vagas <strong>1</strong> &nbsp; Área <strong>250m²</strong> </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <h4><a href="#">Gostou destes imoveis?</a>
-                        </h4>
-                        <p>If you like this template, then check out</p>
-                        <br>
-                             
-                        <a class="btn btn-primary" href="#/imoveis">Cofira nossos Imóveis</a>
-                    </div>
-
-                </div>  
-                
+                </div>
 			</div>
 			<!--/12-->
 		</div>

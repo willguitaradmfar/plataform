@@ -98,7 +98,7 @@
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="imovel in imovelsDestaque | limitTo:3" ng-show="!imovelsPesquisa.length">
                         <div class="thumbnail">
                             <a href="#/imovel/{{imovel._id}}" title="imovel.titulo" class="thumbnail">
-            				    <img ng-src="{{imovel.imagens[0].src200}}" alt="Lorem ipsum" />
+                                <div style="background-position: center;background-size: cover;background-image: url('{{imovel.imagens[0].src200}}');height : 200px"></div>
             				</a>
                             <div class="caption">
                                 <h4 class="pull-right" ng-bind="imovel.preco | currency:'R$ '"></h4>
@@ -128,7 +128,8 @@
                             		<article class="search-result row">
                             			<div class="col-xs-12 col-sm-12 col-md-3">
                             				<a href="#/imovel/{{imovel._id}}" title="Lorem ipsum" class="thumbnail">
-                            				    <img ng-src="{{imovel.imagens[0].src200}}" alt="Lorem ipsum" />
+                            				    <div style="background-position: center;background-size: cover;background-image: url('{{imovel.imagens[0].src200}}');height : 100px"></div>
+                            				    
                             				</a>
                             			</div>
                             			<div class="col-xs-12 col-sm-12 col-md-2">

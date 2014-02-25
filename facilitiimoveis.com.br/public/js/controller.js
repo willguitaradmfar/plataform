@@ -82,13 +82,36 @@ angular.module('app.controllers', ['socket-io'])
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Imovel) {
 		console.log('JomowController');
 		
+		var paginar = function (imoveis) {
+		    var page = -1;
+		    var index = 0;
+		    if(!$scope.pagnias)
+		        $scope.pagnias = [];
+		    
+		    for(var i in imoveis){
+		        if((i % 3) == 0){
+		            page++;
+		            console.log('page '+page);
+		            $scope.pagnias[page] = {};
+		            $scope.pagnias[page].imoveis = [];
+		        }
+		        imoveis[i].indexImovel = index;
+		        
+		        $scope.pagnias[page].imoveis.push(imoveis[i]);
+		        $scope.pagnias[0].classActive = 'active';
+		        index++;
+		    }
+		    
+		}
+		
 		$scope.page = 0;
 		$scope.perPage = 50;
 		
 		var imoveisDestaque = {};
 		
 		var listar = function () {
-		    $scope.imovelsDestaque = Imovel.query({perPage : $scope.perPage, page : $scope.page, query : JSON.stringify(imoveisDestaque)}, function (res) {
+		    $scope.imovelsDestaque = Imovel.list(function (res) {
+		        paginar(res);
     		    return res;
     		});    
 		}
@@ -101,11 +124,67 @@ angular.module('app.controllers', ['socket-io'])
 .controller('ImovelController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email', 'Imovel',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email, Imovel) {
 		console.log('ImovelController');
+		
+		var paginar = function (imagens) {
+		    var page = -1;
+		    var index = 0;
+		    if(!$scope.pagnias)
+		        $scope.pagnias = [];
+		    
+		    for(var i in imagens){
+		        if((i % 6) == 0){
+		            page++;
+		            console.log('page '+page);
+		            $scope.pagnias[page] = {};
+		            $scope.pagnias[page].imagens = [];
+		        }
+		        imagens[i].indexImage = index;
+		        
+		        $scope.pagnias[page].imagens.push(imagens[i]);
+		        $scope.pagnias[0].classActive = 'active';
+		        index++;
+		    }
+		    
+		}
+		
 		var imovel = {};
 		imovel.id = $routeParams.id;
 		$scope.imovel = Imovel.get(imovel, function (res) {
+		    $scope.imagemSelecionada = $scope.imovel.imagens[0];
+		    paginar($scope.imovel.imagens);
 		    return res;
-		})
+		});
+		
+		
+		
+		$scope.selecionaImagem = function ($index) {
+		    $scope.imagemSelecionada = $scope.imovel.imagens[$index];
+		}
+		
+		
+			//Exemplo de Envio de Email
+		$scope.enviarEmail = function () {
+		    
+		    var msg = 'Nome : '+$scope.contato.nome
+		            + '\nTelefone : '+$scope.contato.telefone
+		            + '\nEmail : '+$scope.contato.email
+		            + '\nImóvel : '+$scope.imovel.titulo
+		            + '\nMensagem : '+$scope.contato.mensagem;
+		    
+		     Email.enviar({
+                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
+                subject : 'Contato '+$scope.contato.nome,
+                text : msg
+            }, function (data) {
+                console.log(data);
+                if(data.status)
+                	if(data.status == "Ok"){
+	                    $scope.contato = {};
+	                    $scope.contato.msg = data.msg;
+	                    $scope.contato.enviado = true;
+	                }
+            })
+		};
 	}
 ])
 
@@ -115,6 +194,8 @@ angular.module('app.controllers', ['socket-io'])
 		jomowModel(Imovel, $scope);
 		$scope.imovel = new Imovel();
 		$scope.imovel.reloadAll('imovelsDestaque');
+		
+		$scope.imovelsPesquisa = [];
 		
 		$scope.pesquisar = function () {
 		    
@@ -148,6 +229,7 @@ angular.module('app.controllers', ['socket-io'])
     		    return res;
     		});    
 		}
+		
 		
 	}
 ])

@@ -22,79 +22,27 @@
         <div class="row">
             <div class="col-sm-10 col-md-8">
                 <div class="carousel slide article-slide" id="article-photo-carousel">
-                    <div class="carousel-inner cont-slider">
-                        <div ng-class="item active">
-                          <img alt="" title="{{imovel.imagens[imagemIndex].nome}}" ng-src="{{imovel.imagens[imagemIndex].src200}}" />
+          
+                    <div class="carousel-inner cont-slider" >
+                        <div class="item active img-slides-imovel" style="background-position: center;background-size: cover;background-image: url('{{imagemSelecionada.src}}');">
                         </div>
                     </div>
                 </div>
           
                 <div class="carousel slide media-carousel" id="media">
                     <div class="carousel-inner">
-                      <div class="item  active">
+                      <div class="item  {{pagina.classActive}}" ng-repeat="pagina in pagnias">
                         <div class="row">
-                          <div class="col-sm-2" ng-repeat="imagem in imovel.imagens">
-                            <a class="thumbnail" href="#" data-slide-to="0" data-target="#article-photo-carousel" ng-click="imagemIndex = 0">
-                              <img alt="" title="{{imagem.nome}}" ng-src="{{imagem.src200}}" />
+                          <div class="col-sm-2" ng-repeat="imagem in pagina.imagens">
+                            <a class="thumbnail" href="#" data-slide-to="{{imagem.indexImage}}" data-target="#article-photo-carousel" ng-click="selecionaImagem(imagem.indexImage)">
+                              
+                              <div style="background-position: center;background-size: cover;background-image: url('{{imagem.src100}}');height : 70px"></div>
                             </a>
                           </div>
                         </div>
                       </div>
-                      <div class="item">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="6" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="7" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="8" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="9" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="10" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="11" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                         
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="12" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="13" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          <div class="col-sm-2">
-                            <a class="thumbnail" href="#" data-slide-to="14" data-target="#article-photo-carousel">
-                              <img alt="" src="http://placehold.it/150x150" />
-                            </a>
-                          </div>
-                          
-                        </div>
-                      </div>
+                    
+                 
                     </div>
                     <a data-slide="prev" href="#media" class="left carousel-control"><i class="fa-layout fa fa-angle-left fa-2x"></i></a>
                     <a data-slide="next" href="#media" class="right carousel-control"><i class="fa-layout fa fa-angle-right fa-2x"></i></a>
@@ -136,9 +84,6 @@
                         <p ng-bind="imovel.descricao">
                         </p>
                     </div>
-                    
-                </div>
-                
             </div>
         </div>
         <div class="row">
@@ -150,7 +95,7 @@
                   <div class="panel-body">
                     <div class="col-md-6">
                         <div class="table-responsive">
-                          <table class="table table-striped table-bordered">
+                           <table class="table table-striped table-bordered">
                             <tr>
                                 <td>Valor do condominio</td> 
                                 <td><strong ng-bind="imovel.valorCondominio | currency:'R$ '"></strong></td>
@@ -196,7 +141,7 @@
                     </div>
                   </div>
                   
-                  <div class="panel-body">
+                    <div class="panel-body">
                     <div class="col-md-6">
                         <div class="table-responsive">
                           <table class="table table-striped table-bordered">
@@ -210,6 +155,9 @@
                     </div>
                    
                   </div>
+                  
+                  
+                  
                 </div>
             </div>
             <div class="col-md-4">
@@ -226,7 +174,7 @@
                            
                           <div class="col-md-12">
                            <label class="control-label" for="">Nome</label>
-                          <input id="" name="" type="text" placeholder="nome" class="form-control input-md">
+                          <input id="" name="" type="text" placeholder="nome" class="form-control input-md" ng-model="contato.nome">
                             
                           </div>
                         </div>
@@ -236,7 +184,7 @@
                          
                           <div class="col-md-12">
                            <label class="control-label" for="">E-mail</label>  
-                          <input id="" name="" type="text" placeholder="email" class="form-control input-md">
+                          <input id="" name="" type="text" placeholder="email" class="form-control input-md"  ng-model="contato.email">
                             
                           </div>
                         </div>
@@ -246,7 +194,7 @@
                            
                           <div class="col-md-12">
                           <label class=" control-label" for="">Telefone</label> 
-                          <input id="" name="" type="text" placeholder="telefone" class="form-control input-md">
+                          <input id="" name="" type="text" placeholder="telefone" class="form-control input-md" ng-model="contato.telefone">
                             
                           </div>
                         </div>
@@ -256,7 +204,7 @@
                          
                           <div class="col-md-12">
                            <label class="control-label" for="">Mensagem</label>
-                            <textarea class="form-control" id="" name=""></textarea>
+                            <textarea class="form-control" id="" name=""  ng-model="contato.mensagem"></textarea>
                           </div>
                         </div>
                         
@@ -264,7 +212,7 @@
                         <div class="form-group">
                           
                           <div class="col-md-12">
-                            <button class="btn btn-default"><i class="fa fa-check"></i> Enviar</button>
+                            <button class="btn btn-default" ng-click="enviarEmail()"><i class="fa fa-check"></i> Enviar</button>
                           </div>
                         </div>
                         

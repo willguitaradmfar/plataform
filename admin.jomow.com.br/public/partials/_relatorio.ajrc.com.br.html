@@ -37,7 +37,7 @@
                                     <br/><small>Tel : <b>{{pedido.telefone}}</b></small>
                                 </td>
                                  <td><span ng-class="{'label label-success' : pedido.status == 'ENTREGUE', 'label label-warning' : pedido.status == 'EM ABERTO'}">{{pedido.status}}</span>
-                                    <br/><small>Data Pedido : <b>{{pedido.dataPedido}}</b></small>
+                                    <br/><small>Data Pedido : <b>{{pedido.dataPedido | date:'dd/MM/yyyy HH:mm'}}</b></small>
                                     <br/><small>Usuário     : <b>{{pedido.userSystem}}</b></small>
                                 </td>
                                 <td><small>{{pedido.total | currency:'R$ '}}</small>
