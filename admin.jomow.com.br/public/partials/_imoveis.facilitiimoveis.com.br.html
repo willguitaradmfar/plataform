@@ -22,7 +22,7 @@
                   <div class="panel panel-default">
                      <div class="panel-body">
                         <div class="tabbable">
-                           <ul class="nav nav-tabs">
+                           <ul class="nav nav-pills nav-justified">
                               <li class="active"><a href="#tab_3_1" data-toggle="tab">Básico</a></li>
                               <li><a href="#tab_3_2" data-toggle="tab">Números</a></li>
                               <li><a href="#tab_3_3" data-toggle="tab">Valores</a></li>
@@ -255,11 +255,14 @@
                                      <div class="form-group col-lg-6" ng-show="imovels[imovelIndex].imagens[imagemIndex]">
                                         <label for="exampleInputEmail1">Nome</label>
                                         <input type="text" class="form-control"  placeholder="Nome" ng-model="imovels[imovelIndex].imagens[imagemIndex].nome">
-                                        <label for="exampleInputEmail1">Imagem</label>
-                                        <input type="file" class="form-control"  placeholder="Imagem" ng-image64="img.base64">
+                                        
+                                        <span class="btn btn-primary btn-file"> Upload
+                                            <input type="file" class="form-control"  placeholder="Imagem" ng-image64="img.base64">
+                                        </span>
                                      </div>
                                      <div class="form-group col-lg-6" ng-show="img.base64">
 									    <img src="{{img.base64}}" alt="" class="img-responsive" style="width:100px"/>
+									    <br>
 									    <button class="btn btn-success" type="button" ng-click="upload()">Enviar Imagem</button>
                                      </div>
                                      </div>
@@ -316,8 +319,8 @@
                      <td class=" sorting_1">{{imovel.titulo}}</td>
                      <td class=" ">{{imovel.preco | currency:'R$ '}}</td>
                      <td class="hidden-xs ">{{imovel.proprietario.nome}}</td>
-                     <td class="center hidden-xs "><button class="btn btn-warning fa fa-pencil" ng-click="imovels[$index].select('imovelIndex', $index)"></button></td>
-                     <td class="center hidden-xs "><button class="btn btn-danger fa fa-trash-o" ng-click="imovels[$index].remove(imovels, $index)"></button></td>
+                     <td class="center hidden-xs "><button class="btn btn-warning " ng-click="imovels[$index].select('imovelIndex', $index)"><I class="fa fa-pencil"></I></button></td>
+                     <td class="center hidden-xs "><button class="btn btn-danger " ng-click="imovels[$index].remove(imovels, $index)"><I class="fa fa-trash-o"></I></button></td>
                   </tr>
                </tbody>
             </table>

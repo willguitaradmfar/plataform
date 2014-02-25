@@ -1,4 +1,4 @@
-<html lang="pt-br" ng-app="app">
+<html lang="pt-br" data-ng-app="app">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Site, web site, loja virtual, negocio na web, desenvolvimento web">
 <meta name="author" content="Jomow">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <title>jOmOw</title>
 <link rel="stylesheet" href="/css/vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="/css/reisconobras.com.br.css">
@@ -64,7 +65,7 @@
     </a>
     </div>
 
-     <nav class="navbar navbar-inverse" role="navigation"  ng-controller="MenuController">
+     <nav class="navbar navbar-inverse" role="navigation"  data-ng-controller="MenuController">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -78,15 +79,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ ativado: isActive('/') }"><a href="#/">EMPRESA</a>
+                    <li data-ng-class="{ ativado: isActive('/') }"><a href="#/">EMPRESA</a>
                     </li>
-                    <li ng-class="{ ativado: isActive('/servicos') }"><a class="cliente" href="#/servicos">SERVIÇOS</a>
+                    <li data-ng-class="{ ativado: isActive('/servicos') }"><a class="cliente" href="#/servicos">SERVIÇOS</a>
                     </li>
-                    <li ng-class="{ ativado: isActive('/clientes') }"><a href="#/clientes">CLIENTES</a>
+                    <li data-ng-class="{ ativado: isActive('/clientes') }"><a href="#/clientes">CLIENTES</a>
                     </li>
-                    <li ng-class="{ ativado: isActive('/obras') }"><a href="#/obras">OBRAS</a>
+                    <li data-ng-class="{ ativado: isActive('/obras') }"><a href="#/obras">OBRAS</a>
                     </li>
-                    <li ng-class="{ ativado: isActive('/contato') }"><a href="#/contato">CONTATO</a>
+                    <li data-ng-class="{ ativado: isActive('/contato') }"><a href="#/contato">CONTATO</a>
                     </li>
                 </ul>
             </div>
@@ -156,7 +157,9 @@
 
 </div>        
 <script src="/js/vendors/jquery/jquery-2.0.2.min.js"></script><script type="text/javascript" src="/js/vendors/bootstrap/bootstrap.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-resource.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-cookies.min.js"></script><script type="text/javascript" src="/js/vendors/angular/ng-socket-io.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-loader.min.js"></script><script type="text/javascript" src="/js/vendors/angular/angular-sanitize.min.js"></script><script type="text/javascript" src="/socket.io/socket.io.js"></script><script type="text/javascript" src="/js/resource.js"></script><script type="text/javascript" src="/js/controller.js"></script><script type="text/javascript" src="/js/diretivas.js"></script><script type="text/javascript" src="/js/router.js"></script><script type="text/javascript" src="/js/analytics.js"></script>
-    
+         
+         
+      
     <!-- ISOTOPE -->
 	<script type="text/javascript" src="_gallery/js/isotope/jquery.isotope.min.js"></script>
 	<script type="text/javascript" src="_gallery/js/isotope/imagesloaded.pkgd.min.js"></script>
