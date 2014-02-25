@@ -1,17 +1,18 @@
-    <div class="wrapper">
-        <div class="container">
-             
-            <div class="row">
-    			<div class="col-lg-12">
-    			    <h5>
-        			    <a href="#/"><i class="fa fa-home"></i> home</a> 
-        			  <a href="#/imoveis"> imóveis</a> 
-        			   
-    			    </h5>
-    			</div>
-    		</div>
+<div class="wrapper">
+    <div class="container">
+         
+        <div class="row">
+			<div class="col-lg-12">
+			    <h5>
+    			    <a href="#/"><i class="fa fa-home"></i> Home </a> 
+    			    <i class="fa fa-angle-right"></i> 
+    			  <a href="#/imoveis">Imóveis</a> 
+    			   
+			    </h5>
+			</div>
 		</div>
 	</div>
+</div>
 	<!--Conteudo Destaque-->
 	<div class="container">
 		<div class="row padding-top">

@@ -8,11 +8,15 @@ angular.module('app', ['app.controllers', 'app.resource', 'app.directive']).
     
 	$routeProvider.when('/imovel', {templateUrl: 'partials/_imovel.tpl', controller: 'ImovelController'});
 	$routeProvider.when('/imovel/:id', {templateUrl: 'partials/_imovel.tpl', controller: 'ImovelController'});
+	$routeProvider.when('/quemsomos', {templateUrl: 'partials/_quemsomos.tpl', controller: 'QuemsomosController'});
+	$routeProvider.when('/quemsomos/:id', {templateUrl: 'partials/_quemsomos.tpl', controller: 'QuemsomosController'});
 	$routeProvider.when('/imoveis', {templateUrl: 'partials/_imoveis.tpl', controller: 'ImoveisController'});
 	$routeProvider.when('/imoveis/:id', {templateUrl: 'partials/_imoveis.tpl', controller: 'ImoveisController'});
-
-    
-
+    $routeProvider.when('/contato', {templateUrl: 'partials/_contato.tpl', controller: 'ContatoController'});
+	$routeProvider.when('/contato/:id', {templateUrl: 'partials/_contato.tpl', controller: 'ContatoController'});
+    $routeProvider.when('/parceiros', {templateUrl: 'partials/_parceiros.tpl', controller: 'ParceirosController'});
+	$routeProvider.when('/parceiros/:id', {templateUrl: 'partials/_parceiros.tpl', controller: 'ParceirosController'});
+	
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
 
