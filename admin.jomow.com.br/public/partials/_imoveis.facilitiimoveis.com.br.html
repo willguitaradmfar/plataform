@@ -327,6 +327,7 @@
                <thead>
                   <tr role="row">
                      <th width="20%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Título</th>
+                     <th width="20%" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" >Tipo</th>
                      <th width="20%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Preço</th>
                      <th width="30%" class="hidden-xs sorting" role="columnheader"tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Proprietário</th>
                      <th width="10%" class="sorting" role="columnheader" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Editar</th>
@@ -336,6 +337,7 @@
                <tbody role="alert" aria-live="polite" aria-relevant="all">
                   <tr class="gradeA odd" ng-repeat="imovel in imovels">
                      <td class=" sorting_1">{{imovel.titulo}}</td>
+                     <td class=" sorting_1">{{imovel.tipo}}</td>
                      <td class=" ">{{imovel.preco | currency:'R$ '}}</td>
                      <td class="hidden-xs ">{{imovel.proprietario.nome}}</td>
                      <td class="center hidden-xs "><button class="btn btn-warning " ng-click="imovels[$index].select('imovelIndex', $index)"><I class="fa fa-pencil"></I></button></td>

@@ -61,7 +61,7 @@
                         </tr>
                         <tr>
                                 <td>Tipo</td> 
-                                <td><strong ng-bind="imovel.valorCondominio"></strong></td>
+                                <td><strong ng-bind="imovel.tipo"></strong></td>
                             </tr>
                         <tr>
                             <td>Quartos</td> 
@@ -129,7 +129,7 @@
                             </tr>
                             <tr>
                                 <td>Tipo</td> 
-                                <td><strong>Apartamento</strong></td>
+                                <td><strong ng-bind="imovel.tipo"></strong></td>
                             </tr>
                             <tr>
                                 <td>IPTU</td> 

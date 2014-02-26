@@ -110,14 +110,19 @@ angular.module('app.controllers', ['socket-io'])
 		var imoveisDestaque = {};
 		
 		var listar = function () {
-		    $scope.imovelsDestaque = Imovel.list(function (res) {
-		        paginar(res);
-    		    return res;
-    		});    
+    		var pesquisa = {categorias : {$elemMatch : {val : {$regex :'slideHome', $options: 'i'}}}};
+    		$scope.imovelsDestaque = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
+    		        paginar(res);
+        		    return res;
+        	}); 
+        	
+        	pesquisa = {categorias : {$elemMatch : {val : {$regex :'destaqueHome', $options: 'i'}}}};
+        	$scope.imovelsDestaque = $scope.imovelsDestaque = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
+        		    return res;
+        	}); 
+        	
 		}
 		listar();
-		
-	
 	}
 ])
 
@@ -193,7 +198,11 @@ angular.module('app.controllers', ['socket-io'])
 		console.log('ImovelController');
 		jomowModel(Imovel, $scope);
 		$scope.imovel = new Imovel();
-		$scope.imovel.reloadAll('imovelsDestaque');
+		
+		var pesquisa = {categorias : {$elemMatch : {val : {$regex :'destaqueImoveis', $options: 'i'}}}};
+    	$scope.imovelsDestaque = $scope.imovelsDestaque = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
+    		    return res;
+    	}); 
 		
 		$scope.imovelsPesquisa = [];
 		

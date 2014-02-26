@@ -32,6 +32,7 @@ moment = require('moment');
 var app = express();
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
+    io.set('log level', 1); // reduce logging
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//

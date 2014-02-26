@@ -26,6 +26,7 @@ moment = require('moment');
 var app = express();
     server = require('http').createServer(app),
     io = require('socket.io').listen(server);
+    io.set('log level', 1); // reduce logging
 //---------------------------------------------------------------//
 
 //---------------------------------------------------------------//
@@ -81,8 +82,6 @@ app.get('/', function (req, res) {
 //RECURSO DO ADMIN
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Pessoa'), redisClient, 'pessoa', _tenant);
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Menu'), redisClient, 'menu', _tenant);
-
-require('./api/api.js')(app, config, db, redisClient);
 
 //RECURSO DOS TENANTS
 require('../module/apiDB.js')(app, config, db, require('../module/dao.js')(app, db, 'Imovel'), redisClient, 'imovel', _tenant);
