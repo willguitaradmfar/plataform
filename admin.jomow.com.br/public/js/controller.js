@@ -65,7 +65,7 @@ var jomowModel = function (Model, $scope) {
 	}
 }
 
-var module = angular.module('app.controllers', ['socket-io']);
+var module = angular.module('app.controllers', ['socket-io', 'ui.date']);
 
 module.controller('HomeController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
 	function($scope, $location,  $http, $templateCache, $routeParams, socket) {

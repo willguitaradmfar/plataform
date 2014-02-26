@@ -42,7 +42,7 @@
                         </div>
                       </div>
                     
-                 
+                    <iframe width="700" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-23.7428103,-46.5741826&hl=es;z=14&amp;output=embed"></iframe>
                     </div>
                     <a data-slide="prev" href="#media" class="left carousel-control"><i class="fa-layout fa fa-angle-left fa-2x"></i></a>
                     <a data-slide="next" href="#media" class="right carousel-control"><i class="fa-layout fa fa-angle-right fa-2x"></i></a>
