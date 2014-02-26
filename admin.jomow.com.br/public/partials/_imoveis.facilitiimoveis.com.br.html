@@ -38,45 +38,56 @@
                                     <input type="text" class="form-control"  placeholder="Título" ng-model="imovels[imovelIndex].titulo">
                                  </div>
                                  <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Tranzação</label>
+                                     <select class="form-control" ng-model="imovels[imovelIndex].tranzacao">
+    								  <option>Venda</option>
+    								  <option>Aluguel</option>
+    								</select>
+    							</div>
+    							 <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Tipo</label>
+                                    <input type="text" class="form-control"  placeholder="Apartamento, Casa, Sobrado etc.." ng-model="imovels[imovelIndex].tipo">
+                                 </div>
+                                 <div class="form-group col-lg-6">
                                     <label for="exampleInputPassword1">Descrição</label>
                                     <textarea type="text" class="form-control"  placeholder="Descrição" ng-model="imovels[imovelIndex].descricao"> </textarea>
                                  </div>
                               </div>
                               <div class="tab-pane fade" id="tab_3_2">
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputPassword1">Númer de Quartos</label>
-                                    <input type="number" class="form-control"  placeholder="numeroQuartos" ng-model="imovels[imovelIndex].numeroQuartos">
+                                    <label for="exampleInputPassword1">Quartos</label>
+                                    <input type="number" class="form-control"  placeholder="Quartos" ng-model="imovels[imovelIndex].numeroQuartos">
                                  </div>
                                  <div class="form-group col-lg-6">
                                     <label for="exampleInputPassword1">Área Útil</label>
-                                    <input type="number" class="form-control"  placeholder="areaUtil" ng-model="imovels[imovelIndex].areaUtil">
+                                    <input type="number" class="form-control"  placeholder="Área Útil" ng-model="imovels[imovelIndex].areaUtil">
                                  </div>
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputPassword1">numeroVagas</label>
-                                    <input type="number" class="form-control"  placeholder="numeroVagas" ng-model="imovels[imovelIndex].numeroVagas">
+                                    <label for="exampleInputPassword1">Vagas</label>
+                                    <input type="number" class="form-control"  placeholder="Vagas" ng-model="imovels[imovelIndex].numeroVagas">
                                  </div>
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputPassword1">numeroSuite</label>
-                                    <input type="number" class="form-control"  placeholder="numeroSuite" ng-model="imovels[imovelIndex].numeroSuite">
+                                    <label for="exampleInputPassword1">Suites</label>
+                                    <input type="number" class="form-control"  placeholder="Suites" ng-model="imovels[imovelIndex].numeroSuite">
                                  </div>
                               </div>
                               <div class="tab-pane fade" id="tab_3_3">
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputEmail1">Preço</label>
+                                    <label for="exampleInputEmail1">Preço -<small> Aluguel ou Venda</small></label>
                                     <div class="input-group">
                                        <span class="input-group-addon">R$</span>
                                        <input type="text" class="form-control" ng-model="imovels[imovelIndex].preco" format="number">
                                     </div>
                                  </div>
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputEmail1">valorIPTU</label>
+                                    <label for="exampleInputEmail1">IPTU</label>
                                     <div class="input-group">
                                        <span class="input-group-addon">R$</span>
                                        <input type="text" class="form-control" ng-model="imovels[imovelIndex].valorIPTU" format="number">
                                     </div>
                                  </div>
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputEmail1">valorCondominio</label>
+                                    <label for="exampleInputEmail1">Condominio</label>
                                     <div class="input-group">
                                        <span class="input-group-addon">R$</span>
                                        <input type="text" class="form-control" ng-model="imovels[imovelIndex].valorCondominio" format="number">
@@ -89,7 +100,7 @@
                                     <input type="text" class="form-control"  placeholder="Rua" ng-model="imovels[imovelIndex].rua">
                                  </div>
                                  <div class="form-group col-lg-3">
-                                    <label for="exampleInputEmail1">numero</label>
+                                    <label for="exampleInputEmail1">Número</label>
                                     <input type="text" class="form-control"  placeholder="numero" ng-model="imovels[imovelIndex].numero">
                                  </div>
                                  <div class="form-group col-lg-3">
@@ -97,19 +108,19 @@
                                     <input type="text" class="form-control"  placeholder="CEP" ng-model="imovels[imovelIndex].cep">
                                  </div>
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputEmail1">complemento</label>
+                                    <label for="exampleInputEmail1">Complemento</label>
                                     <input type="text" class="form-control"  placeholder="complemento" ng-model="imovels[imovelIndex].complemento">
                                  </div>
                                  <div class="form-group col-lg-6">
-                                    <label for="exampleInputEmail1">pontoReferencia</label>
+                                    <label for="exampleInputEmail1">Ponto de Referencia</label>
                                     <input type="text" class="form-control"  placeholder="pontoReferencia" ng-model="imovels[imovelIndex].pontoReferencia">
                                  </div>
                                  <div class="form-group col-lg-4">
-                                    <label for="exampleInputEmail1">bairro</label>
+                                    <label for="exampleInputEmail1">Bairro</label>
                                     <input type="text" class="form-control"  placeholder="bairro" ng-model="imovels[imovelIndex].bairro">
                                  </div>
                                  <div class="form-group col-lg-4">
-                                    <label for="exampleInputEmail1">cidade</label>
+                                    <label for="exampleInputEmail1">Cidade</label>
                                     <input type="text" class="form-control"  placeholder="cidade" ng-model="imovels[imovelIndex].cidade">
                                  </div>
                                  <div class="form-group col-lg-4">
@@ -144,13 +155,13 @@
                                  <div class="form-group col-lg-6">
                                     <button class="btn btn-default" type="button" ng-click="initArray(imovels[imovelIndex].proprietario, 'telefones'); proprietarioTelefoneIndex = novo(imovels[imovelIndex].proprietario.telefones)">Incluir Telefone</button>
                                     <div class="input-group" ng-show="imovels[imovelIndex].proprietario.telefones[proprietarioTelefoneIndex]">
-                                       <div class="form-group col-lg-5">
+                                       <div class="form-group col-lg-6">
                                           <label for="exampleInputPassword1">Contato</label>
                                           <div class="input-group">
                                              <input type="text" class="form-control" ng-model="imovels[imovelIndex].proprietario.telefones[proprietarioTelefoneIndex].contato">
                                           </div>
                                        </div>
-                                       <div class="form-group col-lg-5">
+                                       <div class="form-group col-lg-6">
                                           <label for="exampleInputPassword1">Telefones</label>
                                           <div class="input-group">
                                              <input type="text" class="form-control" ng-model="imovels[imovelIndex].proprietario.telefones[proprietarioTelefoneIndex].telefone">
@@ -218,17 +229,19 @@
                                           <button class="btn btn-primary" type="button" ng-click="initArray(imovels[imovelIndex], 'caracteristicas'); caracteristicaIndex = novo(imovels[imovelIndex].caracteristicas)">Incluir Característica</button>	  
                                        </div>
                                     </div>
-                                    <div class="form-group col-lg-6" ng-show="imovels[imovelIndex].caracteristicas[caracteristicaIndex]">
-                                       <label for="exampleInputEmail1">Chave</label>
-                                       <div class="input-group">
-                                          <input type="text" class="form-control"  placeholder="Chave" ng-model="imovels[imovelIndex].caracteristicas[caracteristicaIndex].chave">
-                                       </div>
-                                       <label for="exampleInputEmail1">Valor</label>
-                                       <div class="input-group">
-                                          <input type="text" class="form-control"  placeholder="Valor" ng-model="imovels[imovelIndex].caracteristicas[caracteristicaIndex].valor" >
-                                       </div>
-                                       <div class="input-group">
-                                          <button class="btn btn-primary" type="button" ng-click="imovels[imovelIndex].update().select('caracteristicaIndex', -1)">Add</button>
+                                    <div class="form-grou col-lg-12" ng-show="imovels[imovelIndex].caracteristicas[caracteristicaIndex]">
+                                        <div class="row">
+                                           <label for="exampleInputEmail1">Característica</label>
+                                           <div class="input-group col-lg-4">
+                                              <input type="text" class="form-control"  placeholder="Característica" ng-model="imovels[imovelIndex].caracteristicas[caracteristicaIndex].chave">
+                                           </div>
+                                           <label for="exampleInputEmail1">Valor</label>
+                                           <div class="input-group col-lg-4">
+                                              <input type="text" class="form-control"  placeholder="Valor" ng-model="imovels[imovelIndex].caracteristicas[caracteristicaIndex].valor" >
+                                           </div>
+                                           <div class="input-group">
+                                              <button class="btn btn-primary" type="button" ng-click="imovels[imovelIndex].update().select('caracteristicaIndex', -1)">Add</button>
+                                           </div>
                                        </div>
                                     </div>
                                     <table class="table table-striped">
@@ -250,35 +263,41 @@
                                  </div>
                               </div>
                                  <div class="tab-pane fade" id="tab_3_7">
-                                 <button class="btn btn-success" type="button" ng-click="initArray(imovels[imovelIndex], 'imagens'); imagemIndex = novo(imovels[imovelIndex].imagens)">Incluir Foto</button>
+                                 <button class="btn btn-success" type="button" ng-click="initArray(imovels[imovelIndex], 'imagens'); imagemIndex = novo(imovels[imovelIndex].imagens)"><i class="fa fa-plus"></i> Incluir Foto</button>
                                  <div  class="row">
                                      <div class="form-group col-lg-6" ng-show="imovels[imovelIndex].imagens[imagemIndex]">
                                         <label for="exampleInputEmail1">Nome</label>
                                         <input type="text" class="form-control"  placeholder="Nome" ng-model="imovels[imovelIndex].imagens[imagemIndex].nome">
                                         
-                                        <span class="btn btn-primary btn-file"> Selecionar Imagem
+                                        <span class="btn btn-primary btn-file"><i class="fa fa-arrow-circle-o-up"></i> Selecionar Imagem
                                             <input type="file" class="form-control"  placeholder="Imagem" ng-image64="img.base64">
                                         </span>
                                      </div>
-                                     <div class="form-group col-lg-6" ng-show="img.base64">
+                                     <div class="form-group col-lg-12" ng-show="img.base64">
 									    <img ng-src="{{img.base64}}" alt="" class="img-responsive" style="width:100px"/>
 									    <br>
-									    <button class="btn btn-success" type="button" ng-click="upload()">Enviar Imagem</button>
+									    <button class="btn btn-primary" type="button" ng-click="upload()"><i class="fa fa-arrow-circle-o-up"></i> Enviar</button>
                                      </div>
                                      </div>
                                         <div class="row">
-											<div class="col-md-3 category_1 item" ng-repeat="imagem in imovels[imovelIndex].imagens">
-												<div class="filter-content" >
-													<img ng-src="{{imagem.src}}" alt="" class="img-responsive" style="height : 200px">
-													<div class="hover">
-														<h4>{{imagem.nome}}</h4>
-														<a class="btn btn-danger hover-link">
-															<i class="fa fa-trash-o" ng-click="imovels[imovelIndex].remove(imovels[imovelIndex].imagens, $index)"></i>
-														</a>
-														<a class="btn btn-warning hover-link colorbox-button" href="{{imagem.src}}" title="{{imagem.nome}}">
-															<i class="fa fa-search-plus fa-1x"></i>
-														</a>
-													</div>
+                                            <div class="col-lg-12">
+                                                <h2>Imagens</h2>
+                                                <hr>
+                                            </div>
+											<div class="col-md-4 col-lg-2 category_1 item" ng-repeat="imagem in imovels[imovelIndex].imagens">
+											    <div class="well">
+											    	<div class="filter-content" >
+													<img ng-src="{{imagem.src}}" alt="" class="img-responsive">
+    													<div class="hover">
+    														<h4>{{imagem.nome}}</h4>
+    														<a class="btn btn-danger hover-link">
+    															<i class="fa fa-trash-o" ng-click="imovels[imovelIndex].remove(imovels[imovelIndex].imagens, $index)"></i>
+    														</a>
+    														<a class="btn btn-warning hover-link colorbox-button" href="{{imagem.src}}" title="{{imagem.nome}}">
+    															<i class="fa fa-search-plus"></i> 
+    														</a>
+    													</div>
+												    </div>
 												</div>
 											</div>
 										</div>
