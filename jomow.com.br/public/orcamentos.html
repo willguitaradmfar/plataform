@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site, web site, loja virtual, negocio na web, desenvolvimento web">
+    <meta name="author" content="Jomow">
+
+    <title>jOmOw</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/orcamento.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+   
+  </head>
+
+  <body ng-controller="JomowController">
+    
+    <div class="wrapper">
+    
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Orcamentos</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="well">
+                <h3>Tipo do serviço solicitado?</h3>
+                <h4>&nbsp; Construção de Loja virtual</h4>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="well">
+                <h3>Objetivo da criação da Loja virtual?</h3>
+                <h4>&nbsp; Vender pela internet com pagamento online</h4>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="well">
+                <h3>Tipo da Loja Virtual?</h3>
+                <h4>&nbsp; Venda de Roupas Esportivas</h4>
+            </div>
+          </div>
+        </div><!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well">
+                        <h3>Quanto custa?</h3>
+                        <div class="col-md-6">
+                            <div class="list-group">
+                              <a href="#" class="list-group-item active">
+                                <h3>Desenvolvimento</h3>
+                              </a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Planejamento</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Desenvolvimento</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Implementação</a>
+                              <a href="#" class="list-group-item">
+                                <h4 class="preco">R$ 2.000,00</h4> 
+                                   <small><i class="fa fa-info"></i>*Observaçõs este valor é unico.</small>
+                              </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="list-group">
+                              <a href="#" class="list-group-item active">
+                                <h3>Manutenção</h3>
+                              </a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Hospedagem</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Administração de dominio</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Painel de administração (jomow)</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> E-mail ilimitado (jomow-mail)</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Alta disponibilidade (Cloud)</a>
+                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Chat online</a>
+                               <a href="#" class="list-group-item">
+                                <h4 class="preco"><small>R$ 1.800,00 ou</small> 12x R$ 150,00</h4> 
+                                   <small><i class="fa fa-info"></i>*Observaçõs este valor é anual, referente aos serviços descritos acima
+                                    </small>
+                              </a>
+                          </div>
+                        </div>
+                     <div class="col-lg-12">  
+                        <h1>&nbsp;</h1>
+                     </div>
+                    
+                </div>
+            </div>
+        </div><!-- row -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="well">
+                <h3>E o suporte?</h3>
+                <h4>&nbsp; Atendimento 24 horas por dia, 7 dias por semana, via telefone, chat ou e-mail, sempre que precisar.</h4>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="well">
+                <h3>Quando fica pronto?</h3>
+                <h4>&nbsp; Entrega estimada para abril de 2014. Definida a partir da data do contrato.</h4>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="well">
+                <h1>Contatos</h1>
+                <address>
+                  <strong>jOmOw.</strong><br>
+                  <abbr title="Phone">Tel:</abbr> (11) 3412-6154<br>
+                  <abbr title="Phone">Cel:</abbr> (11) 95451-4341
+                </address>
+                
+                <address>
+                  <strong>Email</strong><br>
+                  <a href="mailto:#" class="email-or">contato@jomow.com</a>
+                </address>
+            </div>
+          </div>
+        </div><!-- row -->
+      </div><!-- container -->
+    </div><!-- Wrapper -->
+    
+    <!-- script -->
+    <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/angular/ng-socket-io.js"></script>
+    <script type="text/javascript" src="js/resources.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/diretivas.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+
+    
+    <script type="text/javascript" >
+       
+    </script>
+  
+  </body>
+
+</html>
