@@ -21,6 +21,7 @@ var imovelObjSchema = {};
 imovelObjSchema.dtcreate = {type: Date,default: Date.now};
 imovelObjSchema.dtupdate = {type: Date,default: Date.now};
 
+imovelObjSchema.transacao = "String";
 imovelObjSchema.tipo = "String";
 
 imovelObjSchema.titulo = "String";

@@ -52,7 +52,7 @@ var imovelObjSchema = {};
 imovelObjSchema.dtcreate = {type: Date,default: Date.now};
 imovelObjSchema.dtupdate = {type: Date,default: Date.now};
 
-imovelObjSchema.tranzacao = "String";
+imovelObjSchema.transacao = "String";
 imovelObjSchema.tipo = "String";
 
 imovelObjSchema.titulo = "String";
