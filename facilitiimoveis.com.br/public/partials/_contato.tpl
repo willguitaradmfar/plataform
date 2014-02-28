@@ -94,9 +94,8 @@
             </div>
             <div class="col-md-8 well">
                 <div>
-                    <iframe id="map-canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Estrada+dos+Alvarengas+5700&amp;aq=&amp;sll=-23.739332,-46.598146&amp;sspn=0.006374,0.006899&amp;ie=UTF8&amp;hq=&amp;hnear=Estrada+dos+Alvarengas,+5700+-+Assuncao,+S%C3%A3o+Paulo&amp;t=m&amp;ll=-23.739312,-46.598167&amp;spn=0.037713,0.054932&amp;z=14&amp;iwloc=A&amp;output=embed">
-                        
-                    </iframe>
+                    
+                    <iframe id="map-canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Avenida+Piraporinha,+386,Planalto,+S%C3%A3o+Bernardo+do+Campo+-+S%C3%A3o+Paulo&amp;aq=&amp;sll=-23.690294,-46.577304&amp;sspn=0.032775,0.055189&amp;ie=UTF8&amp;hq=&amp;hnear=Avenida+Piraporinha,+386+-+Piraporinha,+S%C3%A3o+Paulo,+09951-560&amp;t=m&amp;z=14&amp;ll=-23.690983,-46.579953&amp;output=embed"></iframe>
                 </div>
             </div>
         </div>

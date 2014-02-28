@@ -23,8 +23,27 @@
     
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <h1>Orcamentos</h1>
+          <div class="col-md-3">
+            <img src="/css/img/logojomow.png" class="img-responsive" alt="jOmOw">
+          </div>
+          <div class="col-md-4">
+          
+            <!--TELA DE ESPERA-->
+            <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#esperar">
+              Esperar
+            </button>
+             <!--espera -->
+            <div class="modal fade" id="esperar" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog"><i class="fa fa-spinner fa-spin fa-5x"></i></div>
+            </div>
+            <style type="text/css">.modal-dialog{color:#fff;text-align:center;padding-top:20%;</style>
+            <!--/TELA DE ESPERA-->
+                
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1>Orçamento</h1>
           </div>
         </div>
         <div class="row">
@@ -48,45 +67,47 @@
           </div>
         </div><!-- row -->
         <div class="row">
-            <div class="col-lg-12">
-                <div class="well">
-                        <h3>Quanto custa?</h3>
-                        <div class="col-md-6">
-                            <div class="list-group">
-                              <a href="#" class="list-group-item active">
-                                <h3>Desenvolvimento</h3>
-                              </a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Planejamento</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Desenvolvimento</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Implementação</a>
-                              <a href="#" class="list-group-item">
-                                <h4 class="preco">R$ 2.000,00</h4> 
-                                   <small><i class="fa fa-info"></i>*Observaçõs este valor é unico.</small>
-                              </a>
-                            </div>
+            <div class="col-lg-12">  
+                <div class="col-lg-12 col-md-12 well">
+            
+                    <h3>Quanto custa?</h3>
+                    <div class="col-md-6">
+                        <div class="list-group">
+                          <a href="#" class="list-group-item active">
+                            <h3>Desenvolvimento</h3>
+                          </a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Planejamento</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Desenvolvimento</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Implementação</a>
+                          <a href="#" class="list-group-item">
+                            <h4 class="preco">R$ 2.000,00</h4> 
+                            <p class="text-warning">
+                               <small><i class="fa fa-info"></i>*Observaçõs este valor é unico.</small>
+                            </p>
+                          </a>
                         </div>
-                        <div class="col-md-6">
-                            <div class="list-group">
-                              <a href="#" class="list-group-item active">
-                                <h3>Manutenção</h3>
-                              </a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Hospedagem</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Administração de dominio</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Painel de administração (jomow)</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> E-mail ilimitado (jomow-mail)</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Alta disponibilidade (Cloud)</a>
-                              <a href="#" class="list-group-item"><i class="fa fa-check"></i> Chat online</a>
-                               <a href="#" class="list-group-item">
-                                <h4 class="preco"><small>R$ 1.800,00 ou</small> 12x R$ 150,00</h4> 
-                                   <small><i class="fa fa-info"></i>*Observaçõs este valor é anual, referente aos serviços descritos acima
-                                    </small>
-                              </a>
-                          </div>
-                        </div>
-                     <div class="col-lg-12">  
-                        <h1>&nbsp;</h1>
-                     </div>
-                    
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-group">
+                          <a href="#" class="list-group-item active">
+                            <h3>Manutenção</h3>
+                          </a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Hospedagem</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Administração de dominio</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Painel de administração (jomow)</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> E-mail ilimitado (jomow-mail)</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Alta disponibilidade (Cloud)</a>
+                          <a href="#" class="list-group-item"><i class="fa fa-check"></i> Chat online</a>
+                           <a href="#" class="list-group-item">
+                            <h4 class="preco"><small>R$ 1.800,00 ou</small> 12x R$ 150,00</h4> 
+                            <p class="text-warning">
+                               <small><i class="fa fa-info"></i>*Observaçõs este valor é anual, referente aos serviços descritos acima
+                                </small>
+                            </p>
+                          </a>
+                      </div>
+                    </div>
+                         
                 </div>
             </div>
         </div><!-- row -->
@@ -100,7 +121,7 @@
           <div class="col-lg-12">
             <div class="well">
                 <h3>Quando fica pronto?</h3>
-                <h4>&nbsp; Entrega estimada para abril de 2014. Definida a partir da data do contrato.</h4>
+                <h4>&nbsp; Você tera sua Loja Virtual em 55 dias corridos à partir do fechamento do contrato.</h4>
             </div>
           </div>
           <div class="col-lg-12">
@@ -114,16 +135,19 @@
                 
                 <address>
                   <strong>Email</strong><br>
-                  <a href="mailto:#" class="email-or">contato@jomow.com</a>
+                  <a href="mailto:#" class="email-or">contato@jomow.com.br</a>
                 </address>
             </div>
           </div>
         </div><!-- row -->
+
+
       </div><!-- container -->
     </div><!-- Wrapper -->
     
     <!-- script -->
     <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/angular/angular.min.js"></script>
     <script type="text/javascript" src="js/angular/angular-resource.min.js"></script>
     <script type="text/javascript" src="js/angular/angular-cookies.min.js"></script>
@@ -133,12 +157,11 @@
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/diretivas.js"></script>
     <script type="text/javascript" src="js/routes.js"></script>
-
     
-    <script type="text/javascript" >
-       
-    </script>
   
+     
   </body>
+    
+   
 
 </html>

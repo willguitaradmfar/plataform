@@ -2,11 +2,12 @@ html,body{
     margin:0;
     padding:0;
 }
-h1,h2,h3,p{
+h1,h2,h3{
     font-family: 'Russo One', sans-serif;
     color:#fff;
 }
 .wrapper{
+    padding-top:30px;
     background-color:rgb(0, 136, 204);
 }
 .well{
@@ -20,3 +21,11 @@ h1,h2,h3,p{
 .email-or{
     color:#fff;
 }
+.destaque-orc{
+    font-weight:bold;
+}
+.preco{
+    font-size:36px;
+}
+
+

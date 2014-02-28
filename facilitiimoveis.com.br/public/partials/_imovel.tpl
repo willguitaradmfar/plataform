@@ -5,8 +5,8 @@
             <div class="row">
     			<div class="col-lg-12">
     			    <h5>
-        			    <a href="#/"><i class="fa fa-home"></i> home</a> 
-        			    <a href="#/imoveis"> imóveis</a>
+        			    <a href="#/"><i class="fa fa-home"></i> home</a>
+        			     <i class="fa fa-angle-right"></i><a href="#/imoveis"> imóveis</a>
     			    </h5>
     			</div>
     		</div>
@@ -42,7 +42,6 @@
                         </div>
                       </div>
                     
-                    <iframe width="700" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-23.7428103,-46.5741826&hl=es;z=14&amp;output=embed"></iframe>
                     </div>
                     <a data-slide="prev" href="#media" class="left carousel-control"><i class="fa-layout fa fa-angle-left fa-2x"></i></a>
                     <a data-slide="next" href="#media" class="right carousel-control"><i class="fa-layout fa fa-angle-right fa-2x"></i></a>
@@ -160,6 +159,7 @@
                   
                 </div>
             </div>
+           
             <div class="col-md-4">
                 <div class="panel panel-primary">
                   <div class="panel-heading">
@@ -221,5 +221,19 @@
                   </div>
                 </div>
             </div>
+            
         </div>
+        <div class="col-lg-12">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Mapa</h3>
+                  </div>
+                  <div class="panel-body">
+                     
+                    <iframe width="100%" height="350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-23.7428103,-46.5741826&hl=es;z=14&amp;output=embed"></iframe>
+ 
+
+                  </div>
+                </div>
+            </div>
     </div>
