@@ -223,16 +223,13 @@
             </div>
             
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12" ng-show="imovel.lat && imovel.lon">
                 <div class="panel panel-primary">
                   <div class="panel-heading">
                     <h3 class="panel-title">Mapa</h3>
                   </div>
                   <div class="panel-body">
-                     
-                    <iframe width="100%" height="350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=-23.7428103,-46.5741826&hl=es;z=14&amp;output=embed"></iframe>
- 
-
+                    <iframe width="100%" height="350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q={{imovel.lat}},{{imovel.lon}}&hl=es;z=14&amp;output=embed"></iframe>
                   </div>
                 </div>
             </div>
