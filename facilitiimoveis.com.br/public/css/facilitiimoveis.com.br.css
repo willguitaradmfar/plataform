@@ -8,14 +8,14 @@
 }
 
 .topo{
-	background: url(../img/fundo_topo.png);
+	background: url(../img/fundotopo.png);
 	background-repeat:repeat-x;
-	height:120px;
+	height: 135px;
 	border-top:3px solid #1e4e7f;
 }
 .nav-tabs {
     position: absolute;
-    bottom: -15px;
+    bottom: -30px;
     right: 0;
     color:#ccc;
 }
@@ -277,7 +277,9 @@ width:100%;
     color:rgb(30, 78, 127);
 }
 
-
+.logo-finan{
+    height:80px;
+}
 /*FOOTER*/
 .footer{
 	background:url(../img/background_footer.png);
