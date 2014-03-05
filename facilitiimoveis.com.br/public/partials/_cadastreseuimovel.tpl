@@ -37,7 +37,7 @@
                         </div>
                           <div class="col-md-6">
                           <label class="control-label" for="Nome">CPF/CNPJ</label>  
-                          <input id="Nome" name="Nome" type="text" class="form-control input-md" ng-model="contato.nome">
+                          <input id="Nome" name="Nome" type="text" class="form-control input-md" ng-model="contato.cpf">
                         </div>
                         
                         </div>
@@ -54,7 +54,7 @@
                           </div>
                           <div class="col-md-4">
                           <label class="control-label" for="Nome">Telefone:</label>  
-                          <input id="Nome" name="Nome" type="text" class="form-control input-md" ng-model="contato.nome">
+                          <input id="Nome" name="Nome" type="text" class="form-control input-md" ng-model="contato.telefone">
                         </div>
                         </div>
                          
@@ -81,25 +81,25 @@
                         <div class="form-group form-inline">
                           <div class="col-md-9">
                               <label class="control-label" for="Nome">Endereço:</label>  
-                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.telefone">
+                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.endereco">
                           </div>
                           <div class="col-md-3">
                               <label class="control-label" for="Nome">Numero:</label>  
-                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.telefone">
+                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.numero">
                           </div>
                         </div>
                         <div class="form-group form-inline">
                           <div class="col-md-4">
                               <label class="control-label" for="Nome">Bairro:</label>  
-                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.telefone">
+                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.bairro">
                           </div>
                           <div class="col-md-4">
                               <label class="control-label" for="Nome">Complemento:</label>  
-                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.telefone">
+                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.complemento">
                           </div>
                           <div class="col-md-4">
                               <label class="control-label" for="Nome">CEP:</label>  
-                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.telefone">
+                              <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.cep">
                           </div>
                         </div>
                         <!-- Textarea -->

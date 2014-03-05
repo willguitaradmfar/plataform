@@ -243,5 +243,86 @@ angular.module('app.controllers', ['socket-io'])
 	}
 ])
 
+.controller('ContatoController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email) { 
+		console.log('ContatoController');
+		
+	
+		$scope.enviarEmail = function () {
+		    
+		    var msg = 'Nome : '+$scope.contato.nome
+		            + '\nTelefone : '+$scope.contato.telefone
+		            + '\nEmail : '+$scope.contato.email
+		            + '\nMensagem : '+$scope.contato.mensagem;
+		    
+		     Email.enviar({
+                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
+                subject : 'Contato '+$scope.contato.nome,
+                text : msg
+            }, function (data) {
+                console.log(data);
+                if(data.status)
+                	if(data.status == "Ok"){
+	                    $scope.contato = {};
+	                    $scope.contato.msg = data.msg;
+	                    $scope.contato.enviado = true;
+	                }
+            })
+		};
+		
+	}
+])
+
+.controller('CadastreseuimovelController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket', 'Email',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket, Email) { 
+		console.log('CadastreseuimovelController');
+		
+	
+		$scope.enviarEmail = function () {
+		    
+		    var msg = 'Nome : '+$scope.contato.nome
+		            + '\nCPF/CNPJ : '+$scope.contato.cpf
+		            + '\nTelefone : '+$scope.contato.telefone
+		            + '\nEmail : '+$scope.contato.email
+		            + '\nEstado : '+$scope.contato.estado
+		            + '\nCidade : '+$scope.contato.cidade
+		            + '\nEndereco : '+$scope.contato.endereco
+		            + '\nNumero : '+$scope.contato.numero
+		            + '\nBairro : '+$scope.contato.bairro
+		            + '\nComplemento : '+$scope.contato.complemento
+		            + '\nCep: '+$scope.contato.cep
+		            + '\nDescrição : '+$scope.contato.mensagem;
+		    
+		     Email.enviar({
+                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
+                subject : 'Novo imóvel cadastrado '+$scope.contato.nome,
+                text : msg
+            }, function (data) {
+                console.log(data);
+                if(data.status)
+                	if(data.status == "Ok"){
+	                    $scope.contato = {};
+	                    $scope.contato.msg = data.msg;
+	                    $scope.contato.enviado = true;
+	                }
+            })
+		};
+		
+	}
+])
+
+.controller('QuemsomosController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
+		console.log('QuemsomosController');
+		
+	}
+])
+.controller('SimuladorController', ['$scope','$location', '$http', '$templateCache', '$routeParams', 'socket',
+	function($scope, $location,  $http, $templateCache, $routeParams, socket) {
+		console.log('SimuladorController');
+		
+	}
+])
+
 ;
 
