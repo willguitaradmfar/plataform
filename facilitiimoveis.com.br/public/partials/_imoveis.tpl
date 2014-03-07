@@ -36,39 +36,23 @@
                              <div class="input-group col-md-12">
                                 <div class="form-group">
                                     <label class="control-label" for="Nome">Aluguel/Venda</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
-                                      <option value="1">Aluguel</option>
-                                      <option value="2">Venda</option>
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.transacao">
+                                      <option value="Aluguel">Aluguel</option>
+                                      <option value="Venda">Venda</option>
                                       
                                     </select>
                                   </div>
                                  <div class="form-group">
                                     <label class="control-label" for="Nome">Tipo do Imóvel</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
-                                      <option value="1">Apartamento</option>
-                                       <option value="2">Casa</option>
-                                       <option value="3">Salão comercial</option>
-                                       <option value="4">Galpão</option>
-                                       <option value="5">Prédio residencial</option>
-                                       <option value="6">Terreno</option>
-                                       <option value="7">Sala comercial</option>
-                                       <option value="8">Diversos</option>
-                                    </select>
-                                  </div>
-                                 <div class="form-group">
-                                    <label class="control-label" for="Nome">Cidade</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
-                                      <option value="1">Aluguel</option>
-                                      <option value="2">Venda</option>
-                                      
-                                    </select>
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="control-label" for="Nome">Bairro</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
-                                      <option value="1">Aluguel</option>
-                                      <option value="2">Venda</option>
-                                      
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.tipo">
+                                      <option value="Apartamento">Apartamento</option>
+                                       <option value="Casa">Casa</option>
+                                       <option value="Salão comercial">Salão comercial</option>
+                                       <option value="Galpão">Galpão</option>
+                                       <option value="Prédio residencial">Prédio residencial</option>
+                                       <option value="Terreno">Terreno</option>
+                                       <option value="Sala comercial">Sala comercial</option>
+                                       <option value="Diversos">Diversos</option>
                                     </select>
                                   </div>
                                 <div class="form-group">
@@ -88,7 +72,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label class="control-label" for="Nome">Suítes</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroSuite">
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
@@ -103,7 +87,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label class="control-label" for="Nome">Vagas</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroVagas">
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
@@ -184,7 +168,7 @@
 			            <div class="col-lg-12">
 			                  <hgroup class="mb20" ng-show="imovelsPesquisa.length">
                             		<h1>Resultados da Pesquisa</h1>
-                            		<h2 class="lead"><strong class="text-danger">{{imovelsPesquisa.length}}</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>								
+                            		<h2 class="lead"><strong class="text-danger">{{imovelsPesquisa.length}}</strong> ressultado(s) encontrado(s)</h2>
                             	</hgroup>
                             <hr>
 

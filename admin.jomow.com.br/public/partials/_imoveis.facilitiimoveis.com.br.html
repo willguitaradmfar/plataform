@@ -47,7 +47,16 @@
     							</div>
     							 <div class="form-group col-lg-6">
                                     <label for="exampleInputEmail1">Tipo</label>
-                                    <input type="text" class="form-control"  placeholder="Apartamento, Casa, Sobrado etc.." ng-model="imovels[imovelIndex].tipo">
+                                     <select id="selectbasic" name="selectbasic" class="form-control" ng-model="imovels[imovelIndex].tipo">
+                                      <option value="Apartamento">Apartamento</option>
+                                       <option value="Casa">Casa</option>
+                                       <option value="Salão comercial">Salão comercial</option>
+                                       <option value="Galpão">Galpão</option>
+                                       <option value="Prédio residencial">Prédio residencial</option>
+                                       <option value="Terreno">Terreno</option>
+                                       <option value="Sala comercial">Sala comercial</option>
+                                       <option value="Diversos">Diversos</option>
+                                    </select>
                                  </div>
                                  <div class="form-group col-lg-6">
                                     <label for="exampleInputPassword1">Descrição</label>

@@ -232,6 +232,22 @@ angular.module('app.controllers', ['socket-io'])
     		    pesquisa.numeroQuartos = $scope.pesquisa.numeroQuartos;
     		}
     		
+    		if($scope.pesquisa.tipo && $scope.pesquisa.tipo.length > 0){
+    		    pesquisa.tipo = $scope.pesquisa.tipo;
+    		}
+    		
+    		if($scope.pesquisa.transacao && $scope.pesquisa.transacao.length > 0){
+    		    pesquisa.transacao = $scope.pesquisa.transacao;
+    		}
+    		
+    		if($scope.pesquisa.numeroSuite && $scope.pesquisa.numeroSuite > 0){
+    		    pesquisa.numeroSuite = $scope.pesquisa.numeroSuite;
+    		}
+    		
+    		if($scope.pesquisa.numeroVagas && $scope.pesquisa.numeroVagas > 0){
+    		    pesquisa.numeroVagas = $scope.pesquisa.numeroVagas;
+    		}
+    		
     		pesquisa.$or = [titulo, descricao];
     		
 		    $scope.imovelsPesquisa = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
