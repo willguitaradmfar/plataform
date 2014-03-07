@@ -35,8 +35,45 @@
                       
                              <div class="input-group col-md-12">
                                 <div class="form-group">
+                                    <label class="control-label" for="Nome">Aluguel/Venda</label> 
                                     <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
-                                      <option value="-1" selected>Quartos</option>
+                                      <option value="1">Aluguel</option>
+                                      <option value="2">Venda</option>
+                                      
+                                    </select>
+                                  </div>
+                                 <div class="form-group">
+                                    <label class="control-label" for="Nome">Tipo do Imóvel</label> 
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                      <option value="1">Apartamento</option>
+                                       <option value="2">Casa</option>
+                                       <option value="3">Salão comercial</option>
+                                       <option value="4">Galpão</option>
+                                       <option value="5">Prédio residencial</option>
+                                       <option value="6">Terreno</option>
+                                       <option value="7">Sala comercial</option>
+                                       <option value="8">Diversos</option>
+                                    </select>
+                                  </div>
+                                 <div class="form-group">
+                                    <label class="control-label" for="Nome">Cidade</label> 
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                      <option value="1">Aluguel</option>
+                                      <option value="2">Venda</option>
+                                      
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="Nome">Bairro</label> 
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                      <option value="1">Aluguel</option>
+                                      <option value="2">Venda</option>
+                                      
+                                    </select>
+                                  </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="Nome">Dormitórios</label> 
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
@@ -47,13 +84,40 @@
                                       <option value="8">8</option>
                                       <option value="9">9</option>
                                       <option value="10">10</option>
-                                      <option value="11">11</option>
-                                      <option value="12">12</option>
-                                      <option value="13">13</option>
-                                      <option value="14">14</option><!-- e se tiver? existe ?? -->
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="Nome">Suítes</label> 
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="Nome">Vagas</label> 
+                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroQuartos">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+                                      <option value="7">7</option>
+                                      <option value="8">8</option>
+                                      <option value="9">9</option>
+                                      <option value="10">10</option>
                                     </select>
                                   </div>
                                    <div class="form-group">
+                                    <label class="control-label" for="Nome">Valor</label> 
                                     <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.precoDeAte">
                                     <option value="-1" >Todos os Valores</option>
                                     <option value="0|100000.00">até 100.000</option>

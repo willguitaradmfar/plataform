@@ -6,7 +6,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
     app.get('/'+domain+'/query/:perPage/:page/:query', function(req, res) {
         try{
-    		console.log('call router query ');
+    		//console.log('call router query ');
     		if(!req.params.query){
     		    req.params.query = {};
     		}
@@ -16,7 +16,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
     		if(!req.params.page){
     		    req.params.page = 0;
     		}
-    		console.log(req.params.query)
+    		//console.log(req.params.query)
     		query[domain].getPaginate(req.params.query, req.params.perPage, req.params.page, function(obj) {
     			res.send(obj);
     		});
@@ -76,9 +76,9 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
         var thumbPath100 = path+'/thumb100'+nameFile+'.'+ext;
         
         fs.exists(path, function (exists) {
-            console.log(exists ? path+" exists" : path+" no exists");
+            //console.log(exists ? path+" exists" : path+" no exists");
             mkdirp(path, function (err) {
-                   if (err) console.error(err);
+                   if (err) //console.error(err);
                        
                     fs.writeFile(file, buf, function(err) {
                         if(err) {
@@ -133,7 +133,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
 	app.post('/'+domain, function(req, res) {
 	    try{
-    		console.log(req.body);
+    		//console.log(req.body);
     		var _new = new db[query.schema]();
     		
     		for(var i in req.body){
@@ -169,7 +169,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
 	app.put('/'+domain+'/:id', function(req, res) {
 	    try {
-    		console.log(req.body);
+    		//console.log(req.body);
     
     		var id = req.params.id;
     
@@ -210,7 +210,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
 
 	app.delete('/'+domain+'/:id', function(req, res) {
 	    try{
-    		console.log(req.body);	
+    		//console.log(req.body);	
     
     		var id = req.params.id;
     
