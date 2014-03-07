@@ -2,12 +2,11 @@ module.exports = function(app, db, schema) {
 	var query = {};
 	query.schema = schema;
 	query[schema.toLowerCase()] =  {
-	    
 		get: function(callback) {
 			db[schema]
 			.find({})
 			.exec(function (err, objs) {
-			    if(err)console.error(err);
+			    if(err)throw err;
 				if (objs && objs.length != 0) {
 					callback(objs);
 				} else {
@@ -22,7 +21,7 @@ module.exports = function(app, db, schema) {
 			.skip(perPage * page)
 			.limit((perPage))
 			.exec(function (err, objs) {
-			    if(err)console.error(err);
+			    if(err)throw err;
 			    if (objs && objs.length != 0) {
 					callback(objs);
 				} else {
@@ -35,6 +34,7 @@ module.exports = function(app, db, schema) {
 			db[schema].findOne({
 				_id: id
 			}, function(err, obj) {
+			    if(err)throw err;
 				if (obj) {
 					callback(obj);
 				} else {
@@ -44,6 +44,7 @@ module.exports = function(app, db, schema) {
 		},
 		getByQuery: function(query, callback) {
 			db[schema].findOne(query, function(err, obj) {
+			    if(err)throw err;
 				if (obj) {
 					callback(obj);
 				} else {

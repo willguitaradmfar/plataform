@@ -7,11 +7,27 @@ var jomowModel = function (Model, $scope) {
         var $this = this;
 	    if($this._id){
 	        Model.update({id : $this._id}, $this, function (res) {
+	            if(!res.status){
+	                if(!$scope.erro){
+    	                $scope.erro = {};
+    	                $scope.erro.messages = [];
+	                }
+	                $scope.erro.messages.push(res.erro.message);
+	                console.log($scope.erro.messages);
+	            }
 	            parse(res.obj, $this);
 	            return res;
 	        });
 	    }else{
 	        Model.save($this, function (res) {
+	            if(!res.status){
+	                if(!$scope.erro){
+    	                $scope.erro = {};
+    	                $scope.erro.messages = [];
+	                }
+	                $scope.erro.messages.push(res.erro.message);
+	                console.log($scope.erro.messages);
+	            }
 	            parse(res.obj, $this);
 	            return res;
 	        });
@@ -43,6 +59,14 @@ var jomowModel = function (Model, $scope) {
 	    var $this = this;
 	    if(list[$index].update){
      	    Model.excluir({id : this._id}, function (res) {
+     	        if(!res.status){
+	                if(!$scope.erro){
+    	                $scope.erro = {};
+    	                $scope.erro.messages = [];
+	                }
+	                $scope.erro.messages.push(res.erro.message);
+	                console.log($scope.erro.messages);
+	            }
      	        if(res.status == "Ok")
      	            list.splice($index, 1);
      	        return res;
@@ -50,6 +74,13 @@ var jomowModel = function (Model, $scope) {
 	    }else{
 	        list.splice($index, 1 );
 	        Model.update({id : $this._id}, $this, function (res) {
+	            if(!res.status){
+	                if(!$scope.erro){
+    	                $scope.erro = {};
+    	                $scope.erro.messages = [];
+	                }
+	                $scope.erro.messages.push(res.erro.message);
+	            }
 	            parse(res.obj, $this);
      	        return res;
      	    });
@@ -58,10 +89,19 @@ var jomowModel = function (Model, $scope) {
 	}
 	
 	Model.prototype.reloadAll = function (obj) {
+	    var $this = this;
 	    $scope[obj] = Model.list(function (res) {
-	        console.log(res);
+	        if(res[0].message){
+                if(!$scope.erro){
+	                $scope.erro = {};
+	                $scope.erro.messages = [];
+                }
+                $scope.erro.messages.push(res[0].message);
+                console.log($scope.erro.messages);
+            }
 	        return res;
 	    });
+	    return this;
 	}
 }
 
