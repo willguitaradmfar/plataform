@@ -18,7 +18,7 @@
     					    
     						<div  class="item  {{pagina.classActive}}" ng-repeat="pagina in pagnias">
     						    <div class="col-md-4" ng-repeat="imovel in pagina.imoveis">
-        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src200}}');">
+        							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src300}}');">
         								<div class="carousel-title">
         									<h2 ng-bind="imovel.titulo">
         									</h2>
@@ -62,9 +62,9 @@
 			            </div>
 			        </div>
                     <div class="row"> 
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="imovel in imovelsDestaque" style="height:450px">
+                    <div class="col-sm-3 col-lg-3 col-md-3" ng-repeat="imovel in imovelsDestaque" style="height:450px">
                         <div class="thumbnail">
-                        <div style="background-position: center;background-size: cover;background-image: url('{{imovel.imagens[0].src300}}');height : 200px"></div>
+                        <div style="background-position: center;background-size: cover;background-image: url('{{imovel.imagens[0].src200}}');height : 200px"></div>
                             <div class="caption">
                                 <h4 class="pull-right" ng-bind="imovel.preco | currency:'R$ '"></h4>
                                 <h4><a href="#/imovel/{{imovel._id}}" ng-bind="imovel.titulo"></a>
