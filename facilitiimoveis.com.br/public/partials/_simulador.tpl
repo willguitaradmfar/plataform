@@ -29,7 +29,6 @@
                     <div class="row">
                         <div class="col-md-4">
                             <p>
-                                Simulador,
                                 Aqui você pode simular o
                                 Financiamento em diversos
                                 Bancos.
@@ -67,13 +66,25 @@
                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p>
-                                Para sua maior comodidade entre em contato com a Faciliti Soluçoes empresa
-                                Especialista em documentação e financiamento Imobiliário, e obtenha todas
+                        
+                        <div class="col-md-2">
+                            <div class="col-md-4">
+                              <a href="http://www.facilitisolucoes.com.br" target="_blank">
+                                <img src=img/financiamenti-imobiliario.png style="width:150px">
+                              </a>
+                            </div> 
+                            
+                        </div>
+                        <div class="col-md-10">
+                                <p>
+                                Para sua maior comodidade entre em contato com a <a target="_blank" href="http://www.facilitisolucoes.com.br">Faciliti Soluçoes</a> empresa
+                                especializada em documentação e financiamento Imobiliário, e obtenha todas
                                 As informações que precisa para realizar sua transação.
                             </p>
                         </div>
+                        </div>
                     </div>
+                    
                 </div>
                 
             </div>

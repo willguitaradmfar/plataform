@@ -126,7 +126,7 @@
                                  <div class="col-md-12">
                                         <div id="msg" class="alert alert-info alert-dismissable">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <p>Imóvel Cadastrado</p>
+                                        <p ng-bind="contato.msg"></p>
                                       </div>
                                 </div>
                         </div>

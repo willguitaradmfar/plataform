@@ -1,5 +1,4 @@
 
-
 var config = {
         app : {
                 tenant : 'admin.jomow.com.br',

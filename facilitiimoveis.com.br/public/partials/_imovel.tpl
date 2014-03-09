@@ -49,32 +49,34 @@
             </div>
             <div class="col-sm-2 col-md-4">
                 <div class="well">
-                    <h4>Valor de venda <p class="label label-danger" ng-bind="imovel.preco | currency:'R$ '"></p></h4>
                     
                     <hr />
                     <div class="table-responsive">
                       <table class="table table-striped">
                         <tr>
-                            <td>Valor do condominio</td> 
-                            <td><strong ng-bind="imovel.valorCondominio | currency:'R$ '"></strong></td>
+                            <td>Código do Imóvel</td> 
+                            <td><strong ng-bind="imovel.codigoRef">0001</strong></td>
                         </tr>
                         <tr>
                                 <td>Tipo</td> 
                                 <td><strong ng-bind="imovel.tipo"></strong></td>
-                            </tr>
+                        </tr>
                         <tr>
                             <td>Quartos</td> 
                             <td><strong ng-bind="imovel.numeroQuartos"></strong></td>
                         </tr>
                         <tr>
-                            <td>Vagas</td> 
-                            <td><strong ng-bind="imovel.numeroVagas"></strong></td>
+                            <td>Suites</td> 
+                            <td><strong ng-bind="imovel.numeroSuite"></strong></td>
                         </tr>
                         <tr>
                             <td>Área</td> 
                             <td><strong ng-bind="imovel.areaUtil"></strong>m²</td>
                         </tr>
-                       
+                         <tr style="padding:0">
+                            <td>Valor de <b>{{imovel.transacao.toLowerCase()}}</b></td> 
+                            <td><div class="label label-success" ng-bind="imovel.preco | currency:'R$ '"></div></td>
+                        </tr>
                       </table>
                     </div>
                     <hr />

@@ -24,6 +24,7 @@ imovelObjSchema.dtupdate = {type: Date,default: Date.now};
 imovelObjSchema.transacao = "String";
 imovelObjSchema.tipo = "String";
 
+imovelObjSchema.codigoRef = "String"
 imovelObjSchema.titulo = "String";
 imovelObjSchema.descricao = "String";
 imovelObjSchema.preco = "Number";

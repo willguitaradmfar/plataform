@@ -21,7 +21,7 @@
                   <div class="panel-heading">
                     <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input type="text" class="  search-query form-control" placeholder="Pesquisar" ng-model="pesquisa.text" ng-enter="pesquisar()"/>
+                                <input type="text" class="  search-query form-control" placeholder="Digite o que procura ...." ng-model="pesquisa.text" ng-enter="pesquisar()"/>
                                 <span class="input-group-btn">
                                     <button class="btn btn-danger" type="button">
                                         <span class=" fa fa-search"></span>
@@ -30,16 +30,15 @@
                             </div>
                         </div>
                   </div>
+                  
                   <div class="panel-body panel-contato">
                          <!-- Select Basic -->
-                      
                              <div class="input-group col-md-12">
                                 <div class="form-group">
                                     <label class="control-label" for="Nome">Aluguel/Venda</label> 
                                     <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.transacao">
                                       <option value="Aluguel">Aluguel</option>
                                       <option value="Venda">Venda</option>
-                                      
                                     </select>
                                   </div>
                                  <div class="form-group">
@@ -85,21 +84,7 @@
                                       <option value="10">10</option>
                                     </select>
                                   </div>
-                                  <div class="form-group">
-                                    <label class="control-label" for="Nome">Vagas</label> 
-                                    <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.numeroVagas">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                    </select>
-                                  </div>
+                                  
                                    <div class="form-group">
                                     <label class="control-label" for="Nome">Valor</label> 
                                     <select id="selectbasic" name="selectbasic" class="form-control" ng-model="pesquisa.precoDeAte">
@@ -114,16 +99,9 @@
                                     <option value="400000.00|600000.00">400.000 a 600.000</option>
                                     <option value="600000.00|800000.00">600.000 a 800.000</option>
                                     <option value="800000.00|1000000.00">800.000 a 1 milhão</option>
-                                    <option value="1000000.00|1250000.00">1 a 1,25 milhões</option>
-                                    <option value="1250000.00|1500000.00">1,25 a 1,5 milhões</option>
-                                    <option value="1500000.00|2000000.00">1,5 a 2 milhões</option>
-                                    <option value="2000000.00|3000000.00">2 a 3 milhões</option>
-                                    <option value="3000000.00|200000000.00"> acima de 3 milhões</option>
-                                     
+                                    <option value="1000000.00|200000000.00"> acima de 1 milhões</option>
                                     </select>  
                                   </div>
-                                 
-                                
                             </div>
                            
                              <div class="input-group col-md-12">

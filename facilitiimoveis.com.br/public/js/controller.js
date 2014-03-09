@@ -244,10 +244,6 @@ angular.module('app.controllers', ['socket-io'])
     		    pesquisa.numeroSuite = $scope.pesquisa.numeroSuite;
     		}
     		
-    		if($scope.pesquisa.numeroVagas && $scope.pesquisa.numeroVagas > 0){
-    		    pesquisa.numeroVagas = $scope.pesquisa.numeroVagas;
-    		}
-    		
     		pesquisa.$or = [titulo, descricao];
     		
 		    $scope.imovelsPesquisa = Imovel.query({query : JSON.stringify(pesquisa)}, function (res) {
@@ -272,7 +268,7 @@ angular.module('app.controllers', ['socket-io'])
 		            + '\nMensagem : '+$scope.contato.mensagem;
 		    
 		     Email.enviar({
-                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
+                to : 'sueliang@uol.com.br, adm@falicitisolucoes.com.br',
                 subject : 'Contato '+$scope.contato.nome,
                 text : msg
             }, function (data) {
@@ -310,7 +306,7 @@ angular.module('app.controllers', ['socket-io'])
 		            + '\nDescrição : '+$scope.contato.mensagem;
 		    
 		     Email.enviar({
-                to : 'willguitaradmfar@gmail.com, weslleytiu@gmail.com',
+                to : 'sueliang@uol.com.br, adm@falicitisolucoes.com.br',
                 subject : 'Novo imóvel cadastrado '+$scope.contato.nome,
                 text : msg
             }, function (data) {
@@ -318,7 +314,7 @@ angular.module('app.controllers', ['socket-io'])
                 if(data.status)
                 	if(data.status == "Ok"){
 	                    $scope.contato = {};
-	                    $scope.contato.msg = data.msg;
+	                    $scope.contato.msg = 'A equipe faciliti entrará em contato para finalizar seu cadastro';
 	                    $scope.contato.enviado = true;
 	                }
             })

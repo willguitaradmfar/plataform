@@ -17,21 +17,23 @@
     					<div class="carousel-inner carousel-radius">
     					    
     						<div  class="item  {{pagina.classActive}}" ng-repeat="pagina in pagnias">
-    						    <div class="col-md-4" ng-repeat="imovel in pagina.imoveis">
+    						    <a href="#/imovel/{{imovel._id}}">
+    						    <div class="col-md-4 button" ng-repeat="imovel in pagina.imoveis">
         							<div class="carousel-destaque destaque-1" style="background-image:url('{{imovel.imagens[0].src300}}');">
         								<div class="carousel-title">
-        									<h2 ng-bind="imovel.titulo">
-        									</h2>
+        									<h4 ng-bind="imovel.titulo">
+        									</h4>
         								</div>
         								<div class="destaque-valor">
-        									<h3 ng-bind="imovel.preco | currency:'R$ '">
-        									</h3>
+        									<h4 ng-bind="imovel.preco | currency:'R$ '">
+        									</h4>
         								</div>
         								<div class=" btn-ver-destaque">
         									<a href="#/imovel/{{imovel._id}}"><i class="fa fa-plus"></i> Detalhes</a>
         								</div>
         							</div>
         						</div>
+        						</a>
     						</div>
     						
     					</div>
@@ -84,6 +86,6 @@
 	</div><!--/contairner-->
 	<script>
 	    	$('.carousel').carousel({
-            interval: 5000 //changes the speed
+            interval: 10000 //changes the speed
         })
 	</script>
