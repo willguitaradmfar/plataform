@@ -39,7 +39,7 @@
             </p>
         </div>
         <div class="row">
-        <a href="http://www.facilitisolucoes.com.br" target="_blank"><img src="img/image004.jpg" style="width:200px"></a>
+            <a href="http://www.facilitisolucoes.com.br" target="_blank"><img src="img/image001.jpg" style="width:200px"></a>
             <a href="http://www.facilitisolucoes.com.br" target="_blank"><img src="img/image002.png" style="width:200px"></a>
             <a href="http://www.facilitisolucoes.com.br" target="_blank"><img src="img/image003.jpg" style="width:200px"></a>
             <a href="http://www.facilitisolucoes.com.br" target="_blank"><img src="img/image001.jpg" style="width:200px"></a>
