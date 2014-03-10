@@ -78,7 +78,7 @@ module.exports = function(app, config, db, query, redisClient, domain, tenant) {
         fs.exists(path, function (exists) {
             //console.log(exists ? path+" exists" : path+" no exists");
             mkdirp(path, function (err) {
-                   if (err) //console.error(err);
+                   if (err) console.error(err);
                        
                     fs.writeFile(file, buf, function(err) {
                         if(err) {
