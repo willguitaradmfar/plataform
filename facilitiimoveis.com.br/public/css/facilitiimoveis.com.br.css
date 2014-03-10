@@ -286,6 +286,19 @@ width:100%;
 	height:122px;
 	clear:both;
 }
+
+.row-footer{
+    color:#fff;
+    }
+ .img-footer{
+     padding-top:5px;
+ }
+ .img-jomow{
+     padding-top:55px;
+ }
+ .texto-footer{
+     padding-top:55px;
+ }
 .footer_texto{
 	float:left;
 	width:240px;

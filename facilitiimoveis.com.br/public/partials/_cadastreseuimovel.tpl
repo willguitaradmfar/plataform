@@ -84,7 +84,7 @@
                               <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.endereco">
                           </div>
                           <div class="col-md-3">
-                              <label class="control-label" for="Nome">Numero:</label>  
+                              <label class="control-label" for="Nome">Número:</label>  
                               <input id="Nome" name="Nome" type="text" placeholder="Nome" class="form-control input-md" ng-model="contato.numero">
                           </div>
                         </div>

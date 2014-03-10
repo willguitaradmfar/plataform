@@ -75,10 +75,10 @@
                             </div> 
                             
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-9 col-md-offset-1">
                                 <p>
                                 Para sua maior comodidade entre em contato com a <a target="_blank" href="http://www.facilitisolucoes.com.br">Faciliti Soluçoes</a> empresa
-                                especializada em documentação e financiamento Imobiliário, e obtenha todas
+                                especializada em documentação e Financiamento Imobiliário, e obtenha todas
                                 As informações que precisa para realizar sua transação.
                             </p>
                         </div>

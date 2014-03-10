@@ -136,7 +136,7 @@
                             </div>
                             <div class="ratings">
                                 <p>
-                                    Dormis <strong ng-bind="imovel.numeroQuartos"></strong>&nbsp; Vagas <strong ng-bind="imovel.numeroVagas"></strong> &nbsp; Área <strong ng-bind="imovel.areaUtil"></strong>m² </p>
+                                    Dorm <strong ng-bind="imovel.numeroQuartos"></strong>&nbsp; Vagas <strong ng-bind="imovel.numeroVagas"></strong> &nbsp; Área <strong ng-bind="imovel.areaUtil"></strong>m² </p>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                             			</div>
                             			<div class="col-xs-12 col-sm-12 col-md-2">
                             				<ul class="meta-search">
-                            					<li>Dormis <strong ng-bind="imovel.numeroQuartos"></strong> </li>
+                            					<li>Dorm <strong ng-bind="imovel.numeroQuartos"></strong> </li>
                             					<li>Vagas <strong ng-bind="imovel.numeroVagas"></strong> </li>
                             					<li>Área <strong ng-bind="imovel.areaUtil"></strong>m²</li>
                             				</ul>

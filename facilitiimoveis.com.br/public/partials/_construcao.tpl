@@ -72,7 +72,7 @@
                                 <h4><a href="#/imovel/{{imovel._id}}" ng-bind="imovel.titulo"></a>
                                 </h4>
                                 <div class="ratings">
-                                    <p>Dormis <strong ng-bind="imovel.numeroQuartos"></strong>&nbsp; Vagas <strong ng-bind="imovel.numeroVagas"></strong> &nbsp; Área <strong ng-bind="imovel.areaUtil"></strong>m² </p>
+                                    <p>Dorm <strong ng-bind="imovel.numeroQuartos"></strong>&nbsp; Vagas <strong ng-bind="imovel.numeroVagas"></strong> &nbsp; Área <strong ng-bind="imovel.areaUtil"></strong>m² </p>
                                 </div>
                             </div>
                             <small><p ng-bind="imovel.descricao"></p></small>
